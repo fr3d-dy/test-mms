@@ -1,0 +1,3446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--*** To verify what other user sees, log test3 in on a different browser-->
+<!--*** test3 can open DM with admin and watch indicator in LHS or center-->
+<!--*** Although statuses change too quickly to watch in real time-->
+<!--*** So run very slowly and/or pause frequently to test that-->
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Status slash commands-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Testing status${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--/away-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/away</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/away</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Set your status away</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/away</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/away</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.command__desc</td>
+	<td>Set your status away</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now away</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Click in modal to go online-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/span</td>
+	<td>exact:Would you like to switch your status to &quot;Online&quot;?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary &gt; span:contains('Yes, set my status to &quot;Online&quot;')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary &gt; span:contains('Yes, set my status to &quot;Online&quot;')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.online--icon</td>
+	<td></td>
+</tr>
+<!--Ephemeral post disappears after refresh-->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>You are now away</td>
+	<td></td>
+</tr>
+<!--/offline-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Set your status offline</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.command__desc</td>
+	<td>Set your status offline</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now offline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=svg.offline--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<!--Ephemeral post still visible after switching channel and back-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now offline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>New Messages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=svg.offline--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Select "No, keep it as "Offline"-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>No, keep it as &quot;Offline&quot;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>//div[2]/div[2]/div/div/div/h4/span</td>
+	<td>Your status is set to &quot;Offline&quot;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=svg.offline--icon</td>
+	<td></td>
+</tr>
+<!--/online-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Set your status online</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.command__desc</td>
+	<td>Set your status online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now online</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--/offline in a reply-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td>/offline</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now offline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=svg.offline--icon</td>
+	<td></td>
+</tr>
+<!--/online in a reply-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now online</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now online</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Text after /online should not display-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/online</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> here's some extra text${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You are now online</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>here's some extra text</td>
+	<td></td>
+</tr>
+<!--/dnd - Do not disturb (just tests UI here, not whether notifs fire)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/dn</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/dnd</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Do not disturb disables desktop and mobile push notifications.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__desc</td>
+	<td>Do not disturb disables desktop and mobile push notifications.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/dnd</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Verify DND status icons and ephemeral message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.dnd--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Do Not Disturb is enabled. You will not receive desktop or mobile push notifications until Do Not Disturb is turned off.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.dnd--icon</td>
+	<td></td>
+</tr>
+<!--Open DM with self to verify status indicators there-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@admin (you)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@admin (you)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>admin (you)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.header-status__text &gt; span</td>
+	<td>Do Not Disturb</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelHeaderDescription &gt; span.status. &gt; #Layer_1 &gt; path.dnd--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Layer_1 &gt; path.dnd--icon</td>
+	<td></td>
+</tr>
+<!--/dnd off - Turn off Do Not Disturb-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/dnd off ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.header-status__text &gt; span</td>
+	<td>Online</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ellipse.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelHeaderDescription &gt; span.status. &gt; #Layer_1 &gt; path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Do Not Disturb is disabled.')</td>
+	<td></td>
+</tr>
+<!--Set DND using status drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.MenuItem__help</td>
+	<td>Do Not DisturbDisables Desktop and Push Notifications</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.MenuItem__help</td>
+	<td>Do Not DisturbDisables Desktop and Push Notifications</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.header-status__text &gt; span</td>
+	<td>Do Not Disturb</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelHeaderDescription &gt; span.status. &gt; #Layer_1 &gt; path.dnd--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Layer_1 &gt; path.dnd--icon</td>
+	<td></td>
+</tr>
+<!--Toggle off DND using /dnd (while already on)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/dnd ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.header-status__text &gt; span</td>
+	<td>Online</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ellipse.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelHeaderDescription &gt; span.status. &gt; #Layer_1 &gt; path.online--icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Do Not Disturb is disabled.')</td>
+	<td></td>
+</tr>
+<!--/code (verifies error and that markdown is ignored)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/cod</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/code [text]</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Display text as a code block</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/code [text]</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>A message must be provided with the /code command.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/cod</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/code [text]</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Display text as a code block</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/code [text]</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>1. Not a list item, **not bolded**, http://notalink.com, ~off-topic is not a link to the channel.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>exact:1. Not a list item, **not bolded**, http://notalink.com, ~off-topic is not a link to the channel.</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=http://notalink.com</td>
+	<td></td>
+</tr>
+<!--/echo-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/echo delay 4${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>delay</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>delay</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>delay</td>
+	<td></td>
+</tr>
+<!--/help-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/hel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/help</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Open the Mattermost help page</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>p${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Fails to find the other tab most of the time; just verify visually and skip ahead-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'End user help and documentation.')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyLocation</td>
+	<td>https://docs.mattermost.com/guides/user.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--/invite_people error message (success is verified manually in another test)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite_</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/invite_people [name@domain.com ...]</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Send an email invite to your Mattermost team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/invite_people [name@domain.com ...]</td>
+</tr>
+<!--Error with no text following command-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Please specify one or more valid email addresses</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite_</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/invite_people [name@domain.com ...]</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Send an email invite to your Mattermost team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/invite_people [name@domain.com ...]</td>
+</tr>
+<!--Error with text that is not an email address-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>123${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Please specify one or more valid email addresses</td>
+	<td></td>
+</tr>
+<!--/leave-->
+<!--/join (leaves Off-Topic then re-joins using slash command)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/join off-topic${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Posting after re-joining Off-Topic${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--/me (no longer in italics after v5.14 MM-2954)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/me Posting from the slash-me command${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Posting from the slash-me command</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Uppercase slash /Me-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/Me Posting from the slash-me command with a capital M${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Posting from the slash-me command*Posting from the slash-me command</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Posting from the slash-me command*Posting from the slash-me command</td>
+	<td></td>
+</tr>
+<!--/logout-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/logout${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Add test for "We couldn't find the user"?-->
+<!--/msg opens DM-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/msg test3 DM sent from slash command${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro-text &gt; span</td>
+	<td>This is the start of your direct message history with test3.<br />Direct messages and files shared here are not shown to people outside this area.</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=test3×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>DM sent from slash command</td>
+	<td></td>
+</tr>
+<!--/expand and /collapse-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>http://www.mattermost.org/wp-content/uploads/2016/04/icon_WS.png${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/expand</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/expand</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/expand</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Image links now expand by default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open in RHS, autocomplete /collapse in RHS-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>/Col</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/collapse</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Turn on auto-collapsing of image previews</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Image links now collapse by default')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/expand</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/expand</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__title</td>
+	<td>/expand</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--/invite_people-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite_people invitetest@test.com invite2test@test.com ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Email invite(s) sent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite_people 123${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Please specify one or more valid email addresses</td>
+	<td></td>
+</tr>
+<!--Add custom slash command-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<!--Add slash command-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Slash Command</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--This part has issues b/w sendKeys and type and fields clearing-->
+<!--Yep, still failing to clear, sendKeys or even type in some fields-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>Custom1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Description for slash command Custom1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td> http://hidden-peak-21733.herokuapp.com/test_ephemeral</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>A trigger word is required</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>//trigger</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>A trigger word cannot begin with a /</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>two words</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>A trigger word must not contain spaces</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>special</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>A request URL is required</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>http://</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=p.word-break--all &gt; span</td>
+	<td>token1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Custom1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__trigger</td>
+	<td>- /special</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__description</td>
+	<td>Description for slash command Custom1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__token &gt; span</td>
+	<td>${token1}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>special</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>http://hidden-peak-21733.herokuapp.com/test_inchannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>This trigger word is already in use. Please choose another word.</td>
+</tr>
+<!--Run custom slash command-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>hidden-peak</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>badger</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong</td>
+	<td>Token</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.Badge__box.BotBadge&nbsp;&nbsp;&gt; span</td>
+	<td>BOT</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('&quot;response_type&quot;: &quot;in_channel&quot;')</td>
+	<td></td>
+</tr>
+<!--Can't delete other user's slash command-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Grant access to Integrations for non-admins-->
+<!--This was moved to Permission Schemes except in TE-->
+<!--*** Could manually remove license and run the steps-->
+<!--*** Then put the license back on-->
+<!--*** But can't seem to remove license from Se server?-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#custom &gt; span.sidebar-section.sidebar-subsection-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#custom &gt; span.sidebar-section.sidebar-subsection-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td></td>
+</tr>
+<!--^^This setting no longer exists it was replaced w\ Advanced Permissions - -->
+<!--for now I disabled it manually^^^-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<!--LOG OUT as admin (using slash command)-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/logout${KEY_ENTER}</td>
+</tr>
+<!--LOG IN as test (non-admin)-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--The steps for "test" user to access Integrations below now fails because Integrations options is not present in Main Menu if disabled in Permissions.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Custom1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__description</td>
+	<td>Description for slash command Custom1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__token &gt; span</td>
+	<td>exact:${token1}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__creation &gt; span</td>
+	<td>Created by admin on *</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div.item-actions &gt; span &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<!--^^Steps above with "test" user fail (see comment at start of this section)-->
+<!--LOG OUT as test-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/logout${KEY_ENTER}</td>
+</tr>
+<!--LOG IN as admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Delete slash command-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Custom1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>custom1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Custom1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>exact:This action permanently deletes the slash command and breaks any integrations using it. Are you sure you want to delete it?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>hidden-peak</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=span.item-details__name</td>
+	<td>Custom1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<!--Invalid slash command offers link to post as message (center channel)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/special${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Command with a trigger of '/special' not found. Click here to send as a message.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to send as a message.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to send as a message.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post-message__text p:contains('/special')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>hidden-peak</td>
+</tr>
+<!--Edit custom slash command (first cancel out of edit)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>http://mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=url</td>
+	<td>exact:http://mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=url</td>
+	<td>exact:http://hidden-peak-21733.herokuapp.com/test_inchannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>Edited Display Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Edited Display Name</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__trigger</td>
+	<td>- /badger</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.Badge__box.BotBadge&nbsp;&nbsp;&gt; span</td>
+	<td>BOT</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('&quot;response_type&quot;: &quot;in_channel&quot;')</td>
+	<td></td>
+</tr>
+<!--Allow override of bot username and picture-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=integrations/integration_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=integrations/integration_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnablePostUsernameOverridetrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnablePostUsernameOverridetrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnablePostIconOverridetrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnablePostIconOverridetrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnablePostUsernameOverridetrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnablePostIconOverridetrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper AdminSidebarHeader']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper AdminSidebarHeader']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a</td>
+	<td>Switch to UI Automation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Edit bot-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Edited Display Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>newname</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>newname*BOT</td>
+	<td></td>
+</tr>
+<!--Edit bot picture (verification not quite working; verify bird picture manually)-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Edited Display Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=iconUrl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=iconUrl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=iconUrl</td>
+	<td>http://bit.ly/1ooPdzY</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Show custom slash command in autocomplete-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Edited Display Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=autocompleteHint</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocompleteHint</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=autocompleteHint</td>
+	<td>test-hint</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//input[@id='description'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@id='description'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@id='description'])[2]</td>
+	<td>Auto description</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__trigger</td>
+	<td>- /badger test-hint</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/bad</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Place focus into main input box-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/badger test-hint</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Auto description</td>
+</tr>
+<!--Don't show custom slash command in autocomplete-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.item-details__name</td>
+	<td>Edited Display Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=autocompleteHint</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/away</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>bad</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>/badger test-hint</td>
+	<td></td>
+</tr>
+<!--Ephemeral message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>http://hidden-peak-21733.herokuapp.com/test_ephemeral</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>test-ephemeral</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test-ephemeral${KEY_ENTER}</td>
+</tr>
+<!--Re-write to verify post styled like ephemeral message (after IDs added)-->
+<!--Broken right now because of content type-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>css=div.post.post--system</td>
+	<td>command=/test-ephemeral</td>
+</tr>
+<!--Regenerate token-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=span.item-details__token &gt; span</td>
+	<td>slashtoken</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.color--link</td>
+	<td>Regenerate Token</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.color--link</td>
+	<td>Regenerate Token</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.item-details__token &gt; span</td>
+	<td>${slashtoken}</td>
+</tr>
+<!--Slash command still works-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.Badge__box.BotBadge&nbsp;&nbsp;&gt; span</td>
+	<td>BOT</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('command=/badger')</td>
+	<td></td>
+</tr>
+<!--Add test for editing to invalid URL in form (also add a character at the end and test in-channel)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>example.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Update</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Your changes may break the existing slash command. Are you sure you would like to update it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Update</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>Invalid URL. Must be a valid URL and start with http:// or https://</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>Invalid URL. Must be a valid URL and start with http:// or https://</td>
+</tr>
+<!--Run slash command in GM and DM, including with yourself-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--GM-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/groupmsg @test6, @test7 /hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test6, test7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.Badge__box.BotBadge&nbsp;&nbsp;&gt; span</td>
+	<td>BOT</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('command=/badger')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--DM with another user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test8</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.Badge__box.BotBadge&nbsp;&nbsp;&gt; span</td>
+	<td>BOT</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('command=/badger')</td>
+	<td></td>
+</tr>
+<!--DM with self-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>admin (you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/badger${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.Badge__box.BotBadge&nbsp;&nbsp;&gt; span</td>
+	<td>BOT</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('command=/badger')</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

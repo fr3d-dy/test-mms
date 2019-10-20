@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com" />
+<title>AccountSettingsPosition</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AccountSettingsPosition</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--General Settings-->
+<tr>
+	<td>click</td>
+	<td>id=accountSettings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<!--Desktop notification-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=desktopEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=desktopEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=settingTitle</td>
+	<td>Desktop notifications</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=desktopNotificationMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=desktopDesc</td>
+	<td>For mentions and direct messages*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=desktopEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=desktopNotificationNever</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotChecked</td>
+	<td>id=desktopNotificationNever</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=desktopNotificationNever</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForChecked</td>
+	<td>id=desktopNotificationNever</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=desktopDesc</td>
+	<td>Off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=desktopEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=desktopNotificationAllActivity</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=desktopDesc</td>
+	<td>For all activity*</td>
+</tr>
+<!--Mobile push notifications-->
+<tr>
+	<td>waitForText</td>
+	<td>id=pushDesc</td>
+	<td>Push notifications are not enabled</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pushEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; span</td>
+	<td>Push notifications have not been enabled by your System Administrator.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=pushDesc</td>
+	<td>Push notifications are not enabled</td>
+</tr>
+<!--Words that trigger mentions-->
+<tr>
+	<td>waitForText</td>
+	<td>id=keysTitle</td>
+	<td>Words that trigger mentions</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=keysDesc</td>
+	<td>&quot;@test&quot;, &quot;test&quot;, &quot;@channel&quot;, &quot;@all&quot;, &quot;@here&quot;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationTriggerUsername</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=keysDesc</td>
+	<td>&quot;@test&quot;, &quot;@channel&quot;, &quot;@all&quot;, &quot;@here&quot;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerShouts</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=notificationTriggerShouts</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=keysDesc</td>
+	<td>&quot;@test&quot;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerCustomText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerCustom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationTriggerCustom</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerCustomText</td>
+	<td>custom</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=notificationTriggerCustomText</td>
+	<td>custom</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=keysDesc</td>
+	<td>&quot;@test&quot;, &quot;custom&quot;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=keysEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationTriggerCustom</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerShouts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationTriggerShouts</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationTriggerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationTriggerUsername</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=keysDesc</td>
+	<td>&quot;@test&quot;, &quot;test&quot;, &quot;@channel&quot;, &quot;@all&quot;, &quot;@here&quot;</td>
+</tr>
+<!--Reply notification-->
+<tr>
+	<td>waitForText</td>
+	<td>id=commentsDesc</td>
+	<td>Do not trigger notifications on messages in reply threads unless I'm mentioned</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationCommentsAny</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=notificationCommentsAny</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=commentsDesc</td>
+	<td>Do not trigger notifications on messages in reply threads unless I'm mentioned</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationCommentsAny</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationCommentsAny</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=commentsDesc</td>
+	<td>Trigger notifications on messages in reply threads that I start or participate in</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=notificationCommentsRoot</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=commentsDesc</td>
+	<td>Trigger notifications on messages in threads that I start</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentsEdit</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=notificationCommentsNever</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>In addition to notifications for when you're mentioned, select if you would like to receive notifications on reply threads.</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=commentsDesc</td>
+	<td>Do not trigger notifications on messages in reply threads unless I'm mentioned</td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

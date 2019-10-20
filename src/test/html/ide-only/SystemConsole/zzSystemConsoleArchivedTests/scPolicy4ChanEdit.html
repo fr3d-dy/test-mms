@@ -1,0 +1,2522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsPolicy4ChannelEdit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsPolicy4ChannelEdit</td></tr>
+</thead><tbody>
+<!--EDIT AND RENAME CHANNELS-->
+<!--Allow ALL CHANNEL MEMBERS to rename and edit public and private channel info-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td>All channel members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td>All channel members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<!--Verify team admin can see channel edit options on public channel-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>pubadminc</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.mentions__name.suggestion--selected:contains('PubAdminCreated')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify team admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<!--Brittle test below; what if more messages need to be loaded?-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify team admin can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadminc</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.mentions__name.suggestion--selected:contains('PubAdminCreated')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify team admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin can see channel edit options on public channel-->
+<!--Switch to team created by admin-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[0]</td>
+	<td>urlbase</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${urlbase}/sysadmcreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify channel admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify channel admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member can see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify non-admin member can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadmc</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.mentions__name.suggestion--selected:contains('PriAdmCreated')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify non-admin member can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Allow only SYSTEM ADMINS to edit public and private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td>System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td>System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify system admin can see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-top</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.mentions__name.suggestion--selected:contains('Off-Topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Verify system admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Verify system admin can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PriAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PriAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify system admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<!--Verify team admin cannot see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>pubadminc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify team admin cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify team admin cannot see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadminc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify team admin cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin cannot see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify channel admin cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin cannot see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify channel admin cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member cannot see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member cannot see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadmc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Allow TEAM and SYSTEM ADMINS to edit public and private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td>Team and System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td>Team and System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify team admin can see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>pubadminc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify team admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify team admin can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadminc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify team admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin cannot see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify channel admin cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin cannot see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify channel admin cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member cannot see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member cannot see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadmc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Allow CHANNEL, TEAM, and SYSTEM ADMINS to edit public and private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td>Channel, Team and System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td>Channel, Team and System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify team admin can see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>pubadminc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify team admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify team admin can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadminc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify team admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin can see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PubNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubAdminCreated</td>
+</tr>
+<!--Verify channel admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify channel admin can see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PriNonAdminCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<!--Verify channel admin can see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member cannot see channel edit options on public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--Verify non-admin member cannot see channel edit options on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadmc</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelAddMembers</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see `Set a Header` and `Add a channel description` links-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Allow ALL MEMBERS to edit public and private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPublicChannelManagement</td>
+	<td>All channel members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManagement</td>
+	<td>All channel members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

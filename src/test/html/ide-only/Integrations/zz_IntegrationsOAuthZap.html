@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>IntegrationsOAuthZap</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IntegrationsOAuthZap</td></tr>
+</thead><tbody>
+<!--Whole thing fails b/c selenium server is http:// not https://-->
+<!--Rewrite to use different server-->
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>2000</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<!--Enable OAuth 2.0-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td></td>
+</tr>
+<!--Restrict to admins - false-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithToui-automation2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithToui-automation2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--Create new OAuth 2.0 application - Zapier-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]</td>
+	<td>OAuth 2.0 Applications<br />OAuth 2.0 allows external applications to make authorized requests to the Mattermost API.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>xpath=(//input[@name='is_trusted'])[2]</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>Se Test Zapier</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Test Zap</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>https://zapier.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=icon_url</td>
+	<td>http://bit.ly/2yMR7E7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>https://zapier.com/dashboard/auth/oauth/return/MattermostDevAPI</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=span.item-details__token &gt; span &gt; strong</td>
+	<td>clientid</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showSecretButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showSecretButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div/div[2]/div[5]/span/span/strong</td>
+	<td>clientsecret</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=p.word-break--all &gt; span</td>
+	<td>redirecturl</td>
+</tr>
+<!--Set up in Zapier (uses test account under linda+qa@mattermost.com)-->
+<tr>
+	<td>open</td>
+	<td>https://zapier.com/apps</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Log In</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Log In</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>linda+qa@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//button[@type='button']</td>
+	<td>Log In</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button']</td>
+	<td>Log In</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.navigation-links-v2__inner-link.navigation-links-v2__inner-link--cta-button</td>
+	<td>Make a Zap!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.navigation-links-v2__inner-link.navigation-links-v2__inner-link--cta-button</td>
+	<td>Make a Zap!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.inline-editor__content.inline-editor__content--input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.inline-editor__content.inline-editor__content--input</td>
+	<td>Test Zap</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.text-input.services-search__input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.text-input.services-search__input</td>
+	<td>gmail</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.services-results__service-name</td>
+	<td>Gmail</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.services-results__service-name</td>
+	<td>Gmail</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.select-list-search &gt; input[type=&quot;text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.select-list-search &gt; input[type=&quot;text&quot;]</td>
+	<td>labeled</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.action-name</td>
+	<td>New Labeled Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;radio&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;radio&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Save + Continue</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Save + Continue</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Linda set this up with her Mattermost email; if it doesn't show as still-->
+<!--connected, pause this test and set up in Zapier with your own email-->
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Continue</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2.center</td>
+	<td>Choose an Action App</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.text-input.services-search__input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.text-input.services-search__input</td>
+	<td>mattermost</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.services-results__service-search-result.services-results__service-search-result--hover &gt; div</td>
+	<td>Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.services-results__service-search-result.services-results__service-search-result--hover &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.action-name</td>
+	<td>Post Message</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input[type=&quot;radio&quot;]</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Save + Continue</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Save + Continue</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Connect an Account</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td>Connect an Account</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>title=Connect an Account | Zapier</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1</td>
+	<td>exact:Allow Zapier to access your Mattermost Account?</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Manually click in each field during the pauses (it can't find focus for these)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea</td>
+	<td>https://selenium.test.mattermost.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea</td>
+	<td>https://selenium.test.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='app']/section/div[2]/div/span/fieldset/div[2]/span/div[2]/div/div/div/div/div/textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='app']/section/div[2]/div/span/fieldset/div[2]/span/div[2]/div/div/div/div/div/textarea</td>
+	<td>${clientid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='app']/section/div[2]/div/span/fieldset/div[3]/span/div[2]/div/div/div/div/div/textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='app']/section/div[2]/div/span/fieldset/div[3]/span/div[2]/div/div/div/div/div/textarea</td>
+	<td>${clientsecret}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

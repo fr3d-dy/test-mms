@@ -1,0 +1,3078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsPluginsConfig</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsPluginsConfig</td></tr>
+</thead><tbody>
+<!--Ensure the latest release build of the demo plugin is in Resources folder-->
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Disable plugin upload-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enablefalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify messaging that plugins are disabled, upload button disabled-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.help-text &gt; span</td>
+	<td>To enable plugins, set Enable Plugins to true. See documentation to learn more.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.help-text &gt; span</td>
+	<td>When true, enables plugins on your Mattermost server. Use plugins to integrate with third-party systems, extend functionality or customize the user interface of your Mattermost server. See documentation to learn more.</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=documentation@href</td>
+	<td>https://about.mattermost.com/default-plugins</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--Pre-packaged plugins do not appear-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=strong</td>
+	<td>JIRA</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Zoom</td>
+	<td></td>
+</tr>
+<!--Enable Plugins-->
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label.col-sm-4</td>
+	<td>Enable Plugins:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enabletrue</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enablefalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enabletrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--File upload button is enabled-->
+<tr>
+	<td>waitForEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--Pre-packaged plugins appear-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong</td>
+	<td>Jira</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Zoom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Verify on server without plugins enabled in config.json-->
+<!--*** Upload is enabled now on Se server; switching this for now to use -->
+<!--*** https://windows.test.mattermost.com-->
+<tr>
+	<td>open</td>
+	<td>https://windows.test.mattermost.com</td>
+	<td></td>
+</tr>
+<!--*** MANUALLY LOG IN to ci-windows-mysql as a system admin-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--*** Ensure Plugins Configuration = true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<!--Choose file button is not clickable (upload disabled in config)-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=enabletrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.help-text &gt; span</td>
+	<td>Enable plugin uploads in config.json. See documentation to learn more.</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=p.help-text &gt; span &gt; a@href</td>
+	<td>https://about.mattermost.com/default-plugin-uploads</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=documentation@href</td>
+	<td>https://about.mattermost.com/default-plugins</td>
+</tr>
+<!--Verify pre-packaged plugins - JIRA and Zoom-->
+<!--JIRA plugin UI-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>JIRA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Receives webhook events from JIRA and makes Mattermost posts for them</td>
+	<td></td>
+</tr>
+<!--Enable and disable JIRA-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-info &gt; span</td>
+	<td>This plugin is not enabled.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<!--JIRA plugin fails to start on ci-linux-mysql so this verifies error ("This plugin is running" is verified elsewhere)-->
+<!--JIRA plugin starts successfully on ci-windows-mysql so might have to verify error elsewhere (Se server?)-->
+<!--One or the other of the below should appear :)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>This plugin failed to start. Check your system logs for errors.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>This plugin is running.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Disable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-info &gt; span</td>
+	<td>This plugin is not enabled.</td>
+</tr>
+<!--Open JIRA settings page-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header</td>
+	<td>Jira</td>
+</tr>
+<!--*** Expects JIRA plugin to be off; change manually if needed-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=enabledtrue</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enabledtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enabledtrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Note: These two `Enable` settings have nothing to do with each other apparently... -->
+<!--Just tests UI for now; these are outdated plugin structures so it's not important to test settings pages in depth-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<!--This fails if there are unexpected plugins in the list or if other differences on the test server-->
+<!--*** Can manually verify text is present-->
+<!--Zoom plugin UI-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[2]/div/form/div/div/div[3]/div/div/div[2]/div/strong</td>
+	<td>Zoom</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Zoom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Zoom audio and video conferencing plugin for Mattermost 5.2+.</td>
+	<td></td>
+</tr>
+<!--Enable and disable Zoom-->
+<!--This fails if there are unexpected plugins in the list or if other differences on the test server-->
+<!--Can just enable and disable manually if necessary-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[4]/div/span</td>
+	<td>This plugin is not enabled.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[3]/a/span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>This plugin is running.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[3]/a/span</td>
+	<td>Disable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[3]/a/span</td>
+	<td>Disable</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[3]/a/span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div[2]/div/div/div[2]/div[4]/div/span</td>
+	<td>This plugin is not enabled.</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Switches back to the Selenium server, which has uploads enabled-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/admin_console/plugins/management</td>
+	<td></td>
+</tr>
+<!--Upload the 'original' giphy plugin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=documentation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select com.mattermost.giphy-plugin-ORIGINAL-0.0.1.tar.gz (in Resources)-->
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td>Upload</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--This step usually takes a while to finish uploading-->
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Enable Giphy plugin-->
+<!--Giphy should be first plugin in the list; if not this command may fail-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>This plugin is running.</td>
+</tr>
+<!--Return to team to verify /giphy-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/giph</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command.suggestion--selected</td>
+	<td>/giphy [search string]<br />Unleashes the magic of Giphy</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>y installed and enabled original</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>/giphy installed and enabled original</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>installed and enabled original*(Posted using - ORIGINAL - /giphy)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=installed and enabled original</td>
+	<td>installed and enabled original</td>
+</tr>
+<!--Delete message after verification to avoid future false positive-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>installed and enabled original*(Posted using - ORIGINAL - /giphy)</td>
+	<td></td>
+</tr>
+<!--Upload the updated giphy plugin and accept overwrite prompt-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<!--*** Manually select com.mattermost.giphy-plugin-OVERWRITTEN-0.0.1.tar.gz (in Resources)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td>Upload</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--This step usually takes a while to finish uploading-->
+<!--Click Overwrite at overwrite prompt-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:A plugin with this ID already exists. Would you like to overwrite it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Overwrite</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<!--Plugin update success message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-group.half</td>
+	<td>Successfully updated plugin from *</td>
+</tr>
+<!--Giphy plugin should still be enabled-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>This plugin is running.</td>
+</tr>
+<!--Return to team to verify /giphy after overwrite-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/giph</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command.suggestion--selected</td>
+	<td>/giphy [search string]<br />Unleashes the magic of Giphy</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>y installed overwritten plugin</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>/giphy installed overwritten plugin</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>installed overwritten plugin*(Posted using - OVERWRITTEN - /giphy)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=installed overwritten plugin</td>
+	<td>installed overwritten plugin</td>
+</tr>
+<!--Delete message after verification to avoid future false positive-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>installed overwritten plugin*(Posted using - OVERWRITTEN - /giphy)</td>
+	<td></td>
+</tr>
+<!--Reinstall original version-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<!--*** Manually select com.mattermost.giphy-plugin-ORIGINAL-0.0.1.tar.gz (in Resources)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td>Upload</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--This step usually takes a while to finish uploading-->
+<!--Click Overwrite at overwrite prompt-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:A plugin with this ID already exists. Would you like to overwrite it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Overwrite</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<!--Plugin update success message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-group.half</td>
+	<td>Successfully updated plugin from *</td>
+</tr>
+<!--Giphy plugin should still be enabled-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>This plugin is running.</td>
+</tr>
+<!--Return to team to verify /giphy returns Original text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/giph</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command.suggestion--selected</td>
+	<td>/giphy [search string]<br />Unleashes the magic of Giphy</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>y installed and enabled original</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>/giphy installed and enabled original</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>installed and enabled original*(Posted using - ORIGINAL - /giphy)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=installed and enabled original</td>
+	<td>installed and enabled original</td>
+</tr>
+<!--Delete message after verification to avoid future false positive-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>installed and enabled original*(Posted using - ORIGINAL - /giphy)</td>
+	<td></td>
+</tr>
+<!--Cleanup: Remove Giphy plugin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<!--Again, assumes Giphy is first in list (it should be on Se)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>Remove</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>Remove</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Giphy</td>
+	<td></td>
+</tr>
+<!--DEMO PLUGIN-->
+<!--Verify can upload the demo plugin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=documentation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select plugin com.mattermost.demo-plugin.tar.gz (in Resources)-->
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td>Upload</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--This step usually takes a while to finish uploading-->
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Verify plugin displays expected Name, Description, ID-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=strong:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.padding-top:contains('This plugin demonstrates the capabilities of a Mattermost plugin.')</td>
+	<td></td>
+</tr>
+<!--Uploading the same plugin twice prompts to overwrite (new behavior v5.8)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<!--*** Manually select same plugin as before (demo-plugin.tar.gz)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td>Upload</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--This step usually takes a while to finish uploading-->
+<!--Cancel out of overwrite prompt-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:A plugin with this ID already exists. Would you like to overwrite it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.col-sm-8 &gt; button.btn.btn-primary</td>
+	<td>Upload</td>
+</tr>
+<!--Enable demo-plugin-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** NOTE: demo-plugin must be FIRST in list to find the right one (as written)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-info &gt; span</td>
+	<td>This plugin is not enabled.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>This plugin is running.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Disable</td>
+</tr>
+<!--Verify demo-plugin functions - switch to team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Enabled</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<!--Demo plugin channel created - fails unless first in list (could create new team first)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__description</td>
+	<td>This channel was created by a plugin for testing.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td>Join</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('UserHasJoinedChannel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=~Demo Plugin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>The channel used by the demo plugin.</td>
+</tr>
+<!--Message in demo channel when channel is created-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>PluginTestChannel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal div.modal-footer button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.new-channel__modal.modal-lg.modal-dialog div.modal-content form.form-horizontal div.modal-footer button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PluginTestChannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-item:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-item:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>The channel used by the demo plugin.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('ChannelHasBeenCreated: ~PluginTestChannel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=~PluginTestChannel</td>
+	<td>~PluginTestChannel</td>
+</tr>
+<!--Message in demo channel when a message is posted-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('MessageHasBeenPosted: @admin, ~PluginTestChannel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Posting in Off-Topic!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-item:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-item:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('MessageHasBeenPosted: @admin, ~Off-Topic')</td>
+	<td></td>
+</tr>
+<!--Leaving channel posts in plugin channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>plugint</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PluginTestChannel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PluginTestChannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.sidebar-item.unread-title.has-badge span.sidebar-item__name span</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.badge</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.badge</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UserHasLeftChannel: @admin, ~PluginTestChannel</td>
+	<td></td>
+</tr>
+<!--Joining channel posts in demo plugin channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/join ~plugintestchannel${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PluginTestChannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Demo Plugin2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Demo Plugin2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UserHasJoinedChannel: @admin, ~PluginTestChannel</td>
+	<td></td>
+</tr>
+<!--/demo_plugin command-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/demo_plugin (true|false)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__desc</td>
+	<td>Enables or disables the demo plugin hooks.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.command__desc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/demo_plugin</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>true${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>The demo plugin hooks are already enabled.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/demo_plugin false${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>Disabled demo plugin hooks.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Disabled</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/demo_plugin true${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>Enabled demo plugin hooks.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Enabled</td>
+</tr>
+<!--Still in Demo Plugin channel, can't post message there-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hello friendly plugin!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>Posting is not allowed in this channel.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.post-cancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.post-cancel &gt; span</td>
+	<td></td>
+</tr>
+<!--Editing a message posts in Demo Plugin channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Here's a post to edit${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>demo plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Demo Plugin*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Demo Plugin*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>MessageHasBeenUpdated in ~Off-Topic by @admin</td>
+</tr>
+<!--User joining team posts in Demo Plugin channel-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** NOTE: The test opens Se server URL; skip / go back -->
+<!--*** if testing on diff server - switch to any different team-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Switch to UI2 team (everyone is already on UI1)-->
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/ui-automation2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--Join Demo Plugin channel for this team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td>Join</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td>Join</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#numPeopleRemaining &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 19 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>UserHasJoinedTeam: @</td>
+</tr>
+<!--User leaving team posts in Demo Plugin channel (verifies later)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#manageMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#manageMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__row</td>
+	<td>@corey<br />corey@test.com<br /><br />Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.dropdown-toggle.theme.color--link.style--none span span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#removeFromTeam &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#removeFromTeam &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>UserHasLeftTeam: @corey</td>
+</tr>
+<!--File uploaded creates post in channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#fileUploadButton.icon.icon--attachment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div#fileUploadButton.icon.icon--attachment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Manually select any file to upload-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.image-name &gt; div</td>
+	<td></td>
+</tr>
+<!--Verify posts for user left team, file posted-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>demo plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Demo Plugin*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Demo Plugin*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UserHasLeftTeam: @corey</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>MessageHasBeenPosted: @admin, ~Off-Topic</td>
+	<td></td>
+</tr>
+<!--User has been created creates post in channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>inviteplugin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--Log out admin-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Create account from invite link-->
+<tr>
+	<td>open</td>
+	<td>${inviteplugin}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Email and Password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Email and Password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>pluginuser@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>pluginuser</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerUsername</td>
+	<td>@pluginuser</td>
+</tr>
+<!--Join plugin demo channel and verify post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td>Join</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td>Join</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderTitle &gt; span</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UserHasJoinedTeam: @pluginuser</td>
+	<td></td>
+</tr>
+<!--LOG OUT pluginuser-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--demo_plugin user not allowed to log in-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>demo_plugin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Login rejected by plugin: the demo user is not allowed to login</td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** NOTE: The test opens Se server URL; skip / go back -->
+<!--*** if testing on diff server - switch to Demo Plugin channel-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--User logging in posts in Demo Plugin channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/demo_plugin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>User @admin has logged in</td>
+</tr>
+<!--OnConfigChange posts in Demo Plugin channel-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>OnConfigChange: loading new configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Yay! The random secret string was posted!</td>
+	<td></td>
+</tr>
+<!--Activating plugin posts message-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>OnActivate: com.mattermost.demo-plugin</td>
+	<td></td>
+</tr>
+<!--Action button in profile popover-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Demo Plugin: Action</td>
+	<td></td>
+</tr>
+<!--Finding by div; may need to click Action button manually if it stops finding it-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#user-profile-popover.fade.in.popover.right div.popover-content div button:contains('Action')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div#user-profile-popover.fade.in.popover.right div.popover-content div button:contains('Action')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channel_view']/div/div[6]/div</td>
+	<td>You have triggered the root component of the demo plugin.<br /><br />Click anywhere to close.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Click anywhere to close</td>
+	<td></td>
+</tr>
+<!--Plugin icon displays at bottom of team sidebar-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-sidebar-bottom-plugin</td>
+	<td></td>
+</tr>
+<!--Top nav plugin action button-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#*.channel-header__icon.style--none i.icon.fa.fa-plug</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#*.channel-header__icon.style--none i.icon.fa.fa-plug</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channel_view']/div/div[6]/div</td>
+	<td>You have triggered the root component of the demo plugin.<br /><br />Click anywhere to close.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Click anywhere to close</td>
+	<td></td>
+</tr>
+<!--Main menu plugin action option-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#*_pluginmenuitem.MenuItem button.style--none span:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#*_pluginmenuitem.MenuItem button.style--none span:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channel_view']/div/div[6]/div</td>
+	<td>You have triggered the root component of the demo plugin.<br /><br />Click anywhere to close.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Click anywhere to close</td>
+	<td></td>
+</tr>
+<!--File upload action option-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=fileUploadButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=fileUploadButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Upload using Demo Plugin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Upload using Demo Plugin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channel_view']/div/div[6]/div</td>
+	<td>You have triggered the root component of the demo plugin.<br /><br />Click anywhere to close.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Click anywhere to close</td>
+	<td></td>
+</tr>
+<!--Post dropdown menu action-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_off-topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_off-topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>A post to click on${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none span:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none span:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channel_view']/div/div[6]/div</td>
+	<td>You have triggered the root component of the demo plugin.<br /><br />Click anywhere to close.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_view']/div/div[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Click anywhere to close</td>
+	<td></td>
+</tr>
+<!--demo_plugin settings page in System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom/com.mattermost.demo-plugin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom/com.mattermost.demo-plugin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>exact:Header: Configure your demo plugin settings below</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.help-text &gt; span</td>
+	<td>The channel to use as part of the demo plugin, created for each team automatically if it does not exist.</td>
+</tr>
+<!--Boolean setting persists after save and refresh-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=enablementionuserfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enablementionusertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enablementionusertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enablementionusertrue</td>
+	<td>on</td>
+</tr>
+<!--Disable demo_plugin in System Console-->
+<!--*** Finding the right one relies on demo_plugin being first in list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong</td>
+	<td>Demo Plugin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Disable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Disable</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-info &gt; span</td>
+	<td>This plugin is not enabled.</td>
+</tr>
+<!--Verify disabled on team (elements no longer visible)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button#*.channel-header__icon.style--none i.icon.fa.fa-plug</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Disabled</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Enabled</td>
+</tr>
+<!--/plugin_demo command no longer found-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.command__title</td>
+	<td>/demo_plugin (true|false)</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>lugin${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Command with a trigger of '/demo_plugin' not found. Click here to send as a message.</td>
+</tr>
+<!--Briefly re-enable and verify to prepare for verifying removal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td>Enable</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.padding-top &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>This plugin is running.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#*.channel-header__icon.style--none i.icon.fa.fa-plug</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.command__title</td>
+	<td>/demo_plugin (true|false)</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** Plugin is removed in tests below; if you still have manual -->
+<!--*** tests to do, Don't run the below test to remove the plugin yet-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Remove demo-plugin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>Remove</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=strong:contains('Demo Plugin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.padding-top:contains('This plugin demonstrates the capabilities of a Mattermost plugin.')</td>
+	<td></td>
+</tr>
+<!--Verify removed from team (elements no longer visible)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=i.icon.fa.fa-plug</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Disabled</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>css=div.sidebar--left__icons &gt; div</td>
+	<td>Demo Plugin: Enabled</td>
+</tr>
+<!--/plugin_demo command no longer found-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>/demo_p</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.command__title</td>
+	<td>/demo_plugin (true|false)</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>lugin${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Command with a trigger of '/demo_plugin' not found. Click here to send as a message.</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** Add steps to cleanup demo plugin channels and demo_plugin user?-->
+<!--LOG OUT-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,2175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scPolicy5ChannelManagePri</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scPolicy5ChannelManagePri</td></tr>
+</thead><tbody>
+<!--MANAGE MEMBERS OF PRIVATE CHANNELS-->
+<!--Allow only SYSTEM ADMINS to manage members of private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td>System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify system admin can see Add and Manage Members on private channel:-->
+<!--Drop-down: Add, Manage Members; Member icon: Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>nonadmincre</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>NonAdminCreated1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelMemberDropdown</td>
+	<td>Channel Admin</td>
+</tr>
+<!--Manage Members modal: Add button; Link to Invite others to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.Select-placeholder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.Select-placeholder</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify team admin cannot see Add or Manage Members on private channel-->
+<!--Drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<!--Manage Members modal: Add button; Link to Invite others to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify channel admin-->
+<!--Verify channel admin cannot see Add or Manage Members on private channel-->
+<!--Switch to team created by admin-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[0]</td>
+	<td>urlbase</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${urlbase}/sysadmcreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>prinonadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Member icon: View but not manage or add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel not present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify non-admin member-->
+<!--Verify non-admin member cannot see Add or Manage Members on private channel-->
+<!--Channel drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Member icon: View but not manage or add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel not present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<!--Allow TEAM and SYSTEM ADMINS to manage members of private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td>Team and System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify team admin can see Add or Manage Members on private channel-->
+<!--Drop-down: Add, Manage Members; Member icon: Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Manage Members modal: Add button; Link to Invite others to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 20 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Can't verify drop-down to manage; can't manage own role nor sysadm role-->
+<!--Necessary to go back and add another user to verify that?-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Bug here on spinmint: Should see channel member drop-down-->
+<!--Add test to verify channel member drop-down-->
+<!--Add step on selenium server (added manually on spinmint)-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify channel admin-->
+<!--Switch to team created by admin-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[0]</td>
+	<td>urlbase</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${urlbase}/sysadmcreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAdmCreated</td>
+</tr>
+<!--Verify channel admin cannot see Add or Manage Members on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>prinonadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Member icon: View but not manage or add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel not present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify non-admin member-->
+<!--Verify non-admin member cannot see Add or Manage Members on private channel-->
+<!--Channel drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<!--Member icon: View but not manage or add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel not present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<!--Allow CHANNEL, TEAM and SYSTEM ADMINS to manage members of private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td>Channel, Team and System Admins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify team admin can see Add or Manage Members on private channel-->
+<!--Drop-down: Add, Manage Members; Member icon: Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Manage Members modal: Add button; Link to Invite others to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<!--Current bug on spinmint-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify channel admin-->
+<!--Switch to team created by admin-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[0]</td>
+	<td>urlbase</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${urlbase}/sysadmcreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>prinonadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify channel admin can see Add and Manage Members on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<!--Member icon: Manage and add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<!--Current bug on spinmint-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel is present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify non-admin member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member cannot see Add or Manage Members on private channel-->
+<!--Channel drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<!--Member icon: View but not manage or add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel not present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<!--Allow ALL MEMBERS to manage members of private channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=restrictPrivateChannelManageMembers</td>
+	<td>All channel members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Add verify that system admin still can?-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>nonsysadmin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Verify team admin can see Add or Manage Members on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Drop-down: Add, Manage Members; Member icon: Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Manage Members modal: Add button; Link to Invite others to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify channel admin-->
+<!--Switch to team created by admin-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[0]</td>
+	<td>urlbase</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${urlbase}/sysadmcreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>prinonadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify channel admin can see Add and Manage Members on private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<!--Member icon: Manage and add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel is present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriNonAdminCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify non-admin member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priadm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-admin member can see Add or Manage Members on private channel-->
+<!--Channel drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<!--Member icon: Manage and add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<!--Remove button (can't demote admins but can remove from channel)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=removeMember</td>
+	<td></td>
+</tr>
+<!--Link to Invite others to channel is present-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PriAdmCreated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

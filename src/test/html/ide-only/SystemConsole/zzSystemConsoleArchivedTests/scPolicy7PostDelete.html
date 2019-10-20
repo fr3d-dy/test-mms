@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scPolicy7PostDelete</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scPolicy7PostDelete</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--SYSTEM ADMIN ONLY CAN DELETE POSTS-->
+<!--Set policy in System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//input[@name='restrictPostDelete'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='restrictPostDelete'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>xpath=(//input[@name='restrictPostDelete'])[3]</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<!--Switch to nonsysadmin-created team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>NonAdminCreated</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--admin creates channel on nonsysadmin-created team-->
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>minsecpost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>PostDelSysAdm-${minsecpost}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newPublicChannelName</td>
+	<td>PostDelSysAdm-${minsecpost}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PostDelSysAdm-${minsecpost}</td>
+</tr>
+<!--Add nonsysadmin to channel-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@class='Select-input']/input</td>
+	<td>nonsysadmin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@nonsysadmin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@nonsysadmin</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@nonsysadmin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--admin posts in channel where they're channel admin (+ sysadmin)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>adminpostdelete - channel admin plus system admin${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--System admin deletes own post (where also channel admin)-->
+<!--As usual, tricky to get to [...]-->
+<!--Need to come back to these once we figure out a good way -->
+<!--to get to the Delete option-->
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,4577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>Messaging</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Messaging</td></tr>
+</thead><tbody>
+<!--LOG IN test2-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Create test channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Hello')</td>
+	<td></td>
+</tr>
+<!--Reply using [...] menu - reply posts in RHS and center-->
+<!--*** No longer works to find dot menu; manually click dot menu on Hello post-->
+<!--*** Manually click dot menu on Hello post and click Reply-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.dropdown-toggle.post__dropdown.color--link.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.dropdown-toggle.post__dropdown.color--link.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=ul.dropdown-menu.bottom &gt; li &gt; button.style--none</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.dropdown-menu.bottom &gt; li &gt; button.style--none</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@class='btn btn-primary comment-btn pull-right disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--RHS reply-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Hello*test2*Reply</td>
+	<td></td>
+</tr>
+<!--Close reply RHS and re-open using reply count link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Center reply-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Reply')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.comment-count</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Message Details</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-right-channel__name</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--Change channel in center; reply in RHS doesn't mark channel unread-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Another reply${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>test2*Reply*Another reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=a.sidebar-item.unread-title &gt; span.sidebar-item__name</td>
+	<td>Test-${datetime}</td>
+</tr>
+<!--Cancel out of editing parent post in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div/div/ul/li[4]/button</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div/div/ul/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>×CloseEdit Post</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>. Cancel out of this edit</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td>Hello. Cancel out of this edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=p</td>
+	<td>Hello. Cancel out of this edit</td>
+</tr>
+<!--Edit reply in RHS - Edited text and "(edited)" appears in RHS and center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div/div/ul/li[4]/button</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div/div/ul/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>. Make this edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Save</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Save</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Hello. Make this edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Change back to test channel in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<!--Verify edited message in center-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p:contains('Hello. Make this edit')</td>
+	<td>Hello. Make this edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<!--Emoji and markdown in "commented on..." line-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>## *I'm* [hungry](http://example.com) :taco: ![Mattermost](http://www.mattermost.org/wp-content/uploads/2016/03/logoHorizontal.png)${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=hungry</td>
+	<td>hungry</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=h2.markdown__heading &gt; em:contains('I'm')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.markdown-inline-img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=h2.markdown__heading &gt; span &gt; span.emoticon</td>
+	<td></td>
+</tr>
+<!--Post interstitial message-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Any old text will do${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Reply to first message (first search to locate the right message)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>hungry taco${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>hungry</td>
+</tr>
+<!--*** No longer finding RHS reply-->
+<!--*** Manually click reply arrow on RHS search result I'm hungry...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchCommentIcon_</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=searchCommentIcon_</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Any reply will do as well${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post__link &gt; span &gt; span</td>
+	<td>Commented on test2's message:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=I'm hungry :taco: Mattermost</td>
+	<td>I'm hungry :taco: Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<!--Edit non-ordered post to be an ordered list (up arrow to open edit modal)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Ordered${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>1. One<br /><br />2. Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two&nbsp;&nbsp;Two Two Two Two Two Two Two Two${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li[value=&quot;1&quot;]</td>
+	<td>One</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ol:contains('Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two Two&nbsp;&nbsp;Two Two Two Two Two Two Two Two')</td>
+	<td></td>
+</tr>
+<!--Edit code block and verify retains formatting-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;Block${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=code.hljs:contains('Block')</td>
+	<td></td>
+</tr>
+<!--Up arrow, cancel-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> edited</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=code.hljs:contains('Block')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=code.hljs:contains('edited')</td>
+	<td></td>
+</tr>
+<!--Up arrow, edit-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> edited</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=code.hljs:contains('Block edited')</td>
+	<td></td>
+</tr>
+<!--Edit text-only post to remove all text; it deletes the post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xqa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>xqa</td>
+	<td></td>
+</tr>
+<!--Edit message in search results-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Catch me if you can${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Catch me if you can')</td>
+	<td></td>
+</tr>
+<!--Need to write new tests if possible for search icon on narrower screen?-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>catch${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>Catch</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Catch me if you can</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Edit')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Edit')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>Catch me if you can</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>, and good luck!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>Catch me if you can, and good luck!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Verify in RHS-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Catch me if you can, and good luck!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<!--Verify in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Catch me if you can, and good luck!')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<!--Message draft: Switch channel and back-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This is a draft</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>This is a draft</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>This is a draft</td>
+</tr>
+<!--Message draft: Refresh-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>This is a draft</td>
+</tr>
+<!--Backspace to remove draft: Refresh doesn't bring it back-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Identical drafts: Autocomplete displays in both channels-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.suggestion-list__divider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.suggestion-list__divider</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--@-autocomplete Not in channel - Messaging and link to add them-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test7 and @test8 hello!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('did not get notified by this mention because they are not in the channel. Would you like to add them to the channel? They will have access to all message history.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<!--Click link to add users to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#add_channel_member_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#add_channel_member_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('@test7 and @test8')</td>
+	<td></td>
+</tr>
+<!--Not sure why, but the order in which the users are listed switches....-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test* and @test* added to the channel by you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test8</td>
+	<td>@test8</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test7</td>
+	<td>@test7</td>
+</tr>
+<!--Ephemeral message with add-users link disappears-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('were mentioned but they are not in the channel. Would you like to')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('? They will have access to all message history.')</td>
+	<td></td>
+</tr>
+<!--Just `@` returns all on the team (except self)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<!--*** This is failing unless you bring the Firefox browser in front of the Se window-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Not in Channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Not in Channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test5')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<!--@-autocomplete - username-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Just `@` returns all on the team (except self)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention--align</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@admin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@corey')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test4')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test5')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test6')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test7')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test8')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test9')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('Special Mentions')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@here')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@all')</td>
+	<td></td>
+</tr>
+<!--Adding `a` returns `admin` and `all`-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@admin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@all')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Notifies everyone in this channel')</td>
+	<td></td>
+</tr>
+<!--Pressing TAB selects top option-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_TAB}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@admin</td>
+	<td>@admin</td>
+</tr>
+<!--Add nickname and first and last names, and change email address for test2, -->
+<!--for test7 to filter on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>H</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>Jenkins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>H Jenkins</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nickname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=nickname</td>
+	<td>asparagus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nicknameDesc</td>
+	<td>asparagus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>changed@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>changed@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>changed@test.com</td>
+</tr>
+<!--Log out test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in test7-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test7@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--User added to the channel sees mention-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn span.badge.pull-right.small</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn span.badge.pull-right.small</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.badge</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.badge</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>You and @test8 added to the channel by @test2.</td>
+</tr>
+<!--Other user sees (edited)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Catch me if you can, and good luck!*(edited)</td>
+	<td></td>
+</tr>
+<!--*** This is failing unless you bring the Firefox browser in front of the Se window-->
+<!--@-autocomplete does not return users not on that team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test10')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span:contains('@test4')</td>
+	<td></td>
+</tr>
+<!--@-autocomplete - nickname-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-btn__initials</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn__initials</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@as</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('H Jenkins')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('(asparagus)')</td>
+	<td></td>
+</tr>
+<!--@-autocomplete - first name (one-letter)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@h</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('H Jenkins')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('(asparagus)')</td>
+	<td></td>
+</tr>
+<!--@-autocomplete - last name-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@jen</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('H Jenkins')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('(asparagus)')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention--align</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.mention--align</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>@test2</td>
+</tr>
+<!--@-autocomplete - last name ALL CAPS-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@JENKIN</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('H Jenkins')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('(asparagus)')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.mention--align</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>@test2</td>
+</tr>
+<!--@-autocomplete - not returned based on email-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@changed</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('@changed')</td>
+	<td></td>
+</tr>
+<!--@-autocomplete in Edit modal-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> @a</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention--align</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span:contains('@corey')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span:contains('@all')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Notifies everyone in this channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'@admin')])[2]</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<!--Mention still works if preceded by `#`-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>#@test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('H Jenkins')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('(asparagus)')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('#@test2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test2</td>
+	<td></td>
+</tr>
+<!--@ autocomplete - doesn't appear after typing `text@`-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>hello@</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span:contains('Special Mentions')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span:contains('@here')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span:contains('@channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span:contains('@all')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span:contains('@test10')</td>
+	<td></td>
+</tr>
+<!--@-autocomplete list disappears when punctuation typed at the end of a mention-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test9</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Channel Members')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('@test9')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&amp;%#*</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span:contains('Channel Members')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('@test9&amp;%#*')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test9</td>
+	<td></td>
+</tr>
+<!--@-mention, user not in private channel, permission to add-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Private-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newChannelName</td>
+	<td>Private-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Private-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test2 welcome${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span &gt; a.mention-link</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#add_channel_member_link &gt; span</td>
+	<td>add them to this private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#add_channel_member_link &gt; span</td>
+	<td>add them to this private channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline &gt; span &gt; span &gt; a.mention-link</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test2 added to the channel by you.</td>
+	<td></td>
+</tr>
+<!--@-mention user not in a DM doesn't offer link to add them-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p.markdown__paragraph-inline &gt; span &gt; span &gt; a.mention-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=p.markdown__paragraph-inline &gt; span &gt; span &gt; a.mention-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.text-nowrap.user-popover__email &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.text-nowrap.user-popover__email &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test3 not your DM${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test3</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>@test3 not your DM</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('were mentioned but they are not in the channel. Would you like to')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('? They will have access to all message history.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<!--@-mention user not in a GM doesn't offer link to add them-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test9</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test9</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test9</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test9, test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test2 not in GM${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>@test2 not in GM</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test2</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('were mentioned but they are not in the channel. Would you like to')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('? They will have access to all message history.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<!--Verify other user added to private channel, no mentions from GM/DM-->
+<!--Log out test7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test2 (using updated email address)-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>changed@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--User added to the channel sees mention-->
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<!--First read the DM to clear that badge-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=test71</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.badge</td>
+	<td>1</td>
+</tr>
+<!--Verify added to private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Private-${datetime}*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Private-${datetime}*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You were added to the channel by @test7</td>
+	<td></td>
+</tr>
+<!--Need to add test for trying to add to private channel where don't have-->
+<!--permission, but default permissions allow adding.... Tested manually 5.5-->
+<!--Log out test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in test7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test7@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--@-autocomplete followed by various punctuation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hey @test8</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test8</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>!#*</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test8</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Hey @test8!#*</td>
+	<td></td>
+</tr>
+<!--@-autocomplete followed by three dots-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hey @test8</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test8</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>...</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test8</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Hey @test8...</td>
+	<td></td>
+</tr>
+<!--@-mention own username followed by period, should highlight-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Private-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Private-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Private-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>You are @test7.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test7</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.mention-link.mention--highlight:contains('@test7')</td>
+	<td></td>
+</tr>
+<!--Delete the message to get that highlight out of the way-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>You are @test7.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<!--@-mention own username followed by underscore, should highlight-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>And @test7_${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test7</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.mention-link.mention--highlight:contains('@test7')</td>
+	<td></td>
+</tr>
+<!--Channel shortlinking - ~ autocomplete and click link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>My Channels</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('headertest')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Off-Topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Test-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Town Square')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>of</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~headertest')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Off-Topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.mention__channelname:contains('~off-topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~Test-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~town-square')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_TAB}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>~off-topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=~Off-Topic</td>
+	<td>~Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=~Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Channel shortlinking - type space after channel name, no link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>My Channels</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('headertest')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Off-Topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Test-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Town Square')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>town</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>My Channels</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~headertest')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Town Square')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~off-topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>-square then a space and some more text</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>My Channels</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~headertest')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~off-topic')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.mention__channelname:contains('~town-square')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Channel shortlinking - Channel name is linked but other text is not-->
+<tr>
+	<td>waitForText</td>
+	<td>link=~Town Square</td>
+	<td>~Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('then a space and some more text')</td>
+	<td>~Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=then a space and some more text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=~Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Channel shortlinking - Multiple spaces do not close autocomplete match-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~off-t</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> </td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~off-topic${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Leave channel, link still valid in other channel-->
+<tr>
+	<td>click</td>
+	<td>link=~Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=~Off-Topic</td>
+	<td></td>
+</tr>
+<!--Click shortlink to re-join channel-->
+<tr>
+	<td>click</td>
+	<td>link=~Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--Edit message containing channel link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>~town-square then a space and some more text</td>
+</tr>
+<!--Oddly, ENTER on the same line caused a DELETE in Se. Manually it saved edit as expected.-->
+<!--So I split it onto two lines-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>, and then edited</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('~Town Square then a space and some more text, and then edited')</td>
+	<td></td>
+</tr>
+<!--Stop trying to autocomplete after no match; autocomplete next valid match-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>My Channels</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>00000</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>My Channels</td>
+</tr>
+<!--Channel autocomplete search is case-insensitive-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> ~oFF</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>~00000 ~off-topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=~Off-Topic</td>
+	<td>~Off-Topic</td>
+</tr>
+<!--Link to channel w/ same name on other team displays other team's channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This post is from the first team's Town Square.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>ts1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/header ${ts1}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDescription</td>
+	<td>${ts1}</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>This post is from the first team's Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.popover-content &gt; p &gt; a.theme.markdown__link</td>
+	<td>${ts1}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.popover-content &gt; p &gt; a.theme.markdown__link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This post is from the first team's Town Square</td>
+	<td></td>
+</tr>
+<!--Channel shortlinking - Find based on channel purpose-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/purpose purposetest${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>updated the channel purpose to: purposetest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~purposet</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__purpose</td>
+	<td>purposetest</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<!--MISC. TESTS w/SPECIAL CHARACTERS, CODE, etc.-->
+<!--These bits of code don't break channel-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```python<br />print('test')<br />```<br />lets you do this:<br />```bash<br />$ test -H test012-sjc1 go<br />[adhoc04-sjc1] Executing task 'go'<br />[localhost] local: hostname<br />test-TEST23432423434234<br />[adhoc04-sjc1] run: hostname<br />[adhoc04-sjc1] out: adhoc04-sjc1<br />[adhoc04-sjc1] out:<br /><br />Done.<br />```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Nested angle brackets don't break channel-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&lt;aaa@example.com&lt;bbb&gt;&gt;${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=aaa@example.com&lt;bbb</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT test7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test2 (using updated email address)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>changed@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Massive nested quoted text doesn't break channel-->
+<!--Create new channel so this annoying post isn't in the way-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Nested-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Nested-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Post massive nested quotes (split into several posts but still have to click Continue sometimes)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;lala</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=blockquote:contains('&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;lala')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Permalink auto-joins public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Post message and copy permalink (just copies value; doesn't work in Se to click Copy button)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Permalinkpost${KEY_ENTER}</td>
+</tr>
+<!--This doesn't work anymore either, to try to get to [...] options-->
+<!--Point is to open permalink modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.dropdown-toggle.post__dropdown.color--link.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.dropdown-toggle.post__dropdown.color--link.style--none</td>
+	<td></td>
+</tr>
+<!--*** Manually click ... and Permalink on "Permalinkpost" for now-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>permalinkurl</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--Leave Test- channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Post permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${permalinkurl}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${permalinkurl}</td>
+	<td></td>
+</tr>
+<!--Click permalink to rejoin public channel-->
+<tr>
+	<td>click</td>
+	<td>link=${permalinkurl}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>You joined the channel.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<!--Delete permalink post from permalink view-->
+<!--*** Manually click ... and Delete on "Permalinkpost" for now-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<!--Message is gone and Jump to recent msgs is gone-->
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Permalinkpost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<!--Open permalink for deleted message-->
+<tr>
+	<td>open</td>
+	<td>${permalinkurl}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Message Not Found</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span</td>
+	<td>Permalink belongs to a deleted message or to a channel to which you do not have access.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Can't rejoin private channel from permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<!--Create private channel appended with datetime-->
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Pri2-${datetime}</td>
+</tr>
+<!--Can't get the following to work anymore. Verify URL shows as /pri2-${datetime}-->
+<!--Ah, it may have just lost track of the variable's value. If this works in future, set back to full text verify-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>URL: /pri2-${datetime} (</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Pri2-${datetime}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>newprivate</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>pri2 channel permalink${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('pri2 channel permalink')</td>
+	<td></td>
+</tr>
+<!--Also failing to find [...] - open Permalink modal manually on "pri2 channel permalink"-->
+<!--*** Manually click ... and Permalink on "pri2 channel permalink" for now-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=linkModalTextArea</td>
+	<td>privatepermalink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/span</td>
+	<td>Are you sure you wish to leave the private channel Pri2-*</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${privatepermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Message Not Found</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span</td>
+	<td>Permalink belongs to a deleted message or to a channel to which you do not have access.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Log out, open permalink, enter creds, opens to permalink-->
+<!--Create post and permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Log out and permalink${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--*** Fails to find [...] etc.; open permalink modal manually on "Log out and permalink"-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>logoutpermalink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--Log out-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${logoutpermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--After logging back in, opens to permalink-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<!--Verify proper error page whan a user hit a permalink to a DM-->
+<tr>
+	<td>verifyText</td>
+	<td>id=moreDirectMessage</td>
+	<td>More...</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td>More...</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name:contains('@test3')</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name:contains('@test3')</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Sample DM Message${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Permalink</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>DMPermalink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderTitle &gt; span</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${DMPermalink}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Log out test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>${DMPermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${DMPermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Message Not Found</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<!--Switching back to User2 to continue test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test2</td>
+</tr>
+<!--Backslash escape character (have to include an extra b/c Se escapes them)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>\\teamlinux\IT-Stuff\WorkingStuff${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('\\teamlinux\IT-Stuff\WorkingStuff')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:exact('\teamlinux\IT-Stuff\WorkingStuff')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>\\()#${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>\()#</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>\\()#</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('\\()#')</td>
+	<td></td>
+</tr>
+<!--Non-URL in label/link format-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>[no-link]: test${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('[no-link]: test')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=no-link</td>
+	<td></td>
+</tr>
+<!--Non-Latin characters in URL should link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://гном.срб/Изашао-је-Гном-3-26/${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://гном.срб/Изашао-је-Гном-3-26/</td>
+	<td></td>
+</tr>
+<!--Link preview with Windows-1251 encoding and non-ASCII characters-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>http://www.garant.ru/news/1190219/${KEY_ENTER}</td>
+</tr>
+<!--*** Hm. Link preview isn't enabled, right? (passed manually 5.5)-->
+<!--Autolink when non-letter character follows a period in the URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://test.somedomain.com/display/SomeStuff/123.+Pagetitle${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://test.somedomain.com/display/SomeStuff/123.+Pagetitle</td>
+	<td></td>
+</tr>
+<!--Whitespace in code block-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&gt; ```</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>xxxxxxxxxxxx</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Unknown emoji inside markdown link-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>[testing:abcde: test](www.google.ca)${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:testing:abcde: test</td>
+	<td></td>
+</tr>
+<!--Cleanup: Leave test channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Nested*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Nested*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Nested*</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Private-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Private-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Private-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Yes, leave channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Yes, leave channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Log out test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>sc18-Posts</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">sc18-Posts</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Posts</td>
+</tr>
+<!--Disable link previews-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--No option to enable Website Link Previews in Account Settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.header__info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.header__info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#displaySettingsTitle &gt; span</td>
+	<td>Display Settings</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Website Link Previews</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Post link, no preview displays-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://github.com/mattermost/mattermost-webapp${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=exact:https://github.com/mattermost/mattermost-webapp</td>
+	<td>exact:https://github.com/mattermost/mattermost-webapp</td>
+</tr>
+<!--Need to put all of this in a fresh channel; there are likely previews above-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=removePreviewButton</td>
+	<td></td>
+</tr>
+<!--Enable link previews-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Option to enable Website Link Previews in Account Settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.header__info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.header__info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#linkpreviewTitle &gt; span</td>
+	<td>Website Link Previews</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#linkpreviewDesc &gt; span</td>
+	<td>On</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Post link, preview displays (also previously posted link shows preview)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://github.com/mattermost/mattermost-webapp${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=exact:https://github.com/mattermost/mattermost-webapp</td>
+	<td>exact:https://github.com/mattermost/mattermost-webapp</td>
+</tr>
+<!--*** Need to have all of this in a fresh channel to truly verify-->
+<!--*** Visually verify for now (also currently previous post isn't auto-displaying)-->
+<!--*** (Refresh fixes the previous post not expanding)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=removePreviewButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.post-message.post-message--collapsed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Webapp of Mattermost server: https://github.com/mattermost/mattermost-server - mattermost/mattermost-webapp</td>
+	<td></td>
+</tr>
+<!--Two Custom URL schemes render as links, incl. valid punctuation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td> taco,okay-then,taco+what,taco.what</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>taco:lala and okay-then:example.com and taco+what:test and taco.what:test${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:taco:lala</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=okay-then:example.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=taco+what:test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=taco.what:test</td>
+	<td></td>
+</tr>
+<!--Errors for invalid custom URL schemes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td>%%</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>The custom URL scheme %% is invalid. Custom URL schemes must start with a letter and contain only letters, numbers, plus (+), period (.) and hyphen (-).</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>The custom URL scheme %% is invalid. Custom URL schemes must start with a letter and contain only letters, numbers and hyphen (-).</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td>okay!</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>The custom URL scheme okay! is invalid. Custom URL schemes must start with a letter and contain only letters, numbers, plus (+), period (.) and hyphen (-).</td>
+</tr>
+<!--Dot and plus sign allowed v5.14. v5.15 -->
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td>this.that</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td>this+that</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=DisplaySettings.CustomUrlSchemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td></td>
+</tr>
+<!--PUBLIC LINKS-->
+<!--Public Links - true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/public_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/public_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Public Links</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=FileSettings.EnablePublicLinktrue</td>
+	<td>on</td>
+</tr>
+<!--Regenerate public link salt-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Regenerate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=FileSettings.PublicLinkSalt</td>
+	<td>publiclinksalt</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=FileSettings.PublicLinkSalt</td>
+	<td>${publiclinksalt}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=FileSettings.PublicLinkSalt</td>
+	<td>${publiclinksalt}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,2143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>Search</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Search</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Refresh page to avoid test failure due to page not fully rendering-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#channelHeaderFlagButton.channel-header__icon.icon--hidden.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#channelHeaderFlagButton.channel-header__icon.icon--hidden.style--none</td>
+	<td></td>
+</tr>
+<!--Search: Basic, markdown-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-search.md${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1.markdown__heading</td>
+	<td>Search Testing</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td></td>
+</tr>
+<!--Switch channel in center to make sure verifying in search results in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Basic word search: Hello world!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h5.markdown__heading &gt; span.search-highlight</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code &gt; span.search-highlight</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=code.hljs</td>
+	<td></td>
+</tr>
+<!--Switch channel back to post in Town Square-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>town</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Multiple terms (not exact phrase)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>one hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>world two${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>world hello${KEY_ENTER}</td>
+</tr>
+<!--Switch channel in center to make sure verifying in search results in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Verify search results-->
+<!--Should probaby split this out into separate posts, since the highlight verification isn't really working right-->
+<!--Otherwise it's not independently verifying that various results are returned-->
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>hello world${KEY_ENTER}</td>
+</tr>
+<!--Highlight verification no longer working in the build;-->
+<!--Removed for now: waitForElementPresent | css=span.search-highlight:contains('Hello') and others (see scratch doc)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Basic word search: Hello world!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>world hello</td>
+	<td></td>
+</tr>
+<!--Accents, non-Latin characters-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>crème fraîche${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>Crème</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>您好*${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>您好</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Wildcard-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>hell*${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>hell</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>&quot;hell&quot;*${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>No results found.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>hello${KEY_ENTER}</td>
+</tr>
+<!--Jump to permalink view-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=p</td>
+	<td>jumpmessage</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>${jumpmessage}*Click here to jump</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--In:channel, from:user, autocomplete-->
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>inchannel${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.active &gt; a.sidebar-item &gt; span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.active &gt; a.sidebar-item &gt; span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>inchannel #verify${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>in:town</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td> </td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>inchannel${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>inchannel</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=#verify</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test2-->
+<!--DisableAnimations-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>fromuser${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>fromuser #verify${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>from:tes</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>fromuser${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>fromuser</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=#verify</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>from:test2</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td> in:off-topic</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_TAB}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>fromuser${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>fromuser</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>from:</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_DOWN}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_DOWN}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_DOWN}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_DOWN}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>${KEY_DOWN}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td>test2</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input.search-bar</td>
+	<td>exact:from:</td>
+</tr>
+<!--At-mention search-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>town</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test2 greetings</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test2*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@test2 direct${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Removed at-channel post; the build can't find the confirm button-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--LOG OUT test-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test2-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__mentions &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__mentions &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name &gt; span</td>
+	<td>Direct Message (with test)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.mention-link.mention--highlight</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test2 direct</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>@channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>Off</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>greetings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>Town</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>@channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>test usernametownsquare${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test - This Is a Very Long Name That Should Truncate*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>test usernameDM${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--LOG OUT test2-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test-->
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__mentions &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__mentions &gt; svg</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name &gt; span</td>
+	<td>Direct Message (with test2)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>test usernameDM</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention--highlight</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>test usernametownsquare</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>Town</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--at-username link opens profile popover-->
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<!--Open in RHS so Se can find clean link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>greetings${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test2</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=@test2</td>
+	<td>@test2</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.user-popover__username &gt; a</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.Avatar.Avatar-xxl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test2@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Send Message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.user-popover__role</td>
+	<td>Team Admin</td>
+</tr>
+<!--DM search-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>direct${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name &gt; span</td>
+	<td>Direct Message (with test2)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>direct</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Open flagged posts RHS to ensure search box is expanded (in case of narrow window)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>test3${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>No results found. Try again?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=p</td>
+	<td>test3 has joined the channel</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

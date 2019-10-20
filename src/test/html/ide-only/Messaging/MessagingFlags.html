@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>MessagingFlags</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">MessagingFlags</td></tr>
+</thead><tbody>
+<!--NOTE: THESE TESTS not working. Moved to MessagingMan.html-->
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test9@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Create Flag- channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>Flag-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Flag-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Quick brown fox.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify flag not visible until active (Se hover doesn't make visible)-->
+<tr>
+	<td>verifyNotVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container</td>
+	<td></td>
+</tr>
+<!--Hover tooltip (when not yet flagged)-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=button.style--none.flag-icon__container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#flagTooltip &gt; div.tooltip-inner &gt; span</td>
+	<td>Flag for follow up</td>
+</tr>
+<!--Verify visible when active-->
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#_message &gt; div &gt; span.post-message__text &gt; p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Quick brown fox.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=a.flag-icon__container.visible &gt; span.icon &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<!--Cannot locate off-flag to click to toggle on-->
+<!--Flag a message-->
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container.visible &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a#centerPostFlag0.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#commentIcon0 &gt; span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#commentIcon0 &gt; span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<!--Reply using reply arrow-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Lazy dog.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Quick brown fox.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#rhsCommentFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div/div/div/span/p</td>
+	<td>Lazy dog.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Lazy dog.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText1 &gt; p</td>
+	<td>Quick brown fox.</td>
+</tr>
+<!--Flag visible on parent post in RHS reply thread-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.flag-icon__container.visible &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<!--Viewing flagged posts in RHS, parent post only, no replies-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#searchPostFlag0 &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Quick brown fox.</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div/div/div/span/p</td>
+	<td>Lazy dog.</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=p</td>
+	<td>Lazy dog.</td>
+</tr>
+<!--Unflag post from RHS flagged posts, no other flagged posts-->
+<tr>
+	<td>click</td>
+	<td>css=#searchPostFlag0 &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; ul &gt; li &gt; span</td>
+	<td>You haven't flagged any messages yet.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div/ul/li[2]/span</td>
+	<td>You can add a flag to messages and comments by clicking the</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div/ul/li[3]/span</td>
+	<td>Flags are a way to mark messages for follow up. Your flags are personal, and cannot be seen by other users.</td>
+</tr>
+<!--Show flagged posts across channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--Flag two messages in Off-Topic-->
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Off-Topic flag 1${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Off-Topic flag 1</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=a#centerPostFlag0.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a#centerPostFlag0.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Off-Topic flag 2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Off-Topic flag 2</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=a#centerPostFlag0.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Se note: Same ID works for flag displayed to the left on a consecutive message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a#centerPostFlag0.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<!--View flagged posts in RHS while viewing Off-Topic, then switch to Town Square-->
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#searchPostFlag0 &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Off-Topic flag 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Off-Topic flag 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#commentIcon0 &gt; span.comment-count</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Quick brown fox.*Lazy dog.</td>
+	<td></td>
+</tr>
+<!--Verify flagged posts from other channel still display-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Off-Topic flag 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Off-Topic flag 1</td>
+</tr>
+<!--Flag reply in Town Square, verify added to flagged posts list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@id='centerPostFlag0']/span)[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@id='centerPostFlag0']/span)[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[3]/div[2]/div</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[3]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Lazy dog.</td>
+</tr>
+<!--Search and unflag from RHS search results-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.search-bar</td>
+	<td>lazy${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>Lazy</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Lazy dog.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#searchPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#searchPostFlag0 &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<!--View flagged posts to verify post was unflagged-->
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#searchPostFlag0 &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Off-Topic flag 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Off-Topic flag 1</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>//div[@id='search-items-container']/div[3]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Lazy dog.</td>
+</tr>
+<!--Can post comment from flagged posts RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchCommentIcon1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=searchCommentIcon1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Message Details</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Replying to an Off-Topic message that was flagged${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div/div/div/span/p</td>
+	<td>Replying to an Off-Topic message that was flagged</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-angle-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-angle-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Replying to an Off-Topic message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Replying to an Off-Topic message that was flagged</td>
+</tr>
+<!--Edit flagged post in center while viewing flagged posts in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__flag &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Off-Topic flag 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Off-Topic flag 2</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Off-Topic flag 1</td>
+	<td></td>
+</tr>
+<!--Delete test posts-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText1 &gt; p</td>
+	<td>Quick brown fox.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#lastPostMessageText1 &gt; p</td>
+	<td>Quick brown fox.</td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

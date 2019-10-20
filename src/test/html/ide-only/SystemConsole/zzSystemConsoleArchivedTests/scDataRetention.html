@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsDataRetention</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsDataRetention</td></tr>
+</thead><tbody>
+<!--For now, just tests UI-->
+<!--Won't be meaningful to test functionality on selenium server-->
+<!--But could just test UI like we do other sections (not sure CI will work well either)-->
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Data Retention Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Data Retention Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.banner__content &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=documentation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=documentation@href</td>
+	<td>https://about.mattermost.com/default-dataretention-documentation/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=deletionJobStartTime</td>
+	<td></td>
+</tr>
+<!--Enable, save-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableMessageDeletion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=option[value=&quot;true&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=enableMessageDeletion</td>
+	<td>label=Keep messages for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=messageRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=enableFileDeletion</td>
+	<td>label=Keep files for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=fileRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Run Deletion Job Now</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Confirm data retention policy</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; ul &gt; li &gt; span</td>
+	<td>All messages will be permanently deleted after 365 days.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='confirmModal']/div/div/div[2]/div/ul/li[2]/span</td>
+	<td>All files will be permanently deleted after 365 days.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Do a search with no results (on any team), verify data retention messaging-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>noresultsnilnadanever${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div/ul/li[3]/span</td>
+	<td>Only messages posted in the last 365 days are returned. Contact your System Administrator for more detail.</td>
+</tr>
+<!--Disable, save-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Data Retention Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Data Retention Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableMessageDeletion</td>
+	<td>label=Keep all messages indefinitely</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=enableMessageDeletion</td>
+	<td>label=Keep all messages indefinitely</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>id=messageRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=enableFileDeletion</td>
+	<td>label=Keep all files indefinitely</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>id=fileRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; ul &gt; li &gt; span</td>
+	<td>All messages will be retained indefinitely.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='confirmModal']/div/div/div[2]/div/ul/li[2]/span</td>
+	<td>All files will be retained indefinitely.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<!--Set to indefinitely, the time period settings are hidden, Run Job disabled-->
+<tr>
+	<td>waitForText</td>
+	<td>id=enableMessageDeletion</td>
+	<td>Keep all messages indefinitelyKeep messages for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=messageRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=enableFileDeletion</td>
+	<td>Keep all files indefinitelyKeep files for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=fileRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<!--Enable, save-->
+<tr>
+	<td>select</td>
+	<td>id=enableMessageDeletion</td>
+	<td>label=Keep messages for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=messageRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=enableFileDeletion</td>
+	<td>label=Keep files for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=fileRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=deletionJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=deletionJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=deletionJobStartTime</td>
+	<td>18:10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=enableMessageDeletion</td>
+	<td>Keep all messages indefinitelyKeep messages for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=messageRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=enableFileDeletion</td>
+	<td>Keep all files indefinitelyKeep files for a set amount of time</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=fileRetentionDays</td>
+	<td></td>
+</tr>
+<!--Stopping here; not sure if we can test the actual functionality-->
+<!--Checking with George and Jason-->
+<!--Disable, save-->
+<tr>
+	<td>select</td>
+	<td>id=enableMessageDeletion</td>
+	<td>label=Keep all messages indefinitely</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>id=messageRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=enableFileDeletion</td>
+	<td>label=Keep all files indefinitely</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>id=fileRetentionDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Confirm Settings</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

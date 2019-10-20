@@ -1,0 +1,1986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>sc19-IntegrationsSettings</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">sc19-IntegrationsSettings</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--** Add Integration Management settings? (perms tested elsewhere)-->
+<!--Access Tokens-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=integrations/integration_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=integrations/integration_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Integration Management</td>
+</tr>
+<!--Enable Personal Access Tokens-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableUserAccessTokenstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableUserAccessTokenstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Email notifications must be set up or disabled (disable on Se)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.SendEmailNotificationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.SendEmailNotificationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.SendEmailNotificationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.SendEmailNotificationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Create new access token-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=tokensDesc</td>
+	<td>Click 'Edit' to manage your personal access tokens</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create New Token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create New Token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>System Admin Test Token</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger</td>
+	<td>exact:You are generating a personal access token with System Admin permissions. Are you sure want to create this token?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-bottom.x2 &gt; span &gt; span</td>
+	<td>Personal access tokens function similarly to session tokens and can be used by integrations to authenticate against the REST API.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning</td>
+	<td>Please copy the access token below. You won't be able to see it again!<br /><br />Token Description: System Admin Test Token<br />Token ID: *<br />Access Token: *</td>
+</tr>
+<!--ESC out of the modal causes warning modal to display-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=accountSettingsModal</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#confirmModal &gt; div.modal-dialog &gt; div.modal-content &gt; div.modal-header</td>
+	<td>exact:Have you copied your token?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#confirmModal &gt; div.modal-dialog &gt; div.modal-content &gt; div.modal-body &gt; div</td>
+	<td>Make sure you have copied and saved the access token below. You won't be able to see it again!<br /><br />Access Token: *</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, I have copied the token</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--LOG IN test5-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<!--Access tokens not available if user has not been granted access-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.tab-header &gt; span</td>
+	<td>Security Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=tokensTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=tokensDesc</td>
+	<td>Click 'Edit' to manage your personal access tokens</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Grant permission to test5 to create personal access tokens-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Roles')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Role')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>×CloseManage Roles</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.checkbox &gt; label</td>
+	<td>Allow this account to generate personal access tokens.Removing this permission doesn't delete existing tokens. To delete them, go to the user's Manage Tokens menu.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Select additional permissions for the account. Read more about roles and permissions.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.member-row--padded &gt; div &gt; div.checkbox</td>
+	<td>exact:post:allAccess to post to all Mattermost channels including direct messages.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[2]/div/div[2]</td>
+	<td>exact:post:channelsAccess to post to all Mattermost public channels.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Save</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Save</td>
+</tr>
+<!--Message displays that that user has permission to create access tokens-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__actions</td>
+	<td>Member (can create personal access tokens)</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<!--Access tokens available after being granted access-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=tokensDesc</td>
+	<td>Click 'Edit' to manage your personal access tokens</td>
+</tr>
+<!--Create two personal access tokens-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create New Token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create New Token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control</td>
+	<td>Non-admin first token</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--System admin warning does not appear-->
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.alert.alert-danger</td>
+	<td>exact:You are generating a personal access token with System Admin permissions. Are you sure want to create this token?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>Please copy the access token below. You won't be able to see it again!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=cancelSetting</td>
+	<td>Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td>Close</td>
+</tr>
+<!--But regular warning about copying token does appear-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; span</td>
+	<td>Make sure you have copied and saved the access token below. You won't be able to see it again!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, I have copied the token</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, I have copied the token</td>
+</tr>
+<!--Create second token-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create New Token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create New Token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control</td>
+	<td>Non-admin second token</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>Please copy the access token below. You won't be able to see it again!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=cancelSetting</td>
+	<td>Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td>Close</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; span</td>
+	<td>Make sure you have copied and saved the access token below. You won't be able to see it again!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, I have copied the token</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, I have copied the token</td>
+</tr>
+<!--Verify both tokens are displayed-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-transparent</td>
+	<td>Token Description: Non-admin first token<br />Token ID: *<br />Disable - Delete<br /><br /><br />Token Description: Non-admin second token<br />Token ID: *<br />Disable - Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.close</td>
+	<td>×Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--System admin delete one of test5's tokens-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Tokens')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Tokens')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>×CloseManage Personal Access Tokens</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body</td>
+	<td>@test5<br />test5@test.com<br /><br /><br />Personal access tokens function similarly to session tokens and can be used by integrations to interact with this Mattermost server. Tokens are disabled if the user is deactivated. Learn more about personal access tokens.<br />Token Description: Non-admin second token<br />Token ID:*<br /><br />Delete<br /><br />Token Description: Non-admin first token<br />Token ID:*<br /><br />Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.manage-teams__team-name &gt; div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin second token</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<!--Token disappears from list-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.modal-body</td>
+	<td>@test5<br />test5@test.com<br /><br /><br />Personal access tokens function similarly to session tokens and can be used by integrations to interact with this Mattermost server. Tokens are disabled if the user is deactivated. Learn more about personal access tokens.<br />Token Description: Non-admin second token<br />Token ID:*<br /><br />Delete<br /><br />Token Description: Non-admin first token<br />Token ID:*<br /><br />Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body</td>
+	<td>@test5<br />test5@test.com<br /><br /><br />Personal access tokens function similarly to session tokens and can be used by integrations to interact with this Mattermost server. Tokens are disabled if the user is deactivated. Learn more about personal access tokens.<br />Token Description: Non-admin first token<br />Token ID:*<br /><br />Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<!--Deleted access token does not appear-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin first token</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.alert.alert-transparent</td>
+	<td>Token Description: Non-admin first token<br />Token ID: *<br />Disable - Delete<br /><br /><br />Token Description: Non-admin second token<br />Token ID: *<br />Disable - Delete</td>
+</tr>
+<!--Disable token-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.setting-box__item div a span:contains('Disable')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.setting-box__item div a span:contains('Disable')</td>
+	<td></td>
+</tr>
+<!--Shows "Disabled", disable button changes to Enable-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin first token(Disabled)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.setting-box__item div a span:contains('Enable')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=cancelSetting</td>
+	<td>Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Disabled token still appears in user's token list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Tokens')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Tokens')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.manage-teams__team-name &gt; div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin first token</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<!--Delete own token-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tokensEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin first token(Disabled)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.setting-box__item div a span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.setting-box__item div a span:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#confirmModal &gt; div.modal-dialog &gt; div.modal-content &gt; div.modal-header</td>
+	<td>exact:Delete Token?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger</td>
+	<td>Any integrations using this token will no longer be able to access the Mattermost API. You cannot undo this action.<br /><br />Are you sure want to delete the Non-admin first token token?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin second token(Disabled)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Deleted token no longer appears in user's token list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Tokens')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Tokens')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.manage-row__empty &gt; span</td>
+	<td>No personal access tokens.</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.manage-teams__team-name &gt; div.whitespace--nowrap.overflow--ellipsis</td>
+	<td>Token Description: Non-admin second token</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.close</td>
+	<td>×Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td>×Close</td>
+</tr>
+<!--Cleanup: Re-enable email notifications, disable personal access tokens-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.SendEmailNotificationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.SendEmailNotificationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=integrations/integration_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=integrations/integration_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableUserAccessTokensfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableUserAccessTokensfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--GIF-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=integrations/gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=integrations/gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>GIF (Beta)</td>
+</tr>
+<!--Enable, edit default values, refresh, changes saved-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableGifPickertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableGifPickertrue</td>
+	<td></td>
+</tr>
+<!--First store existing values-->
+<tr>
+	<td>storeValue</td>
+	<td>id=ServiceSettings.GfycatApiKey</td>
+	<td>gfycatkey</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=ServiceSettings.GfycatApiSecret</td>
+	<td>gfycatsecret</td>
+</tr>
+<!--Edit to fake values, refresh-->
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.GfycatApiKey</td>
+	<td>notarealkey</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.GfycatApiSecret</td>
+	<td>notarealsecret</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.GfycatApiKey</td>
+	<td>notarealkey</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.GfycatApiSecret</td>
+	<td>notarealsecret</td>
+</tr>
+<!--Replace real values-->
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.GfycatApiKey</td>
+	<td>${gfycatkey}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.GfycatApiSecret</td>
+	<td>${gfycatsecret}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify can use Gfycat in post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emoji-picker-tabs-tab-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emoji-picker-tabs-tab-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=searchText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=searchText</td>
+	<td>asparagus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.search-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.search-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>https://thumbs.gfycat.com/*.gif</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=https://thumbs.gfycat.com/*.gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.img-div.attachment__image.cursor--pointer</td>
+	<td></td>
+</tr>
+<!--*** Can also visually verify that the gif posted-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Delete test Gfycat post-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>h${KEY_BACKSPACE}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=deletePostModalButton</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=deletePostModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=https://thumbs.gfycat.com/*.gif</td>
+	<td></td>
+</tr>
+<!--Disable Gfycat-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=integrations/gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=integrations/gif</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableGifPickerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableGifPickerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify Gfycat not available in emoji picker-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.emoji-picker__search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=emoji-picker-tabs-tab-2</td>
+	<td></td>
+</tr>
+<!--CORS-->
+<!--Just verifies changes are saved-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--First verify SiteURL is set correctly, to avoid issues with invalid CORS domain-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://selenium.test.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=integrations/cors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=integrations/cors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>CORS</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>exact:http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

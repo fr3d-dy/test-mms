@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>Messaging</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Messaging</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Basic Messaging-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>First${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>First</td>
+</tr>
+<!--Reply using post actions menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuReply0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuReply0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@class='btn btn-primary comment-btn pull-right disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText1 &gt; p</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div/div/div/span/p</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.comment-count</td>
+	<td>1</td>
+</tr>
+<!--Close reply RHS and re-open using reply count link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.comment-count</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/span/p</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Hello</td>
+</tr>
+<!--Cancel out of editing reply-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuEdit0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuEdit0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>. Cancel out of this edit</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td>Reply. Cancel out of this edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/span/p</td>
+	<td>Reply</td>
+</tr>
+<!--Edit reply in center, verify edit displays in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuEdit0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuEdit0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>. Make this edit.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td>Reply. Make this edit.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited-indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div..post--edited &gt; div &gt; span.post-message__text &gt; p</td>
+	<td>Reply. Make this edit.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Reply. Make this edit.</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited-indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Reply. Make this edit.</td>
+</tr>
+<!--Cancel out of deleting parent post-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post__link &gt; span &gt; span</td>
+	<td>Commented on test's message:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuDelete1 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuDelete1 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/span[2]</td>
+	<td>This post has 1 comment on it.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited-indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div..post--edited &gt; div &gt; span.post-message__text &gt; p</td>
+	<td>Reply. Make this edit.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Reply. Make this edit.</td>
+</tr>
+<!--Delete parent post, verify reply deletes too-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuDelete1 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuDelete1 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/span[2]</td>
+	<td>This post has 1 comment on it.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.post-edited-indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>First</td>
+</tr>
+<!--Reply using reply arrow and delete reply, leaving parent post in place-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<!--(Verify Add Comment button disabled if text box empty)-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@class='btn btn-primary comment-btn pull-right disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Delete this reply</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@class='btn btn-primary comment-btn pull-right']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/span/p</td>
+	<td>Delete this reply</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>Delete this reply</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuDelete0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuDelete0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Comment?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>First</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText0 &gt; p</td>
+	<td>First</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Delete this reply</td>
+	<td></td>
+</tr>
+<!--Cleanup: Delete message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@type='button'])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#centerDotMenuDelete0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#centerDotMenuDelete0 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

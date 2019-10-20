@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>AccountSettingsPassword</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AccountSettingsPassword</td></tr>
+</thead><tbody>
+<!--Using test2@test.com for Security tests to avoid failure of this test affecting all other tests-->
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Security-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.tab-header</td>
+	<td>Security Settings</td>
+</tr>
+<!--Password-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<!--Current password required-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>Please enter your current password.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<!--New passwords must match-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>passwddd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>The new passwords you entered do not match.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--Incorrect current password, matching new passwords, error-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>paaaaaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=serverError</td>
+	<td>The &quot;Current Password&quot; you entered is incorrect. Please check that Caps Lock is off and try again.</td>
+</tr>
+<!--Incorrect length new password, error-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>Your password must contain between 5 and 64 characters.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--Cancel out of changing password w/ valid entries-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--DisableAnimations-->
+<!--Verify still old password (canceled out of changes)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Successfully change password, store timestamp helper text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=passwordDesc</td>
+	<td>Last updated*</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=#passwordDesc &gt; span</td>
+	<td>updated1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwdd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=passwordDesc</td>
+	<td>Last updated*</td>
+</tr>
+<!--Open Access History and Active Sessions Views-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.security-links.color--link span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.security-links.color--link span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=th &gt; span</td>
+	<td>Timestamp</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//th[2]/span</td>
+	<td>Action</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//td[2]</td>
+	<td>Password completed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//tr[2]/td[2]</td>
+	<td>Password attempted</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//th[3]/span</td>
+	<td>IP Address</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//th[4]/span</td>
+	<td>Session ID</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.security-links.color--link.margin-top span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.security-links.color--link.margin-top span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.session-help-text &gt; span</td>
+	<td>Sessions are created when you log in to a new browser on a device. Sessions let you use Mattermost without having to log in again for a time period specified by the System Admin. If you want to log out sooner, use the 'Logout' button below to end a session.</td>
+</tr>
+<!--LOG OUT by ending current (top in list) session-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.activity-log__action &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.activity-log__action &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>Your session has expired. Please log in again.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

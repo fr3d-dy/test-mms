@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>ChannelManageMembers</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ChannelManageMembers</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/ui-automation/channels/town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<!--PUBLIC CHANNEL-->
+<!--Create Public Channel through More... modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=createNewChannel</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createNewChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createNewChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>To Manage</td>
+</tr>
+<!--PUBLIC (extracted from test that created new channel)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Add Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<!--Try searching on `* ` (shouldn't display blank results)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>* </td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<!--Filter user list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=div.more-modal__name</td>
+	<td>topname</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<!--Filtering by user already added to the box shows no items found-->
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>2</td>
+</tr>
+<!--Manage Members-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>To Manage</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 2 members of 2 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td>Channel Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<!--Filter list, then remove text and list un-filters-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<!--debug-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<!--Filter a specific user and add to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name:contains('test7')</td>
+	<td></td>
+</tr>
+<!--Remove users from channel-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>To Manage</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.more-modal__name:contains('test7')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelManageMembers</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<!--Change from Channel Admin to Channel Member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<!--Remove demoted user from channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<!--Add users from member icon list-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelMemberIcon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberIcon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__header &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.tooltip-inner</td>
+	<td>Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.name</td>
+	<td>To Manage</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 19 more people.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelMemberCountText</td>
+	<td>3</td>
+</tr>
+<!--Open DM with user from member icon list-->
+<tr>
+	<td>click</td>
+	<td>id=channelMemberCountText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__header &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name:contains('test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name:contains('test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Favorite DM channel, then close (will test on re-opening still fav)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#toggleFavorite.style--none.color--link.channel-header__favorites.active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.tooltip-inner &gt; span</td>
+	<td>Remove from Favorites</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='favoriteChannel']/span[contains(text(),'FAVORITE CHANNELS')] </td>
+	<td></td>
+</tr>
+<!--^^Had to replace CCS because of what looked like a bug in sidebar CSS. - UNREADS sections has same id?-->
+<tr>
+	<td>waitForText</td>
+	<td>link=test3×</td>
+	<td>test3×</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.btn-close</td>
+	<td>×</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--PRIVATE CHANNEL-->
+<!--Create Private Channel through `+`-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>Manage Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Manage Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Add Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<!--Try searching on `* ` (shouldn't display blank results)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>* </td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<!--Filter user list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=div.more-modal__name</td>
+	<td>topname</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>${topname}</td>
+</tr>
+<!--Filtering by user already added to the box shows no items found-->
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>2</td>
+</tr>
+<!--Manage Members-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Manage Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 2 members of 2 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<!--Filter list, then remove text and list un-filters-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<!--Filter a specific user and add to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name:contains('test7')</td>
+	<td></td>
+</tr>
+<!--Remove users from channel-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Manage Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.more-modal__name:contains('test7')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelManageMembers</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<!--Change from Channel Admin to Channel Member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Member')]</td>
+	<td></td>
+</tr>
+<!--Remove demoted user from channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']/button/span/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<!--Add users from member icon list-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelMemberIcon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberIcon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__header &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.tooltip-inner</td>
+	<td>Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showInviteModal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.name</td>
+	<td>Manage Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 19 more people.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//*[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelMemberCountText</td>
+	<td>3</td>
+</tr>
+<!--Open DM with user from member icon list-->
+<tr>
+	<td>click</td>
+	<td>id=channelMemberCountText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__header &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name:contains('test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name:contains('test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#toggleFavorite.style--none.color--link.channel-header__favorites.active</td>
+	<td></td>
+</tr>
+<!--Cleanup: Un-favorite-->
+<tr>
+	<td>click</td>
+	<td>css=button#toggleFavorite.style--none.color--link.channel-header__favorites.active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button#toggleFavorite.style--none.color--link.channel-header__favorites.active</td>
+	<td></td>
+</tr>
+<!--Cleanup: Delete channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=To Manage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=To Manage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger &gt; span</td>
+	<td>This will archive the channel from the team and make its contents inaccessible for all users.<br /><br />Are you sure you wish to archive the To Manage channel?</td>
+</tr>
+<!--^^ Locator won't match on the text because channel name is in <strong> tag^^-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Archive</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Archive</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=To Manage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Manage Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Archive</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Archive</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Manage Private</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

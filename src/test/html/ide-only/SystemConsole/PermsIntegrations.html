@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>PermsIntegrations</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PermsIntegrations</td></tr>
+</thead><tbody>
+<!--NOTE: MUST RUN Perms1Setup.html FIRST-->
+<!--LOG IN sysad-->
+<tr>
+	<td>open</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Verify OAuth 2.0 integrations are not available by default-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Incoming Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=OAuth 2.0 Applications</td>
+	<td></td>
+</tr>
+<!--SYSAD creates incoming, outgoing, slash command on each team-->
+<!--Create incoming webhook on SysAd team-->
+<tr>
+	<td>click</td>
+	<td>link=Incoming Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Incoming Webhook</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>In: SysAd on SysAd team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Created by sysad</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>In: SysAd on SysAd team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<!--Create outgoing webhook on SysAd team-->
+<tr>
+	<td>click</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Outgoing Webhook</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>Out: SysAd on SysAd team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Created by sysad</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=triggerWords</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=triggerWords</td>
+	<td>zigzagzig</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>Out: SysAd on SysAd team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<!--Create custom slash command on SysAd team-->
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Slash Command</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>Slash Cmd: SysAd on SysAd team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Created by sysad</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>zigzagzig</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>Slash Cmd: SysAd on SysAd team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.color--link</td>
+	<td>Regenerate Token</td>
+</tr>
+<!--Switch to TeamAd team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>TeamAd${num}</td>
+</tr>
+<!--Verify OAuth 2.0 integrations are not available by default-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Incoming Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=OAuth 2.0 Applications</td>
+	<td></td>
+</tr>
+<!--Create incoming webhook on TeamAd team-->
+<tr>
+	<td>click</td>
+	<td>link=Incoming Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Incoming Webhook</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>In: SysAd on TeamAd team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Created by sysad</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>In: SysAd on TeamAd team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<!--Create outgoing webhook on TeamAd team-->
+<tr>
+	<td>click</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Outgoing Webhook</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>Out: SysAd on TeamAd team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Created by sysad</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=triggerWords</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=triggerWords</td>
+	<td>zigzagzig</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>Out: SysAd on TeamAd team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<!--Create custom slash command on SysAd team-->
+<tr>
+	<td>click</td>
+	<td>link=Slash Commands</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Slash Command</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=displayName</td>
+	<td>Slash Cmd: SysAd on TeamAd team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Created by sysad</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=trigger</td>
+	<td>zigzagzig</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=url</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>Slash Cmd: SysAd on TeamAd team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.color--link</td>
+	<td>Regenerate Token</td>
+</tr>
+<!--LOG OUT sysad-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--TEAMAD cannot see Integrations on either team by default-->
+<!--LOG IN teamad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>teamad${num}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=accountSettings</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--Switch to TeamAd team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>TeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=accountSettings</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--LOG OUT teamad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--CHANAD cannot see Integrations by default-->
+<!--LOG IN chanad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>chanad${num}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=accountSettings</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--Switch to TeamAd team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>TeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=accountSettings</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--LOG OUT chanad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--MEM cannot see Integrations by default-->
+<!--LOG IN mem-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>mem${num}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=accountSettings</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--Switch to TeamAd team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container a:contains('Te')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>TeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=accountSettings</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--LOG OUT mem-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--LOG IN sysad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Enable OAuth 2.0 Integrations in Custom Integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Edit System Scheme: Allow all members to manage integrations - all types-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=schemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=schemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

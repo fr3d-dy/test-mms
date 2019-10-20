@@ -1,0 +1,2268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>AuthGitLab</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AuthGitLab</td></tr>
+</thead><tbody>
+<!--This tests on rc.test using the QA test account-->
+<tr>
+	<td>open</td>
+	<td>https://rc.test.mattermost.com</td>
+	<td></td>
+</tr>
+<!--Enter creds for any system admin (but don't click to log in)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginId</td>
+	<td>adminuser</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginPassword</td>
+	<td>adminpassword</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Disable signups-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableUserCreationfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableUserCreationfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Log out system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab Single Sign-On</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab Single Sign-On</td>
+	<td></td>
+</tr>
+<!--Error displays with signup disabled-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>User sign-up is disabled.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2</td>
+	<td>Error</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<!--Log in as system admin using previously stored creds-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminuser}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpassword}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Re-enable signups-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableUserCreationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableUserCreationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Ensure email verification is turned on (click both to activate Save)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.RequireEmailVerificationfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.RequireEmailVerificationfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.RequireEmailVerificationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.RequireEmailVerificationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=EmailSettings.RequireEmailVerificationtrue</td>
+	<td>on</td>
+</tr>
+<!--Get team invite (for whichever team was top of the drop-down)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>teaminvite</td>
+</tr>
+<!--Log out system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Open team invite link-->
+<tr>
+	<td>open</td>
+	<td>${teaminvite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong &gt; span</td>
+	<td>Create an account with:</td>
+</tr>
+<!--Create account using QA test GitLab account-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab Single Sign-On</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab Single Sign-On</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_login</td>
+	<td>mmostqa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>passwdpasswd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Note: First time through, clicked to Authorize the app-->
+<!--But shouldn't be asked that again unless they change TOS or something-->
+<!--Account is created and tutorial displays-->
+<tr>
+	<td>waitForText</td>
+	<td>id=tutorialIntroOne</td>
+	<td>Welcome to:MattermostYour team communication all in one place, instantly searchable and available anywhere.<br />Keep your team connected to help them achieve what matters most.</td>
+</tr>
+<!--Password can't be changed for GitLab signin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#passwordDesc &gt; span</td>
+	<td>Login done through GitLab</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Login occurs through GitLab. Password cannot be updated.</td>
+	<td></td>
+</tr>
+<!--Change signin method to email/password-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#signinDesc &gt; span</td>
+	<td>GitLab</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Switch Gitlab SSO Account to Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=passwordconfirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwordconfirm</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Switch Gitlab SSO to email and password</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Success message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<!--Can log in using email/password-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=mmostqa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Log out mmostqa-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Fail to log in using the GitLab account that switched to email-->
+<!--Error message displays-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>There is already an account associated with that email address using a sign in method other than gitlab. Please sign in using email.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2</td>
+	<td>Error</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back to Mattermost</td>
+	<td></td>
+</tr>
+<!--Switch email/password signin to GitLab-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=mmostqa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#signinDesc &gt; span</td>
+	<td>Email and Password</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using GitLab SSO</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using GitLab SSO</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Switch account to Gitlab SSO</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Success message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<!--Signs in successfully using GitLab-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify username and email can't be edited because set in GitLab-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>This field is handled through your login provider. If you want to change it, you need to do so through your login provider.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emailDesc &gt; span</td>
+	<td>Login done through GitLab (mmostqa@gmail.com)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<!--Won't fix: Text alignment not ideal-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-group</td>
+	<td>Login occurs through GitLab. Email cannot be updated. Email address used for notifications is mmostqa@gmail.com.<br />Email is used for sign-in, notifications, and password reset. Email requires verification if changed.</td>
+</tr>
+<!--Edit first and last name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>QA-edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>Reddogs-edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>QA-edit Reddogs-edit</td>
+</tr>
+<!--Log out mmostqa-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Open GitLab-->
+<tr>
+	<td>open</td>
+	<td>https://gitlab.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<!--Edit email address in Profile-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-pencil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-pencil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>mmostqa+edit@gmail.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=user_email</td>
+	<td>mmostqa+edit@gmail.com</td>
+</tr>
+<!--Store full name value-->
+<tr>
+	<td>storeValue</td>
+	<td>id=user_name</td>
+	<td>gitlabfullname</td>
+</tr>
+<!--Edit username in Account-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username-change-input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=username-change-input</td>
+	<td>-edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-warning</td>
+	<td>Update username</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.js-modal-primary-action.qa-modal-primary-button.btn-warning</td>
+	<td>Update username</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.js-modal-primary-action.qa-modal-primary-button.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=username-change-input</td>
+	<td>mmostqa-edit</td>
+</tr>
+<!--Back to Mattermost, sign in using GitLab-->
+<tr>
+	<td>open</td>
+	<td>https://rc.test.mattermost.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<!--Username updated to what was edited in GitLab-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div#headerUsername.user__name</td>
+	<td>@mmostqa-edit</td>
+</tr>
+<!--Full name matches GitLab (replacing previous edit in Mm)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>${gitlabfullname}</td>
+</tr>
+<!--Username matches GitLab here as well-->
+<tr>
+	<td>waitForText</td>
+	<td>id=usernameDesc</td>
+	<td>mmostqa-edit</td>
+</tr>
+<!--Email updated -->
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>Login done through GitLab (mmostqa+edit@gmail.com)</td>
+</tr>
+<!--Log out mmostqa-edit-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in system admin using previously stored credentials-->
+<tr>
+	<td>open</td>
+	<td>https://rc.test.mattermost.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminuser}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpassword}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Deactivate GitLab user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>mmostqa</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@mmostqa-edit - MM QA</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.caret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.caret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none</td>
+	<td></td>
+</tr>
+<!--Verify SSO messaging-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong &gt; span</td>
+	<td>You must also deactivate this user in the SSO provider or they will be reactivated on next login or sync.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<!--Log out system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--GitLab user is reactivated on signing in using SSO-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div#headerUsername.user__name</td>
+	<td>@mmostqa-edit</td>
+</tr>
+<!--Log out mmostqa-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in system admin using previously stored credentials-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminuser}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpassword}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Deactivate GitLab user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Fields hide when GitLab signin is disabled-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<!--Note: rctesting is set up with dual OAuth; first change to GitLab-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=oauthType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=oauthType</td>
+	<td>label=GitLab</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=GitLabSettings.Id</td>
+	<td>gitlabappid</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=GitLabSettings.Url</td>
+	<td>exact:https://gitlab.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<!--Disable OAuth signin; fields are hidden-->
+<tr>
+	<td>select</td>
+	<td>id=oauthType</td>
+	<td>label=Do not allow sign-in via an OAuth 2.0 provider</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=oauthType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<!--Set back to GitLab; fields are displayed with previous values-->
+<tr>
+	<td>select</td>
+	<td>id=oauthType</td>
+	<td>label=GitLab</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=GitLabSettings.Id</td>
+	<td>${gitlabappid}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=GitLabSettings.Url</td>
+	<td>exact:https://gitlab.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Endpoint values pre-populate based on GitLab Site URL-->
+<!-- and are uneditable-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Url</td>
+	<td>gitlaburl</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=GitLabSettings.Url</td>
+	<td>gitlaburl</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=GitLabSettings.UserApiEndpoint</td>
+	<td>${gitlaburl}/api/v4/user</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=GitLabSettings.AuthEndpoint</td>
+	<td>${gitlaburl}/oauth/authorize</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=GitLabSettings.TokenEndpoint</td>
+	<td>${gitlaburl}/oauth/token</td>
+</tr>
+<tr>
+	<td>verifyNotEditable</td>
+	<td>id=GitLabSettings.UserApiEndpoint</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotEditable</td>
+	<td>id=GitLabSettings.AuthEndpoint</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotEditable</td>
+	<td>id=GitLabSettings.TokenEndpoint</td>
+	<td></td>
+</tr>
+<!--Changing GitLab Site URL auto-changes endpoint values-->
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Url</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=GitLabSettings.UserApiEndpoint</td>
+	<td>http://example.com/api/v4/user</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=GitLabSettings.AuthEndpoint</td>
+	<td>http://example.com/oauth/authorize</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=GitLabSettings.TokenEndpoint</td>
+	<td>http://example.com/oauth/token</td>
+</tr>
+<!--Discard changes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Removing Mattermost Site URL does not prevent GitLab signin-->
+<!--Manually disable email batching before removing URL-->
+<tr>
+	<td>storeValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>mmsiteurl</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Please configure your Site URL in the System Console or in gitlab.rb if you're using GitLab Mattermost.</td>
+</tr>
+<!--Log out system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--GitLab user can still sign in-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div#headerUsername.user__name</td>
+	<td>@mmostqa-edit</td>
+</tr>
+<!--Log out mmostqa-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in system admin using previously stored credentials-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminuser}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpassword}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Re-enter Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>${mmsiteurl}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Please configure your Site URL in the System Console or in gitlab.rb if you're using GitLab Mattermost.</td>
+</tr>
+<!--Log out system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Verify messaging when Mattermost is not authorised-->
+<!--Open GitLab and de-authorize Mattermost-->
+<tr>
+	<td>open</td>
+	<td>https://gitlab.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Applications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Applications</td>
+	<td></td>
+</tr>
+<!--This part is brittle; may have to manually click Revoke next to rc.test-->
+<tr>
+	<td>waitForText</td>
+	<td>css=td</td>
+	<td>rc.test</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td>Revoke</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; input[name=&quot;commit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=td</td>
+	<td>rc.test</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div/span</td>
+	<td>The application was revoked access.</td>
+</tr>
+<!--Back to Mattermost - Might need to do an extra logout -->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://rc.test.mattermost.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<!--Authorization page displays-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.page-title</td>
+	<td>exact:Authorize rc.test to use your account?</td>
+</tr>
+<!--Denying authorization prevents login-->
+<tr>
+	<td>waitForValue</td>
+	<td>name=commit</td>
+	<td>Deny</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td>Deny</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Authorization Error</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span</td>
+	<td>You must authorize Mattermost to log in with Gitlab.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a &gt; span</td>
+	<td>Back to login page</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=GitLab</td>
+	<td></td>
+</tr>
+<!--Authorization page displays-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.page-title</td>
+	<td>exact:Authorize rc.test to use your account?</td>
+</tr>
+<!--Authorizing allows login-->
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div#headerUsername.user__name</td>
+	<td>@mmostqa-edit</td>
+</tr>
+<!--Cleanup in Mattermost-->
+<!--Change signin method to email/password-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#signinDesc &gt; span</td>
+	<td>GitLab</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Switch Gitlab SSO Account to Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=passwordconfirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwordconfirm</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Switch Gitlab SSO to email and password</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Success message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<!--Log in mmostqa-edit using email/password-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=mmostqa-edit</td>
+</tr>
+<!--Change username and email address-->
+<!--Store timestamp to make username/email unique-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())}</td>
+	<td>date</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>mmqa-${date}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=usernameDesc</td>
+	<td>mmqa-${date}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>mmostqa+qa-${date}@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>mmostqa+qa-${date}@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.announcement-bar.announcement-bar-success</td>
+	<td>Check your email inbox to verify the address.×</td>
+</tr>
+<!--Log out-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Cleanup in GitLab-->
+<tr>
+	<td>open</td>
+	<td>https://gitlab.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<!--Edit email address in Profile-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-pencil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-pencil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>mmostqa@gmail.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=user_email</td>
+	<td>mmostqa@gmail.com</td>
+</tr>
+<!--Edit username in Account-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username-change-input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=username-change-input</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-warning</td>
+	<td>Update username</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.js-modal-primary-action.qa-modal-primary-button.btn-warning</td>
+	<td>Update username</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.js-modal-primary-action.qa-modal-primary-button.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=username-change-input</td>
+	<td>mmostqa</td>
+</tr>
+<!--Log out of GitLab-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.header-user-dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

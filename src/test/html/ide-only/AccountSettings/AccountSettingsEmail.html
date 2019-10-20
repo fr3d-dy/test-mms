@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com" />
+<title>AccountSettingsUsername</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AccountSettingsUsername</td></tr>
+</thead><tbody>
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--General Settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test-edit@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test-edit@test.com</td>
+</tr>
+<!--Blank password error-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>Please enter your current password.</td>
+</tr>
+<!--Incorrect password error-->
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>lalalala</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=serverError</td>
+	<td>Your password is incorrect.</td>
+</tr>
+<!--Correct password entered, but Cancel, no change-->
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=usernameDesc</td>
+	<td>test</td>
+</tr>
+<!--Invalid email address-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test-edit-test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test-edit-test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>Please enter a valid email address</td>
+</tr>
+<!--Mismatched new and confirm emails-->
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test-edit@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test-edited@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>The new emails you entered do not match.</td>
+</tr>
+<!--Blank New Email-->
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test-edited@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>Please enter a valid email address</td>
+</tr>
+<!--Blank Confirm Email-->
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test-edit@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>The new emails you entered do not match.</td>
+</tr>
+<!--All blank-->
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>Please enter a valid email address</td>
+</tr>
+<!--Successfully change (this is on server without verification req)-->
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test-edit@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test-edit@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>test-edit@test.com</td>
+</tr>
+<!--Log out test-edit@test.com-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Cannot log in with old email address-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Enter a valid email or username and/or password.</td>
+</tr>
+<!--Can log in with new email address-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test-edit@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Cleanup: Set email address back to test@test.com-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>test@test.com</td>
+</tr>
+<!--Log out test@test.com-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

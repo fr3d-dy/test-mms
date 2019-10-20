@@ -1,0 +1,3913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--PUBLIC CHANNEL-->
+<!--Add Public Channel from + icon, header tests-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=+</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=+</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-intro &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a private channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /noheader (Edit)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; span &gt; span</td>
+	<td>This is the start of the NoHeader channel, created by admin*</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Invite others to this channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; strong</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels/noheader</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm&amp;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_header</td>
+	<td>exact:https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm&amp;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>This channel header is too long, please enter a shorter one</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForEditable</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://docs.mattermost.com/process/release-process.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel header to: https://</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; strong</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[2]/div[2]</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels/noheader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(@href, 'https://docs.mattermost.com/process/release-process.html')])[45]</td>
+	<td>exact:https://docs.mattermost.com/process/release-process.html</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin removed the channel header (was:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; strong</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels/noheader</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.nav-more &gt; span</td>
+	<td></td>
+</tr>
+<!--Create Public Channel through More... modal-->
+<tr>
+	<td>click</td>
+	<td>css=a.nav-more &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error &gt; span</td>
+	<td>Channel name must be 2 or more characters</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>qa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>This channel's reason to live.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This is the start of the qa channel, created by admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=qa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Channels*+*NoHeader*Off-Topic*qa*Town Square*More...</td>
+	<td></td>
+</tr>
+<!--Public Channel drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelEditHeader &gt; a &gt; span</td>
+	<td>Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td>Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td>Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td>Delete Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td>Leave Channel</td>
+</tr>
+<!--Edit Purpose, View Info-->
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Purpose:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>This channel's reason to live.</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>This channel's reason to live, edited.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Purpose:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>This channel's reason to live, edited.</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel purpose from: This channel's reason to live. to: This channel's reason to live, edited.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<!--Channel Notifications (UI only; actual notifications tested in Notifications)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Send_desktop_notificationsDesc &gt; span</td>
+	<td>Global default (For all activity)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>For all unread messages</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>The channel name is bolded in the sidebar when there are unread messages. Selecting &quot;Only for mentions&quot; will bold the channel only when you are mentioned.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadCancel &gt; span</td>
+	<td></td>
+</tr>
+<!--Bug here; change following to "For all unread messages" after fixed-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>Only for mentions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>Only for mentions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<!--Add Members-->
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>2</td>
+</tr>
+<!--Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 2 members of 2 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#makeChannelAdmin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#makeChannelAdmin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 member of 10 total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=addMembers</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>0 members of 10 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='member-list-popover']/div[2]/div/div[2]/div/div</td>
+	<td>test7</td>
+</tr>
+<!--Rename Channel (edit Header and Purpose covered above)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td>qa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td>qa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=display_name</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=renamed</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel display name from: qa to: renamed</td>
+	<td></td>
+</tr>
+<!--Leave Channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Find and join channel from More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.nav-more &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.nav-more &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>rename</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>rename</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin has joined the channel.</td>
+	<td></td>
+</tr>
+<!--Join channel from link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~noheader</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>~noheader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>~noheader</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=~NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=~NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin has joined the channel.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=NoHeader</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>added to the channel by admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='member-list-popover']/div[2]/div/div[2]/div/div</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.btn-message &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn-message &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro-text &gt; span</td>
+	<td>This is the start of your direct message history with test10.<br />Direct messages and files shared here are not shown to people outside this area.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#removeFromChannel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#removeFromChannel &gt; span</td>
+	<td></td>
+</tr>
+<!--Note that Se does not cause the UI to change as it should for some reason-->
+<!--But the user is removed from the channel.-->
+<!--May need to keep Remove From Channel manual until we figure this one out-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--PRIVATE CHANNEL-->
+<!--Add Private Channel from + icon, header tests-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[contains(text(),'+')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'+')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-intro &gt; span</td>
+	<td>Create a new private channel with restricted membership.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-intro &gt; a &gt; span</td>
+	<td>Create a public channel</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>PrivateNoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /privatenoheader (Edit)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PrivateNoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; span &gt; span</td>
+	<td>This is the start of the PrivateNoHeader private channel, created by admin on*</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Invite others to this private channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; strong</td>
+	<td>PrivateNoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm&amp;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_header</td>
+	<td>exact:https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm&amp;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>This channel header is too long, please enter a shorter one</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_header</td>
+	<td>exact:https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://docs.mattermost.com/process/release-process.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel header to: https://</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; strong</td>
+	<td>PrivateNoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[2]/div[2]</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(@href, 'https://docs.mattermost.com/process/release-process.html')])[45]</td>
+	<td>exact:https://docs.mattermost.com/process/release-process.html</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Set a Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin removed the channel header (was:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; strong</td>
+	<td>PrivateNoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<!--Set private channel purpose-->
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>This private channel's reason to live.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel purpose to: This private channel's reason to live.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Channels*NoHeader*Off-Topic*renamed*Town Square*More...*Private Channels*PrivateNoHeader</td>
+	<td></td>
+</tr>
+<!--Private channel drop-down-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelEditHeader &gt; a &gt; span</td>
+	<td>Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td>Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td>Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td>Delete Channel</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Leave Channel</td>
+	<td></td>
+</tr>
+<!--Edit Purpose, View Info-->
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Purpose:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>This private channel's reason to live.</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>This private channel's reason to live, edited.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Purpose:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>This private channel's reason to live, edited.</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel purpose from: This private channel's reason to live. to: This private channel's reason to live, edited.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<!--Channel Notifications (UI only; actual notifications tested in Notifications)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Send_desktop_notificationsDesc &gt; span</td>
+	<td>Global default (For all activity)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>For all unread messages</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>The channel name is bolded in the sidebar when there are unread messages. Selecting &quot;Only for mentions&quot; will bold the channel only when you are mentioned.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadCancel &gt; span</td>
+	<td></td>
+</tr>
+<!--Bug here; change following to "For all unread messages" after fixed-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>Only for mentions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>Only for mentions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<!--Add Members-->
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td>Add Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>2</td>
+</tr>
+<!--Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 2 members of 2 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#makeChannelAdmin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#makeChannelAdmin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 member of 10 total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=addMembers</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>0 members of 10 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='member-list-popover']/div[2]/div/div[2]/div/div</td>
+	<td>test7</td>
+</tr>
+<!--Rename private channel (edit Header and Purpose covered above)-->
+<!--Also tests Leave Channel is available after adding more members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td>PrivateNoHeader</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=display_name</td>
+	<td>Renamed: Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Renamed: Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:Renamed: Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel display name from: PrivateNoHeader to: Renamed: Private</td>
+	<td></td>
+</tr>
+<!--Favorites, all types of channel in alpha order-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4 &gt; span</td>
+	<td>Favorites</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:Renamed: Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=exact:Renamed: Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<!--Unfavorite-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test10×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=test10×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='toggleFavorite']/i</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=h4 &gt; span</td>
+	<td>Favorites</td>
+</tr>
+<!--Leave Channel-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Renamed: Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Renamed: Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Try to join private channel from link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=exact:https://selenium.test.mattermost.com/ui-automation/channels/privatenoheader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=strong.heading</td>
+	<td>Renamed: Private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Add member to private channel, remove member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[contains(text(),'+')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'+')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-intro &gt; span</td>
+	<td>Create a new private channel with restricted membership.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-intro &gt; a &gt; span</td>
+	<td>Create a public channel</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>PrivateToDelete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /privatetodelete (Edit)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of PrivateToDelete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; span &gt; span</td>
+	<td>This is the start of the PrivateToDelete private channel, created by admin on*</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Invite others to this private channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Invite others to this private channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__description</td>
+	<td>test7@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#removeFromChannel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#removeFromChannel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>1</td>
+</tr>
+<!--Delete channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger &gt; span</td>
+	<td>exact:This will delete the channel from the team and make its contents inaccessible for all users. Are you sure you wish to delete the PrivateToDelete channel?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=strong.heading</td>
+	<td>PrivateToDelete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NoHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger &gt; span</td>
+	<td>exact:This will delete the channel from the team and make its contents inaccessible for all users. Are you sure you wish to delete the NoHeader channel?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=strong.heading</td>
+	<td>NoHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=renamed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelDelete &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger &gt; span</td>
+	<td>exact:This will delete the channel from the team and make its contents inaccessible for all users. Are you sure you wish to delete the renamed channel?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=strong.heading</td>
+	<td>renamed</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test10×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=test10×</td>
+	<td></td>
+</tr>
+<!--Town Square options-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<!--Manage members-->
+<tr>
+	<td>click</td>
+	<td>css=#channelManageMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//body/div[2]/div/div[2]/div/div/div/h4/span</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__description</td>
+	<td>test7@test.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#makeChannelAdmin &gt; span</td>
+	<td>Make Channel Admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#makeChannelAdmin &gt; span</td>
+	<td>Make Channel Admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#makeChannelMember &gt; span</td>
+	<td>Make Channel Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#makeChannelMember &gt; span</td>
+	<td>Make Channel Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelMemberDropdown &gt; span &gt; span</td>
+	<td>Channel Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<!--Channel Notifications (UI only; actual notifications tested in Notifications)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelNotificationPreferences &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Send_desktop_notificationsDesc &gt; span</td>
+	<td>Global default (For all activity)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>For all unread messages</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>The channel name is bolded in the sidebar when there are unread messages. Selecting &quot;Only for mentions&quot; will bold the channel only when you are mentioned.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadCancel &gt; span</td>
+	<td></td>
+</tr>
+<!--Bug here; change following to "For all unread messages" after fixed-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>Only for mentions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Mark_Channel_UnreadEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelUnreadMentions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Mark_Channel_UnreadDesc &gt; span</td>
+	<td>Only for mentions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<!--Town Square header-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditHeader &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_header</td>
+	<td>Town Square Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Town Square Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; p</td>
+	<td>Town Square Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Town Square purpose-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; p.channel-intro__content</td>
+	<td>Welcome to Town Square!<br /><br />Post messages here that you want everyone to see. Everyone automatically becomes a permanent member of this channel when they join the team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>New Town Square purpose.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin updated the channel purpose to: New Town Square purpose.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>New Town Square purpose.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditPurpose &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>admin removed the channel purpose (was: New Town Square purpose.)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewInfo &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; span</td>
+	<td>Post messages here that you want everyone to see. Everyone automatically becomes a permanent member of this channel when they join the team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Town Square rename-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/label</td>
+	<td>URL - Cannot be changed for the default channel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=display_name</td>
+	<td>Meeting Place</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Meeting Place</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; strong</td>
+	<td>Welcome to Meeting Place!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Meeting Place</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/label</td>
+	<td>URL - Cannot be changed for the default channel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=display_name</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; strong</td>
+	<td>Welcome to Town Square!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

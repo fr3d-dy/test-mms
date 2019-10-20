@@ -1,0 +1,1601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsPolicy1Setup</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsPolicy1Setup</td></tr>
+</thead><tbody>
+<!--Generate number to append to user, team, channel names-->
+<!--(To help avoid collisions; it's based on minutes and seconds)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>num</td>
+</tr>
+<!--Create new account to be system admin for these tests-->
+<tr>
+	<td>open</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>sysad${num}@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<!--Create team for this test, system admin creates SysAd${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>SysAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Set team to open-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamSettings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamSettings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=open_inviteDesc</td>
+	<td>Yes</td>
+</tr>
+<!--Copy team invite link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>sysadinvite</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT sysad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--LOG IN admin to make sysad a system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#memberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#memberDropdown &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=manageRoles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=manageRoles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=systemadmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=systemadmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#memberDropdown &gt; span &gt; span</td>
+	<td>System Admin</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Use invite link to create user mem${num}-->
+<tr>
+	<td>open</td>
+	<td>${sysadinvite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>mem${num}@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>mem${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<!--mem creates channel PubMem${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>PubMem${num}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newPublicChannelName</td>
+	<td>PubMem${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubMem${num}</td>
+</tr>
+<!--LOG OUT mem-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Use same team invite link to create user teamad${num} -->
+<tr>
+	<td>open</td>
+	<td>${sysadinvite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>teamad${num}@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>teamad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<!--Join channel PubMem${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>PubMem${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubMem${num}</td>
+</tr>
+<!--Create private channel PriTeamAd${num} on that SysAd${num} team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPrivateChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPrivateChannelName</td>
+	<td>PriTeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriTeamAd${num}</td>
+</tr>
+<!--Add sysad and mem to new private channel PriTeamAd-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@mem${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@mem${num} and @sysad${num} added to the channel by you.</td>
+	<td></td>
+</tr>
+<!--teamad creates team TeamAd${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@id='createTeam'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@id='createTeam'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>TeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>teamad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>TeamAd${num}</td>
+</tr>
+<!--Add sysad and mem to new team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@id='addUsersToTeam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@id='addUsersToTeam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='Select-input']/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@class='Select-input']/input</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@class='Select-input']/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@class='Select-input']/input</td>
+	<td>mem${num}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@mem${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@class='Select-input']/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>3</td>
+</tr>
+<!--Create public channel PubTeamAd${num} on TeamAd team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>PubTeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newPublicChannelName</td>
+	<td>PubTeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubTeamAd${num}</td>
+</tr>
+<!--Add mem and sysad to new channel-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@mem${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@sysad${num} added to the channel by you.</td>
+	<td></td>
+</tr>
+<!--Copy team invite for TeamAd team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>teamadinvite</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT teamad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Use invite link to create user chanad${num} on team TeamAd-->
+<tr>
+	<td>open</td>
+	<td>${teamadinvite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>chanad${num}@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>chanad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<!--Create public channel PubChanAd${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>PubChanAd${num}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newPublicChannelName</td>
+	<td>PubChanAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubChanAd${num}</td>
+</tr>
+<!--Add mem, sysad, teamad to new channel-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@mem${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@teamad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@teamad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@teamad${num} and 2 others were added to the channel by you.</td>
+	<td></td>
+</tr>
+<!--Create private channel called PriChanAd${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPrivateChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPrivateChannelName</td>
+	<td>PriChanAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriChanAd${num}</td>
+</tr>
+<!--Add sysad, mem, teamad to new private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@mem${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@sysad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@teamad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@teamad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@teamad${num} and 2 others were added to the channel by you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>4</td>
+</tr>
+<!--Join SysAd${num} team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinAnotherTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinAnotherTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SysAd${num}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SysAd${num}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAd${num}</td>
+</tr>
+<!--Join channel PubMem${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>PubMem${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubMem${num}</td>
+</tr>
+<!--LOG OUT chanad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--LOG IN sysad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>sysad${num}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Join channel PubMem${num}-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.more-modal__name</td>
+	<td>PubMem${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubMem${num}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>4</td>
+</tr>
+<!--On team SysAd, channel PriTeamAd: add member chanad-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-container &gt; a &gt; div.team-btn. &gt; div.team-btn__initials</td>
+	<td>Sy</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container &gt; a &gt; div.team-btn. &gt; div.team-btn__initials</td>
+	<td>Sy</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>SysAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>priteamad${num}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PriTeamAd${num}*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PriTeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@chanad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@chanad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@chanad${num} added to the channel by you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>4</td>
+</tr>
+<!--On team TeamAd, channel PubTeamAd: add member chanad-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-container.unread &gt; a &gt; div.team-btn. &gt; div.team-btn__initials</td>
+	<td>Te</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container.unread &gt; a &gt; div.team-btn. &gt; div.team-btn__initials</td>
+	<td>Te</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>TeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>pubteamad${num}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>PubTeamAd${num}*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubTeamAd${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@chanad${num}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@chanad${num}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@chanad${num} added to the channel by you.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=member_popover</td>
+	<td>4</td>
+</tr>
+<!--LOG OUT sysad-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

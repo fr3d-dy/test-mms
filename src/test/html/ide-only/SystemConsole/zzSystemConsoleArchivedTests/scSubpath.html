@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scSubpath</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scSubpath</td></tr>
+</thead><tbody>
+<!--This test uses the subpath test server https://subpath.test.mattermost.com/mattermost/-->
+<!--LOG IN sysadmin-->
+<tr>
+	<td>openAndWait</td>
+	<td>https://subpath.test.mattermost.com/mattermost/</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>sysadmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>sysadmin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Verify Site URL w/ subpath-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://subpath.test.mattermost.com/mattermost</td>
+</tr>
+<!--Edit Site URL-->
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://subpath.test.mattermost.com/edit</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Still opens /mattermost (there hasn't been a server restart)-->
+<tr>
+	<td>openAndWait</td>
+	<td>https://subpath.test.mattermost.com/mattermost/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Verify Site URL edit persisted-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://subpath.test.mattermost.com/edit</td>
+</tr>
+<!--Set back to https://subpath.test.mattermost.com/mattermost/-->
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://subpath.test.mattermost.com/mattermost/</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://subpath.test.mattermost.com/mattermost/</td>
+</tr>
+<!--Open without subpath, verify Tacoland!-->
+<tr>
+	<td>openAndWait</td>
+	<td>https://subpath.test.mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1</td>
+	<td>Welcome to tacoland!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img</td>
+	<td></td>
+</tr>
+<!--Back to Mattermost subpath, open team se-subpath-test via URL-->
+<tr>
+	<td>openAndWait</td>
+	<td>https://subpath.test.mattermost.com/mattermost/se-subpath-test/channels/town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Jump to permalink view from Search-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Se_Favorite_Channel*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Se_Favorite_Channel*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to search term (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{((new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>monthdaytime</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>finding${monthdaytime}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('finding${monthdaytime}')</td>
+	<td></td>
+</tr>
+<!--Switch to Off-Topic in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Search for search term-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>finding${monthdaytime}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>finding${monthdaytime}</td>
+</tr>
+<!--Jump to search result permalink, close RHS, verify channel and post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Get post ID from permalink URL (Note: Eval uses [6] instead of [5] b/c of subpath)-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[6]</td>
+	<td>postid</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#${postid}_message &gt; div.post-message.post-message--collapsed &gt; div.post-message__text-container &gt; div.post-message__text &gt; p</td>
+	<td>finding${monthdaytime}</td>
+</tr>
+<!--Verify permalink highlight-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#postListContent.post-list__content div#post_${postid}.post.post--highlight.other--root.current--user div.post__content div div div#${postid}_message.post__body div.post-message.post-message--collapsed div.post-message__text-container div.post-message__text p</td>
+	<td></td>
+</tr>
+<!--Flag from permalink view-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Manually hover over permalink message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<!--Flag is visible on that post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#post_${postid}.post.post--highlight.other--root.current--user div.post__content div div.post__header div.col div.post__header--info div.col button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Switch to Off-Topic in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--View flagged posts-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>finding${monthdaytime}</td>
+</tr>
+<!--Jump to permalink from flagged posts RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<!--Close RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Verify permalink highlight-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#${postid}_message &gt; div.post-message.post-message--collapsed &gt; div.post-message__text-container &gt; div.post-message__text &gt; p</td>
+	<td>finding${monthdaytime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#postListContent.post-list__content div#post_${postid}.post.post--highlight.other--root.current--user div.post__content div div div#${postid}_message.post__body div.post-message.post-message--collapsed div.post-message__text-container div.post-message__text p</td>
+	<td></td>
+</tr>
+<!--Jump to recent messages, pin message to channel from reply RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div#postListContent.post-list__content div#post_${postid}.post.post--highlight.other--root.current--user div.post__content div div div#${postid}_message.post__body div.post-message.post-message--collapsed div.post-message__text-container div.post-message__text p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col.col__reply</td>
+	<td></td>
+</tr>
+<!--*** Click to Pin in RHS (Failing to find Pin to channel)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#rhsrootDotMenuPin &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhsrootDotMenuPin &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--*** False positive; lots of Pinned posts in center already-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__pinned-badge</td>
+	<td>Pinned</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post__header--info &gt; div.col &gt; span.post__pinned-badge &gt; span</td>
+	<td>Pinned</td>
+</tr>
+<!--View pinned posts-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderPinButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderPinButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Pinned posts in Se_Favorite_Channel</td>
+</tr>
+<!--Jump to permalink from pinned RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post__header--info &gt; div.col &gt; span.post__pinned-badge &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<!--Close RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Verify permalink highlight-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#${postid}_message &gt; div.post-message.post-message--collapsed &gt; div.post-message__text-container &gt; div.post-message__text &gt; p</td>
+	<td>finding${monthdaytime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#postListContent.post-list__content div#post_${postid}.post.post--highlight.other--root.current--user div.post__content div div div#${postid}_message.post__body div.post-message.post-message--collapsed div.post-message__text-container div.post-message__text p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<!--Mention own user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@sysadmin! You're the best.${KEY_ENTER}</td>
+</tr>
+<!--Switch to Off-Topic in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--View recent mentions-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderMentionButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderMentionButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@sysadmin</td>
+	<td>@sysadmin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>@sysadmin! You're the best.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<!--Get post ID from permalink URL (Note: Eval uses [6] instead of [5] b/c of subpath)-->
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[6]</td>
+	<td>mentionid</td>
+</tr>
+<!--Verify permalink post and highlight-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#${mentionid}_message &gt; div.post-message.post-message--collapsed &gt; div.post-message__text-container &gt; div.post-message__text &gt; p</td>
+	<td>@sysadmin! You're the best.</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--*** This highlight verification isn't working anymore; verify visually-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#postListContent.post-list__content div#post_${mentionid}.post.post--highlight.other--root.current--user div.post__content div div div#${mentionid}_message.post__body div.post-message.post-message--collapsed div.post-message__text-container div.post-message__text p</td>
+	<td></td>
+</tr>
+<!--Leave and re-join public channel via permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownIcon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownIcon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[15]/button</td>
+	<td>Leave Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[15]/button</td>
+	<td>Leave Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderTitle &gt; span</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Se_Favorite_Channel*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${urlwhole}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Se_Favorite_Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Se_Favorite_Channel*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<!--Create a private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPrivateChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPrivateChannelName</td>
+	<td>Private-${monthdaytime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Private-${monthdaytime}</td>
+</tr>
+<!--Post a message to get a permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This is a private channel message you will see again later.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>This is a private channel message you will see again later.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>private channel message you will see${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li &gt; button.style--none</td>
+	<td>Permalink</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>privateperma</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--Switch to Off-Topic before signing out-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--LOG OUT sysadmin-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Open private channel message permalink-->
+<tr>
+	<td>openAndWait</td>
+	<td>${privateperma}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotLocation</td>
+	<td>https://subpath.test.mattermost.com/mattermost/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN sysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>sysadmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>sysadmin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Opens to private channel message permalink-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Private-${monthdaytime}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>This is a private channel message you will see again later.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td>Click here to jump to recent messages.</td>
+</tr>
+<!--Redirect to GM from link on login-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Open GM URL-->
+<tr>
+	<td>open</td>
+	<td>https://subpath.test.mattermost.com/mattermost/se-subpath-test/messages/89feda33890e005db8aa7126a9dde23556afe6a1</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

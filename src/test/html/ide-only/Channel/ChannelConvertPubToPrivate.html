@@ -1,0 +1,1700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>ChannelConvertPubToPrivate</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ChannelConvertPubToPrivate</td></tr>
+</thead><tbody>
+<!--***********-->
+<!--If feasible, rebuild the server AFTER running this test; -->
+<!--could cause problems in other tests if Off-Topic is private-->
+<!--***********-->
+<!--LOG IN test-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Non-system admin creates Public Channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=createNewChannel</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createNewChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createNewChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify non-system admin doesn't see option to convert to Private-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelConvert</td>
+	<td></td>
+</tr>
+<!--Add admin to channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelAddMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin*</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<!--Verify link present to add users to channel-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<!--Verify appears in channel switcher for user in the channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>public_to_</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Post message, get permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Can join from permalink before but not after converted to private channel....${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col.col__reply div.MenuWrapper</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.col.col__reply div.MenuWrapper</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li &gt; button.style--none</td>
+	<td>Permalink</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>pubtopripermalink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--Leave public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[14]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[14]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify public channel appears in More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchChannelsTextbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchChannelsTextbox</td>
+	<td>public_to</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__details</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Verify appears in channel switcher for user NOT in the channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>public_to_</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Post permalink in other channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${pubtopripermalink}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${pubtopripermalink}</td>
+	<td></td>
+</tr>
+<!--Rejoin from permalink-->
+<tr>
+	<td>click</td>
+	<td>link=${pubtopripermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<!--Leave again to prepare for future test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[14]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[14]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--LOG OUT test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/ui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify appears as option in Outgoing Webhook-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Outgoing Webhook</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Outgoing Webhook</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label.col-sm-4</td>
+	<td>Title</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Public_to_Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Restrict member management for private channels to system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/permissions/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/permissions/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a</td>
+	<td>Switch to UI Automation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<!--Cancel out of converting channel to private-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Public_to_Private1</td>
+	<td>Public_to_Private1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Public_to_Private1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span &gt; strong</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/p/span</td>
+	<td>When you convert Public_to_Private to a private channel, history and membership are preserved. Publicly shared files remain accessible to anyone with the link. Membership in a private channel is by invitation only.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//p[3]/span</td>
+	<td>Are you sure you want to convert Public_to_Private to a private channel?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>No, cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/p/span[2]</td>
+	<td>Any member can join and read this channel.</td>
+</tr>
+<!--Convert channel to private-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span &gt; strong</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/p/span</td>
+	<td>When you convert Public_to_Private to a private channel, history and membership are preserved. Publicly shared files remain accessible to anyone with the link. Membership in a private channel is by invitation only.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//p[3]/span</td>
+	<td>Are you sure you want to convert Public_to_Private to a private channel?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, convert to private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, convert to private channel</td>
+</tr>
+<!--Verify channel intro text changed-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/p/span[2]</td>
+	<td>Only invited members can see this private channel.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<!--Verify system message-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This channel has been converted to a Private Channel.</td>
+	<td></td>
+</tr>
+<!--Option to convert no longer appears in channel drop-down-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelViewInfo</td>
+	<td>View Info</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelConvert</td>
+	<td></td>
+</tr>
+<!--Verify converted channel no longer option in Outgoing Webhook-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Outgoing Webhooks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Outgoing Webhook</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label.col-sm-4</td>
+	<td>Title</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Public_to_Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify permalink no longer auto-joins channel after conversion-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${pubtopripermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${pubtopripermalink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Message Not Found</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span</td>
+	<td>Permalink belongs to a deleted message or to a channel to which you do not have access.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Private channel does not appear in channel switcher-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>ublic_to</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Converted channel does not appear in Public Channels More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchChannelsTextbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchChannelsTextbox</td>
+	<td>public_to</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No more channels to join</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchChannelsTextbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Add non-system admin to channel to verify can't add members-->
+<!--LOG OUT test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Public_to_Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Public_to_Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<!--Add test to private channel-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.light</td>
+	<td>This Is a Very Long Name That Should Truncate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.light</td>
+	<td>This Is a Very Long Name That Should Truncate</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.light</td>
+	<td>This Is a Very Long Name That Should Truncate</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<!--May fail if teammate name display is set to first/last, for example-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>test added to the channel by you.</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Non-system admin doesn't see options to add members to private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Public_to_Private1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Public_to_Private1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Set a Header</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__lock</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelViewInfo</td>
+	<td>View Info</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--LOG OUT test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Cleanup: Set policy back to all members can add users to private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/permissions/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/permissions/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a</td>
+	<td>Switch to UI Automation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<!--Cleanup: Archive test channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Public_to_Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Public_to_Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Public_to_Private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelArchiveChannel &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelArchiveChannel &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-danger &gt; span</td>
+	<td>This will archive the channel from the team and make its contents inaccessible for all users.<br /><br />Are you sure you wish to archive the Public_to_Private channel?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Archive</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Convert Off-Topic (on the open team) to private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span &gt; strong</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, convert to private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This channel has been converted to a Private Channel.</td>
+	<td></td>
+</tr>
+<!--LOG OUT test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--New account isn't added to Off-Topic after it's converted to private-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>noprivate@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>noprivate</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<!--This will fail if not the top team in list (working on how to make it less brittle)-->
+<!--In the meantime, may click UI Automation 2 team manually-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='UI_Automation_2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='UI_Automation_2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--Cleanup: Leave the team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#leaveTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#leaveTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--***********-->
+<!--If feasible, rebuild the server after running this test; -->
+<!--could cause problems in other tests if Off-Topic is private-->
+<!--***********-->
+<!--LOG OUT noprivate-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span</td>
+	<td>Logout</td>
+</tr>
+</tbody></table>
+</body>
+</html>

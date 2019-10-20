@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scNotificationSettings</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scNotificationSettings</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--EMAIL NOTIFICATION SETTINGS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Email</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=sendEmailNotificationstrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=emailNotificationContentsType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=feedbackName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=feedbackEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=feedbackOrganization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=smtpServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=smtpPort</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=connectionSecurity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=skipServerCertificateVerificationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=enableSecurityFixAlertfalse</td>
+	<td></td>
+</tr>
+<!--Connection Security on = Certificate Verification editable-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=connectionSecurity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=connectionSecurity</td>
+	<td>TLS</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=skipServerCertificateVerificationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=connectionSecurity</td>
+	<td>None</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=skipServerCertificateVerificationtrue</td>
+	<td></td>
+</tr>
+<!--Turn email notifications off; verify fields not editable-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sendEmailNotificationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sendEmailNotificationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=emailNotificationContentsType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=feedbackName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=feedbackEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=feedbackOrganization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=smtpServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=smtpPort</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=connectionSecurity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=skipServerCertificateVerificationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=enableSecurityFixAlertfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify email warning banner-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Preview Mode: Email notifications have not been configured</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Turn banner off, leave email notifications turned off-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enablePreviewModeBannerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enablePreviewModeBannerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify banner disappeared-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Preview Mode: Email notifications have not been configured</td>
+</tr>
+<!--Turn banner back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enablePreviewModeBannertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enablePreviewModeBannertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Preview Mode: Email notifications have not been configured</td>
+</tr>
+<!--Turn email notifications back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sendEmailNotificationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sendEmailNotificationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=emailNotificationContentsType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=feedbackName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=feedbackEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=feedbackOrganization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=smtpServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=smtpPort</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=connectionSecurity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=skipServerCertificateVerificationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=enableSecurityFixAlertfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify email warning banner is gone-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Preview Mode: Email notifications have not been configured×</td>
+</tr>
+<!--Enable email batching-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableEmailBatchingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableEmailBatchingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify cannot clear Site URL field with email batching on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Unable to enable email batching when SiteURL isn't set.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<!--Verify email batching options in Account Settings-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emailDesc &gt; span</td>
+	<td>Every 15 minutes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailNotificationImmediately</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailNotificationMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailNotificationHour</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailNotificationNever</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Turn off email batching-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableEmailBatchingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableEmailBatchingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Remove site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>siteurl</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Cannot turn on email batching when site URL is not set-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notifications_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableEmailBatchingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=enableEmailBatchingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.help-text &gt; span</td>
+	<td>Email batching cannot be enabled unless the SiteURL is configured in Configuration &gt; SiteURL.</td>
+</tr>
+<!--Re-add site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>${siteurl}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>${siteurl}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--MOBILE PUSH NOTIFICATION SETTINGS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=push</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=push</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header</td>
+	<td>Mobile Push</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<!--Do not send - Fields not editable, placeholder text (not value)-->
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>Do not send push notifications</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=documentation on push notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=documentation on push notifications@href</td>
+	<td>https://about.mattermost.com/default-mobile-push-notifications/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>https://push.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationContents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=pushNotificationContents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--HPNS - Fields editable, can't save until checkbox checked, placeholder value-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=option[value=&quot;mhpns&quot;]</td>
+	<td>Use HPNS connection with uptime SLA to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>label=Use HPNS connection with uptime SLA to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>https://push.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationContents</td>
+	<td></td>
+</tr>
+<!--Verify docs links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Terms of Service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Terms of Service@href</td>
+	<td>https://about.mattermost.com/hpns-terms/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Privacy Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Privacy Policy@href</td>
+	<td>https://about.mattermost.com/hpns-privacy/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost iOS app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost iOS app@href</td>
+	<td>https://about.mattermost.com/mattermost-ios-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost Android app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost Android app@href</td>
+	<td>https://about.mattermost.com/mattermost-android-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=HPNS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=HPNS@href</td>
+	<td>https://about.mattermost.com/default-hpns/</td>
+</tr>
+<!--TPNS - Fields editable, placeholder value-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=option[value=&quot;mtpns&quot;]</td>
+	<td>Use TPNS connection to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>label=Use TPNS connection to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>https://push-test.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationContents</td>
+	<td></td>
+</tr>
+<!--Verify docs links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost iOS app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost iOS app@href</td>
+	<td>https://about.mattermost.com/mattermost-ios-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost Android app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost Android app@href</td>
+	<td>https://about.mattermost.com/mattermost-android-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=TPNS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=TPNS@href</td>
+	<td>https://about.mattermost.com/default-tpns/</td>
+</tr>
+<!--Manually enter location - Can enter URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>Manually enter Push Notification Service location</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>http://push-test.mattermost.com/</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationContents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Enterprise App Store</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Enterprise App Store@href</td>
+	<td>https://about.mattermost.com/default-enterprise-app-store</td>
+</tr>
+<!--Save a URL-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pushNotificationServer</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=pushNotificationServer</td>
+	<td>http://example.com</td>
+</tr>
+<!--Clear the URL-->
+<tr>
+	<td>type</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<!--Set back to Do not send-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>Do not send push notifications</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify in Account Settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#pushDesc &gt; span</td>
+	<td>Push notifications are not enabled</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pushEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; span</td>
+	<td>Push notifications have not been enabled by your System Administrator.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

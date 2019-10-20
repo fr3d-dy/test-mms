@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scUsersEmail</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scUsersEmail</td></tr>
+</thead><tbody>
+<!--LOG IN test2 to verify existing email address works-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--LOG OUT test2-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Make sure email verification is turned off-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=EmailSettings.RequireEmailVerificationfalse</td>
+	<td>on</td>
+</tr>
+<!--Go to Users-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<!--Filter user list to just test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<!--Open Email Update modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Update Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<!--Invalid or blank email address-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error &gt; span</td>
+	<td>Please enter a valid email address</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Update Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@type='email']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@type='email']</td>
+	<td>hello!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error &gt; span</td>
+	<td>Please enter a valid email address</td>
+</tr>
+<!--Email address already in use-->
+<tr>
+	<td>type</td>
+	<td>//input[@type='email']</td>
+	<td>test3@test.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error</td>
+	<td>This email is already taken. Please choose another.</td>
+</tr>
+<!--Change email address to test22@test.com-->
+<tr>
+	<td>type</td>
+	<td>//input[@type='email']</td>
+	<td>test22@test.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//span [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--LOG IN test2 using username (no verification required)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Verify old email address does not work to log in test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test2@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>We couldn't find an account matching your login credentials.</td>
+</tr>
+<!--LOG IN test2 using new email address-->
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test22@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify in Account Settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='accountSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='accountSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>test22@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify in own user profile popover (in DM with self)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.mention__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.mention__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2 (you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=test22@test.com</td>
+	<td>test22@test.com</td>
+</tr>
+<!--LOG OUT test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Reset back to test2@test.com-->
+<!--Go to Users-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<!--Filter user list to just test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<!--Open Email Update modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Update Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Update Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@type='email']</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Reset Email</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Email: test2@test.com</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

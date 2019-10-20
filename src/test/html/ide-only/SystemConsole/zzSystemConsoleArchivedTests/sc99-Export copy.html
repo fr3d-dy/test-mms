@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsExport</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsExport</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Elements not editable when disabled, and editable when enabled-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Compliance Export (Beta)</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enableComplianceExportfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=exportJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=exportFormat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=exportLocation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableComplianceExporttrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableComplianceExporttrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=exportJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=exportFormat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Invalid time and directory values-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=exportJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=exportJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Message export job DailyRuntime must be a 24-hour time stamp in the form HH:MM.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=exportJobStartTime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=exportJobStartTime</td>
+	<td>ten</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Message export job DailyRuntime must be a 24-hour time stamp in the form HH:MM.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=exportJobStartTime</td>
+	<td>0300</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Message export job DailyRuntime must be a 24-hour time stamp in the form HH:MM.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=exportJobStartTime</td>
+	<td>3:00</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Run now populates job table-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Run Compliance Export Job Now</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Run Compliance Export Job Now</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.status-icon-warning &gt; span</td>
+	<td>Pending</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.status-icon-success &gt; span</td>
+	<td>Success</td>
+</tr>
+<!--Job completion details are tested manually-->
+<!--Start and Cancel a job-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Run Compliance Export Job Now</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Run Compliance Export Job Now</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.status-icon-warning &gt; span</td>
+	<td>Pending</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@title='Cancel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@title='Cancel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text()='Canceled']</td>
+	<td></td>
+</tr>
+<!--Cleanup: Disable Export-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableComplianceExportfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableComplianceExportfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

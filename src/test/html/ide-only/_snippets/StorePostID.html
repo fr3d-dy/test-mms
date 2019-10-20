@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>StorePostID</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">StorePostID</td></tr>
+</thead><tbody>
+<!--Get post ID after a search returns one desired result-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>postid</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<!--Wait for that post's [...] dropdown-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='center_dropdown${postid}']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

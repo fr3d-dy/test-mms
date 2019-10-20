@@ -1,0 +1,4734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head profile="http://selenium-ide.openqa.org/profiles/test-case">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+        <title>AccountSettingsMan</title>
+    </head>
+    <body>
+        <table cellpadding="1" cellspacing="1" border="1">
+            <thead>
+                <tr><td rowspan="1" colspan="3">AccountSettingsMan</td></tr>
+            </thead><tbody>
+                <!--*** Test on https://selenium.test.mattermost.com, on slow speed-->
+<!--*** Also open a separate browser and log in user test9-->
+<!--*** Files for profile pic etc. available in Resources folder-->
+<!--*** Watch a portion of that browser to see changes in real time-->
+<!--*** Watch here for visual verification instructions-->
+<!--LOG IN test10-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test10@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Verifies username, name, nickname display in member lists-->
+<!--First verifes test10 has no name set and add a nickname, then log out-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#nameDesc &gt; span</td>
+	<td>Click 'Edit' to add your full name</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#nicknameDesc &gt; span</td>
+	<td>Click 'Edit' to add a nickname</td>
+</tr>
+<!--Add nickname-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nickname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=nickname</td>
+	<td>eggplant</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=nickname</td>
+	<td>eggplant</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nicknameDesc</td>
+	<td>eggplant</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Log out-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Log in test9 to verify `@` is there, and there is no name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test9@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Set own full name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>Test9first</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>Test9last</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>Test9first Test9last</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Verify in Town Square > View Members-->
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelViewMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelViewMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--Verify full name displays and is styled span.light-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span span.light:(contains'Test9first Test9last')</td>
+	<td></td>
+</tr>
+<!--Verify nickname of other user displays inside parentheses, span.light-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.light:contains('(eggplant)')</td>
+	<td></td>
+</tr>
+<!--Verify `@` appears before username who has no first or last name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test10 - (eggplant)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__description</td>
+	<td>test10@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.light</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-header &gt; button.close &gt; span.sr-only</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-header &gt; button.close &gt; span.sr-only</td>
+	<td></td>
+</tr>
+<!--Verify in DM More... list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<!--Verify full name displays and is styled span.light-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span span.light:(contains'Test9first Test9last')</td>
+	<td></td>
+</tr>
+<!--Verify nickname of other user displays inside parentheses, span.light-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.light:contains('(eggplant)')</td>
+	<td></td>
+</tr>
+<!--Verify `@` appears before username who has no first or last name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test10 - (eggplant)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__description</td>
+	<td>test10@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-header &gt; button.close &gt; span.sr-only</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-header &gt; button.close &gt; span.sr-only</td>
+	<td></td>
+</tr>
+<!--Verify in Add Members to Team list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--Verify `@` appears before username who has no first or last name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-header &gt; button.close &gt; span.sr-only</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-header &gt; button.close &gt; span.sr-only</td>
+	<td></td>
+</tr>
+<!--Cleanup: Remove first / last from test9-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>Click 'Edit' to add your full name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Log out test9, log in test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test10@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Add position, verify max 128 characters-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=positionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=positionEdit</td>
+	<td></td>
+</tr>
+<!--Position accepts 128 characters-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=position</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=position</td>
+	<td>A Job with a Very Long Title A Job with a Very Long Title A Job with a Very Long Title A Job with a Very Long Title 012345678901</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=positionDesc</td>
+	<td>A Job with a Very Long Title A Job with a Very Long Title A Job with a Very Long Title A Job with a Very Long Title 012345678901</td>
+</tr>
+<!--Cannot type more than 128 characters-->
+<!--Can verify manually; Se replaces last character rather than prevent typing-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=positionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=positionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=position</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=position</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=position</td>
+	<td>A Job with a Very Long Title A Job with a Very Long Title A Job with a Very Long Title A Job with a Very Long Title 0123456789013</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--Full name - long name truncates in popover-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>This is a Long Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>That Should Truncate</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>This is a Long Name That Should Truncate</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Post a message to display profile pic and access popover-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Popover${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.user-popover.style--none:contains('test10')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.user-popover.style--none:contains('test10')</td>
+	<td></td>
+</tr>
+<!--*** Visually Verify "This is a Long Name That Should T..."-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@test10</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test10@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.popover__row.first &gt; a &gt; span</td>
+	<td>Edit Account Settings</td>
+</tr>
+<!--Change username for other user to verify in popover-->
+<!--Access Account Settings from own popover-->
+<tr>
+	<td>click</td>
+	<td>css=div.popover__row.first &gt; a &gt; span</td>
+	<td>Edit Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>test10edited</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=usernameDesc</td>
+	<td>test10edited</td>
+</tr>
+<!--*** Make sure image available for upload as profile pic (profile-sloth.png)-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Upload profile picture for other user to verify in popover-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<!--*** Manually select image-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.profile-img-preview</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.profile-img-preview</td>
+	<td></td>
+</tr>
+<!--*** Can visually verify in other browser that profile picture updated on post-->
+<!--*** Or wait for the test to log in as test9 (below) and visually verify there-->
+<!--Verify other user sees updates in popover-->
+<!--LOG OUT test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test9-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test9</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.user-popover.style--none:contains('test10')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.user-popover.style--none:contains('test10')</td>
+	<td></td>
+</tr>
+<!--*** Visually Verify "This is a Long Name That Should Tr..."-->
+<!--*** Visually Verify updated profile picture-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Verify updated username-->
+<tr>
+	<td>waitForText</td>
+	<td>link=@test10edited</td>
+	<td>@test10edited</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test10@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.popover__row.first &gt; a &gt; span</td>
+	<td>Edit Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Send Message</td>
+	<td></td>
+</tr>
+<!--LOG OUT test9-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test10-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test10edited</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Verify non-square profile pic is not stretched-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--Upload a picture that is not square (wider than tall, or taller than wide), can use:-->
+<!--https://www.mattermost.org/wp-content/uploads/2016/03/logoHorizontal.png-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<!--*** Manually select non-square image-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--*** Verify preview thumbnail cropped not stretched (sample shows partial "tte")-->
+<!--*** Visually verify before saving that orientation appears correct-->
+<!--*** Visually verify preview thumbnail cropped to show center, not stretched-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<!--*** Visually verify profile pic (behind modal, top left) appears like thumbnail did-->
+<!--*** Picture is cropped to show the center of the image, and image is not stretched-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Non-image file (with wrong file extension) shows error-->
+<!--not-an-image-file.jpg-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Select non-image file, that has been given incorrect image file extension-->
+<!--*** Visually verify thumbnail area is blank-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<!--Error displays, picture is not changed-->
+<tr>
+	<td>waitForText</td>
+	<td>css=label.col-sm-12.has-error</td>
+	<td>Could not save profile image. File does not appear to be a valid image.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='generalSettings']/div[2]/ul/li[2]/ul/li[3]/button[3]</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='generalSettings']/div[2]/ul/li[2]/ul/li[3]/button[3]</td>
+	<td></td>
+</tr>
+<!--Remove profile pic, don't save, select new pic, save-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<!--Click X to remove pic-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<!--*** Visually verify generic profile pic displays-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<!--*** Manually select new pic: profile-sloth.jpg is fine-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify sloth profile pic displays-->
+<!--Cleanup: Change test10 name and username back to null and test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#nameDesc &gt; span</td>
+	<td>Click 'Edit' to add your full name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=usernameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=usernameDesc</td>
+	<td>test10</td>
+</tr>
+<!--Remove profile picture - Cancel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify generic profile pic displays-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='generalSettings']/div[2]/ul/li[2]/ul/li[3]/button[3]</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='generalSettings']/div[2]/ul/li[2]/ul/li[3]/button[3]</td>
+	<td></td>
+</tr>
+<!--On Cancel, edit mode closes-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify no change; profile pic was not removed-->
+<!--Remove profile picture-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pictureEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify generic profile pic displays-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.profile-img__remove</td>
+	<td></td>
+</tr>
+<!--Save removal of pic-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.setting-list li.setting-list-item button.btn.btn-sm.btn-primary span:contains('Save')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=pictureDesc</td>
+	<td>Click 'Edit' to upload an image.</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--*** If other browser open with other user, visually verify they see generic profile pic-->
+<!--Display: Theme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label</td>
+	<td>Theme Colors</td>
+</tr>
+<!--Change to another default theme-->
+<!--*** Visually verify changes to Mattermost Dark before saved-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.theme-label:contains('Mattermost Dark')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.theme-label:contains('Mattermost Dark')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Does not apply to all teams-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=applyThemeToAllTeams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=applyThemeToAllTeams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=applyThemeToAllTeams</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--*** Visually verify other team not on Mattermost Dark theme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<!--Cancel out of theme change-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label</td>
+	<td>Theme Colors</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.theme-label:contains('Organization')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.theme-label:contains('Organization')</td>
+	<td></td>
+</tr>
+<!--*** Visually verify changed to Organization before canceling theme change-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--Clicking `Cancel` with unsaved changes prompts for confirmation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-body:contains('You have unsaved changes, are you sure you want to discard them?')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary:contains('Yes, Discard')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary:contains('Yes, Discard')</td>
+	<td></td>
+</tr>
+<!--*** Visually verify theme returns to Mattermost Dark; no changes-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Custom theme (vector copied from one of the default themes)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=customThemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customThemes</td>
+	<td></td>
+</tr>
+<!--Copy current theme vector-->
+<tr>
+	<td>storeValue</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>vector</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=standardThemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=standardThemes</td>
+	<td></td>
+</tr>
+<!--Change to different theme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.theme-label:contains('Organization')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.theme-label:contains('Organization')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Use copied Organization theme vector as custom theme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=customThemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customThemes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td></td>
+</tr>
+<!--Clunky way to clear field (type | null isn't working)-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td>${vector}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-12 &gt; textarea.form-control</td>
+	<td></td>
+</tr>
+<!--Apply to all teams-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=applyThemeToAllTeams</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Organization theme on both teams-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Use Slack theme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=themeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#slackImportTheme &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#slackImportTheme &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=themeVector</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=themeVector</td>
+	<td>#0D7E83,#076570,#F79F66,#FFFFFF,#D37C71,#FFFFFF,#F79F66,#F15340</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=submitButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submitButton</td>
+	<td></td>
+</tr>
+<!--*** Visually verify theme: Green title bars and lighter green sidebars, etc.-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Clicking `X` with unsaved changes prompts for confirmation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-body:contains('You have unsaved changes, are you sure you want to discard them?')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary:contains('Yes, Discard')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary:contains('Yes, Discard')</td>
+	<td></td>
+</tr>
+<!--24-hour clock, message posted after 1pm-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#clockDesc &gt; span</td>
+	<td>24-hour clock (example: 16:00)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>24-hour${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify a message posted after 1pm displays timestamp in 24-hr format-->
+<!--*** (If testing before 1pm, scroll up or test this on a different server with old messages)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--12-hour clock display-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#clockDesc &gt; span</td>
+	<td>12-hour clock (example: 4:00 PM)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Open reply thread and add two replies-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply numero uno. ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply numero dos. ${KEY_ENTER}</td>
+</tr>
+<!--*** Manually hover over 2nd reply-->
+<!--*** Visually verify 2nd reply timestamp is not squished against edge of RHS-->
+<!--*** Visually verify all timestamps are in 12-hour format, with am or pm-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Display: Link previews-->
+<!--Display: Image preview expanded / collapsed-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<!--Change to collapsed-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#collapseDesc &gt; span</td>
+	<td>Collapsed</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>http://www.mattermost.org/wp-content/uploads/2016/04/icon_WS.png${KEY_ENTER}</td>
+</tr>
+<!--Verify image not visible, then expand and verify visible-->
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<!--Click to collapse-->
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=img.attachment__image.cursor--pointer</td>
+	<td></td>
+</tr>
+<!--Change to expanded-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#collapseDesc &gt; span</td>
+	<td>Expanded</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Previously manually collapsed preview is not expanded-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=img.attachment__image.cursor--pointer</td>
+	<td></td>
+</tr>
+<!--Newly posted message: Preview is expanded-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>http://www.mattermost.org/wp-content/uploads/2016/04/icon_WS.png${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.attachment__image.cursor--pointer</td>
+	<td></td>
+</tr>
+<!--Reply with image: Preview expanded in both RHS and center-->
+<tr>
+	<td>type</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>http://www.mattermost.org/wp-content/uploads/2016/04/icon_WS.png${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify image preview expanded in both RHS and center-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Link preview displays in both RHS and center-->
+<!--Log out test10 and log in admin to enable link previews-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Log out admin, log test10 back in-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Verify link previews turned on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=linkpreviewDesc</td>
+	<td>On</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Post a message to reply to-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Testing link previews${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>https://github.com/mattermost/mattermost-server${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify link preview looks the same in RHS and center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.attachment__image.attachment__image--opengraph</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.attachment__body.attachment__body--opengraph &gt; div</td>
+	<td>Open source Slack-alternative in Golang and React - Mattermost - mattermost/mattermost-server</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Advanced: `Send code block ... on CTRL+ENTER` is ON by default-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#advancedCtrlSendDesc &gt; span</td>
+	<td>On only for code blocks starting with ```</td>
+</tr>
+<!--Advanced: Send messages on Ctrl+Enter-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedCtrlSendEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedCtrlSendEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ctrlSendOn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ctrlSendOn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=advancedCtrlSendDesc</td>
+	<td>On for all messages</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Post message using CTRL+ENTER: Center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Control and Enter${KEY_CTRL}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Control and Enter')</td>
+	<td></td>
+</tr>
+<!--Message does not post on Enter: Center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Just Enter${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>Just Enter</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span:contains('Just Enter')</td>
+	<td></td>
+</tr>
+<!--Enter in the text box adds new line (add text to above and post)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Followed by Control and Enter${KEY_CTRL}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Just Enter<br />Followed by Control and Enter')</td>
+	<td></td>
+</tr>
+<!--Post message using CTRL+ENTER: RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply Control and Enter${KEY_CTRL}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Reply Control and Enter')</td>
+	<td></td>
+</tr>
+<!--Message does not post on Enter: RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply just Enter${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td>Reply just Enter</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('Reply just Enter')</td>
+	<td></td>
+</tr>
+<!--Enter in the text box adds new line (add text to above and post)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Followed by Control and Enter${KEY_CTRL}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Reply just Enter<br />Followed by Control and Enter')</td>
+	<td></td>
+</tr>
+<!--Set back to sending message on Enter-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<!--`Send code block messages on CTRL + ENTER` not available when ON-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#codeBlockOnCtrlEnterTitle &gt; span</td>
+	<td>Send code block messages on CTRL + ENTER</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=codeBlockOnCtrlEnterEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedCtrlSendEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedCtrlSendEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ctrlSendOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ctrlSendOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=advancedCtrlSendDesc</td>
+	<td>Off</td>
+</tr>
+<!--Advanced: Send code block messages on CTRL + ENTER-->
+<!--These settings were combined; test updated v5.14-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#advancedCtrlSendTitle &gt; span</td>
+	<td>Send messages on CTRL+ENTER</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedCtrlSendEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedCtrlSendEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ctrlSendOnForCode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ctrlSendOnForCode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#advancedCtrlSendDesc &gt; span</td>
+	<td>On only for code blocks starting with ```</td>
+</tr>
+<!--Post without code block sends normally on ENTER-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Any text, without three back ticks${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Any text, without three back ticks</td>
+	<td></td>
+</tr>
+<!--Reply without code block sends normally on ENTER-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>A reply, without three back ticks${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>A reply, without three back ticks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--After code block is opened, Enter moves to new line-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>First, some text.${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>First, some text.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>First, some text. ```</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Code block text, followed by ENTER${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>First, some text. ``` Code block text, followed by ENTER</td>
+</tr>
+<!--After a code block is closed, Enter sends the post-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>Code block text, followed by ENTER</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>First, some text.</td>
+	<td></td>
+</tr>
+<!--CTRL/CMD+ENTER closes multi-line code block and posts message-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Again, plain text first.${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>code1${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>code2, then CTRL+ENTER closes the code block and sends the post${KEY_CTRL}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Search for code2 to verify code block in search results (easier to verify there)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>code2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>code1 code2, then CTRL+ENTER closes the code block and sends the post <br />code1 code2, then CTRL+ENTER closes the code block and sends the post</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Can add more lines to post after closing code block -->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>One plain text line at the top.${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>codeA${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>codeB, then close the code block with a line of backticks and SHIFT+ENTER${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>And follow with another line of plain text after the code block.${KEY_ENTER}</td>
+</tr>
+<!--Search for codeb to verify code block / plain text in search results (easier to verify there)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>codeb${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>One plain text line at the top.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>codeA codeB, then close the code block with a line of backticks and SHIFT+ENTER <br />codeA codeB, then close the code block with a line of backticks and SHIFT+ENTER</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/p[2]</td>
+	<td>And follow with another line of plain text after the code block.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Multiple code blocks within a post-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>codeblock1${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>codeblock2${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<!--Search for codeblock2 to verify code block / plain text in search results (easier to verify there)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>codeblock2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>codeblock1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/code</td>
+	<td>codeblock2 <br />codeblock2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-code.post-code--wrap</td>
+	<td>codeblock1</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--CTRL/CMD+ENTER sends even if only the syntax is defined and there is nothing on the next line-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Send this text. ``` when there is no text on the next line</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Send this text. ``` when there is no text on the next line</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_CTRL}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Send this text. ``` when there is no text on the next line</td>
+	<td></td>
+</tr>
+<!--Code block Ctrl+Enter in RHS reply thread-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply beginning${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>How about a codeblockreply?</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>```${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>How about a codeblockreply?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--Advanced: Disable join / leave messages-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.margin-top.x3</td>
+	<td>When &quot;On&quot;, System Messages saying a user has joined or left a channel will be visible. When &quot;Off&quot;, the System Messages about joining or leaving a channel will be hidden. A message will still show up when you are added to a channel, so you can receive a notification.</td>
+</tr>
+<!--Turn off-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Create Join channel to add another user to-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Join</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of Join</td>
+</tr>
+<!--Expected for message to show even if join/leave turned off, if -->
+<!--current user adds or removes other user. It is only if others join or leave-->
+<!--themselves that the message shouldn't show.-->
+<!--Add another user to Join channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<!--Verify message ...added to the channel by you-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('@admin added to the channel by you')</td>
+	<td></td>
+</tr>
+<!--Create Join2 channel for other user to join themselves-->
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=Join2</td>
+</tr>
+<!--Log in as user you added to Join-->
+<!--LOG OUT test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Might not land on the right team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Join*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Join*</td>
+	<td></td>
+</tr>
+<!--Verify this user sees join messages-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; div</td>
+	<td>@test10 joined the channel.<br /><br />You were added to the channel by @test10.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Leave the Join channel-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Join</td>
+	<td></td>
+</tr>
+<!--Join the Join2 channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchChannelsTextbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchChannelsTextbox</td>
+	<td>join2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.more-modal__name</td>
+	<td>Join2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.more-modal__name</td>
+	<td>Join2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>You and @test10 joined the channel.</td>
+</tr>
+<!--Log back in as test10 to verify no leave message-->
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test10-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Join</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Join</td>
+	<td></td>
+</tr>
+<!--Verify no leave message in Join-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('admin has left the channel.')</td>
+	<td></td>
+</tr>
+<!--Verify no join message in Join2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_join2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_join2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelMemberCountText</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; div</td>
+	<td>You joined the channel.</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('admin joined the channel.')</td>
+	<td></td>
+</tr>
+<!--Turn join / leave messages back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveOn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveOn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=joinLeaveDesc</td>
+	<td>On</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Join message for admin appears, combines with yours-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; div</td>
+	<td>You and @admin joined the channel.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_join</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_join</td>
+	<td></td>
+</tr>
+<!--Leave message for admin appears-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('admin left the channel.')</td>
+	<td></td>
+</tr>
+<!--Test with join/leave off and many join/leaves in Town Square newly added to-->
+<!--Disable join / leave messages-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveOff</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Set maximum users per team to 200-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/users_and_teams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/users_and_teams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.MaxUsersPerTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.MaxUsersPerTeam</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Create new team to add 70 new users to-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamNameInput</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamNameInput</td>
+	<td>Add70</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamNameNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamNameNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamURLInput</td>
+	<td>add70</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamURLFinishButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamURLFinishButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Add70</td>
+</tr>
+<!--Add 70 users-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test users 70</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>/test users 70</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Added users</td>
+	<td></td>
+</tr>
+<!--Add test10 to the team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test10*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div &gt; p.markdown__paragraph-inline</td>
+	<td>@test10 added to the team by you.</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test10-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test10</td>
+</tr>
+<!--Open add70 team, verify Town Square loads and 70 join messages not there-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='add70TeamButton']/div/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='add70TeamButton']/div/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Add70</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; strong</td>
+	<td>Welcome to Town Square!</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>You were added to the team by @admin.</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>and * others joined the team</td>
+	<td></td>
+</tr>
+<!--Turn join/leave messages back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=joinLeaveOn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=joinLeaveOn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=joinLeaveDesc</td>
+	<td>On</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify join/leave message for the other users joining appears-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>and * others joined the team</td>
+	<td></td>
+</tr>
+<!--Cleanup: test10 leave the team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#leaveTeam &gt; button.style--none.</td>
+	<td>Leave Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#leaveTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=leaveTeamYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=leaveTeamYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>Add70</td>
+</tr>
+<!--LOG OUT test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Cleanup: Leave add70 team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn.</td>
+	<td>Ad</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn.</td>
+	<td>Ad</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Add70</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#leaveTeam &gt; button.style--none.</td>
+	<td>Leave Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#leaveTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=leaveTeamYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=leaveTeamYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>Add70</td>
+</tr>
+<!--Cleanup: Set maximum users per team back to 50-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/users_and_teams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/users_and_teams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.MaxUsersPerTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.MaxUsersPerTeam</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Advanced - Markdown Preview (the only one available on selenium server)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedPreviewFeaturesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedPreviewFeaturesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=advancedPreviewFeaturesmarkdown_preview</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=advancedPreviewFeaturesmarkdown_preview</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.col-sm-9.col-sm-offset-3</td>
+	<td>Show markdown preview option in message input box<br /><br /><br />Check any pre-released features you'd like to preview. You may also need to refresh the page before the setting will take effect.<br /><br />SaveCancel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#advancedPreviewFeaturesDesc &gt; span</td>
+	<td>1 Feature Enabled</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Preview link not visible until text is entered-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=#previewLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>**Bold!** @test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#previewLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#previewLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//form[@id='create_post']/div/div/div/div/div[2]/p/strong</td>
+	<td>Bold!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#previewLink &gt; span</td>
+	<td>Edit message</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#previewLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>exact:**Bold!** @test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.help__text.</td>
+	<td>**bold**_italic_~~strike~~ `inline code````preformatted```&gt;quote<br />PreviewHelp</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p &gt; strong</td>
+	<td>Bold!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@test10</td>
+	<td></td>
+</tr>
+<!--Tests end here for now-->
+<!--Manually clean up by archiving added channels etc.-->
+</tbody></table>
+</body>
+>>>>>>> master
+</html>

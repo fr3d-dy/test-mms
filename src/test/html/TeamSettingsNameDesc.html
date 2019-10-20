@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Save team name with no changes-->
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Team name required-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>This field is required</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<!--Cancel out of team name changes-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Edit Team Name-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td>Testing Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>Testing Team</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<!--Special characters in team name-->
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td>()_+-={}|[]\:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>()_+-={}|[]\:</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>()_+-={}|[]\:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Team name field max characters prevents typing-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td>123456789012345%</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamName</td>
+	<td>123456789012345</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Set team name back to UI Automation-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Team description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=descriptionDesc</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Team description provides additional information to help users select the right team. Maximum of 50 characters.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<!--Team description max characters prevents typing-->
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td>This sentence contains 53 characters; I counted them.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamDescription</td>
+	<td>This sentence contains 53 characters; I counted th</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=descriptionDesc</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<!--Add team description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td>Testing the team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=descriptionDesc</td>
+	<td>Testing the team description.</td>
+</tr>
+<!--Remove team description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=descriptionDesc</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

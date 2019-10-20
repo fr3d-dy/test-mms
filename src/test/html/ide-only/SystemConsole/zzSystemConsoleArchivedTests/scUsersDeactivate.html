@@ -1,0 +1,1230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsUserPwdDeact</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsUserPwdDeact</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Open DM with test2 to prepare for later test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>DM with deactivated user is still accessible.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test2×</td>
+	<td></td>
+</tr>
+<!--Open GM including test2 to prepare for later test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2, test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>GM with deactivated user and another user remains active.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.active &gt; a.sidebar-item.has-close</td>
+	<td>2<br />test2, test3×</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<!--Filter user list to just test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<!--Cancel out of deactivating test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Deactivate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Deactivate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Deactivate test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; span</td>
+	<td>exact:This action deactivates test2. They will be logged out and not have access to any teams or channels on this system. Are you sure you want to deactivate test2?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//span [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--LOG IN test2 to verify not deactivated-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT test2-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<!--Filter user list to just test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<!--Deactivate test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Deactivate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Deactivate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>Deactivate test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; span</td>
+	<td>exact:This action deactivates test2. They will be logged out and not have access to any teams or channels on this system. Are you sure you want to deactivate test2?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Inactive')]</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//span [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Try to LOG IN test2 to verify deactivated-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Login failed because your account has been deactivated. Please contact an administrator.</td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--GM still in LHS and write-able-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-item__name:contains('test2, test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name:contains('test2, test3')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>GM with deactivated user and another user remains active.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2, test3</td>
+</tr>
+<!--This can fail if other testing has caused test2 to already be in LHS-->
+<!--DM has been removed from LHS-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=test2×</td>
+	<td></td>
+</tr>
+<!--Verify can still access DM with deactivated user-->
+<!--Searchable in channel switcher-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[2]/div/div/div[3]</td>
+	<td>@test2 - *Deactivated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>G<br />test2, test3</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Can search in DM More... list, selecting active user hides deactivated from the list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test2 - *Deactivated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 6 more people.</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Deactivated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<!--Can search and reopen in DM More... list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test2 - *Deactivated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<!--Opens DM immediately so new GM can't be created that includes deactivated user-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>DM with deactivated user is still accessible.</td>
+</tr>
+<!--Archived DM is read-only-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-create-message &gt; span</td>
+	<td>You are viewing an archived channel with a deactivated user.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2</td>
+</tr>
+<!--Archive icon on channel in LHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__archive &gt; svg &gt; path</td>
+	<td></td>
+</tr>
+<!--Log out and back in, DM is still present in LHS-->
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--DM with deactivated user is still present in LHS, with archive icon-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test2×</td>
+	<td>test2×</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__archive &gt; svg &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=test2×</td>
+	<td>test2×</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-create-message &gt; span</td>
+	<td>You are viewing an archived channel with a deactivated user.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Messages in archived DM still returned in Search-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>accessible${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name &gt; span</td>
+	<td>Direct Message (with test2)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>DM with deactivated user is still accessible.</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<!--Filter user list to just test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<!--Reactivate test2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Inactive')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Inactive')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Activate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Activate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//span [contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--LOG IN test2 to verify reactivated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT test2-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify reactivated user appears normally in channel switcher-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[2]/div/div/div[4]</td>
+	<td>@test2*</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[2]/div[2]/div/div/div[4]</td>
+	<td>@test2 - *Deactivated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>G<br />test2, test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div[2]/div/div/div[4]</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>DM with deactivated user is still accessible.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.post-create-message &gt; span</td>
+	<td>You are viewing an archived channel with a deactivated user.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2</td>
+</tr>
+<!--This can fail if other testing has caused other archived icons to display-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.icon.icon__archive &gt; svg &gt; path</td>
+	<td></td>
+</tr>
+<!--Verify reactivated user appears normally in DM More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test2 - Deactivated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test2*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>DM with deactivated user is still accessible.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.post-create-message &gt; span</td>
+	<td>You are viewing an archived channel with a deactivated user.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.icon.icon__archive &gt; svg &gt; path</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

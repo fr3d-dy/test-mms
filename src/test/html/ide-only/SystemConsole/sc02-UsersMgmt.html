@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsUserMgmt</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsUserMgmt</td></tr>
+</thead><tbody>
+<!--LOG IN corey-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>corey@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify not System Admin or Team Admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='accountSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>Link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<!--LOG OUT corey-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=user_management/users</td>
+	<td>Users</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<!--Filter user list, clear filter, filter again-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>1 user of * total</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Change Member to System Admin-->
+<tr>
+	<td>waitForText</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>cor</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Manage Roles')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Manage Roles')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#manageRolesModalLabel &gt; span</td>
+	<td>Manage Roles</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=systemadmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=systemadmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Drop-down shows "System Admin"-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'System Admin')]</td>
+	<td></td>
+</tr>
+<!--Filter by System Admin returns admin and corey-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=select.form-control.system-users__filter</td>
+	<td>All UsersSystem AdminInactive</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__filter</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__right div.more-modal__top div.more-modal__details:contains('@corey')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Remove user from team-->
+<tr>
+	<td>waitForText</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>cor</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'System Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Manage Teams')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Manage Teams')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#manageTeamsModalLabel &gt; span</td>
+	<td>Manage Teams</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.manage-teams__system-admin &gt; span</td>
+	<td>System Admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.manage-teams__team-name</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.manage-teams__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.manage-teams__team-name</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--User on no teams still appears in Users list, w/ filter drop-down and w/o-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>corey@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select.form-control.system-users__team-filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=option[value=&quot;no_team&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__team-filter</td>
+	<td>No Teams</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<!--Promoted user removed from all teams still shows System Admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'System Admin')]</td>
+	<td></td>
+</tr>
+<!--User logs in to verify System Admin-->
+<!--LOG OUT admin-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<!--LOG IN corey-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>corey@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.margin--extra.hidden-xs &gt; a.signup-team-login &gt; span</td>
+	<td>Go to System Console</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Go to System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Go to System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>System Console</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/a[contains(text(),'Team Selection')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/a[contains(text(),'Team Selection')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td>Teams you can join:</td>
+</tr>
+<!--Can see closed team b/c system admin-->
+<tr>
+	<td>waitForText</td>
+	<td>id=UI_Automation</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'UI Automation 2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<!--Join team UI Automation 2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.signup-team-dir__name:contains('UI Automation 2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.signup-team-dir__name:contains('UI Automation 2')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--LOG OUT Corey-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Change System Admin back to Member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 user of * total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'System Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'System Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Manage Roles')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Manage Roles')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#manageRolesModalLabel &gt; span</td>
+	<td>Manage Roles</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=systemmember</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=systemmember</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td>Member</td>
+</tr>
+<!--Change to Team Admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Manage Teams')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Manage Teams')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Member</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Member</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Make Team Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Make Team Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOT OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<!--LOG IN corey, verify Team Settings is visible-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>corey@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSettings &gt; button.style--none.</td>
+	<td>Team Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT corey-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Change Team Admin back to Member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Manage Teams')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Manage Teams')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Make Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Make Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Member</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Team Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Filter by Inactive user status-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Set test10 to inactive-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<!--Filter by Inactive returns test10-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select.form-control.system-users__filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__filter</td>
+	<td>label=Inactive</td>
+</tr>
+<!--Below will fail if test10 isn't first; verify manually if necessary-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<!--Inactive filter combined with Team filter-->
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__team-filter</td>
+	<td>label=No Teams</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__team-filter</td>
+	<td>label=UI Automation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--All 3 filters can be used together (no matching result)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>Pickles</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<!--Cleanup: Reactivate test10-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Activate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Activate</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__team-filter</td>
+	<td>All Users</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.system-users__filter</td>
+	<td>All Users</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test10</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<!--Cleanup: Remove corey from UI2 team and add back to UI team-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Teams')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Manage Teams')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.MenuWrapper. &gt; a &gt; span</td>
+	<td>Team Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper. &gt; a &gt; span</td>
+	<td>Team Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[2]/button</td>
+	<td>Remove From Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[2]/button</td>
+	<td>Remove From Team</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.MenuWrapper. &gt; a &gt; span</td>
+	<td>Team Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a</td>
+	<td>Switch to UI Automation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td>Switch to UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#addUsersToTeam &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--(corey should be the only user in the list)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#numPeopleRemaining &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 19 more people.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#logout.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

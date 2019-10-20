@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Verify title in browser tab-->
+<tr>
+	<td>waitForTitle</td>
+	<td>System Console - Mattermost</td>
+	<td></td>
+</tr>
+<!--These all fail unless it's a freshly built server... Verified manually-->
+<!--System Statistics link and content-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>System Statistics</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.category-title__text &gt; span</td>
+	<td>REPORTING</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.title &gt; span</td>
+	<td>Total Active Users</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.total-count &gt; div.title &gt; span:contains('Total Teams')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>Total Users*12*Total Teams*2*Total Channels*Total Posts*Total Sessions*Total Commands*Incoming Webhooks*Outgoing Webhooks*Daily Active Users*Monthly Active Users*WebSocket Conns*Master DB Conns*Replica DB Conns</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-globe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-signal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-terminal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-arrow-down</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-arrow-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.row &gt; div.col-sm-6 &gt; div.total-count &gt; div.title &gt; span</td>
+	<td>Channel Types</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=canvas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.total-count div.title span:contains('Posts, Files and Hashtags')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.total-count.by-day &gt; div.title &gt; span</td>
+	<td>Total Posts</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.total-count.by-day div.title span:contains('Active Users With Posts')</td>
+	<td></td>
+</tr>
+<!--Team Statistics-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Statistics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Statistics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select.form-control.team-statistics__team-filter__dropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.team-statistics__team-filter__dropdown</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Team Statistics for UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select.form-control.team-statistics__team-filter__dropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.team-statistics__team-filter__dropdown</td>
+	<td>label=UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Team Statistics for UI Automation 2</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select.form-control.team-statistics__team-filter__dropdown</td>
+	<td>label=UI Automation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Team Statistics for UI Automation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.title &gt; span</td>
+	<td>Total Active Users</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.content</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title span:contains('Public Channels')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title span:contains('Private Channels')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-globe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title span:contains('Total Posts')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.total-count.by-day &gt; div.title &gt; span</td>
+	<td>Total Posts</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title span:contains('Active Users With Posts')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.total-count.recent-active-users &gt; div.title &gt; span</td>
+	<td>Recent Active Users</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title span:contains('Newly Created Users')</td>
+	<td></td>
+</tr>
+<!--Logs (Users is in its own test)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Server Logs</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.banner__content &gt; span</td>
+	<td>To look up users by User ID or Token ID, go to Reporting &gt; Users and paste the ID into the search filter.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Reload</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.log__panel</td>
+	<td></td>
+</tr>
+<!--Verify links in main drop-down menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Administrator's Guide</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Administrator's Guide</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Do note that the window title changes each release-->
+<tr>
+	<td>waitForLocation</td>
+	<td>https://docs.mattermost.com/guides/administrator.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Troubleshooting Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Troubleshooting Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://forum.mattermost.org/t/how-to-use-the-troubleshooting-forum/150</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Commercial Support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Commercial Support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://about.mattermost.com/support/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none</td>
+	<td>About Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title &gt; span</td>
+	<td>About Mattermost</td>
+</tr>
+<!--About modal-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-group.less &gt; div &gt; span</td>
+	<td>Mattermost Version:</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=dbversionString</td>
+	<td>dbversionString</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Database Schema Version: ${dbversionString}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div[2]/div/div[3]</td>
+	<td>exact:Database: mysql</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-group &gt; span</td>
+	<td>Licensed to:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/div/div[2]/div[2]</td>
+	<td>Licensed to: Mattermost CI</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=about.mattermost.com</td>
+	<td>about.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=server</td>
+	<td>server</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>link=server@href</td>
+	<td>https://about.mattermost.com/platform-notice-txt/</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=desktop</td>
+	<td>desktop</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>link=desktop@href</td>
+	<td>https://about.mattermost.com/desktop-notice-txt/</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=mobile</td>
+	<td>mobile</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>link=mobile@href</td>
+	<td>https://about.mattermost.com/mobile-notice-txt/</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.about-modal__hash &gt; p &gt; span</td>
+	<td>Build Hash:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//p/span[2]</td>
+	<td>EE Build Hash:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[3]</td>
+	<td>Webapp Build Hash:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//p[2]/span</td>
+	<td>Build Date:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

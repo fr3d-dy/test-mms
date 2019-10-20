@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsComplianceLogging</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsComplianceLogging</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Compliance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Compliance</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Compliance Settings</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.help-text &gt; span</td>
+	<td>When true, Mattermost allows compliance reporting from the Compliance and Auditing tab. See documentation to learn more.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=documentation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=documentation@href</td>
+	<td>https://docs.mattermost.com/administration/compliance.html</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label.col-sm-4</td>
+	<td>Enable Compliance Reporting:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[2]/div/div/form/div/div[3]/label</td>
+	<td>Compliance Report Directory:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[2]/div/div/form/div/div[4]/label</td>
+	<td>Enable Daily Report:</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=ComplianceSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ComplianceSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ComplianceSettings.EnableDailyfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=Directory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ComplianceSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ComplianceSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=ComplianceSettings.Directory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ComplianceSettings.EnableDailytrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ComplianceSettings.EnableDailytrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify in Compliance and Auditing section-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Compliance and Auditing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Compliance and Auditing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.compliance-panel__table</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Compliance Reports</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=desc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=desc</td>
+	<td>Se Test 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=from</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=from</td>
+	<td>2017-01-01</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=to</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=to</td>
+	<td>2017-06-01</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=emails</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=run-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=run-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.compliance-panel__table div table.table tbody tr td span span span:contains('May 31, 2017')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>adhoc*Se Test 1*admin@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Reload Completed Compliance Reports</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Download</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.panel.compliance-panel div.compliance-panel__table div table.table tbody tr td span:contains('finished')</td>
+	<td></td>
+</tr>
+<!--Run a second report to verify newest displays at top-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=desc</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=desc</td>
+	<td>Se Test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=from</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=from</td>
+	<td>2018-01-01</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=to</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=to</td>
+	<td>2018-06-01</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=emails</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=run-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=run-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Download</td>
+	<td></td>
+</tr>
+<!--*** Can click to download manually if desired-->
+<!--*** Then close dialog-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>finished*adhoc*Se Test 2*Se Test 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--**** v5.12 settings tests below moved to sc07-EnvSettings.html-->
+<!--Logging settings editable / not editable as expected-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Logging</td>
+</tr>
+<!--Console level-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.ConsoleJsontrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableConsolefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableConsolefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.ConsoleJsontrue</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableConsoletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<!--File level-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.FileJsontrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLocation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableFilefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableFilefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=LogSettings.FileLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=LogSettings.FileJsontrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=LogSettings.FileLocation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableFiletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableFiletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLocation</td>
+	<td></td>
+</tr>
+<!--Webhook debugging and diagnostics-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.EnableWebhookDebuggingtrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableDiagnosticstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableDiagnosticsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=privacy policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableDiagnosticsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.EnableDiagnosticsfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableWebhookDebuggingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableDiagnosticstrue</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+</tbody></table>
+</body>
+</html>

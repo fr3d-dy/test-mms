@@ -1,0 +1,2979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>ChannelSettings</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ChannelSettings</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--Team name and description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[7]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[7]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clientError</td>
+	<td>This field is required</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>Testing Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>Testing Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>TeTesting Team</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@admin*Testing Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>()_+-={}|[]\:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>()_+-={}|[]\:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>()()_+-={}|[]\:</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@admin*()_+-={}|[]\:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td>123456789012345%</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamName</td>
+	<td>123456789012345</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_NameEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_NameDesc</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Team description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Team_DescriptionDesc &gt; span</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_DescriptionEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_DescriptionEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Team description provides additional information to help users select the right team. Maximum of 50 characters.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td>This sentence contains 53 characters; I counted them.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamDescription</td>
+	<td>This sentence contains 53 characters; I counted th</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_DescriptionCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_DescriptionCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Team_DescriptionDesc &gt; span</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_DescriptionEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_DescriptionEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamDescription</td>
+	<td>Testing the team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Team_DescriptionDesc</td>
+	<td>Testing the team description.</td>
+</tr>
+<!--Enable other users to join the team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Allow_any_user_with_an_account_on_this_server_to_join_this_teamCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Allow_any_user_with_an_account_on_this_server_to_join_this_teamCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamDesc</td>
+	<td>No</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamDesc</td>
+	<td>Yes</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN as test4, leave team, join team-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Leave Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Leave Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You will be removed from all public and private channels. If the team is private you will not be able to rejoin the team. Are you sure?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[11]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test4*UI Automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Leave Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Leave Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You will be removed from all public and private channels. If the team is private you will not be able to rejoin the team. Are you sure?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.tooltip-inner</td>
+	<td>Testing the team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>test4 has joined the channel.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test4*UI Automation</td>
+	<td></td>
+</tr>
+<!--LOG OUT test4-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Remove team description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Team_DescriptionEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Team_DescriptionEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=teamDescription</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Team_DescriptionDesc &gt; span</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<!--Disable other users joining the team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInviteNo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInviteNo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamDesc</td>
+	<td>No</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN as test4, leave team, can't join team-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Leave Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Leave Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You will be removed from all public and private channels. If the team is private you will not be able to rejoin the team. Are you sure?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>UI Automation</td>
+</tr>
+<!--LOG OUT test4-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='root']/div/div/div/div[2]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/div[2]/a/span[2]</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Get team invite link (and re-enable anyone joining team)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Allow_any_user_with_an_account_on_this_server_to_join_this_teamDesc</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Get Team Invite Link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Get Team Invite Link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//div[2]/textarea</td>
+	<td>teaminvitelinkold</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//div[2]/textarea</td>
+	<td>exact:${teaminvitelinkold}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<!--Regenerate team invite link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Team Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Invite_CodeDesc</td>
+	<td>Click 'Edit' to regenerate Invite Code.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Invite_CodeEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Invite_CodeEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=teamInviteId</td>
+	<td>teaminvitecodeold</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamInviteIdRegenerate &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamInviteIdRegenerate &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=teamInviteId</td>
+	<td>${teaminvitecodeold}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Invite_CodeCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Invite_CodeCancel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Invite_CodeDesc</td>
+	<td>Click 'Edit' to regenerate Invite Code.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Invite_CodeEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Invite_CodeEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamInviteId</td>
+	<td>${teaminvitecodeold}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#teamInviteIdRegenerate &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamInviteIdRegenerate &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=teamInviteId</td>
+	<td>${teaminvitecodeold}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=Invite_CodeDesc</td>
+	<td>Click 'Edit' to regenerate Invite Code.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#Invite_CodeEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Invite_CodeEdit &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=teamInviteId</td>
+	<td>${teaminvitecodeold}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Get Team Invite Link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Get Team Invite Link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//div[2]/textarea</td>
+	<td>teaminvitelinknew</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//div[2]/textarea</td>
+	<td>exact:${teaminvitelinknew}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--Open team invite link, log in test4 to join-->
+<tr>
+	<td>openAndWait</td>
+	<td>${teaminvitelinkold}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>The invite link was invalid. Please speak with your Administrator to receive an invitation.</td>
+</tr>
+<tr>
+	<td>openAndWait</td>
+	<td>${teaminvitelinknew}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.color--light &gt; a &gt; span</td>
+	<td>Click here to sign in.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to sign in.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to sign in.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test4*UI Automation</td>
+	<td></td>
+</tr>
+<!--Member can search in Main Menu > View Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[7]/a/span</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[7]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[7]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; h4.modal-title &gt; span</td>
+	<td>UI Automation Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 member of 12 total</td>
+</tr>
+<!--Post messages and join 2nd team as prep for later tests-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Posting this for later test (after this user is removed from team).${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText &gt; p</td>
+	<td>Posting this for later test (after this user is removed from team).</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul[3]/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul[3]/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div[2]/div/div/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[2]/div/div/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Posting this DM for later test (after this user is removed from team).${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText &gt; p</td>
+	<td>Posting this DM for later test (after this user is removed from team).</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[contains(text(),'+')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'+')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>PrivateChannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Posting this to private channel for later test.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText &gt; p</td>
+	<td>Posting this to private channel for later test.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[9]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[9]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-container.active &gt; a &gt; div.team-btn. &gt; div.team-btn__initials</td>
+	<td>UIUI Automation 2</td>
+</tr>
+<!--LOG OUT test4-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--System Admin promotes Member to Team Admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__description</td>
+	<td>test6@test.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/div/ul/li[2]/a/span</td>
+	<td>Make Team Admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div[2]/div/ul/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[2]/div/ul/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Team Admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Inactive Member no longer appears in Manage Members list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#systemConsole &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#systemConsole &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Deactivate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Deactivate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>test6*test6@test.com*Inactive</td>
+	<td></td>
+</tr>
+<!--Set test6 back to active Team Admi for rest of tests-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#systemConsole &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#systemConsole &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#users &gt; span.sidebar-section-title__text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=ul.dropdown-menu.member-menu &gt; li &gt; a &gt; span</td>
+	<td>Activate</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.dropdown-menu.member-menu &gt; li &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.dropdown-menu.member-menu &gt; li &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Team Admin should not see option to demote System Admin-->
+<!--LOG OUT admin-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN as test6-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test6@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__description</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=ul.dropdown-menu.member-menu &gt; li &gt; a &gt; span</td>
+	<td>Remove From Team</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Make Member</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>h${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/div/ul/li[2]/a/span</td>
+	<td>Make Team Admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div[2]/div/ul/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[2]/div/ul/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Team Admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Team Admin removes another Team Admin from a private team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test4</td>
+</tr>
+<!--fix this part (add members to team, i think, but have to verify on something else-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=ul.dropdown-menu.member-menu &gt; li &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=ul.dropdown-menu.member-menu &gt; li &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Copy invite link for later test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[4]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[4]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//div[2]/textarea</td>
+	<td>privateinvitelink</td>
+</tr>
+<!--Removed member does not display in channel drop-down Add Member list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='channelHeaderDropdown']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelAddMembers &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Messages from removed member still display-->
+<!--LOG OUT test6-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN as admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-message__text &gt; p</td>
+	<td>Posting this for later test (after this user is removed from team).</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=PrivateChannel1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=PrivateChannel1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText &gt; p</td>
+	<td>Posting this to private channel for later test.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test41</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=test41</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#lastPostMessageText &gt; p</td>
+	<td>Posting this DM for later test (after this user is removed from team).</td>
+</tr>
+<!--Removed user can't rejoin closed team by opening URL-->
+<!--Town Square from the team they still belong to displays instead-->
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN as test4-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>@test4*UI Automation 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Removed member can rejoin team using the team invite link-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>open</td>
+	<td>${privateinvitelink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-message__text &gt; p</td>
+	<td>Posting this for later test (after this user is removed from team).</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>test4 has joined the channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>UIUI Automation</td>
+</tr>
+<!--Team Admin who was removed and rejoined is added back as Member-->
+<!--LOG OUT test4-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<!--LOG IN as admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div/div[2]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.dropdown-toggle.theme &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

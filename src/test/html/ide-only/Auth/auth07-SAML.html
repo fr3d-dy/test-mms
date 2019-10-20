@@ -1,0 +1,4091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>AuthSAML</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AuthSAML</td></tr>
+</thead><tbody>
+<!--Test OneLogin on mysql.test-->
+<!--*** Ensure the SAML user you are testing with has been cleared if needed,-->
+<!--*** by changing login method, username, and email address-->
+<!--*** Also ensure LOGGED OUT of mysql.test-->
+<!--*** Also ensure LOGGED OUT of any OneLogin account in that browser-->
+<!--OneLogin account created by opening public channel URL-->
+<tr>
+	<td>open</td>
+	<td>https://mysql.test.mattermost.com/zzz-qa/channels/saml-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>qa-onelogin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--*** Manually enter valid OneLogin password for the test user (don't click to log in)-->
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>How Mattermost works:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>You're all set</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>SAML Test</td>
+</tr>
+<!--First and last names not editable-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--Accented character and literal HTML entity come through as expected-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>QA Jesús*OneLogin</td>
+</tr>
+<!--This is supposed to verify literal `Jes&#xFA;` appears but-->
+<!--the command keeps converting it even if I try to escape it....-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Jesú</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>This field is handled through your login provider. If you want to change it, you need to do so through your login provider.</td>
+</tr>
+<!--Switch OneLogin to email: password mismatch error-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Switch SAML SSO Account to Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>aaaaaaaA1!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=passwordconfirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwordconfirm</td>
+	<td>baaaaaaA1!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Passwords do not match.</td>
+</tr>
+<!--Switch SAML to email successfully, log in-->
+<tr>
+	<td>type</td>
+	<td>name=passwordconfirm</td>
+	<td>aaaaaaaA1!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>qa-onelogin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>aaaaaaaA1!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Switch email to SAML: Invalid password-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using SAML SSO</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using SAML SSO</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>wrongAAAAA1!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Login failed because of invalid password</td>
+</tr>
+<!--Switch email to SAML successfully, log in-->
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>aaaaaaaA1!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT OneLogin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--OneLogin settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Manually ENTER CREDS for a system admin on this server-->
+<!--*** Do NOT click the login button-->
+<!--*** Se stores creds for use throughout the test-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginId</td>
+	<td>adminid</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginPassword</td>
+	<td>adminpwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--OneLogin Settings - Login button text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<!--Store existing button text to replace it later-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td>oltext</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td>New Button Text</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Verify new button text-->
+<tr>
+	<td>waitForText</td>
+	<td>link=New Button Text</td>
+	<td>New Button Text</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwd}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--OneLogin Settings - Replace original login button text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td>${oltext}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Invalid SSO URL error-->
+<!--Store the original SSO ULR (though we discard changes, so shouldn't need it)-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.IdpUrl</td>
+	<td>olssourl</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.IdpUrl</td>
+	<td>ps://mattermost-dev.onelogin.com/trust/saml2</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>SAML SSO URL must be a valid URL and start with http:// or https://.</td>
+</tr>
+<!--Store Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>siteurl</td>
+</tr>
+<!--Service Provider Login URL is prepopulated based on Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.AssertionConsumerServiceURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SamlSettings.AssertionConsumerServiceURL</td>
+	<td>${siteurl}/login/sso/saml</td>
+</tr>
+<!--Site URL blank > Can still log in using SAML-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Successfully log in using SAML-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwd}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Replace Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>${siteurl}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify Signature false > Can still log in using SAML-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Verifyfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Verifyfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Successfully log in using SAML-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwd}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Set back to Verify Signature true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Verifytrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Verifytrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--SAML login false-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--OneLogin button not visible-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwd}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Turn SAML SSO back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Encryption false disables buttons-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Encryptfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Encryptfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div/div[10]/div/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>//div[@id='root']/div/div[3]/div/form/div/div[11]/div/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Encrypttrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Encrypttrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger:contains('Remove Service Provider Private Key')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-danger:contains('Remove Service Provider Private Key')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-danger:contains('Remove Service Provider Certificate')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Email Attribute field required-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.EmailAttribute</td>
+	<td>olemail</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.EmailAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Invalid Email attribute. Must be set.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.EmailAttribute</td>
+	<td>${olemail}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Username Attribute field required-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.UsernameAttribute</td>
+	<td>olusername</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.UsernameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error</td>
+	<td>Invalid Username attribute. Must be set.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.UsernameAttribute</td>
+	<td>${olusername}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Blank First AND Last Name attributes > fields editable in Account Settings-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td>olfirst</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td>ollast</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Name fields are editable-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwd}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Replace first and last name attributes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td>${olfirst}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td>${ollast}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Help text on deactivating SAML user from System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>qa-onelogin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.light</td>
+	<td>QA Jesús* OneLogin</td>
+</tr>
+<!--This is supposed to verify literal `Jes&#xFA;` appears but-->
+<!--the command keeps converting it even if I try to escape it....-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Jesú</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; a &gt; span</td>
+	<td>@qa-onelogin*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong &gt; span</td>
+	<td>You must also deactivate this user in the SSO provider or they will be reactivated on next login or sync.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<!--SAML user reactivates on logging back in -->
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OneLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminid}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwd}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>qa-onelogin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; a &gt; span</td>
+	<td>@qa-onelogin*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__details &gt; span</td>
+	<td>Sign-in Method: SAML</td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Add cleanup to clear out OneLogin user? Or leave for now for follow-up testing?-->
+<!--*************************-->
+<!--Test OKTA on rctesting.reddogsofwar-->
+<!--*** Ensure the SAML user you are testing with has been cleared if needed,-->
+<!--*** by changing login method, username, and email address-->
+<!--*** Also ensure LOGGED OUT of any OKTA account in that browser-->
+<tr>
+	<td>open</td>
+	<td>https://rc.test.mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<!--*** Manually enter system admin creds (but do NOT click login button)-->
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Store system admin login info for rest of test-->
+<tr>
+	<td>storeValue</td>
+	<td>id=loginId</td>
+	<td>adminidokta</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginPassword</td>
+	<td>adminpwdokta</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Create team, set it to be open, get team invite-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to team name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>time</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>OpenSAML-${time}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>OpenSAML-${time}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSettings &gt; button.style--none.</td>
+	<td>Team Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#teamSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=linkModalTextArea</td>
+	<td>openteamurl</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Open team invite-->
+<tr>
+	<td>open</td>
+	<td>${openteamurl}</td>
+	<td></td>
+</tr>
+<!--Sign up with OKTA-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=okta-signin-username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=okta-signin-username</td>
+	<td>linda+qaokta@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=okta-signin-password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--*** Manually enter valid OKTA password for the test user-->
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=okta-signin-password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=okta-signin-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=okta-signin-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>How Mattermost works:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>You're all set</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<!--First and last names not editable-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<!--Accented character (and literal HTML entity) comes through as expected-->
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>QA Jesús * OKTA</td>
+</tr>
+<!--This is supposed to verify literal `Jes&#xFA;` appears but-->
+<!--the command keeps converting it even if I try to escape it....-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Jesú</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span &gt; span</td>
+	<td>This field is handled through your login provider. If you want to change it, you need to do so through your login provider.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT OKTA user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Create closed team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>ClsdSAML-${time}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>ClsdSAML-${time}</td>
+</tr>
+<!--Get team invite-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=linkModalTextArea</td>
+	<td>closedteamurl</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Open closed team invite-->
+<tr>
+	<td>open</td>
+	<td>${closedteamurl}</td>
+	<td></td>
+</tr>
+<!--Sign in and join closed team using OKTA-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<!--Verify joined closed team (known it doesn't necessarily open to the new team)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-container a#clsdsaml-${time}TeamButton</td>
+	<td></td>
+</tr>
+<!--Switch OKTA to email: password mismatch error-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using email and password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3 &gt; span</td>
+	<td>Switch SAML SSO Account to Email</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>aaaaaaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=passwordconfirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwordconfirm</td>
+	<td>baaaaaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Passwords do not match.</td>
+</tr>
+<!--Switch SAML to email successfully, log in-->
+<tr>
+	<td>type</td>
+	<td>name=passwordconfirm</td>
+	<td>aaaaaaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>linda-qaokta</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>aaaaaaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Switch email to SAML: Invalid password-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=signinEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch to using SAML SSO</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch to using SAML SSO</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>wrong</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Login failed because of invalid password</td>
+</tr>
+<!--Switch email to SAML successfully, log in-->
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>aaaaaaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>Sign-in method changed successfully</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT OKTA user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--OKTA settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--OKTA Settings - Login button text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<!--Store existing button text to replace it later-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td>oktatext</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td>New OKTA Text</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Verify new button text-->
+<tr>
+	<td>waitForText</td>
+	<td>link=New OKTA Text</td>
+	<td>New OKTA Text</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--OKTA Settings - Replace original login button text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LoginButtonText</td>
+	<td>${oktatext}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Invalid SSO URL error-->
+<!--Store the original SSO URL (though we discard changes, so shouldn't need it)-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.IdpUrl</td>
+	<td>oktassourl</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.IdpUrl</td>
+	<td>ps://dev-331079.oktapreview.com/app/mattermostdev331079_mattermost_1/exk6ig6s8n7Axdkvi0h7/sso/saml</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>SAML SSO URL must be a valid URL and start with http:// or https://.</td>
+</tr>
+<!--Store Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>siteurl</td>
+</tr>
+<!--Service Provider Login URL is prepopulated based on Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.AssertionConsumerServiceURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SamlSettings.AssertionConsumerServiceURL</td>
+	<td>${siteurl}/login/sso/saml</td>
+</tr>
+<!--Site URL blank > Can still log in using SAML-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Successfully log in using SAML-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Replace Site URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>${siteurl}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--SAML login false-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--OneLogin button not visible-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Turn SAML SSO back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Encryption false disables buttons-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Encryptfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Encryptfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.Encrypttrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Encrypttrue</td>
+	<td></td>
+</tr>
+<!--These are no longer the right buttons; verified manually 5.13-->
+<!--Also, need to swap order of these tests so encryption ends up enabled-->
+<tr>
+	<td>waitForEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>xpath=(//input[@type='file'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SamlSettings.Encryptfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Email Attribute field required-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.EmailAttribute</td>
+	<td>oktaemail</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.EmailAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Invalid Email attribute. Must be set.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.EmailAttribute</td>
+	<td>${oktaemail}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Username Attribute field required-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.UsernameAttribute</td>
+	<td>oktausername</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.UsernameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error</td>
+	<td>Invalid Username attribute. Must be set.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.UsernameAttribute</td>
+	<td>${oktausername}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Blank First AND Last Name attributes > fields editable in Account Settings-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td>oktafirst</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td>oktalast</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Name fields are editable-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Replace first and last name attributes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.FirstNameAttribute</td>
+	<td>${oktafirst}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SamlSettings.LastNameAttribute</td>
+	<td>${oktalast}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Help text on deactivating SAML user from System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>linda-qaokta</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; a &gt; span</td>
+	<td>@linda-qaokta - *</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong &gt; span</td>
+	<td>You must also deactivate this user in the SSO provider or they will be reactivated on next login or sync.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<!--SAML user reactivates on logging back in -->
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=With OKTA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT SAML user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--LOG IN system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${adminidokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${adminpwdokta}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>linda-qaokta</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; a &gt; span</td>
+	<td>@linda-qaokta - *</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__details &gt; span</td>
+	<td>Sign-in Method: SAML</td>
+</tr>
+<!--LOG OUT system admin user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Add cleanup to clear out OKTA user? Or leave for now for follow-up testing?-->
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,5925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>channelSidebar</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">channelSidebar</td></tr>
+</thead><tbody>
+<!--*** Test on a server with sysadmin user `admin` `passwd`-->
+<!--*** And experimental sidebar reorg enabled (Se has it)-->
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Create new team-->
+<!--Store timestamp to append to team name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{((new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>monthdaytime</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>Side-${monthdaytime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>side-${monthdaytime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Add new user `papa`-->
+<!--Get team invite link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=linkModalTextArea</td>
+	<td>invite</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Open team invite link, create user papa-->
+<tr>
+	<td>open</td>
+	<td>${invite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>papa@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>papa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--LOG OUT papa-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Open team invite link, create user papa-2-->
+<tr>
+	<td>open</td>
+	<td>${invite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>papa-2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>papa-2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--LOG OUT papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Switch to the newly created team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/side-${monthdaytime}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/side-${monthdaytime}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Side-${monthdaytime}</td>
+</tr>
+<!--CREATE CHANNELS, add new users, post message-->
+<!--AAA (public)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>AAA</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>AAA</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--BBB Public (open private channel modal, switch to public)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<!--v5.10 the field ID seems to have changed to private from public-->
+<!--in this scenario but it still creates as public as expected-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>BBB</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>BBB</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Starts with number - 5number, public-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>5number</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>5number</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Quick public (compare w/ hyphenated similar name, admin Favorite)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Quick</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#favoriteChannel &gt; span</td>
+	<td>FAVORITE CHANNELS</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Quick-test public (compare w/ non-hyphenated similar name)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Quick-test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick-test</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--[symbol] channel name, public-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>[symbol]</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>[symbol]</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--rename, public (Change channel URL during creation)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>rename</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p.input__help.dark &gt; button.color--link.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=p.input__help.dark &gt; button.color--link.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>rename</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>different</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>URL: /different (Edit)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>rename</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--alpha private, with purpose and header-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>alpha</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Here's a purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>Let's also add a header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>alpha</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--CCC private (admin Favorite)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>CCC</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>CCC</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*CCC*Quick</td>
+	<td>Remove from Favorites</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Channel private-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Channel</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--channel test private (open public modal, change to private)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>channel test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>channel test</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--NNN private-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=private</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>NNN</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>NNN</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--ZZZ public (favorite, create public, convert to private later)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=public</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>ZZZ</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>ZZZ</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*CCC*Quick*ZZZ</td>
+	<td>Remove from Favorites</td>
+</tr>
+<!--Add users papa and papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa</td>
+	<td>@papa</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@papa-2</td>
+	<td>@papa-2</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Let's make this channel unread.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Create a DM w/ papa-2 (admin Favorite)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/msg @papa-2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>papa-2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*CCC*papa-2*Quick</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hi hello!${KEY_ENTER}</td>
+</tr>
+<!--Create a GM w/ papa-2 and papa (admin Favorite)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/groupmsg @papa,@papa-2 ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>papa, papa-2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*CCC*papa-2*papa, papa-2*Quick</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>It's a GM.${KEY_ENTER}</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--LOG IN papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>papa-2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Default Sidebar: Grouped by type, sorted alpha, favorites, unreads (mentions at top)-->
+<!--Using waitForTextPresent and * to verify display order-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*[symbol]*5number*AAA*admin*alpha*BBB*CCC*Channel*channel test*NNN*Quick*Quick-test*rename*ZZZ*admin, papa*PUBLIC CHANNELS*Off-Topic*Town Square*PRIVATE CHANNELS*DIRECT MESSAGES*More...</td>
+	<td></td>
+</tr>
+<!--*** RN CHECK: log in as user papa-2, verify sidebar as above (hover to see all)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Turn Unreads off: Grouped by type, sorted alpha, favorites, no unreads (mentions not at top)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Grouped by type, sorted alpha, favorites, no unreads (mentions not at top)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>PUBLIC CHANNELS*[symbol]*5number*AAA*BBB*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*NNN*DIRECT MESSAGES*admin*admin, papa</td>
+	<td></td>
+</tr>
+<!--*** RN CHECK papa-2: See below; no change (Unreads always on for mobile)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--UNREADS | [symbol] | 5number | AAA | admin | alpha | BBB | CCC | Channel |  ...-->
+<!--... | channel test | NNN | Quick | Quick-test | rename | ZZZ | admin, papa |  ...-->
+<!--... | PUBLIC CHANNELS | Off-Topic | Town Square | PRIVATE CHANNELS |  ...-->
+<!--... | DIRECT MESSAGES-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--More Unreads indicator (below on webapp, More unreads up-arrow on RN)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadIndicatorBottom</td>
+	<td></td>
+</tr>
+<!--Change to sort by Recency (still grouped by channel type, favorites on, unreads off)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#groupChannelsDesc &gt; span</td>
+	<td>Group by channel type</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#groupChannelsDesc &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=byTypeOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=recentSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#groupChannelsDesc &gt; span</td>
+	<td>Group by channel type</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify channel list still grouped by channel type, but sorted by Recency, unreads off-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>PUBLIC CHANNELS*ZZZ*rename*[symbol]*Quick-test*Quick*5number*BBB*AAA*Off-Topic*Town Square*PRIVATE CHANNELS*NNN*channel test*Channel*CCC*alpha*DIRECT MESSAGES*admin, papa*admin</td>
+	<td></td>
+</tr>
+<!--*** RN CHECK papa-2: See below; recency sort (Unreads always on for mobile)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--UNREADS | admin | ZZZ | NNN | channel test | Channel | CCC | alpha | ...-->
+<!--... rename | [symbol] | Quick-test | Quick | 5number | BBB | AAA | ...-->
+<!--... admin, papa | PUBLIC CHANNELS | Off-Topic | Town Square | ...-->
+<!--... | PRIVATE CHANNELS | DIRECT MESSAGES-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Change to combine all channel types (still sorted by Recency)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#groupChannelsDesc &gt; span</td>
+	<td>Group by channel type</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#groupChannelsDesc &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=byTypeOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=noneOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Verify channels all grouped together, sorted by Recency-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>RECENT ACTIVITY*admin, papa*admin*ZZZ*NNN*channel test*Channel*CCC*alpha*rename*[symbol]*Quick-test*Quick*5number*BBB*AAA*Off-Topic*Town Square</td>
+	<td></td>
+</tr>
+<!--*** RN CHECK papa-2: no change b/c all unread; grouped and recency (Unreads always on for mobile)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--UNREADS | admin | ZZZ | NNN | channel test | Channel | CCC | alpha | ...-->
+<!--... rename | [symbol] | Quick-test | Quick | 5number | BBB | AAA | ...-->
+<!--... admin, papa | RECENT ACTIVITY | Off-Topic | Town Square-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Set to combine all channel types , sorted alphabetically-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#groupChannelsDesc &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=alphaSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted alphabetically<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify channels all grouped together, sorted alphabetically-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>CHANNELS*[symbol]*5number*AAA*admin*admin, papa*alpha*BBB*CCC*Channel*channel test*NNN*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ</td>
+	<td></td>
+</tr>
+<!--*** RN CHECK papa-2: see below; grouped (if read) and alpha (Unreads always on for mobile)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--UNREADS | [symbol] | 5number | AAA | admin | alpha | BBB | ...-->
+<!--... | CCC | Channel | channel test | NNN | Quick | Quick-test | ...-->
+<!--... | rename | ZZZ | admin, papa | CHANNELS | Off-Topic | Town Square-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Set to group Unreads separately, un-check Favorites being grouped-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted alphabetically<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify No grouping, sorted alphabetically, Unreads on-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*[symbol]*5number*AAA*admin*alpha*BBB*CCC*Channel*channel test*NNN*Quick*Quick-test*rename*ZZZ*admin, papa*CHANNELS*Off-Topic*Town Square</td>
+	<td></td>
+</tr>
+<!--*** RN CHECK papa-2: no change (unreads already on); grouped (if read) and alpha (Unreads always on for mobile)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--UNREADS | [symbol] | 5number | AAA | admin | alpha | BBB | ...-->
+<!--... | CCC | Channel | channel test | NNN | Quick | Quick-test | ...-->
+<!--... | rename | ZZZ | admin, papa | CHANNELS | Off-Topic | Town Square-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--papa-2 reads each channel, verifies LHS as it reorders-->
+<!--papa-2 also posts messages (out of alpha order) so admin can test recency-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=[symbol]*</td>
+	<td></td>
+</tr>
+<!--[symbol] (public)-->
+<tr>
+	<td>click</td>
+	<td>link=[symbol]*</td>
+	<td></td>
+</tr>
+<!--Note: With Unreads on, mentions all sort to top-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*[symbol]*5number*AAA*admin*alpha*BBB*CCC*Channel*channel test*NNN*Quick*Quick-test*rename*ZZZ*admin, papa*CHANNELS*Off-Topic*Town Square</td>
+	<td></td>
+</tr>
+<!--**** Left off writing RN checks here (note channel re-sorts on RN on reading in webapp)-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>[symbol]</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unread, round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--rename (public, different URL)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=rename*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=rename*</td>
+	<td></td>
+</tr>
+<!--Note: With Unreads on, mentions sort to top-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*admin*alpha*BBB*CCC*Channel*channel test*NNN*Quick*Quick-test*rename*ZZZ*admin, papa*CHANNELS*[symbol]*Off-Topic*Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>rename</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unread, round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--CCC (private)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=CCC*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=CCC*</td>
+	<td></td>
+</tr>
+<!--Note: With Unreads on, mentions sort to top-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*admin*alpha*BBB*CCC*Channel*channel test*NNN*Quick*Quick-test*ZZZ*admin, papa*CHANNELS*[symbol]*Off-Topic*rename*Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>CCC</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unread, round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--admin (DM)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=admin1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=admin1</td>
+	<td></td>
+</tr>
+<!--Note: With Unreads on, mentions sort to top-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*admin*alpha*BBB*Channel*channel test*NNN*Quick*Quick-test*ZZZ*admin, papa*CHANNELS*[symbol]*CCC*Off-Topic*rename*Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unread, round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Quick-test (public)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Quick-test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick-test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*alpha*BBB*Channel*channel test*NNN*Quick*Quick-test*ZZZ*admin, papa*CHANNELS*[symbol]*admin*CCC*Off-Topic*rename*Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick-test</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unread, round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Set to group by channel type (leave Unreads section on)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Refresh sorts the now-read Quick-test channel down to Public section-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*alpha*BBB*Channel*channel test*NNN*Quick*ZZZ*admin, papa*PUBLIC CHANNELS*[symbol]*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*CCC*DIRECT MESSAGES*admin*More...</td>
+	<td></td>
+</tr>
+<!--channel test (private)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=channel test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=channel test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*alpha*BBB*Channel*channel test*NNN*Quick*ZZZ*admin, papa*PUBLIC CHANNELS*[symbol]*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*CCC*DIRECT MESSAGES*admin*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>channel test</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unread, round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Channel (private, add an at-mention)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Channel*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Channel*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*alpha*BBB*Channel*NNN*Quick*ZZZ*admin, papa*PUBLIC CHANNELS*[symbol]*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*CCC*channel test*DIRECT MESSAGES*admin*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Channel</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>A mention for you @admin, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--AAA (public, add an at-mention)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=AAA*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=AAA*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*AAA*alpha*BBB*NNN*Quick*ZZZ*admin, papa*PUBLIC CHANNELS*[symbol]*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*CCC*Channel*channel test*DIRECT MESSAGES*admin*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>AAA</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>A mention for you @admin, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--admin, papa (reply in a GM, no mention)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=*admin, papa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=*admin, papa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*alpha*BBB*NNN*Quick*ZZZ*admin, papa*PUBLIC CHANNELS*[symbol]*AAA*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*CCC*Channel*channel test*DIRECT MESSAGES*admin*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>admin, papa</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>And a reply to a GM for you.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--ZZZ (public)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=ZZZ*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=ZZZ*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*alpha*BBB*NNN*Quick*ZZZ*PUBLIC CHANNELS*[symbol]*AAA*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*CCC*Channel*channel test*DIRECT MESSAGES*admin*admin, papa*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>ZZZ</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>A non-mention in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--alpha (private, with an at-mention)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=alpha*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=alpha*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*alpha*BBB*NNN*Quick*PUBLIC CHANNELS*[symbol]*AAA*Off-Topic*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*CCC*Channel*channel test*DIRECT MESSAGES*admin*admin, papa*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>alpha</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Another at-mention, @admin, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Quick (public, with an at-mention)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Quick*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*BBB*NNN*Quick*PUBLIC CHANNELS*[symbol]*AAA*Off-Topic*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*DIRECT MESSAGES*admin*admin, papa*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Another at-mention, @admin, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--BBB (public)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=BBB*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=BBB*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*BBB*NNN*PUBLIC CHANNELS*[symbol]*AAA*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*DIRECT MESSAGES*admin*admin, papa*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>BBB</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>No mention, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--NNN (private, with an at-mention)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=NNN*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NNN*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*NNN*PUBLIC CHANNELS*[symbol]*AAA*BBB*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*DIRECT MESSAGES*admin*admin, papa*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>NNN</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hi @admin, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--5number (public)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=5number*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=5number*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*5number*PUBLIC CHANNELS*[symbol]*AAA*BBB*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*NNN*DIRECT MESSAGES*admin*admin, papa*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>5number</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>No mention, in round 2.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--Open to Town Square in test-team in case re-opens to unexpected channel-->
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/side-${monthdaytime}/channels/town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Side-${monthdaytime}</td>
+</tr>
+<!--Grouped by type, alpha, Favorites, Unreads (default)-->
+<!--Note: With Unreads on, mentions sort to top-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*AAA*alpha*Channel*NNN*papa-2*[symbol]*5number*BBB*CCC*channel test*papa, papa-2*Quick-test*rename*ZZZ*PUBLIC CHANNELS*Off-Topic*Town Square*PRIVATE CHANNELS*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Favorites section does not appear if all are in Unreads-->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>FAVORITE CHANNELS</td>
+	<td></td>
+</tr>
+<!--Mark Favorite channel ZZZ read-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=ZZZ*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=ZZZ*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*AAA*alpha*Channel*NNN*papa-2*[symbol]*5number*BBB*CCC*channel test*papa, papa-2*Quick-test*rename*ZZZ*PUBLIC CHANNELS*Off-Topic*Town Square*PRIVATE CHANNELS*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>ZZZ</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Favorites section appears when there are channels to display there-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*AAA*alpha*Channel*NNN*papa-2*Quick*[symbol]*5number*BBB*CCC*channel test*papa, papa-2*Quick-test*rename*FAVORITE CHANNELS*ZZZ*PUBLIC CHANNELS*Off-Topic*Town Square*PRIVATE CHANNELS*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Switch to grouped by type, alpha, with Favorites, not Unreads-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Verify group by type, alpha, favorites (no unreads)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*CCC*papa-2*papa, papa-2*Quick*ZZZ*PUBLIC CHANNELS*[symbol*5number*AAA*BBB*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*alpha*Channel*channel test*NNN*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Group by type, recency, Favorites, Unreads-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=recentSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify type, recency, favorites, unreads-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*NNN*Quick*alpha*AAA*Channel*papa-2*5number*BBB*papa, papa-2*channel test*Quick-test*CCC*rename*[symbol]*FAVORITE CHANNELS*ZZZ*PUBLIC CHANNELS*Off-Topic*Town Square*PRIVATE CHANNELS*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Grouped by type, recency, Favorites (disable Unreads)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify type, recency, favorites (no Unreads)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*Quick*ZZZ*papa, papa-2*papa-2*CCC*PUBLIC CHANNELS*5number*BBB*AAA*Quick-test*rename*[symbol]*Off-Topic*Town Square*PRIVATE CHANNELS*NNN*alpha*Channel*channel test*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Group by channel type, sort by alpha, Favorites enabled-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=alphaSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify type, alpha, favorites (no Unreads)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*CCC*papa-2*papa, papa-2*Quick*ZZZ*PUBLIC CHANNELS*[symbol]*5number*AAA*BBB*Off-Topic*Quick-test*rename*Town Square*PRIVATE CHANNELS*alpha*Channel*channel test*NNN*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Un-favorite GM, moves to DM section-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=*papa, papa-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Linda this click step will break a test further down that expects the GM to be unread-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>papa, papa-2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>PRIVATE CHANNELS*alpha*Channel*channel test*NNN*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Grouped by type, alpha (disable Favorites section)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>PUBLIC CHANNELS*[symbol]*5number*AAA*BBB*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*NNN*DIRECT MESSAGES*papa-2*papa, papa-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>FAVORITE CHANNELS</td>
+	<td></td>
+</tr>
+<!--Make changes, cancel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=recentSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>on</td>
+</tr>
+<!--Cancel out of change, verify no changes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>PUBLIC CHANNELS*[symbol]*5number*AAA*BBB*Off-Topic*Quick*Quick-test*rename*Town Square*ZZZ*PRIVATE CHANNELS*alpha*CCC*Channel*channel test*NNN*DIRECT MESSAGES*papa-2*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Actually make change to show Unreads and sort by Recency-->
+<!--Group by type, recency, Unreads (no Favorites)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=recentSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify type, recency, unreads (mentions at top), no favorites This -->
+<!--This step fails because of a step above where the "papa, papa-2" gm is opened - no step exists to post in the GM as another user to set it unrtead again. Note that trying to fix it now will cause it to break the recency test locator below where channels are checked by recency with favorites grouped seperately-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*NNN*Quick*alpha*AAA*Channel*papa-2*5number*BBB*papa, papa-2*channel test*Quick-test*CCC*rename*[symbol]*PUBLIC CHANNELS*ZZZ*Off-Topic*Town Square*PRIVATE CHANNELS*DIRECT MESSAGES</td>
+	<td></td>
+</tr>
+<!--Read private channels NNN, channel test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=NNN*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=NNN*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>NNN</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=channel test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=channel test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>channel test</td>
+</tr>
+<!--Read public channels Quick-test, AAA-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Quick-test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick-test*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick-test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=AAA*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=AAA*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>AAA</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*Quick*alpha*Channel*papa-2*5number*BBB*CCC*rename*[symbol]*PUBLIC CHANNELS*ZZZ*AAA*Quick-test*Off-Topic*Town Square*PRIVATE CHANNELS*NNN*channel test*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Convert ZZZ to private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=ZZZ*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=ZZZ*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>ZZZ</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelCovertToPrivate &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//p[3]/span</td>
+	<td>Are you sure you want to convert ZZZ to a private channel?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, convert to private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, convert to private channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*Quick*alpha*Channel*papa-2*5number*BBB*CCC*rename*[symbol]*PUBLIC CHANNELS*AAA*Quick-test*Off-Topic*Town Square*PRIVATE CHANNELS*ZZZ*NNN*channel test*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Group by channel type, sort recency, no favorites or unreads -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>PUBLIC CHANNELS*5number*BBB*Quick*AAA*Quick-test*rename*[symbol]*Off-Topic*Town Square*PRIVATE CHANNELS*ZZZ*NNN*alpha*Channel*channel test*CCC*DIRECT MESSAGES*papa, papa-2*papa-2</td>
+	<td></td>
+</tr>
+<!--Combine channel types, recency, with favorites, not unreads-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*ZZZ*Quick*papa-2*CCC*RECENT ACTIVITY*5number*NNN*BBB*alpha*papa, papa-2*AAA*Channel*channel test*Quick-test*rename*[symbol]*Off-Topic*Town Square*More...</td>
+	<td></td>
+</tr>
+<!--Combine types, recency, with unreads (not favorites)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency<br />Favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify combined, recency, unreads (no favorites)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*Quick*alpha*Channel*papa-2*5number*BBB*CCC*rename*[symbol]*RECENT ACTIVITY*ZZZ*NNN*papa, papa-2*AAA*channel test*Quick-test*Off-Topic*Town Square*More...</td>
+	<td></td>
+</tr>
+<!--Group types, alpha, with unreads (not favorites)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=alphaSectionEnabled</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify by type, alpha, unreads (no favorites)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*alpha*Channel*papa-2*Quick*[symbol]*5number*BBB*CCC*rename*PUBLIC CHANNELS*AAA*Off-Topic*Quick-test*Town Square*More...*PRIVATE CHANNELS*channel test*NNN*ZZZ*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Group types, alpha, with unreads, with favorites-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*alpha*Channel*papa-2*Quick*[symbol]*5number*BBB*CCC*rename*FAVORITE CHANNELS*ZZZ*PUBLIC CHANNELS*AAA*Off-Topic*Quick-test*Town Square*More...*PRIVATE CHANNELS*channel test*NNN*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Mark an unread channel as a favorite-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=[symbol]*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=[symbol]*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>[symbol]</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<!--Channel doesn't move until channel is navigated away from-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*alpha*Channel*papa-2*Quick*[symbol]*5number*BBB*CCC*rename*FAVORITE CHANNELS*ZZZ*PUBLIC CHANNELS*AAA*Off-Topic*Quick-test*Town Square*More...*PRIVATE CHANNELS*channel test*NNN*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Then moves to Favorites-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*alpha*Channel*papa-2*Quick*5number*BBB*CCC*rename*FAVORITE CHANNELS*[symbol]*ZZZ*PUBLIC CHANNELS*AAA*Off-Topic*Quick-test*Town Square*More...*PRIVATE CHANNELS*channel test*NNN*DIRECT MESSAGES*papa, papa-2</td>
+	<td></td>
+</tr>
+<!--Combine types, alpha, with unreads, not favorites-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted alphabetically<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify combined, alpha, unreads (no favorites)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*alpha*Channel*papa-2*Quick*5number*BBB*CCC*rename*CHANNELS*[symbol]*AAA*channel test*NNN*Off-Topic*papa, papa-2*Quick-test*Town Square*ZZZ*More...</td>
+	<td></td>
+</tr>
+<!--Group by type, recency, with unreads, with favorites-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted alphabetically<br />Unreads grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Verify by type, recency, unreads, favorites-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*Quick*alpha*Channel*papa-2*5number*BBB*CCC*rename*FAVORITE CHANNELS*ZZZ*[symbol]*PUBLIC CHANNELS*AAA*Quick-test*Off-Topic*Town Square*More...*PRIVATE CHANNELS*NNN*channel test*DIRECT MESSAGES*papa, papa-2*More...</td>
+	<td></td>
+</tr>
+<!--EDITING a post counts as activity when sorting by Recency-->
+<!--Read a channel not currently at the top by Recency-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=papa-2*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=papa-2*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>papa-2</td>
+</tr>
+<!--Switch to Off-Topic to show where this channel falls in now-read recency-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Right now papa-2 is in middle of Favorites section, then edit a post in it-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*Quick*alpha*Channel*5number*BBB*CCC*rename*FAVORITE CHANNELS*ZZZ*papa-2*[symbol]*PUBLIC CHANNELS*AAA*Quick-test*Off-Topic*Town Square*More...*PRIVATE CHANNELS*NNN*channel test*DIRECT MESSAGES*papa, papa-2*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=papa-2*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=papa-2*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>papa-2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> Editing counts as recent activity!${KEY_ENTER}</td>
+</tr>
+<!--papa-2 goes to top of Favorites section as most recent in that section-->
+<!--Note: This can fail if the main browser window isn't in front - DKH had to click the side bar for "papa2" to move as expetced.-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>UNREADS*Quick*alpha*Channel*5number*BBB*CCC*rename*FAVORITE CHANNELS*papa-2*ZZZ*[symbol]*PUBLIC CHANNELS*AAA*Quick-test*Off-Topic*Town Square*More...*PRIVATE CHANNELS*NNN*channel test*DIRECT MESSAGES*papa, papa-2*More...</td>
+	<td></td>
+</tr>
+<!--Combine all channel types, recency, remove Unreads and Favorites-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted by recency<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=unreadAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=favoriteAtTopOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>No grouping, sorted by recency</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--Verify combined, recency (no favorites or unreads)-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>RECENT ACTIVITY*papa-2*ZZZ*5number*NNN*BBB*Quick*alpha*papa, papa-2*AAA*Channel*channel test*Quick-test*CCC*rename*[symbol]*Off-Topic*Town Square*More...</td>
+	<td></td>
+</tr>
+<!--^^DKH This can break ewhen there are other DMs on the bar -- Maybe take out "more..." off to not assume you know all DMs currently listed?  -->
+<!--MUTED CHANNELS-->
+<!--Admin mutes a GM, public, and private channels-->
+<!--Mute Quick-test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Quick-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick-test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleMute</td>
+	<td></td>
+</tr>
+<!--Mute CCC-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=CCC</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=CCC</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>CCC</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleMute</td>
+	<td></td>
+</tr>
+<!--Mute GM papa, papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>papa, papa-2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>G<br />papa, papa-2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>papa, papa-2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[3]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='channelHeaderDropdownMenu']/li[3]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleMute</td>
+	<td></td>
+</tr>
+<!--Note: At this point, there are unreads in 5number, BBB, rename-->
+<!--And mentions in Quick, alpha, and Channel (these are in order of recency)-->
+<!--Switch to Off-Topic, the LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-top</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>papa-2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Post mentions in the channels that admin muted-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Quick-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick-test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hi @admin, this is a mention for you in a muted channel.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=CCC</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=CCC</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>CCC</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hi @admin, this is a mention for you in a muted private channel.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>admin, papa</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>G<br />admin, papa</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>G<br />admin, papa</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>admin, papa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hi @admin, this is a mention for you in a muted GM.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--LOG OUT papa-2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify order, with muted mention channels at the bottom-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>RECENT ACTIVITY*papa-2*ZZZ*5number*NNN*BBB*Quick*1*alpha*1*AAA*Channel*1*channel test*rename*[symbol]*Off-Topic*Town Square*papa, papa-2*1*CCC*1*Quick-test*1*More...</td>
+	<td></td>
+</tr>
+<!--Tests end here for now; can add steps to clean up (leave team)-->
+<!--Or if all the channels or users will mess up data on other teams, can rebuild server-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** IS THIS STILL TRUE?? Skip for now-->
+<!--FAVORITING a channel counts as activity for recency-->
+<!--Favorite Quick-test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Quick-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Quick-test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Quick-test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toggleFavorite</td>
+	<td></td>
+</tr>
+<!--Doesn't move in LHS until switch to different channel-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>RECENT ACTIVITY*papa-2*ZZZ*5number*NNN*BBB*Quick*alpha*papa, papa-2*AAA*Channel*channel test*Quick-test*CCC*rename*[symbol]*Off-Topic*Town Square*More...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<!--*** Hm, not seeing a change on recency sorting after favoriting Quick-test-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** Tested manually v5.6; add tests-->
+<!--MUTED channels with unreads, muted channels with mentions-->
+<!--Admin posts some mentions for papa-2 and some regular unreads-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** UI tests for modals; could split out into separate Se test, and even try exporting?-->
+<!--UI for Channel join and create modals based on sidebar settings-->
+<!--COMBINED CHANNEL TYPES, RECENCY - no favorites or unreads (but same either way)-->
+<!--(but same with or without favorites and unreads; could add more tests to verify those)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=recentSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Click RECENT ACTIVITY opens modal to open / join channels or DMs-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.public_direct_name &gt; span</td>
+	<td>RECENT ACTIVITY</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.public_direct_name &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>×CloseChannels and Direct Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=morePublicDirectChannelTabs-tab-channels</td>
+	<td>Channels</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=createNewChannel</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=morePublicDirectChannelTabs-tab-dm</td>
+	<td>Direct Messages</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=morePublicDirectChannelTabs-tab-dm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 7 more people.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveItems</td>
+	<td>Go</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.close</td>
+	<td>×Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Click + next to Recent Activity opens channel creation modal-->
+<tr>
+	<td>waitForText</td>
+	<td>//button[@type='button']</td>
+	<td>+</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--More... below combined channel list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=morePublicDirectChannels</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=morePublicDirectChannels</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>×CloseChannels and Direct Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=morePublicDirectChannelTabs-tab-channels</td>
+	<td>Channels</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=createNewChannel</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=morePublicDirectChannelTabs-tab-dm</td>
+	<td>Direct Messages</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=morePublicDirectChannelTabs-tab-dm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 7 more people.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveItems</td>
+	<td>Go</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.close</td>
+	<td>×Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--COMBINED CHANNEL TYPES, ALPHA - no favorites or unreads-->
+<!--*** Verified manually enabling favorites / unreads makes no difference; write tests?-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=noneOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=favoriteAtTopOption</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Click + next to Channels opens channel creation modal-->
+<tr>
+	<td>waitForText</td>
+	<td>//button[@type='button']</td>
+	<td>+</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button']</td>
+	<td>+</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--More... below combined channel list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=morePublicDirectChannels</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=morePublicDirectChannels</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>×CloseChannels and Direct Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=morePublicDirectChannelTabs-tab-channels</td>
+	<td>Channels</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=createNewChannel</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=morePublicDirectChannelTabs-tab-dm</td>
+	<td>Direct Messages</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=morePublicDirectChannelTabs-tab-dm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 7 more people.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveItems</td>
+	<td>Go</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.close</td>
+	<td>×Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--CLEAN-UP-->
+<!--Set back to group by type, alpha, Favorites, Unreads (as with feature disabled)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=groupChannelsEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=byTypeOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=alphaSectionEnabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=unreadAtTopOption</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=groupChannelsDesc</td>
+	<td>Group by channel type, sorted alphabetically<br />Unreads and favorites grouped separately</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FAVORITE CHANNELS*[symbol]*CCC*papa-2*Quick*ZZZ*PUBLIC CHANNELS*5number*AAA*BBB*Off-Topic*Quick-test*rename*Town Square*More...*PRIVATE CHANNELS*alpha*Channel*channel test*NNN*DIRECT MESSAGES*papa, papa-2*More...</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>ChannelJoinLeaveMsgs</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ChannelJoinLeaveMsgs</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Create new team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[@id='createTeam'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@id='createTeam'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>JoinLeaveTeam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>joinleaveteam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1#headerTeamName.team__name</td>
+	<td>JoinLeaveTeam</td>
+</tr>
+<!--Add multiple users to team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@id='addUsersToTeam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@id='addUsersToTeam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][contains(text(),'You')]/strong[contains(text(),'joined the team')]</td>
+	<td></td>
+</tr>
+<!--*** This test is incomplete, and this function is still tested manually-->
+<!--*** elsewhere. This is the beginning of automating that part-->
+<!--Be aware - locators below will not work ifthe users have a nickname added-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test10')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test10')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test6')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test7']/parent::p/parent::span/a[contains(text(),'5 others')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPublicChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPublicChannelName</td>
+	<td>Add Members Test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<!--Add a member to new channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test10')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test10')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test10']/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test5')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test5']/parent::p/parent::span/a[contains(text(),'2 others')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test4']/parent::p/parent::span/a[contains(text(),'2 others')]</td>
+	<td></td>
+</tr>
+<!--^^The system message generated here does not always list the same user 1st only one of these 2 ccommands will pass.^^   -->
+<!--Ensure test4  user see's  himself first-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Add Members Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Add Members Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][contains(text(),'You and')]/following-sibling::a[contains(text(),'2 others')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'2 others')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][contains(text(),you)]/span[@data-mention='test5']/following-sibling::span[@data-mention='test10']</td>
+	<td></td>
+</tr>
+<!--^System mesaage appears as expected^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test7']/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--Added user7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]/parent::div[@class='more-modal__details']/following-sibling::div/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]/parent::div[@class='more-modal__details']/following-sibling::div/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='button'][@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button'][@class='close']</td>
+	<td></td>
+</tr>
+<!--^ Can't figure out why this is not working  Can't close the modal?^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test7']/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td></td>
+</tr>
+<!--Removed user7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test7']/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--Added user7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]/parent::div[@class='more-modal__details']/following-sibling::div/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test7')]/parent::div[@class='more-modal__details']/following-sibling::div/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='button'][@class='close']/span[contains(text(),'×')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button'][@class='close']/span[contains(text(),'×')]</td>
+	<td></td>
+</tr>
+<!--^ Can't figure out why this is not working  Can't close the modal?^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test7']/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td></td>
+</tr>
+<!--Removed user7-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test2')]/parent::div[@class='more-modal__details']/following-sibling::div/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test2')]/parent::div[@class='more-modal__details']/following-sibling::div/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='button'][@class='close']/span[contains(text(),'×')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='button'][@class='close']/span[contains(text(),'×')]</td>
+	<td></td>
+</tr>
+<!--^ Can't figure out why this is not working  Can't close the modal?^-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test2']/following-sibling::span[@data-mention='test7']/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td>/following-sibling::strong[contains(text(),'added to the channel')]</td>
+</tr>
+<!--^ test2 and test7 add mesages are grouped together^ -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-mention='test2']/following-sibling::span[@data-mention='test7']/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td>/following-sibling::strong[contains(text(),'added to the channel')]</td>
+</tr>
+<!--^ test2 and test7 remove mesages are grouped together^ -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div/a/span/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div/a/span/span[contains(text(),'Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div/ul[@class='dropdown-menu member-menu']/li[@role='presentation']/a[@id='manageTeams']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][contains(text(),'@test4')]/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div/ul[@class='dropdown-menu member-menu']/li[@role='presentation']/a[@id='manageTeams']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='manage-teams__team-name'][contains(text(),'JoinLeaveTeam')]/parent::div[@class='manage-teams__team']/div[@class='manage-teams__team-actions']/div/a[@class='dropdown-toggle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='manage-teams__team-name'][contains(text(),'JoinLeaveTeam')]/parent::div[@class='manage-teams__team']/div[@class='manage-teams__team-actions']/div/a[@class='dropdown-toggle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=makeTeamAdmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=makeTeamAdmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'×')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'×')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='dropdown__icon admin-navbar-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='dropdown__icon admin-navbar-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithTojoinleaveteam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithTojoinleaveteam</td>
+	<td></td>
+</tr>
+<!--Logout as admin to login as test4 user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Add Members Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Add Members Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//strong[@id='channelHeaderTitle'][contains(text(),'Add Members Test')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownIcon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelConvert</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelConvert</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='modal-dialog']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Convert Add Members Test to a private channel?')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary']/span[contains(text(),'Yes, convert to private channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary']/span[contains(text(),'Yes, convert to private channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='icon icon__lock']/following-sibling::span[@class='sidebar-item__name']/span[contains(text(),'Add Members Test')]</td>
+	<td></td>
+</tr>
+<!--^^Channel Now has lock icon^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

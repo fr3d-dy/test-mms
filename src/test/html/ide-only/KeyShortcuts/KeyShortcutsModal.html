@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>KeyShortcuts</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">KeyShortcuts</td></tr>
+</thead><tbody>
+<!--LOG IN test4-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test4@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--CTRL+/ or CMD+/ to open shortcuts modal-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_CTRL}/${KEY_CTRL}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.shortcut-line &gt; span</td>
+	<td>Keyboard Shortcuts</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Keyboard Shortcuts⌘/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.section-title &gt; strong</td>
+	<td>Navigation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div &gt; div.shortcut-line &gt; span</td>
+	<td>Previous channel:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Previous channel:⌥Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Previous channel:⌥Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Next channel:⌥Down')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Previous unread channel:⌥ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Next unread channel:⌥ShiftDown')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Quick channel switcher:⌘K')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Direct messages menu:⌘ShiftK')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Account settings:⌘ShiftA')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Recent mentions:⌘ShiftM')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/h4/strong</td>
+	<td>Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; strong</td>
+	<td>Works inside an empty input field</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Edit last message in channel:Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reply to last message in channel:ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reprint previous message:⌘Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reprint next message:⌘Down')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[2]/strong</td>
+	<td>Autocomplete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Username:@[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Channel:~[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Emoji::[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[3]/div/div/h4/strong</td>
+	<td>Files</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Upload files:⌘U')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.section--lower &gt; h4.section-title &gt; strong</td>
+	<td>Built-in Browser Commands</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Back in history:⌘[')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Forward in history:⌘]')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Zoom in:⌘+')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Zoom out:⌘-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.section--lower &gt; span &gt; strong</td>
+	<td>Works inside an input field</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Highlight text to the previous line:ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Highlight text to the next line:ShiftDown')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Create a new line:ShiftEnter')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.shortcuts-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.shortcuts-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--/shortcuts to open shortcuts modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/shortcuts${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Keyboard Shortcuts⌘/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.section-title &gt; strong</td>
+	<td>Navigation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div &gt; div.shortcut-line &gt; span</td>
+	<td>Previous channel:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Previous channel:⌥Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Previous channel:⌥Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Next channel:⌥Down')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Previous unread channel:⌥ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Next unread channel:⌥ShiftDown')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Quick channel switcher:⌘K')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Direct messages menu:⌘ShiftK')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Account settings:⌘ShiftA')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Recent mentions:⌘ShiftM')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/h4/strong</td>
+	<td>Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; strong</td>
+	<td>Works inside an empty input field</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Edit last message in channel:Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reply to last message in channel:ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reprint previous message:⌘Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reprint next message:⌘Down')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[2]/strong</td>
+	<td>Autocomplete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Username:@[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Channel:~[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Emoji::[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[3]/div/div/h4/strong</td>
+	<td>Files</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Upload files:⌘U')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.section--lower &gt; h4.section-title &gt; strong</td>
+	<td>Built-in Browser Commands</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Back in history:⌘[')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Forward in history:⌘]')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Zoom in:⌘+')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Zoom out:⌘-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.section--lower &gt; span &gt; strong</td>
+	<td>Works inside an input field</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Highlight text to the previous line:ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Highlight text to the next line:ShiftDown')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Create a new line:ShiftEnter')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.shortcuts-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.shortcuts-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Main menu to open shortcuts modal-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=keyboardShortcuts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=keyboardShortcuts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Keyboard Shortcuts⌘/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.section-title &gt; strong</td>
+	<td>Navigation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div &gt; div.shortcut-line &gt; span</td>
+	<td>Previous channel:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Previous channel:⌥Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Previous channel:⌥Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Next channel:⌥Down')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Previous unread channel:⌥ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Next unread channel:⌥ShiftDown')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Quick channel switcher:⌘K')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Direct messages menu:⌘ShiftK')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Account settings:⌘ShiftA')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Recent mentions:⌘ShiftM')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/h4/strong</td>
+	<td>Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; strong</td>
+	<td>Works inside an empty input field</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Edit last message in channel:Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reply to last message in channel:ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reprint previous message:⌘Up')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Reprint next message:⌘Down')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[2]/strong</td>
+	<td>Autocomplete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Username:@[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Channel:~[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Emoji::[a-z]Tab')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[3]/div/div/h4/strong</td>
+	<td>Files</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Upload files:⌘U')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.section--lower &gt; h4.section-title &gt; strong</td>
+	<td>Built-in Browser Commands</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Back in history:⌘[')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Forward in history:⌘]')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Zoom in:⌘+')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Zoom out:⌘-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.section--lower &gt; span &gt; strong</td>
+	<td>Works inside an input field</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Highlight text to the previous line:ShiftUp')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Highlight text to the next line:ShiftDown')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('Create a new line:ShiftEnter')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.shortcuts-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.shortcuts-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

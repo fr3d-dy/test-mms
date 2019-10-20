@@ -1,0 +1,2087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scSecSignup</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scSecSignup</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--Enable account creation - true (default)-->
+<!--Verify account creation link is available-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Invite link appears at beginning of Town Square-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=introTextInvite</td>
+	<td>Invite others to this team</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Disable account creation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.help-text &gt; span</td>
+	<td>When false, the ability to create accounts is disabled. The create account button displays error when pressed.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableUserCreationfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableUserCreationfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<!--Error messaging in Email Invite modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='sendEmailInvite']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='sendEmailInvite']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; div &gt; p &gt; span</td>
+	<td>User creation has been disabled for your team. Please ask your Team Administrator for details.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<!--Error trying to use slash command /invite_people-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/invite_people testtest@test.com${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('User creation has been disabled on this server, no invite(s) sent')</td>
+	<td></td>
+</tr>
+<!--Invite link no longer appears at top of Town Square-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; span</td>
+	<td>Welcome to Town Square!<br /><br />Post messages here that you want everyone to see. Everyone automatically becomes a permanent member of this channel when they join the team.</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='channelIntro']/span/span</td>
+	<td>Invite others to this team</td>
+</tr>
+<!--LOG OUT and verify account creation flow ends with error-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>testtest@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test-test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>User sign-up with email is disabled.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<!--Re-enable account creation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableUserCreationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableUserCreationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Restrict account creation to specified domains-->
+<!--Restrict to mattermost.com-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td>mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Acct creation from link on signin page fails with wrong domain-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>selenium@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>wrong-domain</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>The email you provided does not belong to an accepted domain. Please contact your administrator or sign up with a different email.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Send Email Invite fails with wrong domain-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sendEmailInvite &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sendEmailInvite &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>selenium@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-invite-member.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-invite-member.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>The following email addresses do not belong to an accepted domain: selenium@test.com. Please contact your System Administrator for details.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-invite-member.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-invite-member.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Discard</td>
+</tr>
+<!--Multiple domains specified-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Restrict to mattermost.com AND test.com-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td>mattermost.com, test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Acct creation from link on signin page succeeds with correct domain-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>selenium@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>correct-domain</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.color--light &gt; span</td>
+	<td>All team communication in one place, searchable and accessible anywhere</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=UI_Automation_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=UI_Automation_2</td>
+	<td></td>
+</tr>
+<!--Cannot change email address to domain not in allowed list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>selenium@wrongdomain.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>selenium@wrongdomain.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=serverError</td>
+	<td>The email you provided does not belong to an accepted domain. Please contact your administrator or sign up with a different email.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<!--Get team invite (open team)-->
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td>Get Team Invite Link</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=linkModalTextArea</td>
+	<td>restrictinvite</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Invite fails for disallowed domain-->
+<tr>
+	<td>open</td>
+	<td>${restrictinvite}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>restrict@wrongdomain.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>restricted</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>The email you provided does not belong to an accepted domain. Please contact your administrator or sign up with a different email.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Get team invite link for closed team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#ui-automation2TeamButton &gt; div.team-btn. &gt; div.team-btn__content &gt; div.team-btn__initials</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#ui-automation2TeamButton &gt; div.team-btn. &gt; div.team-btn__content &gt; div.team-btn__initials</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td>Get Team Invite Link</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalTextArea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=linkModalTextArea</td>
+	<td>restrictinvite2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Invite fails for disallowed domain-->
+<tr>
+	<td>open</td>
+	<td>${restrictinvite2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>restrict@wrongdomain.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>restricted</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>The email you provided does not belong to an accepted domain. Please contact your administrator or sign up with a different email.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Remove restrictions-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.RestrictCreationToDomains</td>
+	<td></td>
+</tr>
+<!--Deactivate correct-domain-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=user_management/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>correct-domain</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@correct-domain</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<!--Verify settings: email not required and open server true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=EmailSettings.RequireEmailVerificationfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.EnableOpenServertrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#getTeamInviteLink &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>invitelink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Create one now link > Signup page-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#signup &gt; span</td>
+	<td>Create one now</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Create one now@href</td>
+	<td>/signup_user_complete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create one now</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>noemailverify@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>noemailverify</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<!--Taken directly to team selection page-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a new team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Set open server to false-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableOpenServerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableOpenServerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.EnableOpenServerfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--No link present to create new account-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#signup &gt; span</td>
+	<td>Create one now</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>link=Create one now@href</td>
+	<td>/signup_user_complete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Create one now</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Set open server to true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableOpenServertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableOpenServertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.EnableOpenServertrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Disable email signup, enable GitLab (with fake creds)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.EnableSignUpWithEmailfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.EnableSignUpWithEmailfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.EnableSignInWithEmailfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.EnableSignInWithEmailfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=oauthType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=oauthType</td>
+	<td>GitLab</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Id</td>
+	<td>jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td>jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=GitLabSettings.Url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Url</td>
+	<td>http://gitlab.com</td>
+</tr>
+<!--Endpoints autofill based on URL that was entered-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>http://gitlab.com/api/v4/user</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>http://gitlab.com/oauth/authorize</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td></td>
+	<td>http://gitlab.com/oauth/token</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Still able to see link to create new account with email signin off-->
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.form-group input#loginId.form-control@placeholder</td>
+	<td>Username</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#signup &gt; span</td>
+	<td>Create one now</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td>Create one now</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong &gt; span</td>
+	<td>Create an account with:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=GitLab Single Sign-On</td>
+	<td>GitLab Single Sign-On</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.color--light &gt; a &gt; span</td>
+	<td>Click here to sign in.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.color--light &gt; a &gt; span</td>
+	<td>Click here to sign in.</td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Set email signup and signin back to true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.EnableSignUpWithEmailtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.EnableSignUpWithEmailtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.EnableSignInWithEmailtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.EnableSignInWithEmailtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.form-group input#loginId.form-control@placeholder</td>
+	<td>Email or Username</td>
+</tr>
+<!--Messaging for incorrect login with email, username, SSO enabled-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>notauser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>heyheyhey</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Enter a valid email or username and/or password, or sign in using another method.</td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Remove GitLab-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=oauthType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Secret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=GitLabSettings.Url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=GitLabSettings.Url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=oauthType</td>
+	<td>Do not allow sign-in via an OAuth 2.0 provider</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=GitLabSettings.Id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Regenerate invite salt-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-offset-4.col-sm-8 &gt; div.help-text &gt; span</td>
+	<td>This will invalidate active email invitations that have not been accepted by the user. By default email invitations expire after 48 hours.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Invalidate pending email invites</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success &gt; span</td>
+	<td>Pending email invitations invalidated successfully</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

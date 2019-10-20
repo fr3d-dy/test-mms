@@ -1,0 +1,1380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>TeamMulti</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TeamMulti</td></tr>
+</thead><tbody>
+<!--LOG IN test6-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test6@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Create team from main menu -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='createTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='createTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2 &gt; span</td>
+	<td>Team URL</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>six</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<!--Open team to other users on server-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamSettings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=open_inviteDesc</td>
+	<td>Yes</td>
+</tr>
+<!--LOG OUT test6-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Leave UI2 team (to ensure multiple open teams on Join page)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You will be removed from all public and private channels. If the team is private you will not be able to rejoin the team. Are you sure?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<!--Open page to join open teams-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#UI_Automation_2 &gt; span.signup-team-dir__name</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--Verify Create a new team link-->
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.margin--extra.hidden-xs &gt; a.signup-team-login &gt; span</td>
+	<td>Go to System Console</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2 &gt; span</td>
+	<td>Team Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<!--Back -->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup-header</td>
+	<td>Back</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<!--Open page to join open teams-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#UI_Automation_2 &gt; span.signup-team-dir__name</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--Verify Go to System Console link-->
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.margin--extra.hidden-xs &gt; a.signup-team-login &gt; span</td>
+	<td>Go to System Console</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.margin--extra.hidden-xs &gt; a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.margin--extra.hidden-xs &gt; a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>System Console</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<!--Join team from main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4</td>
+	<td>Teams you can join:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#UI_Automation_2 &gt; span.signup-team-dir__name</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<!--Join team from `+` in team sidebar-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-btn.team-btn__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn.team-btn__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#UI_Automation_2 &gt; span.signup-team-dir__name</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#UI_Automation_2 &gt; span.signup-team-dir__name</td>
+	<td>UI Automation 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.loading-screen</td>
+	<td>Loading</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--Create team from `+` in team sidebar when no more open teams are available-->
+<!--*** Brittle test; if other tests have left other open teams in there, this will fail-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-btn.team-btn__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn.team-btn__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>APlus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2 &gt; span</td>
+	<td>Team URL</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>aplus</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Finish</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>APlus</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--Post on team APlus and flag the post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This is a post on team APlus, which I will flag.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>This is a post on team APlus, which I will flag.</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Switch teams, then send a DM and flag the DM-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 6 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Here's a DM that will be flagged as well, which will show up in flagged posts list across teams.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; p</td>
+	<td>Here's a DM that will be flagged as well, which will show up in flagged posts list across teams.</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--View flagged posts, verify DM displays but not post from team APlus-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name &gt; span</td>
+	<td>Direct Message (with test6)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Here's a DM that will be flagged as well, which will show up in flagged posts list across teams.</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p</td>
+	<td>This is a post on team APlus, which I will flag.</td>
+</tr>
+<!--Switch to team APlus, view flagged posts, verify DM and post both display-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/aplus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/aplus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name &gt; span</td>
+	<td>Direct Message (with test6)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Here's a DM that will be flagged as well, which will show up in flagged posts list across teams.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('This is a post on team APlus, which I will flag.')</td>
+	<td></td>
+</tr>
+<!--Create a public channel on two teams, leave them both so they'll display in More...-->
+<!--New public channel on team APlus, /leave-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>DoublePlus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>DoublePlus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--New public channel on team Six, /leave-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Sixes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Sixes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--View channel available in More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__details</td>
+	<td>Sixes</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>DoublePlus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Switch teams, verify channel available in More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/aplus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/aplus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>APlus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__details</td>
+	<td>DoublePlus</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Sixes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Add another DM to show up in LHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3</td>
+</tr>
+<!--Switch channels to Off-Topic-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Verify DMs appearing in LHS while viewing team APlus-->
+<tr>
+	<td>waitForText</td>
+	<td>link=test3×</td>
+	<td>test3×</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=test6×</td>
+	<td>test6×</td>
+</tr>
+<!--Switch to team Six and verify DMs appearing in LHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=test3×</td>
+	<td>test3×</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=test6×</td>
+	<td>test6×</td>
+</tr>
+<!--Switch back to APlus and verify channel you had been viewing displays-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/aplus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/aplus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>APlus</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Reply to a post will not show unread dot when switching teams-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openReplyRhsForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>reply_textbox</td>
+	<td>Reply Posted${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=six</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='team-container unread']/a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=aplus</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Cleanup: Leave both teams-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Cleanup: test6 leave team Six-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test6@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/six']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>Six</td>
+</tr>
+<!--LOG OUT test6-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,1450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>IntegrationsPermissions</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IntegrationsPermissions</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Open system console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<!--OAUTH 2.0 APPLICATIONS-->
+<!--Enable OAuth 2.0-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enableOAuthServiceProvidertrue</td>
+	<td>on</td>
+</tr>
+<!--Restrict to admins - true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOnlyAdminIntegrationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOnlyAdminIntegrationstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--This is set up for a particular team. Instead set it up to store team name-->
+<!--first, then use that to switch back to the right team-->
+<!--System admin can see, create, edit, and delete OAuth 2.0 integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=OAuth 2.0 Applications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=OAuth 2.0 Applications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>OAuth 2.0 applications</td>
+</tr>
+<!--System Admin creates on Team Admin's team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=is_trusted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form__help &gt; span</td>
+	<td>When true, the OAuth 2.0 application is considered trusted by the Mattermost server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>OAuth Adm on Nonadm Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>A description of the OAuth 2.0 application, written by system admin on non-admin team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=documentation</td>
+	<td>documentation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=b</td>
+	<td>Client ID</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[4]/div[2]/div[2]/p[2]/span[2]/b</td>
+	<td>Client Secret</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.word-break--all &gt; span</td>
+	<td>URL(s): http://example.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm on Nonadm Team</td>
+</tr>
+<!--Also set to a particular team; update with stored team-->
+<!--Switch to System Admin's team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=SySysAdmCreated</td>
+	<td>SySysAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=OAuth 2.0 Applications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=OAuth 2.0 Applications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>OAuth 2.0 applications</td>
+</tr>
+<!--System Admin creates on System Admin's team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=is_trusted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>OAuth Adm on Sysadm Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>A description of the OAuth 2.0 application, written by system admin on system admin team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div[2]/div/div/span</td>
+	<td>OAuth Adm on Sysadm Team</td>
+</tr>
+<!--System admin can edit-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>OAuth Adm on Nonadm Team, edited</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Edited: A description of the OAuth 2.0 application, written by system admin on non-admin team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>https://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=icon_url</td>
+	<td>https://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>https://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Your changes may break the existing OAuth 2.0 application. Are you sure you would like to update it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Update</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm on Nonadm Team, edited</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__description</td>
+	<td>exact:Edited: A description of the OAuth 2.0 application, written by system admin on non-admin team.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div/div[2]/div[6]/span/span</td>
+	<td>Callback URLs: https://example.com</td>
+</tr>
+<!--System admin can delete-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>exact:This action permanently deletes the OAuth 2.0 application and breaks any integrations using it. Are you sure you want to delete it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm on Nonadm Team, edited</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>exact:This action permanently deletes the OAuth 2.0 application and breaks any integrations using it. Are you sure you want to delete it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm on Sysadm Team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.backstage-list__item.backstage-list__empty &gt; span</td>
+	<td>No OAuth 2.0 Applications found</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>nonsysadmin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Nonsysadmin sees Integrations but does not see OAuth 2.0 category-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td>OAuth 2.0 Applications</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>OAuth 2.0</td>
+	<td></td>
+</tr>
+<!--LOG OUT nonsysadmin-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Restrict to admins - false-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=enableOnlyAdminIntegrationsfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--System admin creates on both teams-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.dropdown__icon.admin-navbar-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithTononadmincreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td>OAuth 2.0 Applications</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>OAuth 2.0 applications</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/span/span/a[2]/span</td>
+	<td>App Directory</td>
+</tr>
+<!--System Admin creates on Team Admin's team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=is_trusted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form__help &gt; span</td>
+	<td>When true, the OAuth 2.0 application is considered trusted by the Mattermost server and doesn't require the user to accept authorization. When false, an additional window will appear, asking the user to accept or deny the authorization.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>OAuth Adm2 on Nonadm Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>2 - A description of the OAuth 2.0 application, written by system admin on non-admin team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=documentation</td>
+	<td>documentation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=b</td>
+	<td>Client ID</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[2]/p[2]/span[2]/b</td>
+	<td>Client Secret</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.word-break--all &gt; span</td>
+	<td>URL(s): http://example.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm2 on Nonadm Team</td>
+</tr>
+<!--Switch to System Admin's team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=SySysAdmCreated</td>
+	<td>SySysAdmCreated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SySysAdmCreated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td>OAuth 2.0 Applications</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td>OAuth 2.0 applications</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/span/span/a[2]/span</td>
+	<td>App Directory</td>
+</tr>
+<!--System Admin creates on System Admin's team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add OAuth 2.0 Application</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=is_trusted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>OAuth Adm2 on Sysadm Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>2 - A description of the OAuth 2.0 application, written by system admin on system admin team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.backstage-form__title &gt; span</td>
+	<td>Setup Successful</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Done</td>
+	<td>Done</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div[2]/div/div/span</td>
+	<td>OAuth Adm2 on Sysadm Team</td>
+</tr>
+<!--System admin can edit-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>OAuth Adm2 on Nonadm Team, edited</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Edited: 2 - A description of the OAuth 2.0 application, written by system admin on non-admin team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=homepage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=homepage</td>
+	<td>https://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=icon_url</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=icon_url</td>
+	<td>https://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=callbackUrls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=callbackUrls</td>
+	<td>https://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Your changes may break the existing OAuth 2.0 application. Are you sure you would like to update it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Update</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm2 on Nonadm Team, edited</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__description</td>
+	<td>exact:Edited: 2 - A description of the OAuth 2.0 application, written by system admin on non-admin team.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div/div[2]/div[6]/span/span</td>
+	<td>Callback URLs: https://example.com</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout > button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN nonsysadmin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>nonsysadmin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Nonsysadmin can see Integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<!--Nonsysadmin can see OAuth 2.0 category-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td>OAuth 2.0 Applications</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/a[4]/div</td>
+	<td></td>
+</tr>
+<!--Nonsysadmin can see both of system admin's integrations-->
+<!--Nonsysadmin can see Secret, Edit, and Delete options-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.item-details__name</td>
+	<td>OAuth Adm2 on Nonadm Team, edited</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=showSecretButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=regenerateSecretButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.item-actions &gt; a &gt; span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div[2]/div/div/span</td>
+	<td>OAuth Adm2 on Sysadm Team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div[2]/div[2]/a/span</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[3]/div[2]/div[3]/div[2]/div[2]/span/button</td>
+	<td>Delete</td>
+</tr>
+<!--Channel admin-->
+<!--Member-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--At end, cleanup = system admin can delete all that are left-->
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SearchHashtags</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SearchHashtags</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Search: Basic, markdown-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-search.md${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=h1.markdown__heading:contains('Search Testing')</td>
+	<td></td>
+</tr>
+<!--Hashtag search-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[contains(text(),'#hello')])</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'#hello')])</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span.search-highlight &gt; a.mention-link</td>
+	<td>#hello</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#world</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#world')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#world')</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#world</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#hello</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>hashtag without the hash${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#hashtag')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#hashtag')</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#hashtag</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=span.search-highlight</td>
+	<td>hashtag</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>#world #hello${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>#world #nohello${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>#hello #world${KEY_ENTER}</td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#world</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>#world #hello</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#nohello</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=em &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=em &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=del &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=del &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h5 &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=h5 &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#markdown</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#colon')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#colon')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#colon</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#slash')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#slash')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#slash</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#backslash')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#backslash')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#backslash</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#percent')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#percent')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#percent</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#dollar')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#dollar')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#dollar</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#semicolon')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#semicolon')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#semicolon</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#ampersand')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#ampersand')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#ampersand</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#bracket')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#bracket')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#bracket</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#lessthan')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#lessthan')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#lessthan</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#greaterthan')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#greaterthan')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#greaterthan</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#dash')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#dash')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#dash</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#plus')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#plus')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#plus</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#equals')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#equals')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#equals</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#caret')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#caret')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#caret</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#hashtag')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#hashtag')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#hashtag</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#asterisk')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#asterisk')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#asterisk</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#verticalbar')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#verticalbar')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#verticalbar</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#invertedquestion')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#invertedquestion')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#invertedquestion</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#atsign')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#atsign')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#atsign</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#quote')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#quote')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#quote</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#apostrophe')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#apostrophe')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#apostrophe</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#curlybracket')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#curlybracket')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#curlybracket</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('#squarebracket')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a:contains('#squarebracket')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#squarebracket</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Only fully matching hashtag is highlighted in search results-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>#highlight and #highlight.dot${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=#highlight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=#highlight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span.search-highlight &gt; a.mention-link</td>
+	<td>#highlight</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.search-highlight &gt; a.mention-link</td>
+	<td>#highlight.dot</td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

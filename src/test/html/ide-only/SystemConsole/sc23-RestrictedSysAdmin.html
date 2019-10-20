@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>sc23-RestrictedSysAdmin</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">sc23-RestrictedSysAdmin</td></tr>
+</thead><tbody>
+<!--*** Requires manually editing config.json-->
+<!--*** Be sure to warn other testers before enabling restricted system admin-->
+<!--*** Connect to server, edit config.json as follows, and save:-->
+<!--*** Under {{ExperimentalSettings}} set {{RestrictSystemAdmin}} to {{true}}-->
+<!--*****************************************************-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--*****************************************************-->
+<!--*** Manually enter user and password for a system admin-->
+<!--*** but DO NOT click to log in (creds will be stored for this test)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<!--Stores first login creds (until test / Se is closed)-->
+<tr>
+	<td>storeValue</td>
+	<td>id=loginId</td>
+	<td>adminuser</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginPassword</td>
+	<td>adminpassword</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Open System Console-->
+<!--Runs down the left nav, verifying what should and should not be present-->
+<!--NOTE: Verifies for E20 as the most options can be visible there-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team__name</td>
+	<td>System Console</td>
+</tr>
+<!--About section not present-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.category-title__text &gt; span</td>
+	<td>About</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=about/license</td>
+	<td>Edition and License</td>
+</tr>
+<!--Reporting section present-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.category-title.category-title--active</td>
+	<td>Reporting</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reporting/system_analytics</td>
+	<td>Site Statistics</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reporting/team_statistics</td>
+	<td>Team Statistics</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reporting/server_logs</td>
+	<td>Server Logs</td>
+</tr>
+<!--User Management section present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('User Management')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=user_management/users</td>
+	<td>Users</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=user_management/permissions/</td>
+	<td>Permissions</td>
+</tr>
+<!--Can turn on LDAP group sync and see that page in User Management section-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=user_management/groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=experimental/features</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=experimental/features</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.ExperimentalLdapGroupSynctrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.ExperimentalLdapGroupSynctrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=user_management/groups</td>
+	<td></td>
+</tr>
+<!--Turn LDAP group sync back off-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.ExperimentalLdapGroupSyncfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.ExperimentalLdapGroupSyncfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=user_management/groups</td>
+	<td></td>
+</tr>
+<!--Environment section not present-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.category-title__text span:contains('Environment')</td>
+	<td></td>
+</tr>
+<!--Couldn't decide if better to verify element or text is not there, so did some of each-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=environment/web_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=environment/database</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=environment/elasticsearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=environment/file_storage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=environment/image_proxy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/smtp</td>
+	<td>SMTP</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/push_notification_server</td>
+	<td>Push Notification Server</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/high_availability</td>
+	<td>High Availability</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/high_availability</td>
+	<td>High Availability</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/rate_limiting</td>
+	<td>Rate Limiting</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/rate_limiting</td>
+	<td>Rate Limiting</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/logging</td>
+	<td>Logging</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/session_lengths</td>
+	<td>Session Lengths</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/performance_monitoring</td>
+	<td>Performance Monitoring</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=environment/developer</td>
+	<td>Developer</td>
+</tr>
+<!--Site Configuration section is present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('Site Configuration')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=site_config/customization</td>
+	<td>Customization</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=site_config/localization</td>
+	<td>Localization</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=site_config/users_and_teams</td>
+	<td>Users and Teams</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=environment/notifications</td>
+	<td>Notifications</td>
+</tr>
+<!--Field `From Address` should not be present on Notifications page-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.FeedbackName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=EmailSettings.FeedbackEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Notification From Address</td>
+	<td></td>
+</tr>
+<!--(continue down left nav)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/announcement_banner</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/emoji</td>
+	<td></td>
+</tr>
+<!--On Posts page, `Google API Key` field is not present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=ServiceSettings.GoogleDeveloperKey</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Google API Key</td>
+	<td></td>
+</tr>
+<!--(continue down left nav)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/file_sharing_downloads</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/public_links</td>
+	<td></td>
+</tr>
+<!--Authentication section is present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('Authentication')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=authentication/signup</td>
+	<td>Signup</td>
+</tr>
+<!--On Signup page, `Enable open server` option is not present-->
+<tr>
+	<td>click</td>
+	<td>id=authentication/signup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableUserCreationtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=TeamSettings.EnableOpenServertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Enable Open Server</td>
+	<td></td>
+</tr>
+<!--(continue down left nav)-->
+<tr>
+	<td>waitForText</td>
+	<td>id=authentication/email</td>
+	<td>Email</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=authentication/password</td>
+	<td>Password</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=authentication/mfa</td>
+	<td>MFA</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/ldap</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/saml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=authentication/oauth</td>
+	<td></td>
+</tr>
+<!--Plugins section is present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('Plugins')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_management</td>
+	<td>Plugin Management</td>
+</tr>
+<!--On Plugin Management page, Enable Plugins option is not present-->
+<tr>
+	<td>click</td>
+	<td>id=plugins/plugin_management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Plugin Management</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Enable Plugins</td>
+	<td></td>
+</tr>
+<!--(continue down left nav)-->
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_mattermost-autolink</td>
+	<td>Autolink</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_com.mattermost.aws-sns</td>
+	<td>AWS SNS</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_com.mattermost.custom-attributes</td>
+	<td>Custom User Attributes</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_github</td>
+	<td>GitHub</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_jira</td>
+	<td>Jira</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_com.mattermost.nps</td>
+	<td>User Satisfaction Surveys</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_com.mattermost.welcomebot</td>
+	<td>Welcome Bot</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=plugins/plugin_zoom</td>
+	<td>Zoom</td>
+</tr>
+<!--Integrations section is present except for CORS page-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('Integrations')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=integrations/integration_management</td>
+	<td>Integration Management</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=integrations/gif</td>
+	<td>GIF (Beta)</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=integrations/cors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>CORS</td>
+	<td></td>
+</tr>
+<!--Compliance section is present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('Compliance')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=compliance/data_retention</td>
+	<td>Data Retention Policy</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=compliance/export</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=compliance/monitoring</td>
+	<td>Compliance Monitoring</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=compliance/custom_terms_of_service</td>
+	<td></td>
+</tr>
+<!--Experimental section is present-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.category-title__text span:contains('Experimental')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=experimental/features</td>
+	<td>Features</td>
+</tr>
+<!--********************************************-->
+<!--********************************************-->
+<!--BE SURE TO EDIT CONFIG.JSON BACK to disable setting:-->
+<!--*** Set {{RestrictSystemAdmin}} to {{false}}-->
+<!--********************************************-->
+<!--********************************************-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--LOG OUT system admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scPermissionSchemes</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scPermissionSchemes</td></tr>
+</thead><tbody>
+<!--**This test can only run at about 1/3 speed**-->
+<!--**This test MAY break if additional teams beyonf the 2 defaults exist**-->
+<!--LOG IN admin-->
+<tr>
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Town Square Loaded-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--^^Permission scheme page is loaded^^-->
+<!--Create a Team Override Scheme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Team Override Schemes')] </td>
+	<td>Team Override Schemes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=scheme-name</td>
+	<td>Test Scheme Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Test Scheme Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Test Scheme Description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='title'][text()= &quot;Test Scheme Name&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Team Override cheme saved^^-->
+<!--Edit Scheme Name and Description-->
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name&quot;]/following-sibling::div[@class='actions']/a[1]/span[text() = &quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Test Scheme Name - Mod</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Test Scheme Description - Mod</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div [text() = &quot;UI Automation 2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation 2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td></td>
+</tr>
+<!--^^Added UI automation2^^-->
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;UI Automation&quot;]/parent::div[@class='team-data']/parent::div[@class='team-info-block']/following-sibling::a[@class='remove']</td>
+	<td></td>
+</tr>
+<!--^^Remove UI Automatiom^^-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams_team_scope-send_invites &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<!--^^Unchecked Add Team Memeber^^-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name - Mod&quot;]/following-sibling::div[@class='actions']/a[1]/span[text() = &quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name - Mod&quot;]/following-sibling::div[@class='actions']/a[1]/span[text() = &quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=scheme-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=scheme-name</td>
+	<td>Test Scheme Name - Mod</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=scheme-description</td>
+	<td>Test Scheme Description - Mod</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;UI Automation 2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@class='title'][text()=&quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#all_users-teams_team_scope-send_invites &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button &gt; span</td>
+	<td></td>
+</tr>
+<!--Edit Scheme Complete-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name - Mod&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Cancel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Cancel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name - Mod&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name - Mod&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name - Mod&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Successfully Deleted^^-->
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Memebers Can't&nbsp;&nbsp;Add Memebers </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Memebers Can't&nbsp;&nbsp;Add Memebers </td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<!--Can't find this today - Must be replaced -->
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams_team_scope-send_invites &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<!--^^Added new Scheme^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Team Override Schemes')] </td>
+	<td>Team Override Schemes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--^^Back on Login Page^^-->
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Town Square Loaded-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//button[@id='addUsersToTeam']</td>
+	<td></td>
+</tr>
+<!--^^User Cannot add Team Memebers^^-->
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Town Square Loaded-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Memebers Can't&nbsp;&nbsp;Add Memebers &quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Memebers Can't&nbsp;&nbsp;Add Memebers &quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;No team override schemes created.&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>//div[@class='title'][text()=&quot;Memebers Can't&nbsp;&nbsp;Add Memebers &quot;]</td>
+	<td></td>
+</tr>
+<!--^^Scheme Deleted^^-->
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Town Square Loaded-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<!--^^User Can Now add members again^ -->
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Town Square Loaded-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--^^Permission scheme page is loaded^^-->
+<!--Create a Team Override Scheme-->
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Scheme for UI Automation</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Scheme for UI Automation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td>Scheme for UI Automation</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.title</td>
+	<td>Scheme for UI Automation</td>
+</tr>
+<!--^^Team Override cheme saved^^-->
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Test scheme 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Test scheme 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.modal-title</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<!--New from Here...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='modal-footer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button/span[text() = &quot;Cancel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button/span[text() = &quot;Cancel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.title</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Move Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Move Team</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=span[class=Select-value-label][text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Replace this with ^^-->
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td>Save</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//span[text() = &quot;UI Automation&quot;]/parent::div[@class='permissions-scheme-summary--teams']/preceding-sibling::div[@class='permissions-scheme-summary--header']/div[@class='title'][text()=&quot;Test scheme 1&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Team is now under new scheme^^-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//span[text() = &quot;UI Automation&quot;]/parent::div[@class='permissions-scheme-summary--teams']/preceding-sibling::div[@class='permissions-scheme-summary--header']/div[@class='title'][text()=&quot;Scheme for UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Team is not under old scheme^^-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--^^Permission scheme page is loaded^^-->
+<!--Create a Team Override Scheme-->
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Scheme With no Description or Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.title</td>
+	<td>Scheme With no Description or Team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--^^Permission scheme page is loaded^^-->
+<!--^^Scheme with no team or description created^^-->
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td>Edit Scheme</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.header &gt; div &gt; h3</td>
+	<td>All Members</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-create_private_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<!----Used CSS as this did not work - //button[@id='saveSetting'][disabled='']-->
+<!--^^Page must realize there are no unsaved changes when test is running fast^^-->
+<tr>
+	<td>click</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td>Edit Scheme</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.admin-console__header.with-back &gt; div &gt; span</td>
+	<td>System Scheme</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-public_channel-create_public_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-public_channel-manage_public_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-private_channel-create_private_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-private_channel-manage_private_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td>Edit Scheme</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-primary &gt; span</td>
+	<td>Edit Scheme</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.cancel-button.reset-defaults-btn &gt; span</td>
+	<td>Reset to Defaults</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button.reset-defaults-btn &gt; span</td>
+	<td>Reset to Defaults</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-cancel</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-cancel</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-public_channel-create_public_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-public_channel-manage_public_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-private_channel-create_private_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-private_channel-manage_private_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--^^Reset Cancelled^^-->
+<tr>
+	<td>waitForText</td>
+	<td>css=a.cancel-button.reset-defaults-btn &gt; span</td>
+	<td>Reset to Defaults</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button.reset-defaults-btn &gt; span</td>
+	<td>Reset to Defaults</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Reset</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>confirmModalButton</td>
+	<td>Yes, Reset</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=saveSetting</td>
+	<td>Save</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td>Save</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-public_channel-create_public_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-public_channel-manage_public_channel_properties']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-private_channel-create_private_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='all_users-private_channel-manage_private_channel_properties']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--^^can't tell if they're checked must fix when we have ID^^-->
+<!--^^Reset Saved^^-->
+<tr>
+	<td>click</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=anytime</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=timelimit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=editPostTimeLimit</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td>Save Edit Time</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 300 seconds</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--^^Permission scheme page is loaded^^-->
+<!--Create a Team Override Scheme-->
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Test Scheme Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Test Scheme Description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name&quot;]/following-sibling::div[@class='actions']/a[1]/span[text() = &quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 300 seconds</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 300 seconds</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 300 seconds</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<!--^^Time Limit set on system scheme is applied to override schemes^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name&quot;]/following-sibling::div[@class='actions']/a[1]/span[text() = &quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 300 seconds</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 300 seconds</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>Setting a time limit applies to all users who have the &quot;Edit Post&quot; permissions in any permission scheme.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=editPostTimeLimit</td>
+	<td>600</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td>Save Edit Time</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.edit-post-time-limit-button</td>
+	<td>For 600 seconds</td>
+</tr>
+<!--^^Time Limit updated^^-->
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=scheme-name</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='title'][text()='*']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;*&quot;]/following-sibling::div[@class='actions']/a[1]/span[text() = &quot;Edit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=scheme-description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Add Description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.cancel-button &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You have unsaved changes, are you sure you want to discard them?</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button/span[text() = &quot;Cancel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=scheme-description</td>
+	<td>Add Description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You have unsaved changes, are you sure you want to discard them?</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button/span[text() = &quot;Cancel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=scheme-description</td>
+	<td>Add Description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:You have unsaved changes, are you sure you want to discard them?</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Yes, Discard</td>
+</tr>
+<!--^^Name Validation and unsaved chages warning^^ -->
+<!--Deleting data to keep datasets isolated-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Scheme for UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Scheme for UI Automation&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Test scheme 1&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test scheme 1&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Scheme With no Description or Team&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Scheme With no Description or Team&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;Test Scheme Name&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;Team Override Schemes&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//div[@class='title'][text()=&quot;*&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='title'][text()=&quot;*&quot;]/following-sibling::div[@class='actions']/a[2]/span[text() = &quot;Delete&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Yes, Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() = &quot;No team override schemes created.&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

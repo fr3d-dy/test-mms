@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="auth01-Signup.html">auth01-Signup</a></td></tr>
+<tr><td><a href="auth02-Email.html">auth02-Email</a></td></tr>
+<tr><td><a href="auth03-Password.html">auth03-Password</a></td></tr>
+<tr><td><a href="auth04-MFA.html">auth04-MFA</a></td></tr>
+<tr><td><a href="auth05-LDAPSettings.html">auth05-LDAPSettings</a></td></tr>
+<tr><td><a href="auth06-LDAPGroups.html">auth06-LDAPGroups</a></td></tr>
+<tr><td><a href="auth07-SAML.html">auth07-SAML</a></td></tr>
+<tr><td><a href="auth08-GitLab.html">auth08-GitLab</a></td></tr>
+</tbody></table>
+</body>
+</html>

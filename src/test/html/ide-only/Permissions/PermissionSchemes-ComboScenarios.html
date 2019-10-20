@@ -1,0 +1,4020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scPermissionSchemes-ComboScenarios</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scPermissionSchemes-ComboScenarios</td></tr>
+</thead><tbody>
+<tr>
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<!--Data Setup-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='team-btn team-btn__add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>TeamA</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='team-btn team-btn__add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='team-btn team-btn__add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>TeamB</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='team-btn team-btn__add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='team-btn team-btn__add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>TeamC</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Town Square Loaded-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--Set System Scheme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<!--Permission Tree Edit-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=all_users-posts-edit_posts-edit_post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users-posts-edit_posts-edit_post</td>
+	<td></td>
+</tr>
+<!--^^update system scheme to remove edit posts from Memeber in data setup this seems to be need below and all overrides have it enabled^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='all_users-posts-edit_posts-edit_post']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='all_users-posts-delete_posts-delete_others_posts']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<!--Create a Team Override Scheme-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Team Override Scheme A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Team Override Scheme A</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;TeamA&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<!--Permission Config-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='all_users-posts-delete_posts-delete_others_posts']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams_team_scope-send_invites &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-create_private_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users-private_channel-manage_private_channel_members</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users-private_channel-delete_private_channel</td>
+	<td></td>
+</tr>
+<!--^^Member Permissions^^-->
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-public_channel-manage_public_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-public_channel-manage_public_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-public_channel-delete_public_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-private_channel-manage_private_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-private_channel-manage_private_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-private_channel-delete_private_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-posts-delete_posts-delete_post &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channel_admin-posts-delete_posts-delete_others_posts &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<!--^^Channel Admin Permission ^^-->
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-teams_team_scope-send_invites &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-public_channel-create_public_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-public_channel-manage_public_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=team_admin-public_channel-manage_public_channel_members</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=team_admin-public_channel-delete_public_channel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-private_channel-create_private_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-private_channel-manage_private_channel_properties &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-private_channel-manage_private_channel_members &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-private_channel-delete_private_channel &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-delete_posts-delete_others_posts']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--^^Team Admin^^-->
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--^^Permission scheme page is loaded^^-->
+<!--Create a Team Override Scheme-->
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Team Override Scheme B</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Team Override Scheme B</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;TeamB&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<!--Click -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<!--Permission data created-->
+<tr>
+	<td>click</td>
+	<td>css=path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;TeamA')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;TeamA')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td>Add Members to Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test6&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='style--none sidebar-header-dropdown__icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>PrivateChanTeamA</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Private Channel for TeamA</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamA</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/div[text()=&quot;test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test5']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--^^Validate system message to confirm user was added to channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Create additonal channels for Later Use-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>PrivateChannel2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>PrivateChannel2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChannel2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()=&quot;test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test5']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--^^Validate system message to confirm user was added to channel^^-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button /span/span[text()='Channel Admin']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post from Admin${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[text()='Post from ']</td>
+	<td></td>
+</tr>
+<!--Create additonal channels for Later Use-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>PublicChannel2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>PublicChannel2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()=&quot;test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test5']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--^^Validate system message to confirm user was added to channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Make Channel Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test5']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button /span/span[text()='Channel Admin']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<!--Promote user to Admin ^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/teamb']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td>Add Members to Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>PrivateChanTeamB</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Private Channel for TeamB</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamB</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()=&quot;test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test5']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--^^Validate system message to confirm user was added to channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>AnotherPubChannel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>AnotherPubChannel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>AnotherPubChannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;AnotherPubChannel&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>AnotherPubChannel2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>AnotherPubChannel2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>AnotherPubChannel2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;AnotherPubChannel2&quot;]</td>
+	<td></td>
+</tr>
+<!--Move to Team C-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/teamc']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/teamc']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()=&quot;@test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>PrivateChanTeamC</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Private Channel for TeamC</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamC</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()=&quot;test5&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test5']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--^^Validate system message to confirm user was added to channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = 'Off-Topic']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = 'Off-Topic']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post from Admin${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[text()='Post from ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--^^Data Setup Done^^-->
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//h1[@id='headerTeamName'][text()='TeamA']</td>
+	<td></td>
+</tr>
+<!--Town Square is displayed - TeamA selected-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span[class='sidebar-item__name']/span[text()=&quot;PrivateChanTeamA&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text()=&quot;PrivateChanTeamA&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamA</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Sample post${KEY_ENTER}</td>
+</tr>
+<!--Get Id of the post you just made -->
+<tr>
+	<td>storeAttribute</td>
+	<td>//div[@id='postListContent']//*/div[contains(@id,'post_')][last()]@id</td>
+	<td>LastPostIdFull</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${LastPostIdFull}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_HOME}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//textarea[@id='post_textbox']</td>
+	<td>LastPostId</td>
+</tr>
+<!--^^Using text app text box as an editor to trim the "post_" prefix from the post ID var I have stored :)^^-->
+<!--^^ May need to delete this from the box now that I'm done with it^^-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<!--^This clicks "..."^-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Reply</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--^^Not sure why this click fails whn it can find the element^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=sendEmailInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--No Options to Add members to the team-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Off-Topic</td>
+	<td>Off-Topic</td>
+</tr>
+<!--^^I Don't Underswatnd why this broke^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Manage Members</td>
+</tr>
+<!--Go into the modal as user-->
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#showInviteModal &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelConvert</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelDelete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--^^No Option to modify public channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#publicChannel &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<!--^^Can't Add Puclic Channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChanTeamA&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChanTeamA&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Switch to Public channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Manage Members</td>
+</tr>
+<!--View members in Span-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelConvert</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=channelDelete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--^^No Option to modify private channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#privateChannel&gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<!--^^Can't Add Private Channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/teamb']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/teamb']</td>
+	<td></td>
+</tr>
+<!--^^Switch to Team B^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=[id=headerTeamName][text()=TeamB]</td>
+	<td></td>
+</tr>
+<!--Town Square is displayed - TeamB selected-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span[class='sidebar-item__name']/span[text()=&quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<!--What Happen to this channel PrivateChanTeamB test5 should have been added-->
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text()=&quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamB</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Sample post${KEY_ENTER}</td>
+</tr>
+<!--Get Id of the post you just made -->
+<tr>
+	<td>storeAttribute</td>
+	<td>//div[@id='postListContent']//*/div[contains(@id,'post_')][last()]@id</td>
+	<td>LastPostIdFull</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${LastPostIdFull}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_HOME}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//textarea[@id='post_textbox']</td>
+	<td>LastPostId</td>
+</tr>
+<!--^^Using text app text box as an editor to trim the "post_" prefix from the post ID var I have stored :)^^-->
+<!--^^ May need to delete this from the box now that I'm done with it^^-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--unable to find context menu. Must solve mouse Over-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Reply</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Edit</td>
+</tr>
+<!--^^This is not broken but setting allow edit on Scheme B on setup seems to have failed^^-->
+<!--^^Add a step to test that edit is actually functional^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sendEmailInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=[class=filtered-user-list]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@class='more-modal__name'][text()='@test6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@class='more-modal__name'][text()='@test6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()=&quot;test6&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--^^Member is able to add other member to the team^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>TestPblChannelCreate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Test Pbl Channel Description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>Test Pbl Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;TestPblChannelCreate&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>TestPblChannelCreate</td>
+</tr>
+<!--^^Member is able to create a public channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>TestPrvChannelCreate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Test Prv Channel Description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>Test Prv Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;TestPrvChannelCreate&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>TestPrvChannelCreate</td>
+</tr>
+<!--^^Member is able to create a private channel^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Update Header Test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][text()='Update Header Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Test Purpose</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='info__value'][text()=&quot;Test Purpose&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>Off-Topic-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[text()='AnotherPubChannel2']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button[@class='btn btn-primary']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//p[text()='AnotherPubChannel2']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button[@class='btn btn-primary']</td>
+	<td></td>
+</tr>
+<!--^^Edit Public Channel Details^^-->
+<!--Use this below to test Add remove of user from public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;AnotherPubChannel2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;AnotherPubChannel2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()='test6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--User Added to Public channel-->
+<!--Go into the modal as user-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td></td>
+</tr>
+<!--User was removed from public channel-->
+<!--... Next Delete this channel-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=AnotherPubChannel2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>AnotherPubChannel2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='alert alert-danger']/span[contains(text(),'This will archive the channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name'][text() = &quot;AnotherPubChanne2l&quot;]</td>
+	<td></td>
+</tr>
+<!--User is able to delete public Channel-->
+<!--Use this below to test Add remove of user from private channel-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrivateChanTeamB</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()='test6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--User Added to Public channel-->
+<!--Go into the modal as user-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=channelMemberDropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button[@id='removeMember']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td></td>
+</tr>
+<!--User was removed from public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamB</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='alert alert-danger']/span[contains(text(),'This will archive the channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name'][text() = &quot;PrivateChanTeamB&quot;]</td>
+	<td></td>
+</tr>
+<!--Member is able to delete privateChannle-->
+<!--Move to Team C-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/teamc']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/teamc']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=[id=headerTeamName][text()=TeamC]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>TestPblChannelCreate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Test Pbl Channel Description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>Test Pbl Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[type=submit]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;TestPblChannelCreate&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>TestPblChannelCreate</td>
+</tr>
+<!--Able to create Public Channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;Off-Topic&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Update Header Test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<!--^^Why does this not always save?^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][text()='Update Header Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Test Purpose</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='info__value'][text()=&quot;Test Purpose&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>Off-Topic-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic-Updated</td>
+</tr>
+<!--^^Edit Public Channel Details^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span[class='sidebar-item__name']/span[text()=&quot;Off-Topic-Updated&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text()=&quot;Off-Topic-Updated&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Sample post${KEY_ENTER}</td>
+</tr>
+<!--Get Id of the post you just made -->
+<tr>
+	<td>storeAttribute</td>
+	<td>//div[@id='postListContent']//*/div[contains(@id,'post_')][last()]@id</td>
+	<td>LastPostIdFull</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${LastPostIdFull}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_HOME}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}${KEY_DELETE}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//textarea[@id='post_textbox']</td>
+	<td>LastPostId</td>
+</tr>
+<!--^^Using text app text box as an editor to trim the "post_" prefix from the post ID var I have stored :)^^-->
+<!--^^ May need to delete this from the box now that I'm done with it^^-->
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<!--^This clicks "..."^-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<!--Delete Modal will not come up using selenium click on Delete Click delete manually then resume-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='modal-body']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--work below-->
+<tr>
+	<td>click</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<!--^^Need to Clear Input box beofre using as a text editor for post ID again^^-->
+<tr>
+	<td>storeAttribute</td>
+	<td>//p[text()=&quot;Post from Admin&quot;]/parent::div[@class='post-message__text']/parent::div[@class='post-message__text-container']/parent::div[@class='post-message post-message--collapsed']/parent::div[@id]@id</td>
+	<td>AdminPostFull</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${AdminPostFull}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_END}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//textarea[@id='post_textbox']</td>
+	<td>AdminPostId</td>
+</tr>
+<!--^^Using text app text box as an editor to trim the "post_" prefix from the post ID var I have stored :)^^-->
+<!--^^ May need to delete this from the box now that I'm done with it^^-->
+<tr>
+	<td>pause</td>
+	<td>50</td>
+	<td></td>
+</tr>
+<!--unable to find context menu. Must solve mouse Over-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post from Admin</td>
+</tr>
+<!--^This clicks "..."^-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Reply</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--Not Able to delete other users posts -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/teama']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/teama']</td>
+	<td></td>
+</tr>
+<!--To TeamA-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PublicChannel2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PublicChannel2&quot;]</td>
+	<td></td>
+</tr>
+<!--Use this below to test Add remove of user from private channel-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()='test6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--User Added to Public channel-->
+<!--Go into the modal as user-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td></td>
+</tr>
+<!--User was removed from public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChannel2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChannel2&quot;]</td>
+	<td></td>
+</tr>
+<!--Use this below to test Add remove of user from private channel-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='selectItems']//*/div[text()='test6']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'added to the channel')]</td>
+	<td></td>
+</tr>
+<!--User Added to Public channel-->
+<!--Go into the modal as user-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.filtered-user-list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name'][text()='@test6']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='MenuWrapper ']/button </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@class='MenuItem']/button[contains(text(),'Remove From Channel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='close']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='mention-link'][text() = '@test6']/parent::span/parent::span/following-sibling::strong[contains(text(),'removed from the channel')]</td>
+	<td></td>
+</tr>
+<!--User was removed from public channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PrivateChannel2&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChannel2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Update Header Test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][text()='Update Header Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Test Purpose</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='info__value'][text()=&quot;Test Purpose&quot;]</td>
+	<td></td>
+</tr>
+<!--^^Step Missing where you set pupose? ^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>PrivateChannel2-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='channelHeaderTitle']/span[contains(text(),'PrivateChannel2-Update')]</td>
+	<td></td>
+</tr>
+<!--^^Edit Public Channel Details^^-->
+<tr>
+	<td>storeAttribute</td>
+	<td>//p[text()=&quot;Post from Admin&quot;]/parent::div[@class='post-message__text']/parent::div[@class='post-message__text-container']/parent::div[@class='post-message post-message--collapsed']/parent::div[@id]@id</td>
+	<td>AdminPostFull</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${AdminPostFull}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_END}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>//textarea[@id='post_textbox']</td>
+	<td>AdminPostId</td>
+</tr>
+<!--^^Using text app text box as an editor to trim the "post_" prefix from the post ID var I have stored :)^^-->
+<!--^^ May need to delete this from the box now that I'm done with it^^-->
+<tr>
+	<td>pause</td>
+	<td>50</td>
+	<td></td>
+</tr>
+<!--unable to find context menu. Must solve mouse Over-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post from Admin</td>
+</tr>
+<!--^This clicks "..."^-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Reply</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<!--Delete click will not work w\ SE please click Delete on the Post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='modal-body']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Delete']</td>
+	<td></td>
+</tr>
+<!--Channel Admin Able to delete other users posts -->
+<!--... Next Delete this channel-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrivateChannel2-Update</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='channelHeaderTitle']/span[contains(text(),'PrivateChannel2-Update')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='alert alert-danger']/span[contains(text(),'This will archive the channel from the team')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name'][text() = &quot;PrivateChannel2-Update&quot;]</td>
+	<td></td>
+</tr>
+<!--User is able to delete public Channel-->
+<!--Promoting test user to Team Admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='systemConsole']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='user_management/users']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='user_management/users']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>test5</td>
+</tr>
+<!--Replace these steps with a rollup instead of fixing it-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='more-modal__name']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='dropdown member-drop text-right']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='more-modal__name']/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/div[@class='dropdown member-drop text-right']/a[@href='#']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#manageTeams &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#manageTeams &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='manage-teams__team-name'][text()='TeamA']/following-sibling::div[@class='manage-teams__team-actions']/div[@class='dropdown btn-group']/a[@class='dropdown-toggle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='manage-teams__team-name'][text()='TeamA']/following-sibling::div[@class='manage-teams__team-actions']/div[@class='dropdown btn-group']/a[@class='dropdown-toggle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#makeTeamAdmin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#makeTeamAdmin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='manage-teams__team-name'][text()='TeamA']/following-sibling::div[@class='manage-teams__team-actions']/div[@class='dropdown btn-group']/a[@class='dropdown-toggle'][text()='Team Admin']</td>
+	<td></td>
+</tr>
+<!--User promoted to team Admin for TeamA-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Switch back to test user-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>PubChan3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>PubChan3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>PubChan3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubChan3</td>
+</tr>
+<!--Public Channel Created-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text() = &quot;PubChan3&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubChan3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>- Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][text()='PubChan3- Updated']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Test Purpose</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='info__value'][text()=&quot;Test Purpose&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>PubChan3-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubChan3-Updated</td>
+</tr>
+<!--Public channel can still be edited-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[text()='PrivateChanTeamA']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[text()='PrivateChanTeamA']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamA</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<!--^^Why does this not always save?^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='markdown__paragraph-inline'][text()='Updated']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Test Purpose</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='info__value'][text()=&quot;Test Purpose&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>PrivateChanTeamA-Updated</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[id=save-button]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrivateChanTeamA-Updated</td>
+</tr>
+<!--Private channel can still be edited-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>NewPriChan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>NewPriChan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>NewPriChan</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='alert alert-danger']/span[contains(text(),'This will archive the channel from the team')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-danger']/span[text()='Archive']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='channelHeaderTitle']/span[contains(text(),'PrivateChanTeamA-Updat')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=teamb</td>
+</tr>
+<!--Remove Delete from Team B override-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>post_textbox</td>
+	<td>Test5 PostV2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Save')]/parent::button[@disabled]</td>
+	<td></td>
+</tr>
+<!--^^Cannot use edit to Delete by empting box and saving^^-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Pickles</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Save')]/parent::button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Save')]/parent::button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=teamb</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>post_textbox</td>
+	<td>Test6 Post${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Save')]/parent::button[@disabled]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Pickles</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Save')]/parent::button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'Save')]/parent::button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

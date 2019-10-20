@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SmokeTestRC</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SmokeTestRC</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>https://rctesting.reddogsofwar.com</td>
+	<td></td>
+</tr>
+<!--Create new account from `Create one new` link on login page-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='root']/div/div/div/div[3]/div/div/a/span/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/div[3]/div/div/a/span/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<!--Change email address, username, and password in below lines if needed-->
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>linda+st@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>linda-st</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<!--Just going to record below as I move through ST entries in 4.3 spreadsheet-->
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='rhs_dropdownbd718bp7jigbjcmrqubp5ap6ne']/div/ul/li[4]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td>Another reply, edited</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhs_dropdownt6kcmhy48ff8ppmhzx3bsdw3zo &gt; div.dropdown-menu__content &gt; ul.dropdown-menu &gt; li &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[15]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[14]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=exact:http://i-06e357bb979b460ff.spinmint.com:8065/pr147/pl/t6kcmhy48ff8ppmhzx3bsdw3zo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownt6kcmhy48ff8ppmhzx3bsdw3zo']/div/ul/li[5]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td>permalink</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdown17zpctmndfbt5que5stjhk96sh']/div/ul/li[4]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownjson1wkqjtd9dkf5t1qouqt4my']/div/ul/li[2]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#commentIcon_tccknxnzfibatgyo67ygoehujh_json1wkqjtd9dkf5t1qouqt4my &gt; span.comment-icon &gt; #Layer_1 &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#ki6yoiy8jbfxzq6qb49pouddre_message &gt; div &gt; span.post-message__text &gt; p &gt; a.theme.markdown__link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownjson1wkqjtd9dkf5t1qouqt4my']/div/ul/li[4]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Layer_1 &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='rhs_dropdownhgkn5un5e3dzikizynjbik37ka']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container.visible &gt; span.icon &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container. &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container. &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container.visible &gt; span.icon &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container.visible &gt; span.icon &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.flag-icon__container. &gt; span.icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.post__header--info &gt; div.col &gt; a.flag-icon__container.visible &gt; span.icon &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td>post</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__pin &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#commentIcon_tccknxnzfibatgyo67ygoehujh_x343fcsswbgr5ygh3x8tpz1wco &gt; span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhsrootDotMenuPin &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Symbols &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownw48hspktufb7bqwdj5kwk7p7yw']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__pin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Symbols &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownx343fcsswbgr5ygh3x8tpz1wco']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentIcon_tccknxnzfibatgyo67ygoehujh_x343fcsswbgr5ygh3x8tpz1wco</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.emoji-picker__search</td>
+	<td>tac</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='post-list']/div[2]/div[2]/div/div[3]/div/div[2]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='post-list']/div[2]/div[2]/div/div[3]/div/div[38]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.post-reaction.post-reaction--current-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#commentIcon_tccknxnzfibatgyo67ygoehujh_x343fcsswbgr5ygh3x8tpz1wco &gt; span.comment-icon &gt; #Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[3]/div/div[3]/div/div[4]/div[5]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon--emoji &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[6]/div[9]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='thread--root']/div[2]/div[2]/div[2]/div[2]/div[2]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=post_textbox</td>
+	<td>@tes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.pull-left.mention--align</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=~Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentIcon_kwoybqapztf5x8qf1847iqmuzr_w48hspktufb7bqwdj5kwk7p7yw</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdowncagjc31a53dr7j9hto4dbgxyxe']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdowndepoucfy8pb9pr1zmucu1mfpxy']/div/ul/li[3]/a/span</td>
+	<td></td>
+</tr>
+<!--Stopped then came back. Picked up after creating new public channel and adding test2-->
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar-item__name</td>
+	<td>CreateInviteLeaveDelet</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.tutorial-skip &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelLeave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.intro-links &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul[2]/li[2]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelLeave &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#moreDirectMessage &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input[value=&quot;test&quot;]</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[2]/div/div/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.channel-header__description.light &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.post-profile-img__container.channel-intro-img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[4]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=h2.markdown__heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul[3]/li[2]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sidebar-left']/div[4]/ul/li[3]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-item.unread-title &gt; span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='root']/div/div/div/div[2]/div/div[2]/div/a/span/span[2]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_login</td>
+	<td>lindamm</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>GIT#07h45p!</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.header-user-avatar.js-lazy-loaded</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='root']/div/div/div/div[2]/div/div[2]/div/a/span/span[2]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_login</td>
+	<td>lindamm</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>GIT#07h45p!</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

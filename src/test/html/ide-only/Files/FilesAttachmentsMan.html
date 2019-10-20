@@ -1,0 +1,1947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>FilesAttachmentsMan</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">FilesAttachmentsMan</td></tr>
+</thead><tbody>
+<!--*** Watch here for visual verification instructions-->
+<!--LOG IN test10-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test10@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Create test channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>File-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>File-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--YouTube links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://www.youtube.com/watch?v=m0nYHPue5RU&amp;feature=youtu.be&amp;t=196${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<!--*** Visually Verify video starts at 3:16 in, not at beginning-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.ytp-time-current</td>
+	<td>exact:3:16</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Delete post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>https://www.youtube.com/watch?v=m0nYHPue5RU&amp;feature=youtu.be&amp;t=196${KEY_ENTER}</td>
+</tr>
+<!--Search will fail sometime with Se - added pause.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--YouTube Videos - Additional time formats -1-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://www.youtube.com/watch?time_continue=490&amp;v=xqCoNej8Zxo${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4999</td>
+	<td></td>
+</tr>
+<!--*** Continue moving the mouse over the video to ensure the runtime stays visible -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='ytp-time-current'][contains(text(),'8:11')]</td>
+	<td></td>
+</tr>
+<!--Delete post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>https://www.youtube.com/watch?time_continue=490&amp;v=xqCoNej8Zxo${KEY_ENTER}</td>
+</tr>
+<!--Search will fail sometime with Se - added pause.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--YouTube Videos - Additional time formats -2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://www.youtube.com/watch?start=490&amp;v=xqCoNej8Zxo${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4999</td>
+	<td></td>
+</tr>
+<!--Continue moving the mouse over the video to ensure the runtime stays visible -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='ytp-time-current'][contains(text(),'8:11')]</td>
+	<td></td>
+</tr>
+<!--Delete post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>https://www.youtube.com/watch?start=490&amp;v=xqCoNej8Zxo${KEY_ENTER}</td>
+</tr>
+<!--Search will fail sometime with Se - added pause.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--YouTube Videos - Additional time formats -3-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://www.youtube.com/watch?t=490&amp;v=xqCoNej8Zxo${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4999</td>
+	<td></td>
+</tr>
+<!--Continue moving the mouse over the video to ensure the runtime stays visible -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='ytp-time-current'][contains(text(),'8:11')]</td>
+	<td></td>
+</tr>
+<!--Delete post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>https://www.youtube.com/watch?t=490&amp;v=xqCoNej8Zxo${KEY_ENTER}</td>
+</tr>
+<!--Search will fail sometime with Se - added pause.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Can collapse video while playing (keep empty search results RHS open just to observe that)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://www.youtube.com/watch?v=gLNmtUEvI5A${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://www.youtube.com/watch?v=gLNmtUEvI5A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Eutelsat/ABS Mission Hosted Webcast</td>
+	<td>Eutelsat/ABS Mission Hosted Webcast</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.ytp-title-text</td>
+	<td></td>
+</tr>
+<!--Video starts at 0:00-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.ytp-time-current:contains('0:00')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<!--Center Play button not present while video is playing-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.play-button &gt; span</td>
+	<td></td>
+</tr>
+<!--Collapse video-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=video.video-stream.html5-main-video</td>
+	<td></td>
+</tr>
+<!--Post image file, copy location, paste into post-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select image file-->
+<!--*** Could use high DPI image here-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<!--*** Visually verify uploaded thumbnail looks correct (cropped, centered)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post-image.normal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='image-container'] </td>
+	<td></td>
+</tr>
+<!--*** Visually verify thumbnail in post (cropped, centered, filename)-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify image preview displays-->
+<!--*** Manually click filename to open image preview-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Mouseover, verify elements-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-close.modal-close--show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.public-link.text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.image-links &gt; a.text &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.pull-left.text &gt; span</td>
+	<td>File 1 of 1</td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>css=a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--*** Manually right-click the image preview, Copy Image Location, close image,-->
+<!--*** paste in message box, press Enter-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--*** Visually verify link posted (not the image, and no download starts)-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>https://selenium.test.mattermost.com/api/v4/files/*/preview</td>
+	<td></td>
+</tr>
+<!--Copy image, paste in message box, post:-->
+<tr>
+	<td>open</td>
+	<td>https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png</td>
+	<td></td>
+</tr>
+<!--*** Manually right-click, Copy Image, go Back-->
+<!--*** Paste in message box (CTRL/CMD-V) (don't post it yet)-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post-image__details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Add some text here${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Image Pasted at</td>
+	<td></td>
+</tr>
+<!--*** Visually verify image thumbnail looks correct in RHS-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Manually select file that is 0KB in size: 0bytes.txt in Resources folder-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>You are uploading an empty file: 0bytes.txt</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>0 KB${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='post-image__details']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post below this ^ file${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post below this ^ file')]</td>
+	<td></td>
+</tr>
+<!--Draft during upload-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Manually select 2 large files in Resources folder to add at once:-->
+<!--*** high-DPI-check-scaling.jpg, demo-deploy.mp4-->
+<!--*** Select the files then click to start uploading-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--Switch channels before uploads finish, type draft-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Uploading...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Here's a draft typed while files are uploading in the other channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>Here's a draft typed while files are uploading in the other channel</td>
+</tr>
+<!--Wait and verify attachments do not "hop over" to this channel's draft-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Uploading...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<!--Back to other channel to verify uploaded successfully-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=File-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=File-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>File-${datetime}</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Uploading...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--File with space in name-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select a file that has a space in the name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Space${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify message posts and file name displays correctly-->
+<!--Edit message that has an attachment-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> Songs</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>Space Songs</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@id='editButton']/span[contains(text(),'Save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@id='editButton']/span[contains(text(),'Save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Space Songs')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td></td>
+</tr>
+<!--*** Visually verify attachment is still there after edit-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Remove all text from a message that has an attachment-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('Space Songs')</td>
+	<td></td>
+</tr>
+<!--*** Visually verify attachment is still there after removing text from post-->
+<!--Public Link-->
+<!--*** Manually click thumbnail to open image preview-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.image-loaded.image-fade-in img</td>
+	<td></td>
+</tr>
+<!--Mouseover shows options-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=div.image-loaded.image-fade-in img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.public-link.text &gt; span</td>
+	<td>Get Public Link</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.public-link.text &gt; span</td>
+	<td>Get Public Link</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=linkModalTextArea</td>
+	<td>publiclink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=linkModalCloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${publiclink}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${publiclink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${publiclink}</td>
+	<td></td>
+</tr>
+<!--*** Visually verify the file starts to download/open (or display on mobile)-->
+<!--*** Se may open extra tab/window(s), but clicking manually is okay-->
+<!--*** Close dialog box and/or any newly opened tabs-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Switch to UI Automation 2 team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation 2</td>
+</tr>
+<!--DM outside current team can see attachment-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Other Channels</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3</td>
+</tr>
+<!--Attach file to DM-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select any file to attach-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.post-image__uploadingTxt &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Here's a file for you!</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.image-name &gt; div</td>
+	<td></td>
+</tr>
+<!--Log out then log in as other user to view file-->
+<!--LOG OUT test10-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test3-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1.team__name</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test101</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=test101</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='image-loaded image-fade-in ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[contains(@src,'https://selenium.test.mattermost.com/api/v4/files')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[contains(@src,'https://selenium.test.mattermost.com/api/v4/files')]</td>
+	<td></td>
+</tr>
+<!--*** Visually verify that file preview displays as expected-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-close.modal-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-close.modal-close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test3-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test10-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Open DM channel to ensure only one image in channel (to find correct button)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>@test4</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://about.mattermost.com/wp-content/uploads/2016/01/logo.png?foo${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.img-div</td>
+	<td></td>
+</tr>
+<!--Delete post to clear for next test-->
+<!--*** This part may fail; if so delete post manually-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>https://about.mattermost.com/wp-content/uploads/2016/01/logo.png?foo${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='post__dropdown color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=a.post__embed-visibility.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<!--Attachment with no preview does not show expand/collapse control-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://example.com/not-exist.png${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:https://example.com/not-exist.png</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.style--none.post__embed-visibility.color--link.pull-left</td>
+	<td></td>
+</tr>
+<!--Thumbnail crop-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://about.mattermost.com/wp-content/uploads/2016/01/logo.png?foo${KEY_ENTER}</td>
+</tr>
+<!--*** Manually right-click the image and copy, then paste in message box-->
+<!--*** Visually verify thumbnail zoomed and cropped: logo icon, no text, no white space below-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post-image.normal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Paste in message box and verify-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Pasted at</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify thumbnail zoomed and cropped: logo no text, no white space below-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify image preview shows whole (small) image not zoomed or cropped-->
+<!--*** Have to manually click pasted image for now-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Attachments in search results-->
+<!--Switch to UI Automation team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/ui-automation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>UI Automation</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=File-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=File-${datetime}</td>
+	<td></td>
+</tr>
+<!--Post oneone-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>File-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select any file-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>attachment oneone${KEY_ENTER}</td>
+</tr>
+<!--Post twotwo-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--**Manually select any file-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>attachment twotwo${KEY_ENTER}</td>
+</tr>
+<!--Search for `attachment`-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>attachment${KEY_ENTER}</td>
+</tr>
+<!--*** Manually verify thumbnail in RHS, click it to preview-->
+<!--*** Then click Download, verify starts to download (or displays in browser)-->
+<!--*** Then close file dialog (or go back to Mm page in browser)-->
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<!--Search for `oneone`-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>oneone${KEY_ENTER}</td>
+</tr>
+<!--*** Manually verify thumbnail in RHS, click it to preview-->
+<!--*** Then click Download, verify starts to download (or displays in browser)-->
+<!--*** Then close file dialog (or go back to Mm page in browser)-->
+<tr>
+	<td>pause</td>
+	<td>15000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<!--Can't post until file finishes uploading-->
+<!--*** Manually attach a large file and try to press enter while it's uploading-->
+<!--*** Verify upload continues, can't post until it's done, then can post after it's done-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--/test url test-attachments-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-attachments${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Test on https://selenium.test.mattermost.com, on slow speed-->
+<!--*** Read the post and follow test instructions-->
+<!--*** Be sure to upload 5 attachments to one message-->
+<!--*** Verify after 5 trying to upload again shows error: "Uploads limited to 5 -->
+<!--*** files maximum. Please use additional posts for more files."-->
+<!--*** Then cycle through the multiple images on that post, w arrows and mouse-->
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Loaded data</td>
+	<td></td>
+</tr>
+<!--*** More: 1. Open the thumbnails of an attached Word, PowerPoint and PDF file-->
+<!--*** 2. Click "Download" in some file previews-->
+<!--*** Files should download with the original file extensions (ie, .docx, .pptx, and .pdf)-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** Skip this for now; inconsistent results on different systems?-->
+<!--File with long filename and no spaces does not break RHS-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select PNGwithaAVeryLongNameNoSpaces...-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify image preview and truncated filename in center-->
+<!--Now post in RHS-->
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Manually select PNGwithaAVeryLongNameNoSpaces...-->
+<!--*** Make sure attaching in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify displays image preview and truncated filename in RHS-->
+<!--*** NOTE: This is stuck in endless loading for some reason. Investigating-->
+<!--*** (only on Se server) - DKH Not seeing this issue Apr-13-2019-->
+</tbody></table>
+</body>
+</html>

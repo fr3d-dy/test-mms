@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scBranding</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scBranding</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<!--Can change site name and description with custom branding disabled-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.EnableCustomBrandfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td>Custom Site Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.CustomDescriptionText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.CustomDescriptionText</td>
+	<td>Here's some custom text that an organization might want to use to display a little info about themselves.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.CustomDescriptionText</td>
+	<td>Here's some custom text that an organization might want to use to display a little info about themselves.</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Verify custom name and description-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h1</td>
+	<td>Custom Site Name</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.color--light</td>
+	<td>Here's some custom text that an organization might want to use to display a little info about themselves.</td>
+</tr>
+<!--LOG IN-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<!--30-character limit in Site Name-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td>30-character maximum ends here, even if you try to type more</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td>30-character maximum ends here</td>
+</tr>
+<!--Image upload disabled with custom branding = false-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.help-text.no-margin &gt; span</td>
+	<td>Customize your user experience by adding a custom image to your login screen. Recommended maximum image size is less than 2 MB.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.EnableCustomBrandfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td>Custom Site Name</td>
+</tr>
+<!--Enable custom branding, image has not ever been uploaded-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span</td>
+	<td>No brand image uploaded</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableCustomBrandtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableCustomBrandtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify no broken image icon appears (blank left hand side)-->
+<!--Enable custom branding, upload image, add custom brand text-->
+<!--LOG IN-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Manually select MmlogoHorizontal.png (in Resources)-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=upload-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.brand-img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=upload-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Uploaded!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.CustomBrandText</td>
+	<td></td>
+</tr>
+<!--Leaving out verification of 500-character limit; it's not enforced: MM-11662-->
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.CustomBrandText</td>
+	<td>Here is another block of text that can be customized. This appears below the custom image. **Markdown** *is* accepted.</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Verify custom image and brand text-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Mattermost logo appears-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Here is another block of text that can be customized. This appears below the custom image. Markdown is accepted.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong</td>
+	<td>Markdown</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=em</td>
+	<td>is</td>
+</tr>
+<!--LOG IN-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=custom_brand</td>
+	<td></td>
+</tr>
+<!--Remove customized site name and description, disable custom branding-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.SiteName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.CustomDescriptionText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=TeamSettings.CustomDescriptionText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=TeamSettings.EnableCustomBrandfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=TeamSettings.EnableCustomBrandfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--Verify brand customization has been removed-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>All team communication in one place, searchable and accessible anywhere</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=h1</td>
+	<td>Custom Site Name</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=h4.color--light</td>
+	<td>Here's some custom text that an organization might want to use to display a little info about themselves.</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Mattermost logo does not appear-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p</td>
+	<td>Here is another block of text that can be customized. This appears below the custom image. Markdown is accepted.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

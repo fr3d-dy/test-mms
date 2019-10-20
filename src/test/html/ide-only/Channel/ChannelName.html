@@ -1,0 +1,2525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--PUBLIC CHANNEL NAME-->
+<!--Minimum 2 characters - On creation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),' - Anyone can join this channel.')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),' - Only invited members can join this channel.')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /1 (Edit)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error &gt; span</td>
+	<td>Channel name must be 2 or more characters</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Cancel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Maximum 64 characters - On creation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sidebarChannelsMore &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createNewChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createNewChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>1234567890123456789012345678901234567890123456789012345678901234&amp;</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newChannelName</td>
+	<td>1234567890123456789012345678901234567890123456789012345678901234</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /1234567890123456789012345678901234567890123456789012345678901234 (Edit)</td>
+</tr>
+<!--Cancel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Accented characters-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td> Dév Spé</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /dev-spe (Edit)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Dév Spé</td>
+</tr>
+<!--Rename - No changes (using dropdown)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<!--Rename - Minimum 2 characters (using dropdown)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelArchiveChannel &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem:contains('Leave Channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Display Name</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//label[2]</td>
+	<td>Channel name must be 2 or more characters</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Dév Spé</td>
+</tr>
+<!--Verify message box placeholder text, with accented characters-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to Dév Spé</td>
+</tr>
+<!--Rename - Maximum 64 characters (using dropdown)-->
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>Channel Name Maximum Sixty-Four Characters So Just One X At EndXX</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td>Channel Name Maximum Sixty-Four Characters So Just One X At EndX</td>
+</tr>
+<!--Edit URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#urlTooltip &gt; div.tooltip-inner</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels</td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td>dev-spe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td>new-url</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Channel Name Maximum Sixty-Four Characters So Just One X At EndX</td>
+</tr>
+<!--Verify that the URL ends with new-url-->
+<tr>
+	<td>verifyLocation</td>
+	<td>*/channels/new-url</td>
+	<td></td>
+</tr>
+<!--Verify placeholder text in message box reflects new channel name-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to Channel Name Maximum Sixty-Four Characters So Just One X At EndX</td>
+</tr>
+<!--Rename - Minimum 2 characters (using slash command)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename 1${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Channel name must be 2 or more characters')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Channel Name Maximum Sixty-Four Characters So Just One X At EndX</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=strong.heading</td>
+	<td>1</td>
+</tr>
+<!--Rename - Maximum 64 characters (using slash command)-->
+<!--Still restricted to 22 until MM-16115 is fixed-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename Sixty-Five Characters Will Not Be Accepted As A New Channel NameX${KEY_ENTER}</td>
+</tr>
+<!--\/ Need to update system message for 64 char \/-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Channel name must be 64 or fewer characters')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Channel Name Maximum Sixty-Four Characters So Just One X At EndX</td>
+</tr>
+<!--NON-LATIN CHARACTERS IN URL > EDIT URL OPENS-->
+<!--Public channel, using す-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>すすす</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-intro &gt; span</td>
+	<td>Some characters are not allowed in URLs and may be removed.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//label</td>
+	<td>Channel URL</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=newChannelName</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Private channel, using Б-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>БББ</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-intro &gt; span</td>
+	<td>Some characters are not allowed in URLs and may be removed.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//label</td>
+	<td>Channel URL</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=newChannelName</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--CAN'T DUPLICATE CHANNEL NAME / URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>off-topic</td>
+</tr>
+<!--Include header and purpose, to verify not cleared while editing URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>Purpose lala</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelHeader</td>
+	<td>Header lala</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Error message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark &gt; button.color--link.style--none</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=p.input__help.dark &gt; button.color--link.style--none</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<!--Change URL to not be a duplicate-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>off-topic-2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Header and purpose are still populated-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=newChannelPurpose</td>
+	<td>Purpose lala</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newChannelHeader</td>
+	<td>Header lala</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Error does not persist after changing b/w public and private-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>off-topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.input__help.error</td>
+	<td>A channel with that name already exists on the same team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<!--Can create channel called Authorize-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Authorize</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Authorize</td>
+</tr>
+<!--Can create a channel with space hyphen space (3 hyphens in URL)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Check One - Two</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /check-one---two (Edit)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Create New Channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Check One - Two</td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/check-one---two</td>
+	<td></td>
+</tr>
+<!--PRIVATE CHANNEL NAME-->
+<!--Minimum 2 characters - On creation-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.error &gt; span</td>
+	<td>Channel name must be 2 or more characters</td>
+</tr>
+<!--Maximum 22 characters - On creation-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>1234567890123456789012345678901234567890123456789012345678901234&amp;</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=newChannelName</td>
+	<td>1234567890123456789012345678901234567890123456789012345678901234</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /1234567890123456789012345678901234567890123456789012345678901234 (Edit)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>1234567890123456789012345678901234567890123456789012345678901234</td>
+</tr>
+<!--Verify placeholder text in message box: Private channel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to 1234567890123456789012345678901234567890123456789012345678901234</td>
+</tr>
+<!--Rename - Minimum 2 characters (using dropdown)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelAddMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelManageMembers &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelArchiveChannel &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem:contains('Leave Channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Display Name</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//label[2]</td>
+	<td>Channel name must be 2 or more characters</td>
+</tr>
+<!--Rename - Maximum 22 characters (using dropdown)-->
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>PrivateName sixty-four123456789012345678901234567890123456789012$</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td>PrivateName sixty-four123456789012345678901234567890123456789012</td>
+</tr>
+<!--Edit URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#urlTooltip &gt; div.tooltip-inner</td>
+	<td>exact:https://selenium.test.mattermost.com/ui-automation/channels</td>
+</tr>
+<tr>
+	<td>mouseOut</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td>1234567890123456789012345678901234567890123456789012345678901234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td>new-url-private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>PrivateName sixty-four123456789012345678901234567890123456789012</td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>*/channels/new-url-private</td>
+	<td></td>
+</tr>
+<!--Rename - Minimum 2 characters (using slash command)-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename 1${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>PrivateName sixty-four123456789012345678901234567890123456789012</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=strong.heading</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Channel name must be 2 or more characters')</td>
+	<td></td>
+</tr>
+<!--Rename - Maximum 22 characters (using slash command)-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename sixty-four12345678901234567890123456789012345678901234567890123456${KEY_ENTER}</td>
+</tr>
+<!--\/ Need to update system message for 64 char \/-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Channel name must be 64 or fewer characters')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>sixty-four123456789012345678901234567890123456789012345</td>
+</tr>
+<!--TOWN SQUARE NAME-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Town Square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Rename - Minimum 2 characters (using dropdown)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelNotificationPreferences &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditPurpose &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelRename &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Display Name</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//label[2]</td>
+	<td>Channel name must be 2 or more characters</td>
+</tr>
+<!--Rename - Maximum 22 characters (using dropdown)-->
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>Town Square sixty-four3456789012345678901234567890123456789012345</td>
+</tr>
+<!--For now I did not add the extra "o" Max channel name changes where added to steps above. If there are no immediate plans to move this to Cypress, I can also update the remianing steps next rewlease  -->
+<tr>
+	<td>waitForValue</td>
+	<td>id=display_name</td>
+	<td>Town Square sixty-four345678901234567890123456789012345678901234</td>
+</tr>
+<!--Cannot edit URL for default channel-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/label</td>
+	<td>URL - Cannot be changed for the default channel</td>
+</tr>
+<tr>
+	<td>verifyNotEditable</td>
+	<td>css=div.input-group.input-group--limit &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square sixty-four345678901234567890123456789012345678901234</td>
+</tr>
+<tr>
+	<td>verifyLocation</td>
+	<td>*/channels/town-square</td>
+	<td></td>
+</tr>
+<!--Verify placeholder text in message box: Renamed Town Square-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to Town Square sixty-four345678901234567890123456789012345678901234</td>
+</tr>
+<!--Rename - Minimum 2 characters (using slash command)-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename X${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square sixty-four345678901234567890123456789012345678901234</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Channel name must be 2 or more characters')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=strong.heading</td>
+	<td>X</td>
+</tr>
+<!--Rename - Maximum 64 characters (using slash command)-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename Town Square sixty-five3456789012345678901234567890123456789012345${KEY_ENTER}</td>
+</tr>
+<!--\/ Need to update system message for 64 char \/-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p:contains('Channel name must be 64 or fewer characters')</td>
+	<td>Channel name must be 64 or fewer characters</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square sixty-five345678901234567890123456789012345678901234</td>
+</tr>
+<!--Rename back to Town Square-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/rename Town Square${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!---- Start of new ---->
+<!--Create a new channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),' - Only invited members can join this channel.')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.col-sm-9 &gt; input.form-control</td>
+	<td>TestForHeader </td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'URL: /testforheader')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderTitle &gt; span</td>
+	<td>TestForHeader</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Put link into header of another channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'headertest')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'headertest')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditHeader &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>~TestForHeader</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align</td>
+	<td>TestForHeader (~testforheader)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mention__align</td>
+	<td>TestForHeader (~testforheader)</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4999</td>
+	<td></td>
+</tr>
+<!--Manually select the channel autocomplete option "TestForHeader"-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelHeaderDescription']/span/p/a[contains(text(),'~TestForHeader')]</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Login as user who is not a member of the channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarChannelsMore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'headertest')]/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button/span[contains(text(),'Join')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//p[contains(text(),'headertest')]/parent::div[@class='more-modal__details']/following-sibling::div[@class='more-modal__actions']/button/span[contains(text(),'Join')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'TestForHeader')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelHeaderDescription']/span/p/a[contains(text(),'~TestForHeader')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelHeaderDescription']/span/p/a[contains(text(),'~TestForHeader')]</td>
+	<td></td>
+</tr>
+<!--Joined public channel via header link of a different channel-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>TestForHeader</td>
+</tr>
+<!--Placeholder text in message box: DM with self-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=quickSwitchInput</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=quickSwitchInput</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=switchChannel_test5</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=switchChannel_test5</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test5 (you)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to test5</td>
+</tr>
+<!--Set first and last names to test placeholder text with admin DM-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td>Firstname</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td>Lastname</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>Firstname Lastname</td>
+</tr>
+<!--Set nickname to test placeholder text with admin DM-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nickname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=nickname</td>
+	<td>Nicky</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nicknameDesc</td>
+	<td>Nicky</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Login admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Placeholder text in DM: Respects teammate name display setting-->
+<!--Set teammate name display to first/last-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name_formatEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name_formatEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name_formatFormatC</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name_formatFormatC</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#name_formatDesc &gt; span</td>
+	<td>Show first and last name</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Open DM with test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=quickSwitchInput</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=quickSwitchInput</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=switchChannel_test5</td>
+	<td>@test5 - Firstname Lastname (Nicky)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=switchChannel_test5</td>
+	<td>@test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Firstname Lastname</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to Firstname Lastname</td>
+</tr>
+<!--Set teammate name display to nickname-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name_formatEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name_formatEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name_formatFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name_formatFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=name_formatDesc</td>
+	<td>Show nickname if one exists, otherwise show first and last name</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Nicky</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to Nicky</td>
+</tr>
+<!--Placeholder text in GM (one user has nickname, one user doesn't)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=addDirectChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=addDirectChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test5 - Firstname Lastname (Nicky)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name &gt; span</td>
+	<td>@test5 - Firstname Lastname (Nicky)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@test6</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Nicky, test6</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Write to Nicky, test6</td>
+</tr>
+<!--Placeholder not in reply box-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Test message${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-control.custom-textarea.custom-textarea--emoji-picker</td>
+	<td>Add a comment...</td>
+</tr>
+<!--Cleanup: admin set back to display username-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name_formatEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name_formatEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name_formatFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name_formatFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=name_formatDesc</td>
+	<td>Show username</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Cleanup: Close DM and GM in LHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<!--Log out admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--Login test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Cleanup: Remove first/last for test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=firstName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=lastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#nameDesc &gt; span</td>
+	<td>Click 'Edit' to add your full name</td>
+</tr>
+<!--Cleanup: Remove nickname for test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nicknameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nickname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=nickname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nicknameDesc</td>
+	<td>Click 'Edit' to add a nickname</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Cleanup: Close DMs-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<!--Log out test5-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

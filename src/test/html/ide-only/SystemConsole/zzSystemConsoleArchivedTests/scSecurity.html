@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scSecurity</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scSecurity</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--PUBLIC LINKS-->
+<!--Public Links - true-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=public_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=public_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Public Links</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=FileSettings.EnablePublicLinktrue</td>
+	<td>on</td>
+</tr>
+<!--Regenerate public link salt-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Regenerate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=FileSettings.PublicLinkSalt</td>
+	<td>publiclinksalt</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=FileSettings.PublicLinkSalt</td>
+	<td>${publiclinksalt}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=FileSettings.PublicLinkSalt</td>
+	<td>${publiclinksalt}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--**** v5.12 moved to sc07-EnvSettings.html-->
+<!--SESSIONS-->
+<!--Change settings, log out, log back in, verify still what they changed to-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sessions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sessions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Sessions</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Verify edited settings persisted-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sessions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sessions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Sessions</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td>300</td>
+</tr>
+<!--Removed section verifying that saving with non-numeric restores defaults-->
+<!--(UI no longer allows saving non-numeric characters in these fields)-->
+<!--Set back to original settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Insert verifications values saved-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td></td>
+</tr>
+<!--**** ^^ moved to envsettings in v5.12-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--** \/ moved to sc Integrations settings in v5.12-->
+<!--CONNECTIONS-->
+<!--Changes are saved-->
+<!--First verify SiteURL is set correctly, to avoid issues with invalid CORS domain-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=configuration</td>
+	<td></td>
+</tr>
+<!--Looks like we build this with https when it should be http-->
+<!--For now, adding step to fix the site URL so changing CORS setting -->
+<!--doesn't break the server. Looking into getting it setup correctly to begin with-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://selenium.test.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SiteURL</td>
+	<td>https://selenium.test.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=connections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=connections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Connections</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>exact:http://example.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowCorsFrom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionstrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionstrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionsfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableInsecureOutgoingConnectionsfalse</td>
+	<td>on</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none span:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

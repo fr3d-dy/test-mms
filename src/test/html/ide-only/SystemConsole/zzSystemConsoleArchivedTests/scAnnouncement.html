@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>SysConsAnnouncement</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SysConsAnnouncement</td></tr>
+</thead><tbody>
+<!--WATCH to visually verify colors until I figure out how to automate that part-->
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Announcement Banner</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=AnnouncementSettings.EnableBannerfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<!--Turn banner on, text is long and contains link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=AnnouncementSettings.EnableBannertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=AnnouncementSettings.EnableBannertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td>Here's an announcement! It has a link: http://example.com. It wraps 'round to a new line, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=AnnouncementSettings.AllowBannerDismissaltrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=AnnouncementSettings.AllowBannerDismissaltrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It has a link: http://example.com. It wraps 'round to a new line, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<!--View on team-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify that all text is legible (banner background is multi-line)-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Long text is all visible-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It has a link: http://example.com. It wraps 'round to a new line, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.announcement-bar a.announcement-bar__close</td>
+	<td></td>
+</tr>
+<!--Link works-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:http://example.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=exact:http://example.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1</td>
+	<td>Example Domain</td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--Dismiss banner-->
+<tr>
+	<td>click</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It has a link: http://example.com. It wraps 'round to a new line, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<!--Dismissed banner reappears after logging out and back in-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It has a link: http://example.com. It wraps 'round to a new line, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.announcement-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:http://example.com</td>
+	<td></td>
+</tr>
+<!--Banner = true, with no text-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=AnnouncementSettings.EnableBannertrue</td>
+	<td>on</td>
+</tr>
+<!--Verify on team that banner disappears-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It has a link: http://example.com. It wraps 'round to a new line, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.error-bar</td>
+	<td></td>
+</tr>
+<!--Long text on dismissable banner truncates-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td>Here's an announcement! It's a really long announcement, because we have a lot to say. Be sure to read it all, then dismiss it, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=AnnouncementSettings.AllowBannerDismissalfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=AnnouncementSettings.AllowBannerDismissalfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify on team that text truncates (may need to move this to be manual)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It's a really long announcement, because we have a lot to say. Be sure to read it all, then dismiss it, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.announcement-bar.announcement-bar--fixed</td>
+	<td></td>
+</tr>
+<!--Banner set to false with text entered does not display banner-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=announcement</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=AnnouncementSettings.BannerText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=AnnouncementSettings.EnableBannerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=AnnouncementSettings.EnableBannerfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify on team that banner disappears-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Here's an announcement! It has a link: http://example.com. It's a really long announcement, because we have a lot to say. Be sure to read it all, click the link, then dismiss the banner, and then you can go on to the next test, which will have a shorter announcement. Thank you for reading and have a nice day!</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=×</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.error-bar</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

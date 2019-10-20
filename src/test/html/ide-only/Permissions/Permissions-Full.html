@@ -1,0 +1,7223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>Draft1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Draft1</td></tr>
+</thead><tbody>
+<tr>
+	<td>setSpeed</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<!---- Data Setup---->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=ui-automation</td>
+</tr>
+<!--Create Channels and add users-->
+<tr>
+	<td>rollup</td>
+	<td>createPrivateChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPrivateChannel</td>
+	<td>ChannelName=PrvChan2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=PubChan2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test6</td>
+</tr>
+<!--Set roles for users as follows...-->
+<!--test2 : member, test3: channel admin, test4: Team Admin, test 5: System Admin-->
+<!--Manullay demote user2 from being team Admin-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>promoteUserToChannelAdmin</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>promoteUserToChannelAdmin</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>promoteUserToTeamAdmin</td>
+	<td>username=test4, team=UI Automation</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>promoteUserToSystemAdmin</td>
+	<td>username=test5</td>
+</tr>
+<!--Promote to team admin and sys admin need fixing-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=ui-automation</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 1 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 1 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 1 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 2 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 3 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 4 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 5 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 4 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post 5 from test6${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Testing begins....-->
+<!--All permission can be disabled for roles other than System Admin in the global scheme-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<!--All Members - Teams-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams-create_team &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-create_team &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-create_private_channel&gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-create_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Posts-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Integrations and Customizations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-manage_webhooks &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-manage_slash_commands &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-integrations-create_emojis &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-create_emojis &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-integrations-delete_emojis &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-delete_emojis &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--Team Admin - Manage Posts - all_users-integrations-delete_emojis-->
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-posts-delete_posts-delete_post &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#team_admin-posts-delete_posts-delete_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-posts-delete_posts-delete_others_posts &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#team_admin-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--Team Admin - Integrations and Customizations-->
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-integrations-manage_webhooks &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#team_admin-integrations-manage_webhooks &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#team_admin-integrations-manage_slash_commands &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#team_admin-integrations-manage_slash_commands &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@class='fa fa-angle-left back active'] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Verify System Admin has permissions are correctly enabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createTeam</td>
+	<td>TeamName=test5team</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToTeam</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=ui-automation</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=test5public</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 5</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test5public-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test5public-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test5public-mod')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPrivateChannel</td>
+	<td>ChannelName=test5private</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 5</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel- -->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test5private-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test5private-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test5public-mod')]</td>
+	<td></td>
+</tr>
+<!--Edit and Delete own posts-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post A from test 5${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post A from test 5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post A from test 5-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//p[contains(text(),'Post A from test 5-mod')] </td>
+	<td></td>
+</tr>
+<!--^^Deleted^^-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 1 from test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post 1 from test6-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 1 from test6-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Post 1 from test6-mod')]</td>
+	<td></td>
+</tr>
+<!--Reaction Add -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Emoji Reaction${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[4]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/incoming_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/outgoing_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/commands']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Member user permissions are correctly disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>noExtraDeviders</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>noExtraDeviders</td>
+	<td></td>
+</tr>
+<!--Add tests for Town Square-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>noExtraDeviders</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post to Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<!--No Integrations -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=customEmoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Channel Admin permissions are correctly disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=addUsersToTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=sendEmailInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Edit and Delete Test-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post B from test 3${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Team Admin permissions are correctly disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Add tests for Town Square-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post to Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<!--No Integrations -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=customEmoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify on mobile that Team Admin, Chan Admin and member permissions are disbaled  -->
+<!--<!--test2 : member, test3: channel admin, test4: Team Admin, test 5: System Admin-->
+<!--Ensure Edit time limit is set to `Anytime` in permissions config!-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--System Admin and Team Admin role can be granted access-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#team_admin-teams_team_scope &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-teams_team_scope-send_invites']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--Teams-->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-teams_team_scope-send_invites']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-teams_team_scope-send_invites']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-create_public_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-create_public_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_properties']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_members']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-delete_public_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-delete_public_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-create_private_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-create_private_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_properties']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_members']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-delete_private_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-delete_private_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--Manage Posts -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-edit_posts-edit_post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-edit_posts-edit_post']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-edit_posts-edit_others_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-edit_posts-edit_others_posts']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-delete_posts-delete_post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-delete_posts-delete_post']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-delete_posts-delete_others_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-delete_posts-delete_others_posts']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-reactions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-reactions']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--Integrations and Customizations -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-integrations']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Verify Team Admin permissions can be enabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromTeam</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToTeam</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=test4public</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 4</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test4public-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test4public-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test4public-mod')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPrivateChannel</td>
+	<td>ChannelName=test4private</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 4</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel- -->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test4private-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test4private-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test4public-mod')]</td>
+	<td></td>
+</tr>
+<!--Edit and Delete own posts-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post C from test 4${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post C from test 4</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post C from test 4-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//p[contains(text(),'Post C from test 4-mod')] </td>
+	<td></td>
+</tr>
+<!--^^Deleted^^-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 2 from test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post 2 from test6-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 2 from test6-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Post 2 from test6-mod')]</td>
+	<td></td>
+</tr>
+<!--Reaction Add -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Emoji Reaction${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[29]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/incoming_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/outgoing_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/commands']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Channel Admin permissions are still disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=addUsersToTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=sendEmailInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Edit and Delete Test-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post B from test 3${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Member user permissions are still disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Add tests for Town Square-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post to Edit ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<!--No Integrations -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=customEmoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify on Mobile that SysAdmin and Team admin have all permssions granted. Member and Channel Admin have no permissions granted -->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Verify Channel Admin permissions granted are working correctly-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#team_admin-teams_team_scope &gt; div.permission-check.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_properties']</td>
+	<td></td>
+</tr>
+<!--Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_properties']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_members']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-public_channel-delete_public_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-delete_public_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_properties']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_members']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-private_channel-delete_private_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-private_channel-delete_private_channel']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<!--Manage Posts -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_post']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_others_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_others_posts']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_post']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_others_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_others_posts']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-reactions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-reactions']/div[@class='permission-check checked']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Verify Channel Admin permissions granted are working correctly-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 3</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test 3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test 3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test3public-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3public-mod</td>
+</tr>
+<!--switching name back-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 3</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test3private-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test3private-mod</td>
+</tr>
+<!--switching name back-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>PrvChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<!--Edit and Delete own posts-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post D from test 3${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post D from test 3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post D from test 3-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//p[contains(text(),'Post D from test 3-mod')] </td>
+	<td></td>
+</tr>
+<!--^^Deleted^^-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post B from test 3</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post B from test 3-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 4 from test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Post 4 from test6-mod')]</td>
+	<td></td>
+</tr>
+<!--Reaction Add -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Emoji Reaction${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[30]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Permission do not affect channel where test user is not an admin-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Edit and Delete Test-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post B from test 3${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Edit and Delete Test-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post B from test 3${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Check that Chan Amin permissons are now available on Mobile - test3 is only admin of PubChan1 and PrvChan1 There should be no new permissions for PubChan2 and PrvChan2-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Verify permissions for All Members can be enabled -->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Teams-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams-create_team &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-create_team &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-create_private_channel&gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-create_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Posts-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Integrations and Customizations-->
+<tr>
+	<td>click</td>
+	<td>id=all_users-integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Verify System Admin has permissions are correctly enabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createTeam</td>
+	<td>TeamName=test2team</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToTeam</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=ui-automation</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=test2public</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 2</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test2public-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2public-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test2public-mod')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPrivateChannel</td>
+	<td>ChannelName=test2private</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 2</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel- -->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test2private-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test2private-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test2private-mod')]</td>
+	<td></td>
+</tr>
+<!--Edit and Delete own posts-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post D from test 2${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post D from test 2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post D from test 2-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//p[contains(text(),'Post D from test 2-mod')] </td>
+	<td></td>
+</tr>
+<!--^^Deleted^^-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 5 from test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post 5 from test6-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 5 from test6-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Post 5 from test6-mod')]</td>
+	<td></td>
+</tr>
+<!--Reaction Add -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Emoji Reaction${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[29]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/incoming_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/outgoing_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/commands']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--test2 now has full acccess on mobile -->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Team overide scheme testing-->
+<!--**SchemeOverride Testing**-->
+<!--All permissions granted by global scheme can be removed by overrode Scheme-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Team Override Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-name</td>
+	<td>Team Override Scheme A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=scheme-description</td>
+	<td>Team Override Scheme A</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[text() = &quot;Add Teams&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamSelectorModalLabel &gt; span</td>
+	<td>Add Teams To Team Selection List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div [text() = &quot;UI Automation&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.multi-select__container &gt; #saveItems</td>
+	<td>Add</td>
+</tr>
+<!--All Members - Teams-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams_team_scope-send_invites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams_team_scope-send_invites</td>
+	<td></td>
+</tr>
+<!--All Members - Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-create_private_channel&gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-create_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Posts-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt;div.permission-check.checked &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Integrations and Customizations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=all_users-integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=all_users-integrations</td>
+	<td></td>
+</tr>
+<!--Channel Admin-->
+<!--Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-manage_public_channel_members']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-public_channel-delete_public_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-public_channel-delete_public_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-private_channel-manage_private_channel_members']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-private_channel-delete_private_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-private_channel-delete_private_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--Manage Posts -->
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_post']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_others_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-edit_posts-edit_others_posts']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_post']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_others_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-delete_posts-delete_others_posts']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channel_admin-posts-reactions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channel_admin-posts-reactions']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--Team Admin public Channel-->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-teams_team_scope-send_invites']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-teams_team_scope-send_invites']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-create_public_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-create_public_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-manage_public_channel_members']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-public_channel-delete_public_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-public_channel-delete_public_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--Team Admin private channel-->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-create_private_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-create_private_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_properties']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-manage_private_channel_members']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-private_channel-delete_private_channel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-private_channel-delete_private_channel']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<!--Team Admin Manage Post-->
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-edit_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-edit_posts']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-delete_posts']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-delete_posts']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-posts-reactions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-posts-reactions']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='team_admin-integrations']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='team_admin-integrations']/div[@class='permission-check ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.title</td>
+	<td>Team Override Scheme A</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@class='menu-icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(text(),'Logout')]</td>
+	<td></td>
+</tr>
+<!--Verify System Admin has permissions are correctly enabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createTeam</td>
+	<td>TeamName=test5team2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToTeam</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>switchTeam</td>
+	<td>TeamName=ui-automation</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=test5public2</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 5</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test5public-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test5public-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test5public-mod')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>createPrivateChannel</td>
+	<td>ChannelName=test5private2</td>
+</tr>
+<!--Edit Channel Details -->
+<!---Edit Header--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>Header added by test 5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>Header added by test 5</td>
+</tr>
+<!---Edit Pupose--->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@class='btn btn-primary save-button']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>Purpose Added by test5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!---Rename Channel- -->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=display_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=display_name</td>
+	<td>test5private-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>test5private-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>addUserToChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>removeUserFromChannel</td>
+	<td>username=test8</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'test5public-mod')]</td>
+	<td></td>
+</tr>
+<!--Edit and Delete own posts-->
+<tr>
+	<td>rollup</td>
+	<td>createPublicChannel</td>
+	<td>ChannelName=PubChan12</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan12</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post A from test 5${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post A from test 5</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post A from test 5-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//p[contains(text(),'Post A from test 5-mod')] </td>
+	<td></td>
+</tr>
+<!--^^Deleted^^-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan2</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 1 from test6</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>-mod</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[contains(text(),'Post 1 from test6-mod')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuByPostText</td>
+	<td>ContainsText=Post 1 from test6-mod</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//span[@class='sidebar-item__name']/span[contains(text(),'Post 1 from test6-mod')]</td>
+	<td></td>
+</tr>
+<!--Reaction Add -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Emoji Reaction${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[4]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Integrations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='integrations']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/incoming_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/outgoing_webhooks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/ui-automation/integrations/commands']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[@id='customEmojis']/a</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Member user permissions are correctly disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Add tests for Town Square-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post to Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<!--No Integrations -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=customEmoji</td>
+	<td></td>
+</tr>
+<!--^^Custom Emoji Can be weird accross teams. this is known^^-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Channel Admin permissions are correctly disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=addUsersToTeam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=sendEmailInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Edit and Delete Test-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post B from test 3${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--Verify Team Admin permissions are correctly disabled-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test4</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PubChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Convert to Private Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=PrvChan1</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--Add tests for Town Square-->
+<tr>
+	<td>rollup</td>
+	<td>openChannel</td>
+	<td>ChannelName=Town Square</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Header</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Rename Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyNotPresent</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Mute Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Post to Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Item=Delete</td>
+</tr>
+<!--No Reactions-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//button[@class='reacticon__container color--link style--none']</td>
+	<td></td>
+</tr>
+<!--No Integrations -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=customEmoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=Integrations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--All permissions can be granted by an override schemes when resticted globaly -->
+<!--<< Add a step where all permission are added to global scheme>> -->
+<!--Use the chuck below as a starting point... Oist fro emoji, edit and delete testing will need to be changed.-->
+<!--Verify permissions for All Members can be enabled -->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Permission Schemes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit Scheme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Teams-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-send_invites &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-teams-create_team &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-teams-create_team &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Public Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-create_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-manage_public_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-public_channel-delete_public_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Private Channels -->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-create_private_channel&gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-create_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_properties &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-manage_private_channel_members &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-private_channel-delete_private_channel &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Manage Posts-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-edit_posts-edit_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_post &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-delete_posts-delete_others_posts &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-posts-reactions &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-posts-reactions &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<!--All Members - Integrations and Customizations-->
+<tr>
+	<td>click</td>
+	<td>css=#all_users-integrations-manage_webhooks &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-manage_webhooks &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-integrations-manage_slash_commands &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-manage_slash_commands &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#all_users-integrations-manage_emojis &gt;div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#all_users-integrations-manage_emojis &gt; div.permission-check </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#saveSetting[disabled='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=adminNavbarDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=swithToui-automation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=systemConsole</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

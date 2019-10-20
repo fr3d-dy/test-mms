@@ -1,0 +1,2124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Turn on link previews in System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<!--Create Msg- channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{((new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Msg-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Msg-${datetime}</td>
+</tr>
+<!--Make these .md file instead? (add test-long-post..md but rename it? to https://github.com/mattermost/mattermost-server/tree/master/tests-->
+<!--Long post with link previews (posts in chunks to help Se not crash)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>The quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. </td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump;</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him. Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Hello and delete</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>The quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. </td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Show More button, with gradient effect where the post is truncated-->
+<!--*** Visually verify website link preview displays below Show More-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Panasonic Unveils Solar Roof That May Appear on the Tesla Model 3</td>
+	<td>Panasonic Unveils Solar Roof That May Appear on the Tesla Model 3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#showMoreButton.post-collapse__show-more-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#showMoreButton.post-collapse__show-more-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify full expanded post displays-->
+<!--*** Visually verify Show Less button-->
+<!--*** Visually verify link preview still displays-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=showMoreButton</td>
+	<td>Show Less</td>
+</tr>
+<!--Re-collapse to truncated post view-->
+<tr>
+	<td>click</td>
+	<td>id=showMoreButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=showMoreButton</td>
+	<td>Show More</td>
+</tr>
+<!--Edit long message (starting in truncated view)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_UP}</td>
+</tr>
+<!--*** Visually verify that text edit box is expanded in size-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--? Is it always the following px? Failed, but visually verified-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//textarea[@id='edit_textbox'][@style='visibility: visible; height: 1434px;']</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>The quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him. Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him. Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Hello and deleteThe quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td> edit${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify link preview still displays on edited long post-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='image placeholder']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1.attachment__title.attachment__title--opengraph</td>
+	<td>Panasonic Unveils Solar Roof That May Appear on the Tesla Model 3</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('The quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him. Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him. Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Hello and deleteThe quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex edit')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Post a message to help set apart next link prevew post-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>##### Spacer post between link preview posts${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=h5.markdown__heading:contains('Spacer post between link preview posts')</td>
+	<td></td>
+</tr>
+<!--Could also make this a .md test file-->
+<!--Link preview with URL below the fold on long post-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick: twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump;</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him. Adjusting quiver and bow, Zompyc[1] killed the fox. My faxed joke won a pager in the cable TV quiz show. Amazingly few discotheques provide jukeboxes. My girl wove six dozen plaid jackets before she quit. Six big devils from Japan quickly forgot how to waltz. Big July earthquakes confound zany experimental vow. Foxy parsons quiz and cajole the lovably dim wiki-girl. Have a pick:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> twenty six letters - no forcing a jumbled quiz! Crazy Fredericka bought many very exquisite opal jewels. Sixty zippers were quickly picked from the woven jute bag. A quick movement of the enemy will jeopardize six gunboats. All questions asked by five watch experts amazed the judge. Jack quietly moved up front and seized the big ball of wax. The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Hello and delete</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>The quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. </td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td> Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch &quot;Jeopardy!&quot;, Alex Trebek's fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just flocked up to quiz and vex him.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>The quick, brown fox jumps over a lazy dog. https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. </td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify link preview still displays when URL is in truncated/hidden part of post-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'Panasonic Unveils Solar Roof That May Appear on the Tesla Model 3')])[2]</td>
+	<td>Panasonic Unveils Solar Roof That May Appear on the Tesla Model 3</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//img[@alt='image placeholder'])[2]</td>
+	<td></td>
+</tr>
+<!--Long post (with link preview) in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Open reply RHS-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Show More button in RHS-->
+<!--*** Visually verify link preview displays in RHS-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Switch to different channel in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<!--Show More in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.post-collapse__show-more-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.post-collapse__show-more-button</td>
+	<td></td>
+</tr>
+<!--*** Visually verify full post displays in RHS-->
+<!--*** Visually verify link preview still displays in RHS-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.post-collapse__show-more-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.post-collapse__show-more-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Cancel out of Delete-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Retain-${datetime}${KEY_ENTER}</td>
+</tr>
+<!--*** Rollup needs updating; may have to open post menu manually-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Retain-${datetime}</td>
+	<td></td>
+</tr>
+<!--FLAG-->
+<!--Create "Flag-" channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Flag-${datetime1}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Flag-${datetime1}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>flagchannel</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Quick brown fox.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify flag not visible until hover (or active)-->
+<tr>
+	<td>verifyNotVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--*** Visually verify flag appears gray and tooltip "Flag for follow up" on hover-->
+<tr>
+	<td>pause</td>
+	<td>7000</td>
+	<td></td>
+</tr>
+<!--Rollup command needs updating (thus the manual hovers for now)-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<!--Flag a message -->
+<!--*** Manually hover over message to make flag icon visible-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Create "Flag2-" channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Flag2-${datetime2}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Flag2-${datetime2}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>flag2channel</td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This is important too.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify flag not visible until hover (or active)-->
+<tr>
+	<td>verifyNotVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Flag a message-->
+<!--Rollup command needs updating (thus the manual hovers for now)-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<!--*** Manually hover over message to make flag icon visible-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container &gt; span.icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--View flagged posts across two channels-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>${flag2channel}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is important too.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div</td>
+	<td>${flagchannel}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div[2]</td>
+	<td>Quick brown fox.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<!--*** Visually verify most recent message displayed at top ("This is important too.")-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Rollup command needs updating (thus the manual hovers for now)-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<!--*** Manually verify tooltip "Unflag" on hover-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Unflag `Quick brown fox` from RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<!--Disappears from RHS flagged posts-->
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='search-items-container']/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/span/p</td>
+	<td>Quick brown fox.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is important too.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Flag removed from post in center (viewing different channel when unflagged)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${flagchannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${flagchannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>${flagchannel}</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Unflag from search results RHS (same channel in center when unflagged)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>important${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>important</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${flag2channel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${flag2channel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>${flag2channel}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Reply from flagged posts RHS with different channel in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__flag &gt; svg</td>
+	<td></td>
+</tr>
+<!--*** Visually verify flagged posts icon gray when inactive-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg</td>
+	<td></td>
+</tr>
+<!--*** Visually verify flagged posts icon blue when active, tooltip "Flagged Posts"-->
+<!--Verify messaging with no posts flagged-->
+<!--** Hm, some previous test seems to have left a flagged DM. Unflag it manually-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; ul &gt; li &gt; span</td>
+	<td>You haven't flagged any messages yet.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader</td>
+	<td>You haven't flagged any messages yet.You can add a flag to messages and comments by clicking the icon next to the timestamp.Flags are a way to mark messages for follow up. Your flags are personal, and cannot be seen by other users.</td>
+</tr>
+<!--Flag post in center and verify added to RHS-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--*** Manually hover over `This is important too` message to make flag icon visible-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is important too.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is important too.</td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>css=button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<!--Change channel in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${flagchannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${flagchannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>${flagchannel}</td>
+</tr>
+<!--Reply from RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=svg#Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=svg#Layer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>It is indeed!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>It is indeed!</td>
+	<td></td>
+</tr>
+<!--*** Visually verify reply is not posted in center-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Switch to reply channel in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${flag2channel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${flag2channel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>${flag2channel}</td>
+</tr>
+<!--Back arrow in RHS to go back to flagged posts-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-angle-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-angle-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<!--Verify reply no longer in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[@id='sidebar-right']/div[2]/div/div[3]/div[2]/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/span/p</td>
+	<td>It is indeed!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--*** Visually verify reply "It is..." is not flagged (but "This is..." still is flagged)-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Deleting flagged post from center with RHS open removes from flagged post list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is important too.</td>
+</tr>
+<!--*** Manually click Delete in center on This is important too-->
+<!-- Note: Rollup does not exist for explicitly grabing post from center channel when post is also visible in RHS -->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Delete parent post that is also flagged-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('This post has 1 comment on it.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; ul &gt; li &gt; span</td>
+	<td>You haven't flagged any messages yet.</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>It is indeed!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>This is important too.</td>
+	<td></td>
+</tr>
+<!--Click flag icon to toggle RHS closed-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.icon.icon__flag &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Click @user to view profile popover-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@corey${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@corey</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=@corey</td>
+	<td></td>
+</tr>
+<!--*** Visually verify profile popover displays properly-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.popover-title</td>
+	<td>@corey</td>
+</tr>
+<!--This caught a bug: Not linked if popover opened from at-mention link in post-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.user-popover__username &gt; a</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=corey@test.com</td>
+	<td>corey@test.com</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='user-profile-popover']/div[2]/div[2]/a/span</td>
+	<td>Send Message</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.user-popover__image</td>
+	<td></td>
+</tr>
+<!--*** Visually verify hover over email address = mailto link-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Click `Send Message` in profile popover opens DM channel with that user-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='user-profile-popover']/div[2]/div[2]/a/span</td>
+	<td>Send Message</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='user-profile-popover']/div[2]/div[2]/a/span</td>
+	<td>Send Message</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>corey</td>
+</tr>
+<!--@corey in profile popover in DM adds `@corey` to message box-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.more-modal__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@corey</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=@corey</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>@corey</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openReplyRhsByText</td>
+	<td>ContainsText=fromuser</td>
+</tr>
+<!--*** Verify profile popover in RHS:-->
+<!--*** @username, other elements-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.user-popover.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.user-popover.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.overflow--ellipsis.text-nowrap &gt; strong</td>
+	<td>H Jenkins</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=test2@test.com</td>
+	<td>test2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Send Message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.text-nowrap &gt; button.style--none.</td>
+	<td>Add to a Channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.user-popover__username &gt; a</td>
+	<td>@test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.user-popover__role</td>
+	<td>Team Admin</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.user-popover</td>
+	<td>test2</td>
+</tr>
+<!--Go back to Msg- channel for these-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_msg-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_msg-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderTitle &gt; span</td>
+	<td>Msg-${datetime}</td>
+</tr>
+<!--Actions not available on system message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/header System${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('updated the channel header to:')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>closeRHS</td>
+	<td></td>
+</tr>
+<!--Rollup command needs updating (thus the manual instructions for now)-->
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<!--*** Manually open dot menu on system message post-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.style--none.flag-icon__container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Pin to channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Permalink</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerify</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--*** Verify no emoji reaction or reply is available on hover-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyNotPresent</td>
+	<td></td>
+</tr>
+<!--*** Timestamp is a link, opens permalink view-->
+<!--*** Manually click to jump to recent messages-->
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<!--Create ephemeral message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/online${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('now online')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<!--`x` closes ephemeral message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.post__remove.theme.color--link.style--none</td>
+	<td>x</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.post__remove.theme.color--link.style--none</td>
+	<td>x</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=p:contains('now online')</td>
+	<td></td>
+</tr>
+<!--Create ephemeral message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/online${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('now online')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<!--*** Visually verify `x` is only option available on ephemeral message-->
+<!--*** Visually verify timestamp is not a link on ephemeral message-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Ephemeral message disappears after refresh-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span:contains('now online')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<!--Create ephemeral message in reply RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>ephemeral${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>/online${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify "You are now online" in RHS-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--Close RHS, verify ephemeral message in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__visibility &gt; span</td>
+	<td>(Only visible to you)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('now online')</td>
+	<td></td>
+</tr>
+<!--Verify comment count not increased by ephemeral message-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.comment-count</td>
+	<td>1</td>
+</tr>
+<!--Reopen reply RHS, verify ephemeral message not there (but is in center)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<!--*** Visually verify ephemeral message is not in RHS-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Markdown test files-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Markdown basics-->
+<!--*** NOTE: several of the images are broken (at the source); adding new samples-->
+<!--*** Thought I found some but they didn't all work (some only worked on spinmint...?)-->
+<!--*** https://github.com/mattermost/mattermost-server/pull/9802-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-markdown-basics.md${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify as described in post-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=em</td>
+	<td>Italics</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=em:contains('Ita_lics')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=em:contains('Ita_lics')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=strong:contains('Bold')</td>
+	<td></td>
+</tr>
+<!--*** Not sure possible to verify original post * vs. _ or two styles at once-->
+<tr>
+	<td>pause</td>
+	<td>16000</td>
+	<td></td>
+</tr>
+<!--Markdown lists-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-markdown-lists.md${KEY_ENTER}</td>
+</tr>
+<!--*** Read post and verify as described (write regular verifys for these later)-->
+<!--Se may not be able to verify something like spacing, in an airtight way-->
+<tr>
+	<td>pause</td>
+	<td>16000</td>
+	<td></td>
+</tr>
+<!--Markdown tables-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-tables.md${KEY_ENTER}</td>
+</tr>
+<!--*** Read post and verify as described (write regular verifys for these later if possble)-->
+<tr>
+	<td>pause</td>
+	<td>16000</td>
+	<td></td>
+</tr>
+<!--Markdown syntax highlighting-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-syntax-highlighting${KEY_ENTER}</td>
+</tr>
+<!--*** Read post and verify as described (write regular verifys for these later)-->
+<!--*** Verify code blocks on hover show tag in top right corner of code block-->
+<tr>
+	<td>pause</td>
+	<td>16000</td>
+	<td></td>
+</tr>
+<!--LOG OUT (to log back in as admin)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Enable link previews in System Console (or verify enabled)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableLinkPreviewstrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<!--Go back to Msg- channel for these-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_msg-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_msg-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderTitle &gt; span</td>
+	<td>Msg-${datetime}</td>
+</tr>
+<!--Markdown link previews-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-link-preview${KEY_ENTER}</td>
+</tr>
+<!--LM to make this test more specific; same test cases in same scenarios each time-->
+<!--Test plan: https://docs.google.com/document/d/1lxBx4vgCPXNRp-qGcZzmi62MhoELOiOOAYj6fzC_Huc/edit#bookmark=id.unjkq5nd950h-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Center, no RHS: Two links, first link has no preview-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://en.wikipedia.org/wiki/Olympus_Mons, https://about.mattermost.com${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify no link preview displays-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Center, no RHS: Two links, first link has a preview-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>http://www.theglobeandmail.com/news/national/three-canadians-shortlisted-for-global-teacher-prize/article33429901/, https://github.com/mattermost${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify Globe and Mail preview displays (image top right)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Center, RHS open: Two links, first link still has a preview-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Message Details</td>
+</tr>
+<!--*** Visually verify Globe and Mail preview displays in RHS and center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Center, RHS open: Post new link-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://coveralls.io/builds/9818822/source?filename=app%2Faudit.go${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify Coveralls.io preview, no image, no change in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--*** Make sure channel switch happens in center-->
+<!--Need to update to change channel-->
+<!--Post in RHS reply thread (different channel in center), preview in RHS-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>http://stackoverflow.com/questions/36650437/using-mattermost-api-via-gitlab-oauth-as-an-end-user-with-username-and-password${KEY_ENTER}</td>
+</tr>
+<!--*** Switch center to where reply was posted, preview in center-->
+<!--*** Close RHS, preview still displays in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--*** Visually verify preview in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<!--*** I don't think the below link had been posted yet-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html${KEY_ENTER}</td>
+</tr>
+<!--Search results RHS does not display preview-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>solar${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=exact:https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html</td>
+	<td>exact:https://www.yahoo.com/news/panasonic-unveils-solar-roof-may-212400917.html</td>
+</tr>
+<!--*** Visually verify link in RHS higlighted and preview displays-->
+<!--*** Verify in RHS on subsequent replies as well, after: https://mattermost.atlassian.net/browse/PLT-7938-->
+<!--*** Update .md file after ^resolved-->
+<!--*** (preview not shown for flagged posts & recent mentions)-->
+<!--Read post and verify as described (write regular verifys for these later)-->
+<tr>
+	<td>pause</td>
+	<td>16000</td>
+	<td></td>
+</tr>
+<!--"Help" link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#helpTextLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#helpTextLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Messaging Basics</td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://selenium.test.mattermost.com/help/messaging</td>
+	<td></td>
+</tr>
+<!--*** Visually verify "Messaging Basics" opens, then close tab-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--No Internet connection: Retry - Send-->
+<!--*** Turn off connection: -->
+<!--*** For now, do this in Chrome; not seeing throttling tools in FF-->
+<!--1. Turn off Internet connection (on mobile device, use airplane mode)-->
+<!--2. Type a post and press Enter-->
+<!--3. Click Retry a few times-->
+<!--4. Hover over timestamp and verify it's not a link-->
+<!--5. Wait (could be several minutes) to see blue banner:Turn Internet connection back on-->
+<!--    "Please check connection, Mattermost unreachable. If issue persists, ask administrator to check WebSocket port"-->
+<!--6. Turn internet connection back on-->
+<!--7. Click Retry several times in quick succession as internet is reconnecting-->
+<!--No action when Retry is clicked with Internet connection still off-->
+<!--Message ultimately only posts once-->
+</tbody></table>
+</body>
+</html>

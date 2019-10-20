@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Using test5@test.com to isolate display changes from test@ account in case of failure-->
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test5@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=accountSettings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=accountSettings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div[2]/div/div/div/ul/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[2]/div/div/div/ul/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=themeDesc</td>
+	<td>Open to manage your theme</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clockDesc</td>
+	<td>12-hour clock (example: 4:00 PM)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=collapseDesc</td>
+	<td>Expanded</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=message_displayDesc</td>
+	<td>Standard</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channel_display_modeDesc</td>
+	<td>Full width</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=languagesDesc</td>
+	<td>English</td>
+</tr>
+<!--Clock Display-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li/div/div[3]/span</td>
+	<td>Select how you prefer time displayed.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clockDesc</td>
+	<td>12-hour clock (example: 4:00 PM)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clockDesc</td>
+	<td>24-hour clock (example: 16:00)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=clockFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=clockFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=clockDesc</td>
+	<td>12-hour clock (example: 4:00 PM)</td>
+</tr>
+<!--Default appearance of image link previews-->
+<tr>
+	<td>waitForText</td>
+	<td>id=collapseDesc</td>
+	<td>Expanded</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li/div/div[3]/span</td>
+	<td>Set whether previews of image links and image attachment thumbnails show as expanded or collapsed by default. This setting can also be controlled using the slash commands /expand and /collapse.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=collapseDesc</td>
+	<td>Collapsed</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=collapseFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=collapseFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=collapseDesc</td>
+	<td>Expanded</td>
+</tr>
+<!--Message Display-->
+<tr>
+	<td>waitForText</td>
+	<td>id=message_displayDesc</td>
+	<td>Standard</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_displayEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_displayEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li/div/div[3]/span</td>
+	<td>Select how messages in a channel should be displayed.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_displayFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_displayFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=message_displayDesc</td>
+	<td>Standard</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_displayEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_displayEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_displayFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_displayFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>id=message_displayDesc</td>
+	<td>Compact</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_displayEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_displayEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=message_displayFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=message_displayFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=message_displayDesc</td>
+	<td>Standard</td>
+</tr>
+<!--Channel Display Mode-->
+<tr>
+	<td>waitForText</td>
+	<td>id=channel_display_modeDesc</td>
+	<td>Full width</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channel_display_modeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channel_display_modeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channel_display_modeFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channel_display_modeFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//li/div/div[3]/span</td>
+	<td>Select the width of the center channel.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channel_display_modeDesc</td>
+	<td>Full width</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channel_display_modeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channel_display_modeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channel_display_modeFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channel_display_modeFormatB</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channel_display_modeDesc</td>
+	<td>Fixed width, centered</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channel_display_modeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channel_display_modeEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channel_display_modeFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channel_display_modeFormatA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channel_display_modeDesc</td>
+	<td>Full width</td>
+</tr>
+<!--Language covered in IDE-only test-->
+<!--LOG OUT-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

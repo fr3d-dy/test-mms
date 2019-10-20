@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>AccountSettingsDisplayLanguage</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AccountSettingsDisplayLanguage</td></tr>
+</thead><tbody>
+<!--Using test5@test.com to isolate display changes from test@ account in case of failure-->
+<tr>
+	<td>setSpeed</td>
+	<td>700</td>
+	<td></td>
+</tr>
+<!--LOG IN test3-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test5@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=languagesDesc</td>
+	<td>English</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Change interface language</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Mattermost Translation Server</td>
+	<td></td>
+</tr>
+<!--Saving without changes closes edit mode-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayLanguage</td>
+	<td>label=English</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=displayLanguage</td>
+	<td>label=English</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=languagesDesc</td>
+	<td>English</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost Translation Server</td>
+	<td></td>
+</tr>
+<!--Switch to ES-->
+<!--***These selections don't work anymore (nor does anything else I tried :/  )-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Español</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>CANALES PÚBLICOS</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td>Agregar una descripción del canal</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarChannelsMore</td>
+	<td>Más...</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/header Translation${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.user-popover &gt; span</td>
+	<td>Sistema</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('ha actualizado el encabezado del canal a:')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Configurar Cuenta</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to DE-->
+<tr>
+	<td>select</td>
+	<td>css=react-select__control</td>
+	<td>label=Deutsch</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; span</td>
+	<td>ÖFFENTLICHE KANÄLE</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarChannelsMore</td>
+	<td>Mehr...</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/header ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body.edit-modal-body &gt; div &gt; p &gt; span</td>
+	<td>Geben Sie den Text ein der neben dem Kanalnamen in der Kanalberschrift erscheinen soll.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary.save-button &gt; span</td>
+	<td>Speichern</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td>Kanalbeschreibung hinzufügen</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('hat die Kanalüberschrift entfernt')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Kontoeinstellungen</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Sprache ändern</td>
+</tr>
+<!--Switch to FR-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Français</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>CANAUX PUBLICS</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td>Ajouter une description au canal</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarChannelsMore</td>
+	<td>Plus...</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td>Changer de canal- *K</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.user-popover &gt; span</td>
+	<td>Système</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('a mis à jour l'entête du canal')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameEdit</td>
+	<td>Modifier</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#languagesTitle &gt; span</td>
+	<td>Langue</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Changer la langue de l'interface</td>
+</tr>
+<!--Switch to IT-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Italiano</td>
+</tr>
+<!--No translation for Save (was Guardar? Or was something else?). So verifying Cancel for now-->
+<tr>
+	<td>waitForText</td>
+	<td>id=cancelSetting</td>
+	<td>Annuler</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>CANALI PUBBLICI</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.user-popover &gt; span</td>
+	<td>Sistema</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('ha aggiornato il titolo del canale')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Impostazioni Account</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=languagesEdit</td>
+	<td>Modifica</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#languagesTitle &gt; span</td>
+	<td>Lingua</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Cambia la lingua</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Nederlands (Alpha)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td>Kanalen wisselen- *K</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebarChannelsMore &gt; span</td>
+	<td>Meer...</td>
+</tr>
+<!--NE doesn't have translations for system messages or Add a channel description?-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account-instellingen</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to PL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayLanguage</td>
+	<td>label=Polski</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Polski</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td>Przełącz kanały- *K</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('zaktualizował nagłówek kanału na')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('usunął nagłówek kanału')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Ustawienia Konta</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to BR-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Português (Brasil)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>CANAIS PÚBLICOS</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('atualizou o cabeçalho do canal para')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('removeu o cabeçalho do canal')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to RO-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>Română</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; span</td>
+	<td>CANALE PUBLICE</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('sa alăturat echipei')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('actualizat antetul canalului')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td>Adăugați o descriere a canalului</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to TR-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>Türkçe</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>HERKESE AÇIK KANALLAR</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('kanal başlığını')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('kanal başlığını kaldırdı')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to RU-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Pусский (Alpha)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>ПУБЛИЧНЫЕ КАНАЛЫ</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('изменил(а) заголовок канала на')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('удалил заголовок канала')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Added new language Ukrainian-->
+<!--Switch to UA-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=Yкраїнська (Alpha)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#publicChannel &gt; Span</td>
+	<td>ПУБЛІЧНІ КАНАЛИ</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('залишив команду')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#privateChannel &gt; span</td>
+	<td>ПРИВАТНІ КАНАЛИ</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to KR-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=한국어 (Alpha)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td>채널 변경- *K</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarChannelsMore</td>
+	<td>더 보기...</td>
+</tr>
+<!--KR system message not translated-->
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to CN-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>中文 (简体)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td>切换频道- *K</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('更新了频道标题到')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('删除了频道标题')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to TW-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=中文 (繁體)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title</td>
+	<td>Town Square的開頭</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('已更新頻道標題為')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('已移除頻道標題')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<!--Switch to JP-->
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=日本語</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Town Squareのトップ</td>
+</tr>
+<!--Verify system message is translated-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('がチャンネルヘッダーを')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('がチャンネルヘッダ')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=displayButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=languagesEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=displayLanguage</td>
+	<td>label=English</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content</td>
+	<td>Welcome to Town Square!<br /><br />Post messages here that you want everyone to see. Everyone automatically becomes a permanent member of this channel when they join the team.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

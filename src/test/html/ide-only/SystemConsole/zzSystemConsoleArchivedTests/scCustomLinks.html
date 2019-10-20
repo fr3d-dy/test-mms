@@ -1,0 +1,1728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scCustomLinks</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scCustomLinks</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--LEGAL AND SUPPORT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Legal and Support</td>
+</tr>
+<!--Store current values to replace at end-->
+<tr>
+	<td>storeValue</td>
+	<td>id=SupportSettings.TermsOfServiceLink</td>
+	<td>toslink</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SupportSettings.PrivacyPolicyLink</td>
+	<td>privacylink</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SupportSettings.AboutLink</td>
+	<td>aboutlink</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SupportSettings.HelpLink</td>
+	<td>helplink</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SupportSettings.ReportAProblemLink</td>
+	<td>reportlink</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=SupportSettings.SupportEmail</td>
+	<td>supportemail</td>
+</tr>
+<!--Edit links for TOS, Privacy, About, Help, Report a Problem-->
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.TermsOfServiceLink</td>
+	<td>https://mattermost.com/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.PrivacyPolicyLink</td>
+	<td>https://github.com/mattermost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.AboutLink</td>
+	<td>https://about.gitlab.com/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.HelpLink</td>
+	<td>https://www.google.com/</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.ReportAProblemLink</td>
+	<td>https://docs.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SupportSettings.ReportAProblemLink</td>
+	<td>https://docs.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify links on signin page-->
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#about_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#about_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#about_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--This part can be brittle (popup vs. new tab, not switching to new tab)-->
+<!--*** Verify visually and manually close tabs if needed-->
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://about.gitlab.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#privacy_link &gt; span</td>
+	<td>Privacy</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#privacy_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://github.com/mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#terms_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#terms_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#help_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#help_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://www.google.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify links in main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Help</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Help</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://www.google.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Report a Problem</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Report a Problem</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://docs.mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--Verify links in About modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#about &gt; button.style--none.</td>
+	<td>About Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#about &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.about-modal__links &gt; a &gt; span</td>
+	<td>Terms of Service</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal__links &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Privacy Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Privacy Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://github.com/mattermost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Blank TOS, Privacy, Help, Report a Problem-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Legal and Support</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.TermsOfServiceLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.PrivacyPolicyLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.HelpLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.ReportAProblemLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SupportSettings.ReportAProblemLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<!--Blank Terms default location-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#terms_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#terms_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#terms_link &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://about.mattermost.com/default-terms/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Blank Help and Report a Problem hidden from main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=reportLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=SupportSettings.HelpLink</td>
+	<td></td>
+</tr>
+<!--Default TOS link in About modal, no Privacy link in About modal-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#about &gt; button.style--none.</td>
+	<td>About Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#about &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.about-modal__links &gt; a &gt; span</td>
+	<td>Terms of Service</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal__links &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://about.mattermost.com/default-terms/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Terms of Service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Privacy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Edit Support email link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Legal and Support</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SupportSettings.SupportEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.SupportEmail</td>
+	<td>feedback-edit@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SupportSettings.SupportEmail</td>
+	<td>feedback-edit@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--APP LINKS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=native_app_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=native_app_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Mattermost App Links</td>
+</tr>
+<!--Edit Download Page link-->
+<tr>
+	<td>storeValue</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td>downloadpagelink</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td>https://mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td>https://mattermost.com</td>
+</tr>
+<!--*** Something missing here?-->
+<!--*** ?? Did this used to auto-fill the next two fields based on the first one?-->
+<!--*** ?? Trying just filling in https://mattermost.com to see how the rest of the test goes-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=NativeAppSettings.AndroidAppDownloadLink</td>
+	<td>https://mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=NativeAppSettings.IosAppDownloadLink</td>
+	<td>https://mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<!--Create new account to see tutorial (requires open server, with email verification OFF)-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#signup &gt; span</td>
+	<td>Create one now</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>tutorial@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>tutorialtest</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>TutorialTeam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>tutorialteam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3</td>
+	<td>Welcome to:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Your team communication all in one place, instantly searchable and available anywhere.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td>Skip tutorial</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=tutorialNextButton</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<!--Verify updated download page link in tutorial-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#appDownloadLink &gt; span</td>
+	<td>PC, Mac, iOS and Android</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#appDownloadLink &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--Verify updated support email address in tutorial-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=feedback-edit@mattermost.com</td>
+	<td>feedback-edit@mattermost.com</td>
+</tr>
+<!--LOG OUT tutorialtest-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify updated download page link in main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Download Apps</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Download Apps</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectPopUp</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>https://mattermost.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>close</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--Set download page link to blank-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=native_app_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=native_app_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Download link hidden from main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Switch to&nbsp;&nbsp;UI Automation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Download Apps</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--LOG IN tutorialtest-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>tutorialtest</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h3</td>
+	<td>Welcome to:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Your team communication all in one place, instantly searchable and available anywhere.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#tutorialSkipLink &gt; span</td>
+	<td>Skip tutorial</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=tutorialNextButton</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<!--Verify updated download page link in tutorial-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h3</td>
+	<td>How Mattermost works:</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#appDownloadLink &gt; span</td>
+	<td>PC, Mac, iOS and Android</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<!--LOG OUT tutorialtest-->
+<tr>
+	<td>rollup</td>
+	<td>logout</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Cleanup: Set all links back to original settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--LEGAL AND SUPPORT-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=legal_and_support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Legal and Support</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SupportSettings.TermsOfServiceLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.TermsOfServiceLink</td>
+	<td>${toslink}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.PrivacyPolicyLink</td>
+	<td>${privacylink}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.AboutLink</td>
+	<td>${aboutlink}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.HelpLink</td>
+	<td>${helplink}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.ReportAProblemLink</td>
+	<td>${reportlink}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.SupportEmail</td>
+	<td>${supportemail}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SupportSettings.SupportEmail</td>
+	<td>${supportemail}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--APP LINKS-->
+<!--*** This part also fails (the cleanup for the part above); tested manually-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=native_app_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=native_app_links</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h3.admin-console-header &gt; span</td>
+	<td>Mattermost App Links</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td>${downloadpagelink}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=NativeAppSettings.AppDownloadLink</td>
+	<td>${downloadpagelink}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Cleanup: Deactivate tutorialtest-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchUsers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchUsers</td>
+	<td>tutorialtest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@tutorialtest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Member</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Member</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Deactivate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.text-right &gt; a &gt; span</td>
+	<td>Inactive</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='root']/div/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

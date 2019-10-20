@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--PUBLIC CHANNEL-->
+<!--Add Public Channel from + icon, without header-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.input__help.dark</td>
+	<td>exact:URL: /headertest (Edit)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title &gt; span</td>
+	<td>Beginning of headertest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro__content &gt; span &gt; span</td>
+	<td>This is the start of the headertest channel, created by admin*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td>headertest</td>
+</tr>
+<!--View channel info without header-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#channelViewInfo.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#channelViewInfo.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelInfoModalLabel &gt; strong</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Add header using `Add a channel description` placeholder link-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.channel-header__description.light &gt; button.style--none</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.channel-header__description.light &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body.edit-modal-body &gt; div &gt; p &gt; span</td>
+	<td>Edit the text appearing next to the channel name in the channel header.</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<!--Verify header 1024 character limit-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm&amp;</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td>exact:https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.html https://docs.mattermost.com/process/release-process.htm&amp;</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>This channel header is too long, please enter a shorter one</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>headertest</td>
+</tr>
+<!--Add header using `Set a Header` link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>*Header</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>*Header</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<!--Verify channel info with header-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#channelViewInfo.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#channelViewInfo.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelInfoModalLabel &gt; strong</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; p</td>
+	<td>*Header</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Edit header, use markdown-->
+<!--Sleep-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#channelEditHeader &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelEditHeader &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>* ${KEY_SHIFT}${KEY_ENTER} </td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>- Item 1 ${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>- [Item 2 is a link](http://google.com)</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.popover-content &gt; p &gt; em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.popover-content &gt; ul &gt; li</td>
+	<td>Item 1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'Item 2 is a link')])[3]</td>
+	<td>Item 2 is a link</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Item 2 is a link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li#channelViewInfo.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li#channelViewInfo.MenuItem button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelInfoModalLabel &gt; strong</td>
+	<td>headertest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; p &gt; em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; ul &gt; li</td>
+	<td>Item 1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'Item 2 is a link')])[3]</td>
+	<td>Item 2 is a link</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--LOG OUT-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

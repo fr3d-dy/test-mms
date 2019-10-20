@@ -1,0 +1,2533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>sc07-EnvSettings</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">sc07-EnvSettings</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Open System Console-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--DATABASE driver matches About modal-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/database</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/database</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>css=input.form-control</td>
+	<td>driver</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li.MenuItem &gt; button.style--none.</td>
+	<td>About Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div[2]/div/div[3]</td>
+	<td>exact:Database: ${driver}</td>
+</tr>
+<!--*** Can visually verify the Version is correct as well-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--Verify settings changes save (first store current values)-->
+<tr>
+	<td>storeValue</td>
+	<td>id=maxIdleConns</td>
+	<td>idle</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=maxOpenConns</td>
+	<td>open</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=queryTimeout</td>
+	<td>query</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxIdleConns</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxOpenConns</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queryTimeout</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=maxIdleConns</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=maxOpenConns</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=queryTimeout</td>
+	<td>999</td>
+</tr>
+<!--Replace original values-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxIdleConns</td>
+	<td>${idle}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=maxOpenConns</td>
+	<td>${open}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=queryTimeout</td>
+	<td>${query}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Recycle Database Connections doesn't crash-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Recycle Database Connections</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Recycle Database Connections</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Loading...</td>
+</tr>
+<!--It's okay if it takes a while to finish-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Loading...</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Recycle Database Connections</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=maxIdleConns</td>
+	<td>${idle}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=maxOpenConns</td>
+	<td>${open}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=queryTimeout</td>
+	<td>${query}</td>
+</tr>
+<!--Minimum hashtag length - Can set to 2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=minimumHashtagLength</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minimumHashtagLength</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=minimumHashtagLength</td>
+	<td>2</td>
+</tr>
+<!--Minimum hashtag length - 1 resets to 3-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=minimumHashtagLength</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=minimumHashtagLength</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=minimumHashtagLength</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--ELASTICSEARCH - Make fields editable (then discard changes)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/elasticsearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/elasticsearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Elasticsearch</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=connectionUrl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Test Connection</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=enableIndexingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=enableIndexingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=connectionUrl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=connectionUrl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=connectionUrl</td>
+	<td>invalid</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Test Connection</td>
+</tr>
+<!--With changed value but not yet validated, Save button disabled-->
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Discard changes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/file_storage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/file_storage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Discard</td>
+</tr>
+<!--FILE STORAGE - Amazon S3 fields editable when enabled-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=FileSettings.DriverName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=FileSettings.DriverName</td>
+	<td>Amazon S3</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=FileSettings.MaxFileSize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=FileSettings.AmazonS3Bucket</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=FileSettings.AmazonS3Region</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Test Connection</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<!--Error messaging-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>Connection unsuccessful: S3 Bucket is required - undefined</td>
+</tr>
+<!--Can save values-->
+<tr>
+	<td>type</td>
+	<td>id=FileSettings.AmazonS3Bucket</td>
+	<td>bucket</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=FileSettings.AmazonS3AccessKeyId</td>
+	<td>testkey</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=FileSettings.AmazonS3SSEtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td></td>
+</tr>
+<!--Error messaging-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>Connection unsuccessful: Error checking if bucket exists. - undefined</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Changed values persist on refresh-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=FileSettings.AmazonS3Bucket</td>
+	<td>bucket</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=FileSettings.AmazonS3AccessKeyId</td>
+	<td>testkey</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=FileSettings.AmazonS3SSEtrue</td>
+	<td>on</td>
+</tr>
+<!--Remove test values and set back to local storage-->
+<tr>
+	<td>click</td>
+	<td>id=FileSettings.AmazonS3SSEfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=FileSettings.AmazonS3Bucket</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=FileSettings.AmazonS3AccessKeyId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=FileSettings.DriverName</td>
+	<td>Local File System</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Invalid value for Max File Size-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=FileSettings.MaxFileSize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=FileSettings.MaxFileSize</td>
+	<td>-1</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Invalid max file size for file settings. Must be a whole number greater than zero.</td>
+</tr>
+<!--IMAGE PROXY settings can be edited when enabled, and saved-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/image_proxy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/image_proxy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ImageProxySettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ImageProxySettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=ImageProxySettings.RemoteImageProxyURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=ImageProxySettings.ImageProxyType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ImageProxySettings.ImageProxyType</td>
+	<td>atmos/camo</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=ImageProxySettings.RemoteImageProxyURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ImageProxySettings.RemoteImageProxyURL</td>
+	<td>testurl</td>
+</tr>
+<!--Error without value in Options field-->
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-sm-12.has-error &gt; label.control-label</td>
+	<td>Invalid RemoteImageProxyOptions for atmos/camo. Must be set to your shared key.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ImageProxySettings.RemoteImageProxyOptions</td>
+	<td>testkey</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Values persist on refresh-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ImageProxySettings.RemoteImageProxyURL</td>
+	<td>testurl</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ImageProxySettings.RemoteImageProxyOptions</td>
+	<td>testkey</td>
+</tr>
+<!--Cleanup and disable image proxy-->
+<tr>
+	<td>type</td>
+	<td>id=ImageProxySettings.RemoteImageProxyURL</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ImageProxySettings.RemoteImageProxyOptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=ImageProxySettings.ImageProxyType</td>
+	<td>local</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ImageProxySettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--SMTP settings - Change, Save, refresh, verify saved-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/smtp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/smtp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.SMTPServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=EmailSettings.SMTPServer</td>
+	<td>server</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPServer</td>
+	<td>test.location</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=EmailSettings.SMTPPort</td>
+	<td>port</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPPort</td>
+	<td>3333</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=EmailSettings.SMTPServer</td>
+	<td>test.location</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=EmailSettings.SMTPPort</td>
+	<td>3333</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPServer</td>
+	<td>${server}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPPort</td>
+	<td>${port}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--SMTP Auth fields not editable unless enabled-->
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=EmailSettings.SMTPUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=EmailSettings.SMTPPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.EnableSMTPAuthtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=EmailSettings.SMTPUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPUsername</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=EmailSettings.SMTPPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPPassword</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=EmailSettings.ConnectionSecurity</td>
+	<td>TLS (Recommended)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Saved values persist on refresh-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=EmailSettings.SMTPUsername</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>waitForSelectedLabel</td>
+	<td>id=EmailSettings.ConnectionSecurity</td>
+	<td>TLS (Recommended)</td>
+</tr>
+<!--Password not visible-->
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=EmailSettings.SMTPPassword</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=EmailSettings.SMTPPassword</td>
+	<td>exact:********************************</td>
+</tr>
+<!--Test Connection button - Error message-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Test Connection</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-default</td>
+	<td>Test Connection</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>Connection unsuccessful: *</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=EmailSettings.SMTPPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=EmailSettings.ConnectionSecurity</td>
+	<td>None</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=EmailSettings.EnableSMTPAuthfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=EmailSettings.EnableSMTPAuthfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--PUSH NOTIFICATION SERVER settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/push_notification_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/push_notification_server</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Push Notification Server</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<!--Do not send - Fields not editable, placeholder text (not value)-->
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>Do not send push notifications</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=documentation on push notifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=documentation on push notifications@href</td>
+	<td>https://about.mattermost.com/default-mobile-push-notifications/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>https://push.mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--HPNS - Fields editable, can't save until checkbox checked, placeholder value-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=option[value=&quot;mhpns&quot;]</td>
+	<td>Use HPNS connection with uptime SLA to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>label=Use HPNS connection with uptime SLA to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;checkbox&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>https://push.mattermost.com</td>
+</tr>
+<!--Verify docs links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Terms of Service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Terms of Service@href</td>
+	<td>https://about.mattermost.com/hpns-terms/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Privacy Policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Privacy Policy@href</td>
+	<td>https://about.mattermost.com/hpns-privacy/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost iOS app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost iOS app@href</td>
+	<td>https://about.mattermost.com/mattermost-ios-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost Android app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost Android app@href</td>
+	<td>https://about.mattermost.com/mattermost-android-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=HPNS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=HPNS@href</td>
+	<td>https://about.mattermost.com/default-hpns/</td>
+</tr>
+<!--TPNS - Fields editable, placeholder value-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=option[value=&quot;mtpns&quot;]</td>
+	<td>Use TPNS connection to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>label=Use TPNS connection to send notifications to iOS and Android apps</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>https://push-test.mattermost.com</td>
+</tr>
+<!--Verify docs links-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost iOS app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost iOS app@href</td>
+	<td>https://about.mattermost.com/mattermost-ios-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Mattermost Android app</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Mattermost Android app@href</td>
+	<td>https://about.mattermost.com/mattermost-android-app/</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=TPNS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=TPNS@href</td>
+	<td>https://about.mattermost.com/default-tpns/</td>
+</tr>
+<!--Manually enter location - Can enter URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>Manually enter Push Notification Service location</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.col-sm-8 input#pushNotificationServer.form-control@value</td>
+	<td>http://push-test.mattermost.com/</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Enterprise App Store</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>link=Enterprise App Store@href</td>
+	<td>https://about.mattermost.com/default-enterprise-app-store</td>
+</tr>
+<!--Save a URL-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pushNotificationServer</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=pushNotificationServer</td>
+	<td>http://example.com</td>
+</tr>
+<!--Clear the URL-->
+<tr>
+	<td>type</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<!--Set back to Do not send-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushNotificationServerType</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=pushNotificationServerType</td>
+	<td>Do not send push notifications</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=pushNotificationServer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Verify in Account Settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem a:contains('Switch to&nbsp;&nbsp;UI Automation')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td>Account Settings</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=notificationsButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#pushDesc &gt; span</td>
+	<td>Push notifications are not enabled</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=pushEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=pushEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.padding-top &gt; span</td>
+	<td>Push notifications have not been enabled by your System Administrator.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--HIGH AVAILABILITY (DOES NOT SAVE anything; just tests UI change on enabling)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/high_availability</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/high_availability</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>High Availability</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=Enablefalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=th &gt; span</td>
+	<td>Status</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.cluster-panel__table</td>
+	<td>Reload Cluster Status<br />StatusHostnameVersionConfig File MD5Gossip Address</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>exact:WARNING: These settings may not sync with the other servers in the cluster. High Availability inter-node communication will not start until you modify the config.json to be identical on all servers and restart Mattermost. Please see the documentation on how to add or remove a server from the cluster. If you are accessing the System Console through a load balancer and experiencing issues, please see the Troubleshooting Guide in our documentation.</td>
+</tr>
+<!--Discard changes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/rate_limiting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/rate_limiting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<!--RATE LIMITING settings editable when enabled, and saveable-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Rate Limiting</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=RateLimitSettings.PerSec</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=RateLimitSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RateLimitSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=RateLimitSettings.PerSec</td>
+	<td></td>
+</tr>
+<!--Store values to reset after-->
+<tr>
+	<td>storeValue</td>
+	<td>id=RateLimitSettings.PerSec</td>
+	<td>persec</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=RateLimitSettings.MaxBurst</td>
+	<td>burst</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=RateLimitSettings.MemoryStoreSize</td>
+	<td>store</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=RateLimitSettings.PerSec</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=RateLimitSettings.MaxBurst</td>
+	<td>99</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=RateLimitSettings.MemoryStoreSize</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RateLimitSettings.VaryByUsertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Edits persist after refresh-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=RateLimitSettings.PerSec</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=RateLimitSettings.MaxBurst</td>
+	<td>99</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=RateLimitSettings.MemoryStoreSize</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=RateLimitSettings.VaryByUsertrue</td>
+	<td>on</td>
+</tr>
+<!--Reset to original values-->
+<tr>
+	<td>type</td>
+	<td>id=RateLimitSettings.PerSec</td>
+	<td>${persec}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=RateLimitSettings.MaxBurst</td>
+	<td>${burst}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=RateLimitSettings.MemoryStoreSize</td>
+	<td>${store}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RateLimitSettings.VaryByUserfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=RateLimitSettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--LOGGING settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/logging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/logging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Logging</td>
+</tr>
+<!--Logging settings editable / not editable as expected-->
+<!--Console level-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.ConsoleJsontrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableConsolefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableConsolefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.ConsoleJsontrue</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableConsoletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.ConsoleLevel</td>
+	<td></td>
+</tr>
+<!--File level-->
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.FileJsontrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLocation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableFilefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableFilefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=LogSettings.FileLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=LogSettings.FileJsontrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=LogSettings.FileLocation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableFiletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableFiletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLevel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=LogSettings.FileLocation</td>
+	<td></td>
+</tr>
+<!--Webhook debugging and diagnostics-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.EnableWebhookDebuggingtrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableDiagnosticstrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableDiagnosticsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=privacy policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=LogSettings.EnableDiagnosticsfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.EnableWebhookDebuggingfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=LogSettings.EnableDiagnosticsfalse</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableWebhookDebuggingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=LogSettings.EnableDiagnosticstrue</td>
+	<td></td>
+</tr>
+<!--Discard changes-->
+<tr>
+	<td>click</td>
+	<td>id=environment/session_lengths</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=confirmModalButton</td>
+	<td>Yes, Discard</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=confirmModalButton</td>
+	<td></td>
+</tr>
+<!--SESSION LENGTHS-->
+<!--Change settings, log out, log back in, verify still what they changed to-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Session Lengths</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td>300</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<!--LOG IN admin-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>admin@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<!--Verify edited settings persisted-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/session_lengths</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/session_lengths</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td>300</td>
+</tr>
+<!--Removed section verifying that saving with non-numeric restores defaults-->
+<!--(UI no longer allows saving non-numeric characters in these fields)-->
+<!--Set back to original settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthWebInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthMobileInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionLengthSSOInDays</td>
+	<td>30</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionCacheInMinutes</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.SessionIdleTimeoutInMinutes</td>
+	<td></td>
+</tr>
+<!--PERFORMANCE MONITORING settings save and persist-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/performance_monitoring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/performance_monitoring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Performance Monitoring</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=MetricsSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=MetricsSettings.ListenAddress</td>
+	<td>listen</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=MetricsSettings.Enabletrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MetricsSettings.ListenAddress</td>
+	<td>:8068</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=MetricsSettings.Enabletrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=MetricsSettings.ListenAddress</td>
+	<td>exact::8068</td>
+</tr>
+<!--Reset to original values-->
+<tr>
+	<td>click</td>
+	<td>id=MetricsSettings.Enablefalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=MetricsSettings.ListenAddress</td>
+	<td>${listen}</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--DEVELOPER-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/developer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/developer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header</td>
+	<td>Developer Settings</td>
+</tr>
+<!--Turn off /test slash command-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableTestingtrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableTestingfalse</td>
+	<td></td>
+</tr>
+<!--Disable developer mode (will just test that changes persist)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableDevelopertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableDevelopertrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--/post shouldn't work-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Command with a trigger of '/test' not found. Click here to send as a message.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Click here to send as a message.</td>
+	<td>Click here to send as a message.</td>
+</tr>
+<!--Click to send as a message (partly just to get it out of the way; not really testing that here)-->
+<tr>
+	<td>click</td>
+	<td>link=Click here to send as a message.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Back to System Console to enable /test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.sidebar-header-dropdown__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/developer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/developer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableTestingtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableTestingtrue</td>
+	<td></td>
+</tr>
+<!--Dev mode setting persisted (then set it back to false)-->
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableDevelopertrue</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableDeveloperfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableDeveloperfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--/post should work-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=showMoreButton</td>
+	<td>Show More</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=showMoreButton</td>
+	<td>Show More</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code.hljs</td>
+	<td>COMMANDS: Setup - Creates a testing environment in current team. /test setup [teams] [fuzz] &lt;Num Channels&gt; &lt;Num Users&gt; &lt;NumPosts&gt; Example: /test setup teams fuzz 10 20 50 Users - Add a specified number of random users with fuzz text to current team. /test users [fuzz] &lt;Min Users&gt; &lt;Max Users&gt; Example: /test users fuzz 5 10 Channels - Add a specified number of random channels with fuzz text to current team. /test channels [fuzz] &lt;Min Channels&gt; &lt;Max Channels&gt; Example: /test channels fuzz 5 10 Posts - Add some random posts with fuzz text to current channel. /test posts [fuzz] &lt;Min Posts&gt; &lt;Max Posts&gt; &lt;Max Images&gt; Example: /test posts fuzz 5 10 3 Post - Add post to a channel as another user. /test post u=@username p=passwd c=~channelname t=teamname &quot;message&quot; Example: /test post u=@user-1 p=user-1 c=~town-square t=ad-1 &quot;message&quot; Url - Add a post containing the text from a given url to current channel. /test url Example: /test http://www.example.com/sample_file.md Json - Add a post using the JSON file as payload to the current channel. /test json url Example /test json http://www.example.com/sample_body.json</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=environment/developer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=environment/developer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.EnableDeveloperfalse</td>
+	<td>on</td>
+</tr>
+<!--Untrusted Connections value saves and persists-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.AllowedUntrustedInternalConnections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowedUntrustedInternalConnections</td>
+	<td>example.com</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowedUntrustedInternalConnections</td>
+	<td>example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ServiceSettings.AllowedUntrustedInternalConnections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowedUntrustedInternalConnections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=ServiceSettings.AllowedUntrustedInternalConnections</td>
+	<td></td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='adminConsoleWrapper']/div/div/ul/li[10]/button</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

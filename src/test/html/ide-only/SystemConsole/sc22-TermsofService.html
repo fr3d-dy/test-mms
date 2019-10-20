@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>scTermsofService</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scTermsofService</td></tr>
+</thead><tbody>
+<!--LOG IN admin-->
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=compliance/custom_terms_of_service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=compliance/custom_terms_of_service</td>
+	<td></td>
+</tr>
+<!--Not editable when false, editable when true-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.admin-console__header &gt; span</td>
+	<td>Custom Terms of Service (Beta)</td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SupportSettings.CustomTermsOfServiceEnabledtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SupportSettings.CustomTermsOfServiceEnabledtrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td></td>
+</tr>
+<!--Enter markdown TOS text-->
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td>- This is a bullet point&nbsp;&nbsp;<br />- This is another bullet point <br /><br /> **This has been bolded** <br /><br /> ~~This has been struck through~~ <br /><br />*This has been italicized* <br /><br />[This is a link to mattermost.com](https://mattermost.com) <br /><br />`This is inline code`<br /><br />- This is a bullet point&nbsp;&nbsp;<br />- This is another bullet point <br /><br /> **This has been bolded** <br /><br /> ~~This has been struck through~~ <br /><br />*This has been italicized* <br /><br />[This is a link to mattermost.com](https://mattermost.com) <br /><br />`This is inline code`<br /><br />- This is a bullet point&nbsp;&nbsp;<br />- This is another bullet point <br /><br /> **This has been bolded** <br /><br /> ~~This has been struck through~~ <br /><br />*This has been italicized* <br /><br />[This is a link to mattermost.com](https://mattermost.com) <br /><br />`This is inline code`<br /><br />- This is a bullet point&nbsp;&nbsp;<br />- This is another bullet point <br /><br /> **This has been bolded** <br /><br /> ~~This has been struck through~~ <br /><br />*This has been italicized* <br /><br />[This is a link to mattermost.com](https://mattermost.com) <br /><br />`This is inline code`<br /><br /></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li</td>
+	<td>This is a bullet point</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='root']/div/div[2]/div/div/div/ul/li[2]</td>
+	<td>This is another bullet point <br /> This has been bolded <br /> This has been struck through</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong</td>
+	<td>This has been bolded</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=del</td>
+	<td>This has been struck through</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=em</td>
+	<td>This has been italicized</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=This is a link to mattermost.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code</td>
+	<td>This is inline code</td>
+</tr>
+<!--*** Can visually verify that long TOS scrolls behind Agree / Disagree buttons-->
+<!--Disagree with TOS, auto-logged out-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=rejectTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=rejectTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>You must agree to the terms of service before accessing Mattermost. Please contact your System Administrator for more details.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<!--Log back in, see TOS again-->
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<!--Agree to TOS (opens to team instead of system console b/c rejected TOS)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.user__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<!--After refresh TOS page does not return-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<!--After log out and log back in TOS page does not return-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.user__name</td>
+	<td>@admin</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<!--Edit text, TOS page returns and must be agreed to-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=compliance/custom_terms_of_service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=compliance/custom_terms_of_service</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td>Just one line of text this time.</td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span</td>
+	<td>Logout</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Just one line of text this time.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=acceptTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SupportSettings.CustomTermsOfServiceText</td>
+	<td></td>
+</tr>
+<!--Cleanup: Set TOS to false-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=SupportSettings.CustomTermsOfServiceEnabledfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=SupportSettings.CustomTermsOfServiceEnabledfalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotEditable</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=SupportSettings.CustomTermsOfServiceEnabledfalse</td>
+	<td>on</td>
+</tr>
+<!--LOG OUT admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none:contains('Logout')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

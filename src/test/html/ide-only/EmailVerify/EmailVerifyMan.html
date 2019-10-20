@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>EmailVerifyMan</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">EmailVerifyMan</td></tr>
+</thead><tbody>
+<!--EMAIL VERIFICATIONS-->
+<!--*** Test on any server with email enabled and email verification required-->
+<!--*** Such as postgres.test-->
+<!--*** Replace target "**REPLACE-PREFIX**" below with your Mattermost -->
+<!--*** email prefix (e.g. `linda` or `linda+test`)-->
+<!--*** Enter the creds for that user but DON'T CLICK TO LOG IN-->
+<!--*** Then run tests and verify as described-->
+<tr>
+	<td>store</td>
+	<td>**REPLACE-PREFIX**</td>
+	<td>prefix</td>
+</tr>
+<!--*** Manually enter user credentials but DO NOT CLICK to log in-->
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotValue</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginId</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=loginPassword</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--1. Change email address-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emailEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=primaryEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=primaryEmail</td>
+	<td>${prefix}+verification@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmEmail</td>
+	<td>${prefix}+verification@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--Green dismissable banner (no link to re-send)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.announcement-bar.announcement-bar-success</td>
+	<td>Check your email inbox to verify the address.×</td>
+</tr>
+<!--Email address does not change until verified-->
+<tr>
+	<td>waitForText</td>
+	<td>id=emailDesc</td>
+	<td>${prefix}@mattermost.com</td>
+</tr>
+<!--Refresh, message bar disappears (no longer persists v5.9)-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.announcement-bar.announcement-bar-success</td>
+	<td>Check your email inbox to verify the address.×</td>
+</tr>
+<!--2. Change password (doesn't change it; just triggers email)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettings &gt; button.style--none.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=securityButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=passwordEdit</td>
+	<td></td>
+</tr>
+<!--*** Note that after v5.14, default test server password requirements are stricter-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=currentPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=currentPassword</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newPassword</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=confirmPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=confirmPassword</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<!--*** Visually verify "Last updated [date and time]"-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Log out to show can't log in with new email until verified-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#accountSettingsHeader &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${prefix}+verification@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=label.control-label</td>
+	<td>Enter a valid email or username and/or password, or sign in using another method.</td>
+</tr>
+<!--Can still log in with old email address until new one is verified-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>${prefix}@mattermost.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Resend verification email isn't there anymore; flow is being revisited-->
+<!--Log out-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--VERIFICATIONS-->
+<!--*** Check email, read through subject line and body, verify as described below-->
+<!--1a. NEW address: "[server name] Verify new email address" (2 copies if resent)-->
+<!--  1a. "You updated your email"-->
+<!--  1a. "To finish updating your email address for [server], please click the link...."-->
+<!--  1a. ** Manually click the Verify Email button-->
+<!--  1a. IF still logged in, success message bar at the top "Email verified"-->
+<!--  1a. OR if not logged in, "Email Verified" in green box on login page-->
+<!--  1a. New address [prefix]+verification@mattermost.com is pre-populated-->
+<!--  1a. You can then log in-->
+<!--1b. OLD address: "[server name] Your email address has changed"-->
+<!--  1b. "You updated your email"-->
+<!--  1b. "Your email address for [server] has been changed to [new email]"-->
+<!--***-->
+<!--2. "[server name] Your password has been updated"-->
+<!--2. Lists correct server name in body of email-->
+<!--*** MANUALLY CLEAN UP:-->
+<!--*** Replace your email address in first command in this test with **REPLACE-PREFIX**-->
+<!--***So the row looks like this: store | **REPLACE-PREFIX** | prefix-->
+<!--*** And save, to be ready for next tester (or just don't save the change at all if other changes weren't made)-->
+<!--*** If you like, go back in and re-change your email address to what it had been on the server-->
+</tbody></table>
+</body>
+</html>

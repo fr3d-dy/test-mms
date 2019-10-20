@@ -1,0 +1,5620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>ST</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ST</td></tr>
+</thead><tbody>
+<!--*** Make sure server is open, email verification is off, open login page-->
+<!--*** This is true on Se server if no changes have been made-->
+<!--Account creation from signin page, using email / password-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<!--Next will fail if additional signup methods enabled-->
+<!--***If so, manually click Email and Password button-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>testST@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>testST</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<!--Create new team immediately after creating new account-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>STTeam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>stteam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1 &gt; span</td>
+	<td>Mattermost</td>
+</tr>
+<!--Click through tutorial, then opt out of tooltips-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.tutorial-skip &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=h1</td>
+	<td>Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialIntroCircle1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialIntroCircle2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialIntroCircle2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=feedback@mattermost.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tutorialNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.tip-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.tip-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=tipNextButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.tip-opt &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.tip-opt &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<!--Create public channel from `+`-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPublicChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Store timestamp to append to channel name (to make it unique)-->
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date().getFullYear()+&quot;&quot;+(new Date().getMonth()+1)+&quot;&quot;+new Date().getDate())+&quot;-&quot;+(new Date().getHours()+&quot;&quot; + new Date().getMinutes() + &quot;&quot; + new Date().getSeconds())}</td>
+	<td>datetime</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<!--Create new test channel appending datetime to the name-->
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=strong.heading</td>
+	<td>testchannel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline &gt; strong</td>
+	<td>joined the channel</td>
+</tr>
+<!--Post a message, just text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Greetings${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Greetings')</td>
+	<td></td>
+</tr>
+<!--Reply using SHIFT+UP - reply posts in RHS and center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>And hello to you!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post-message__text &gt; p:contains('And hello to you!')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('And hello to you!')</td>
+	<td></td>
+</tr>
+<!--Find message ID from search and permalink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>greetings${KEY_ENTER}</td>
+</tr>
+<!--Get post ID after a search returns one desired result-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>postid</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<!--Cancel out of a delete (use postid to find [...] > Delete)-->
+<tr>
+	<td>rollup</td>
+	<td>openSearchDotMenuForTopPost</td>
+	<td></td>
+</tr>
+<!--*** If needed, manually click the [...] menu on Greetings post in RHS search results-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<!--Confirmation modal warns the message has a reply-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/span[2]</td>
+	<td>This post has 1 comment on it.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[2]/div/div/div[2]/span[2]</td>
+	<td>This post has 1 comment on it.</td>
+</tr>
+<!--Reply from reply arrow with comment number-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.comment-count</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-count</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Greetings</td>
+</tr>
+<!--Add Comment button disabled until text in reply box-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.btn.btn-primary.comment-btn.pull-right.disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.btn.btn-primary.comment-btn.pull-right.disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Add Comment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@class='btn btn-primary comment-btn pull-right disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Reply')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.comment-count</td>
+	<td>2</td>
+</tr>
+<!--Find reply's message ID (searches text string in:channel)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>reply in:test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td>test-${datetime}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.search-autocomplete__item.selected</td>
+	<td>test-${datetime}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Get post ID after a search returns one desired result-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>replyid</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<!--Edit reply in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.comment-count</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__header</td>
+	<td>Message Details</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=//div[@id='${replyid}_message']</td>
+	<td>Reply</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openSearchDotMenuForTopPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>3000</td>
+</tr>
+<!--Manually open dot menu for the "Reply" comment in RHS-->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<!--^^2 steps above need maintenance to find delelet on ... menu^^-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>, after editing</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td>Reply, after editing</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--"(edited)" displays in RHS and center-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Reply, after editing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<!--Reply in RHS with different channel open in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Open reply RHS, then switch channel, then post reply${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<!--Switch channel in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>Ok thanks!${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<!--Verify not marked unread-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=a.sidebar-item.unread-title &gt; span.sidebar-item__name:contains('Test-${datetime}')</td>
+	<td></td>
+</tr>
+<!--Delete parent post also deletes comment-->
+<!--Search to get post ID-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>switch${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Open reply RHS, then switch channel, then post reply</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>deleteid</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<!--Delete from search RHS-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openSearchDotMenuForTopPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Dele</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Post?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/span[2]</td>
+	<td>This post has 1 comment on it.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<!--Search for comment, verify was also deleted-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>thanks${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; h4 &gt; span</td>
+	<td>No results found. Try again?</td>
+</tr>
+<!--Edit a search result in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Is it sunny today?${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=reply_textbox</td>
+	<td>The clouds should clear later.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>exact:Is it sunny today?</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>clouds${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>clouds</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>The clouds should clear later.</td>
+</tr>
+<!--Get post ID from permalink URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>editid</td>
+</tr>
+<!--Edit comment in RHS while permalink view is also open in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<!--*** Hm, this command finds the [...] menu in the RHS; will it work above? xpath-->
+<tr>
+	<td>rollup</td>
+	<td>openSearchDotMenuForTopPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Edit</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=edit_textbox</td>
+	<td>The clouds should clear later.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>${KEY_BACKSPACE}, hopefully.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=edit_textbox</td>
+	<td>The clouds should clear later, hopefully.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.edit-modal.modal-dialog &gt; div.modal-content &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>The clouds should clear later, hopefully.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#${editid}_message &gt; div.post-message.post-message--collapsed &gt; div.post-message__text-container &gt; div.post-message__text &gt; p</td>
+	<td>The clouds should clear later, hopefully.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post-edited__indicator &gt; span</td>
+	<td>(edited)</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>hopefully.*(edited)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<!--Delete comment from RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Message Details</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('The clouds should clear later, hopefully.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body &gt; span</td>
+	<td>exact:Are you sure you want to delete this Comment?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-danger</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>The clouds should clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Message draft persists after channel switching-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>I'll come back to this later...</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>I'll come back to this later...</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-t</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>I'll come back to this later...</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Flag a message - this is working as of 12 Apr 2018-->
+<!--Flag doesn't appear until hover... Sounds like Se can't do pseudo class hover :|-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<!--Leaving to a manual hover for now-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--*** Manually hover over the flag on "I'll come back to this later"-->
+<!--*** Hm. No tooltip on old FF but works on Chrome (5.14)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Flag for follow up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post__header--info &gt; div.col &gt; button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--View flagged posts RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>I'll come back to this later...</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<!--Switch channel in center, RHS doesn't change-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-t</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Flagged Posts</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>I'll come back to this later...</td>
+</tr>
+<!--Unflag in RHS, empty flagged posts list and flag gone from center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='search-items-container']/div/div[2]/div[2]/div[2]/div/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; ul &gt; li &gt; span</td>
+	<td>You haven't flagged any messages yet.</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.post__header--info &gt; div.col &gt; button.style--none.flag-icon__container.visible</td>
+	<td></td>
+</tr>
+<!--Flag icon toggles RHS closed and is no longer active style-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#channelHeaderFlagButton.channel-header__icon.style--none.active span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#channelHeaderFlagButton.channel-header__icon.style--none.active span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button#channelHeaderFlagButton.channel-header__icon.style--none.active span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#channelHeaderFlagButton.channel-header__icon.style--none span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<!--Pin a message in Test- channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This is an important message that should be pinned.${KEY_ENTER}</td>
+</tr>
+<!--Search to get the post ID-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>important${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>important</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is an important message that should be pinned.</td>
+</tr>
+<!--Get post ID from permalink URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>pinnedid</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Use keyboard command for Edit to open RHS (still can't get to [...] in center-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Message Details</td>
+</tr>
+<!--Pin in RHS, pinned badge in RHS and center-->
+<!--*** No longer finding [...] in RHS-->
+<!--*** In RHS on "This is an important..." click [...] and Pin to channel manually-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__pinned-badge &gt; span</td>
+	<td>Pinned</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post__header--info &gt; div.col &gt; span.post__pinned-badge &gt; span</td>
+	<td>Pinned</td>
+</tr>
+<!--View pinned posts RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderPinButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderPinButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Pinned posts in Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>This is an important message that should be pinned.</td>
+</tr>
+<!--Switch channel in center, RHS changes (this behavior updated in 5.4)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-t</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Pinned posts in Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=li &gt; span</td>
+	<td>There are no pinned messages yet.</td>
+</tr>
+<!--Pin a post in other channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Different channel, different pinned posts list.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openDotMenuForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Pin to channel</td>
+</tr>
+<!--RHS updates-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Different channel, different pinned posts list.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.search-channel__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Pinned posts in Off-Topic</td>
+</tr>
+<!--Pinned post in different channel in center was not added to RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>town sq</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>different</td>
+	<td></td>
+</tr>
+<!--Switch back to Off-Topic and view pinned posts-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-t</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<!--Toggle off pinned posts to close RHS then toggle back on-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#channelHeaderPinButton.style--none.channel-header__icon.active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button#channelHeaderPinButton.style--none.channel-header__icon.active</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Pinned posts in Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<!--Pin icon is not active style when toggled off-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button#channelHeaderPinButton.style--none.channel-header__icon</td>
+	<td></td>
+</tr>
+<!--Pinned posts RHS for current channel opens-->
+<tr>
+	<td>click</td>
+	<td>css=button#channelHeaderPinButton.style--none.channel-header__icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td>Pinned posts in Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.post__pinned-badge &gt; span</td>
+	<td>Pinned</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Different channel, different pinned posts list.</td>
+</tr>
+<!--Other channel's pinned post does not display-->
+<tr>
+	<td>waitForNotText</td>
+	<td>css=p</td>
+	<td>This is an important message that should be pinned.</td>
+</tr>
+<!--Un-pin in RHS, pinned badge removed from center as well-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.post__header--info &gt; div.col &gt; span.post__pinned-badge &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post__pinned-badge &gt; span</td>
+	<td></td>
+</tr>
+<!--Get post ID to help find [...] in RHS-->
+<!--Get post ID from permalink URL-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>urlwhole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;${urlwhole}&quot;.split(&quot;/&quot;)[5]</td>
+	<td>pinned2id</td>
+</tr>
+<!--Un-pin in RHS - Maually click dot menu of pinned post in RHS -->
+<tr>
+	<td>rollup</td>
+	<td>dotMenuItemVerifyAndSelect</td>
+	<td>Item=Un-pin from channel</td>
+</tr>
+<!--I'll come back to this later...-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; ul &gt; li &gt; span</td>
+	<td>There are no pinned messages yet.</td>
+</tr>
+<!--These could fail if testing on an old server with previously pinned posts-->
+<!--(Could re-vamp to add another new channel)-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.post__header--info &gt; div.col &gt; span.post__pinned-badge &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.post__pinned-badge &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Get team invite link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='getTeamInviteLink']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='getTeamInviteLink']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//textarea[@id='linkModalTextArea']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>//textarea[@id='linkModalTextArea']</td>
+	<td>teaminvitelink</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.pull-left</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Log out and open team invite link-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Open STTeam invite link, create new account st2-->
+<tr>
+	<td>openAndWait</td>
+	<td>${teaminvitelink}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.color--light &gt; a &gt; span</td>
+	<td>Click here to sign in.</td>
+</tr>
+<!--*** If other signin methods are enabled, manually click the Email button-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>ST2@test.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>st2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createAccountButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.tutorial-skip &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4.channel-intro__title</td>
+	<td>Beginning of Town Square</td>
+</tr>
+<!--Join public channel from More...-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sidebarChannelsMore &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sidebarChannelsMore &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchChannelsTextbox</td>
+	<td></td>
+</tr>
+<!--Search channel list, no results-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchChannelsTextbox</td>
+	<td>zz</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No more channels to join</td>
+</tr>
+<!--Search channel list, find and select channel-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchChannelsTextbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}te</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>${testchannel}</td>
+</tr>
+<!--Set channel header using "Set a Header" link-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='channelIntro']//button[.='Set a Header']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']//button[.='Set a Header']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>ST2 wrote this header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>ST2 wrote this header</td>
+</tr>
+<!--Post a mention using autocomplete in the message box-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hello @tests</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Channel Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention--align</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_TAB}</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>Hello @testst</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=@testst</td>
+	<td></td>
+</tr>
+<!--Post at-channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>@chan</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention--align</td>
+	<td>@channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.mention__fullname &gt; span</td>
+	<td>Notifies everyone in this channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.suggestion-list__divider &gt; span &gt; span</td>
+	<td>Special Mentions</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.mention--align</td>
+	<td>@channel</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=post_textbox</td>
+	<td>@channel</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>! Whole channel.${KEY_ENTER}</td>
+</tr>
+<!--This will fail if the server is set in System Console to expect a confirm modal-->
+<!--Verify Main Menu options for non team admin (minimum; can vary)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='accountSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='sendEmailInvite']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='getTeamInviteLink']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='viewMembers']/button</td>
+	<td>View Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='createTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<!--Non-admin can view team members and filter list-->
+<tr>
+	<td>click</td>
+	<td>//*[@id='viewMembers']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 2 members of 2 total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#teamMemberModalLabel &gt; span</td>
+	<td>STTeam Members</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>1 - 2 members of 2 total*@st2*st2@test.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>tests</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 member of 2 total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--User st2 creates new team ST2Team from main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create a New Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2 &gt; span</td>
+	<td>Team Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>ST2Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2 &gt; span</td>
+	<td>Team URL</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>st2team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Back to previous step</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>ST2Team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Team dropdown options for team admin-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=getTeamInviteLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=manageMembers</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=manageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='createTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='leaveTeam']/button</td>
+	<td></td>
+</tr>
+<!--Add user to team from main menu, filter user list-->
+<tr>
+	<td>click</td>
+	<td>//*[@id='addUsersToTeam']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//span[contains(text(),'Use ↑↓ to browse, ↵ to select. You can add 20 more people.')] </td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 20 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'Use ↑↓ to browse, ↵ to select. You can add 19 more people.')] </td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 19 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@testst</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; div</td>
+	<td>You joined the team.<br /><br />@testst added to the team by you.</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.icon__text</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; div</td>
+	<td>You joined the team.<br /><br />@testst added to the team by you.</td>
+</tr>
+<!--Team (not System) Admin can make a non-admin a team admin-->
+<!--Change non-admin to team admin in Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='manageMembers']/button</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='manageMembers']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>tests</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.dropdown-toggle.theme.color--link.style--none &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.dropdown-toggle.theme.color--link.style--none &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#removeFromTeam &gt; button.style--none</td>
+	<td>Remove From Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Remove From Team')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Make Team Admin')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Make Team Admin')</td>
+	<td></td>
+</tr>
+<!--Set user testst back to team member-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Team Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Team Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Make Member')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Make Member')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.dropdown-toggle.theme.color--link.style--none &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Create private channel from `+`-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=createPrivateChannel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelName</td>
+	<td>Private-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=newChannelPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newChannelPurpose</td>
+	<td>ST2's purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form.form-horizontal &gt; div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=strong.heading</td>
+	<td>privatechannel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>${privatechannel}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/p/span[3]/span</td>
+	<td>This private channel's purpose is: ST2's purpose</td>
+</tr>
+<!--Add user to private channel - member icon > manage > add-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.icon__text</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=member_popover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>st2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__button &gt; button.btn.btn-link</td>
+	<td>Manage Members</td>
+</tr>
+<!--Manage Channel Members, filter list - no results found-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@st2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>zzyyyxxxx</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}${KEY_BACKSPACE}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@st2</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@st2</td>
+</tr>
+<!--Open Add Members modal for channel, from Manage Members modal-->
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__row.clickable&nbsp;&nbsp;&gt; div.more-modal__details &gt; div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 20 more people.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>zzyyyxx</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<!--Filter user list, select and add user-->
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>tests</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>testst</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal__actions--round &gt; i.fa.fa-plus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__actions--round &gt; i.fa.fa-plus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 19 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.post-message__text &gt; div</td>
+	<td>You joined the channel.<br /><br />@testst added to the channel by you.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@testst</td>
+	<td>@testst</td>
+</tr>
+<!--Member count icon increments up +1-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.icon__text</td>
+	<td>2</td>
+</tr>
+<!--Remove member from team using main menu > Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='manageMembers']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='manageMembers']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 2 members of 2 total</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.filter-textbox</td>
+	<td>testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.dropdown-toggle.theme.color--link.style--none &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.dropdown-toggle.theme.color--link.style--none &gt; span &gt; span</td>
+	<td>Member</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Remove From Team')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Remove From Team')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__placeholder-row &gt; p &gt; span</td>
+	<td>No users found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Private channel: Member removed from team not in add users list-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Add Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>tests</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Get URL from public channel on ST2Team that testst was just removed from-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarSwitcherButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off-</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>closedteamurl</td>
+	<td></td>
+</tr>
+<!--Post URL in Off-Topic on the team removed user is still part of-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-container.unread &gt; a &gt; div.team-btn. &gt; div.team-btn__content &gt; div.team-btn__initials</td>
+	<td>ST</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-container.unread &gt; a &gt; div.team-btn. &gt; div.team-btn__content &gt; div.team-btn__initials</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>STTeam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${closedteamurl}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${closedteamurl}</td>
+	<td></td>
+</tr>
+<!--Back to ST2Team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>ST</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn__initials</td>
+	<td>ST</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>ST2Team</td>
+</tr>
+<!--Team name and description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>ST2Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<!--Save team name without changes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>ST2Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=nameEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Set the name of the team as it appears on your sign-in screen and at the top of the left-hand sidebar.</td>
+</tr>
+<!--Change team name from ST2Team to Core Test Team-->
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamName</td>
+	<td>Core Test Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=nameDesc</td>
+	<td>Core Test Team</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=nameDesc</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>Co</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Core Test Team</td>
+</tr>
+<!--Team description-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#descriptionDesc &gt; span</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.setting-list__hint &gt; span</td>
+	<td>Team description provides additional information to help users select the right team. Maximum of 50 characters.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td>This sentence contains 53 characters; I counted them.</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamDescription</td>
+	<td>This sentence contains 53 characters; I counted th</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cancelSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#descriptionDesc &gt; span</td>
+	<td>Click 'Edit' to add a team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=descriptionEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamDescription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=teamDescription</td>
+	<td>Testing the team description.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=descriptionDesc</td>
+	<td>Testing the team description.</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=descriptionDesc</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Verify set to not allow other users to join the team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=open_inviteDesc</td>
+	<td>No</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=open_inviteDesc</td>
+	<td>${KEY_ESC}</td>
+</tr>
+<!--Open and post direct message (while viewing team other user isn't on)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=moreDirectMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id=&quot;selectItems&quot;]//*/input</td>
+	<td>testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.multi-select__help &gt; span</td>
+	<td>Use ↑↓ to browse, ↵ to select. You can add 6 more people.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<!--Post message in DM channel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.channel-intro-text &gt; span</td>
+	<td>This is the start of your direct message history with testst.<br />Direct messages and files shared here are not shown to people outside this area.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>testst</td>
+</tr>
+<!--Verify status at top of DM channel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.header-status__text</td>
+	<td>Offline</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>And here's a DM for you! </td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>And here's a DM for you!</td>
+</tr>
+<!--Add emoji to message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=emojiPickerButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=emojiPickerButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.emoji-picker__search</td>
+	<td></td>
+</tr>
+<!--Filter emoji list and click to select-->
+<tr>
+	<td>type</td>
+	<td>css=input.emoji-picker__search</td>
+	<td>ta</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emojisprite.emoji-category-foods-1.emoji-1f32e</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.emojisprite.emoji-category-foods-1.emoji-1f32e</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>And here's a DM for you! :taco:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('And here's a DM for you!')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.emoticon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=span.emoticon@alt</td>
+	<td>:taco:</td>
+</tr>
+<!--Get permalink for a message, then leave channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>STTeam</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>ST2 wrote this header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>This message will be permalinked.${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=searchBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>permalinked${KEY_ENTER}</td>
+</tr>
+<!--Get post ID after a search returns one desired result-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.search-item__jump &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>permaurl</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Click here to jump to recent messages.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar-item__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${permaurl}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${permaurl}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${permaurl}</td>
+	<td></td>
+</tr>
+<!--Another highlight verification failing now....-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify permalink highlighted message "This message will be permalinked"-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>ST2 wrote this header</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#archive-link-home &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=div.post.post--highlight.same--user.same--root:contains('This message will be permalinked.')</td>
+	<td></td>
+</tr>
+<!--Leave public channel using /leave-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/leave${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Join public channel from permalink-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.sidebar-item__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${permaurl}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${permaurl}</td>
+	<td></td>
+</tr>
+<!--Another highlight verification failing now....-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify permalink highlighted message "This message will be permalinked"-->
+<tr>
+	<td>waitForText</td>
+	<td>css=p.markdown__paragraph-inline</td>
+	<td>ST2 wrote this header</td>
+</tr>
+<!--Create new team from `+` in team sidebar-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.team-btn.team-btn__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn.team-btn__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td>Create a new team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>Plus</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<!--Different URL from team name-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td>plus</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control</td>
+	<td>plus123</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input.form-control</td>
+	<td>plus123</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>storeLocation</td>
+	<td>123</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${123}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a:contains('123')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Set Plus team to be open to other users on the server-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=open_inviteDesc</td>
+	<td>No</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=teamOpenInvite</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=open_inviteDesc</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<!--LOGOUT ST2-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN testST-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>testst</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>link=Town Square</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify can join open team from Join Another Team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Join Another Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Join Another Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#Plus &gt; span.signup-team-dir__name</td>
+	<td>Plus</td>
+</tr>
+<!--Closed team is not listed-->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Core Team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Create a new team</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#Plus &gt; span.signup-team-dir__name</td>
+	<td>Plus</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Verify can't join closed team via URL after being removed-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Off-Topic*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>STTeam</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=headerTeamName</td>
+	<td>ST2Team</td>
+</tr>
+<!--Verify mention badges - 2 on private channel, 1 on DM-->
+<!--*** This will fail if a different sidebar sort puts the 1 badge above the 2 badge-->
+<!--*** Can pause test and change sidebar to not show Unreads at top (until test is rewritten)-->
+<!--Open channels, verify message, verify badge disappears-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@id='unreadMentions'][contains(text(),'2')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[@id='unreadMentions'][contains(text(),'2')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=strong.heading:contains('Test-')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=@testst</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Hello @testst')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('@channel ! Whole channel.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=span.badge</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.badge</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.badge</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>st2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('And here's a DM for you!')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=span.emoticon@alt</td>
+	<td>:taco:</td>
+</tr>
+<!--Close DM-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.btn-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--LOG OUT testst, then in as ST2, to set Core Test Team (ST2Test) to be open to any user on the server-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN as ST2-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>st2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>Co</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn__initials</td>
+	<td>Co</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Core Test Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='teamSettings']/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=open_inviteEdit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=teamOpenInvite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=open_inviteDesc</td>
+	<td>Yes</td>
+</tr>
+<!--LOG OUT ST2, then in as testst, to verify can join open team-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN as testst-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>testst</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Join open team from main menu-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='joinTeam']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.signup__content &gt; h4 &gt; span</td>
+	<td>Teams you can join:</td>
+</tr>
+<!--Verify team description on `i` icon-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.tooltip-inner</td>
+	<td>Testing the team description.</td>
+</tr>
+<!--*** Fails if not first in open teams list-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>Core Test Team</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.signup-team-dir__name</td>
+	<td>Core Test Team</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-container.active</td>
+	<td>Co</td>
+</tr>
+<!--LOG OUT testst, then in as ST2, to add testst to private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN as ST2-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>st2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Core Test Team</td>
+</tr>
+<!--Add user to private channel using link in-channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${privatechannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${privatechannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>${privatechannel}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='channelIntro']/button</td>
+	<td>Invite others to this private channel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p.primary-message &gt; span</td>
+	<td>No items found</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveItems</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelMemberCountText</td>
+	<td>2</td>
+</tr>
+<!--LOG OUT ST2, then in as testst, to verify private channel settings as non-admin who did not create the channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN as testst-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>testst</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-container.active</td>
+	<td>Co</td>
+</tr>
+<!--Private channel settings-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${privatechannel}*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${privatechannel}*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<!--Verify drop-down options-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelViewInfo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Notification Preferences</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelAddMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelManageMembers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditHeader</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelRename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Archive Channel</td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerify</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<!--View Info-->
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>ST2's purpose</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__label &gt; span</td>
+	<td>exact:Purpose:</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//div[2]/div[2]/div/span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<!--Edit channel purpose-->
+<tr>
+	<td>click</td>
+	<td>css=strong.heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelEditPurpose</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Edit Channel Purpose</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=textarea.form-control.no-resize</td>
+	<td>ST2's purpose, edited by testST</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('testst updated the channel purpose from: ST2's purpose to: ST2's purpose, edited by testST')</td>
+	<td></td>
+</tr>
+<!--Add channel header from link (use markdown)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#channelHeaderDescription &gt; button.style--none</td>
+	<td>Add a channel description</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-body.edit-modal-body &gt; div &gt; p &gt; span</td>
+	<td>Edit the text appearing next to the channel name in the channel header.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>*Header* ${KEY_SHIFT}${KEY_ENTER} </td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>- Item 1 ${KEY_SHIFT}${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=edit_textbox</td>
+	<td>- [Item 2 is a link](http://google.com)</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary.save-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<tr>
+	<td>waitForText</td>
+	<td>css=em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.popover-content &gt; p &gt; em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.popover-content &gt; ul &gt; li</td>
+	<td>Item 1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'Item 2 is a link')])[3]</td>
+	<td>Item 2 is a link</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Item 2 is a link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=div.popover-content &gt; div &gt; ul &gt; li</td>
+	<td>Item 1</td>
+</tr>
+<!--Verify View info shows edited Purpose and added Header (with markdown)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=View Info</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value</td>
+	<td>ST2's purpose, edited by testST</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[2]/div/span</td>
+	<td>exact:Header:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; p &gt; em</td>
+	<td>Header</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.info__value &gt; ul &gt; li</td>
+	<td>Item 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Item 2 is a link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td>×Close</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.about-modal.modal-dialog &gt; div.modal-content &gt; div.modal-header &gt; button.close</td>
+	<td>×Close</td>
+</tr>
+<!--Leave private channel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Leave Channel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Are you sure you wish to leave the private channel ${privatechannel}? You must be re-invited in order to re-join this channel in the future.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=${privatechannel}</td>
+	<td></td>
+</tr>
+<!--Remove other user from public channel using Remove Member button-->
+<!--from member icon > Manage Members-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/stteam']</td>
+	<td>STSTTeam</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/stteam']</td>
+	<td>STSTTeam</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>STTeam</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${testchannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${testchannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>${testchannel}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.icon__text</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@st2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'×')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//span[contains(text(),'×')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>openChanMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>chanMenuItemVerifyAndSelect</td>
+	<td>Item=Manage Members</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=li.MenuItem button.style--none:contains('Remove From Channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.MenuItem button.style--none:contains('Remove From Channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.member-count.pull-left &gt; span</td>
+	<td>1 - 1 member of 1 total</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.more-modal__name</td>
+	<td>@testst</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.more-modal.more-modal--action.modal-dialog &gt; div.modal-content div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.more-modal.more-modal--action.modal-dialog &gt; div.modal-content div.modal-header &gt; button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('st2 was removed from the channel')</td>
+	<td></td>
+</tr>
+<!--Log out testST-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN ST2-->
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>st2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<!--Verify removed from testchannel-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>STTeam</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=${testchannel}</td>
+	<td></td>
+</tr>
+<!--Switch to private channel on Core Test team-->
+<tr>
+	<td>waitForText</td>
+	<td>css=div.team-btn__initials</td>
+	<td>Co</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.team-btn__initials</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>Core Test Team</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${privatechannel}*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=${privatechannel}*</td>
+	<td></td>
+</tr>
+<!--Marked as read, no mentions-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${privatechannel}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>${privatechannel}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div:contains('testst left the channel')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.icon__text</td>
+	<td>1</td>
+</tr>
+<!--Search-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Search: Basic, markdown-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-search.md${KEY_ENTER}</td>
+</tr>
+<!--If /test is not enabled on the server, manually post the raw content from:-->
+<!--https://github.com/mattermost/mattermost-server/blob/master/tests/test-search.md-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h1.markdown__heading</td>
+	<td>Search Testing</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.sidebar--right__title &gt; span</td>
+	<td></td>
+</tr>
+<!--Switch channel in center to make sure verifying in search results in RHS-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Off-Topic</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h5.markdown__heading &gt; span.search-highlight</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=code &gt; span.search-highlight</td>
+	<td>Hello</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=code.hljs</td>
+	<td></td>
+</tr>
+<!--Switch channel back to post in Town Square-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control.focused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.form-control.focused</td>
+	<td>town</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mentions__name.suggestion--selected</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Multiple terms (not exact phrase)-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>one hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>world two${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>world hello${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>hello world${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.search-highlight</td>
+	<td>world</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>world hello</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=span.search-highlight</td>
+	<td>one</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>css=span.search-highlight</td>
+	<td>two</td>
+</tr>
+<!--Verify messaging for no search results-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.search-bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.search-bar</td>
+	<td>arglbarglllll${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.sidebar--right__subheader &gt; h4 &gt; span</td>
+	<td>No results found. Try again?</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('If you're searching a partial phrase (ex. searching &quot;rea&quot;, looking for &quot;reach&quot; or &quot;reaction&quot;), append a * to your search term.')</td>
+	<td>exact:If you're searching a partial phrase (ex. searching &quot;rea&quot;, looking for &quot;reach&quot; or &quot;reaction&quot;), append a * to your search term.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span:contains('Two letter searches and common words like &quot;this&quot;, &quot;a&quot; and &quot;is&quot; won't appear in search results due to excessive results returned.')</td>
+	<td>exact:If you're searching a partial phrase (ex. searching &quot;rea&quot;, looking for &quot;reach&quot; or &quot;reaction&quot;), append a * to your search term.</td>
+</tr>
+<!--~ Channel linking - Autocomplete-->
+<!--Switch to STTeam-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='/stteam']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=headerTeamName</td>
+	<td>STTeam</td>
+</tr>
+<!--Find public channel in autocomplete-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>~test-</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.mention__align &gt; span</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>~test-${datetime}</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--Join public channel from channel shortlink-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=~Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=~Test-${datetime}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Test-${datetime}</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** The rest of these are WIP; end here for now-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--*** Must have GitLab enabled-->
+<!--LOG OUT-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.sidebar-header-dropdown__toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#logout &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#signup &gt; span</td>
+	<td></td>
+</tr>
+<!--Create account using GitLab (mm-test)-->
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='root']/div/div/div/div[2]/div/div[2]/div/a/span/span[2]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_login</td>
+	<td>mm-test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>mmpasswd</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.signup-team-login &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>GLTest</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.margin--extra &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h2 &gt; span</td>
+	<td>Team Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='root']/div/div/div/div[2]/a/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<!--Verify tutorial-->
+<tr>
+	<td>waitForText</td>
+	<td>css=h1</td>
+	<td>Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.tutorial-skip &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.tutorial__app-icons</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=href:contains('https://about.mattermost.com/downloads/')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@href='https://about.mattermost.com/downloads/']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=feedback@mattermost.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=strong.heading</td>
+	<td>Town Square</td>
+</tr>
+<!--Insert tests for pulsating tooltips-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Straight-up recording as I click through unwritten smoke tests-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=searchBox</td>
+	<td>asparagus${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='searchpost_dropdowncg84rsbh8brudmayikjjzks9ro']/div/ul/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#cg84rsbh8brudmayikjjzks9ro_message &gt; div &gt; span.post-message__text &gt; p</td>
+	<td>asparagus has now been edited</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentIcon_euf9jryhp7yc9cwfa55jxf57pr_cg84rsbh8brudmayikjjzks9ro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[15]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdowncg84rsbh8brudmayikjjzks9ro']/div/ul/li[4]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div/div/div[2]/span[2]</td>
+	<td>This post has 1 comment on it.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h4 &gt; span</td>
+	<td>exact:No results found. Try again?</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='post_irr6t4e1p3dhpjkusfo44exe3w']/div/div[2]/div/div[2]/div/div/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=commentIcon_euf9jryhp7yc9cwfa55jxf57pr_irr6t4e1p3dhpjkusfo44exe3w</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.sidebar-item__name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.post__header--info &gt; div.col &gt; button.style--none.flag-icon__container </td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.icon.icon__flag &gt; svg &gt; g &gt; g &gt; g &gt; g &gt; g &gt; path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderFlagButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='center_dropdownnkj8uw3icinyxekthdaefaywaa']/div/ul/li[3]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='${TopSearchPost}']/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']//*/span[contains(text(),'Make Team Admin')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@class='MenuItem']//*/span[contains(text(),'Make Member')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[contains(text(),'×')] </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuWrapper ']//*/span[contains(text(),'Channel Member')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,2361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://selenium.test.mattermost.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--LOG IN-->
+<tr>
+	<td>setSpeed</td>
+	<td>800</td>
+	<td></td>
+</tr>
+<tr>
+	<td>openAndWait</td>
+	<td>/login</td>
+	<td></td>
+</tr>
+<!--DisableAnimations-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Sleep-->
+<!--Sleep-->
+<!--Sleep-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Basic Emoji Tests-->
+<!--Add emojis with keyboard-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>post with emojis :kissing: :fearful:${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@title=':kissing:']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@title=':fearful:']</td>
+	<td></td>
+</tr>
+<!--Add emojis with emoji picker-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@role='button'][@class='emoji-picker__container']</td>
+	<td></td>
+</tr>
+<!--^^Can't figure out why this is not clickable^^-->
+<!--Emojis only are jumbo (including with whitespace padding-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:taco:${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='all-emoji']//span[@title=':taco:']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>&nbsp;&nbsp;:sob:&nbsp;&nbsp;${KEY_ENTER}&nbsp;&nbsp;</td>
+</tr>
+<!--LM removed second `//span` between the [ ]  [ ]s and changed all-emoji to emoticon-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='emoticon'][@title=':sob:']</td>
+	<td></td>
+</tr>
+<!--Shorthand emojis-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Punctuation test 1 :\|. ${KEY_ENTER}&nbsp;&nbsp;</td>
+</tr>
+<!--LM removed second `//span` between the [ ]  [ ]s and changed all-emoji to emoticon-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='emoticon'][@title=':neutral_face:']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Punctuation&nbsp;&nbsp;test 2 :-x! ${KEY_ENTER}&nbsp;&nbsp;</td>
+</tr>
+<!--LM removed second `//span` between the [ ]  [ ]s and changed all-emoji to emoticon-->
+<!--LM removed `//span[@class='all-emoji']` from beginning of target-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='emoticon'][@title=':mask:']</td>
+	<td></td>
+</tr>
+<!--Unicode Emoji-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Unicode emoji 🤟 ${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='emoticon emoticon--unicode'][contains(text(),'🤟')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Open Custom Emoji page-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1 &gt; span</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p &gt; span</td>
+	<td>Custom emoji are available to everyone on your server. Type ':' followed by two characters in a message box to bring up the emoji selection menu.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td></td>
+</tr>
+<!--Cancel out of adding new custom emoji-->
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select any valid file (won't be created)-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.col-md-5.col-sm-8 &gt; div &gt; div.form__help &gt; span</td>
+	<td>Choose the image for your emoji. The image can be a gif, png, or jpeg file with a max size of 1 MB. Dimensions will automatically resize to fit 128 by 128 pixels but keeping aspect ratio.</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This is a sentence with</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td &gt; span</td>
+	<td>No Custom Emoji Found</td>
+</tr>
+<!--Try to use too-large file (30k-too-big-for-custom-emoji.gif)-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>too-large</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select file 30k-too-big-for-custom-emoji.gif from Resources-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This is a sentence with</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.add-emoji__filename</td>
+	<td>30k-too-big-for-custom-emoji.gif</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.pull-left.has-error &gt; label.control-label</td>
+	<td>Unable to create emoji. Image must be smaller than 1028 by 1028.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.btn.btn-sm &gt; span</td>
+	<td></td>
+</tr>
+<!--Create new custom emoji-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>customlarge</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select this large image file: JPG.jpg-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This is a sentence with</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.add-emoji__filename</td>
+	<td>JPG.jpg</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.backstage-form</td>
+	<td>NameChoose a name for your emoji made of up to 64 characters consisting of lowercase letters, numbers, and the symbols '-' and '_'.<br /><br /><br />ImageSelect<br />JPG.jpgChoose the image for your emoji. The image can be a gif, png, or jpeg file with a max size of 1 MB. Dimensions will automatically resize to fit 128 by 128 pixels but keeping aspect ratio.<br /><br /><br /><br />PreviewThis is a sentence with in it.<br /><br />CancelSave</td>
+</tr>
+<!--Save new custom emoji-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.emoticon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__creator</td>
+	<td>test8</td>
+</tr>
+<!--Verify in channel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--Verify autocomplete-->
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:custom</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.emoticon-suggestion.suggestion--selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>larg</td>
+</tr>
+<!--Select from autocomplete-->
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='suggestionList']/div/div[2]</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='suggestionList']/div/div[2]</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify emoji posted-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Create new custom emoji using animated gif-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h1 &gt; span</td>
+	<td>Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td>Add Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>customanigif</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<!--*** Manually select an animated gif: GIF.gif-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.add-emoji__filename</td>
+	<td>GIF.gif</td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>This is a sentence with</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.form-group</td>
+	<td>NameChoose a name for your emoji made of up to 64 characters consisting of lowercase letters, numbers, and the symbols '-' and '_'.</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=td.emoji-list__name:contains(':customanigif:')</td>
+	<td></td>
+</tr>
+<!--Verify searching custom emoji-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>custom</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=td.emoji-list__name:contains(':customlarge')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=td.emoji-list__name:contains(':customanigif:')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>customla</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=td.emoji-list__name:contains(':customanigif:')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>customani</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customanigif:</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=td.emoji-list__name:contains(':customlarge')</td>
+	<td></td>
+</tr>
+<!--Other user sees custom emoji render as expected-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<!--*** Open in other browser, log in as test7, view Town Square-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Hello :customanigif: !${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify other user sees animated gif emoji-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--New custom emoji renders as expected after logging out and back in-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td>Town Square</td>
+</tr>
+<!--*** Visually verify both custom emoji render as expected-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--*** These are breaking; manually click emoji reaction picker on last post-->
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<!--Filter emoji picker list-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.emoji-picker__search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.emoji-picker__search</td>
+	<td>customani</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.emoji-picker__preview-name</td>
+	<td>customanigif</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.emoji-picker__preview-aliases</td>
+	<td>exact::customanigif:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emoji-picker__preview-image</td>
+	<td></td>
+</tr>
+<!--Press Enter to select reaction-->
+<tr>
+	<td>sendKeys</td>
+	<td>css=input.emoji-picker__search</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify anigif reaction - might have to scroll up-->
+<tr>
+	<td>pause</td>
+	<td>13000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Click reaction to remove it-->
+<tr>
+	<td>click</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Add custom emoji reaction by typing `+`-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>+:customanigif:${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__emoji.emoticon</td>
+	<td></td>
+</tr>
+<!--Add emoji reaction by clicking `+` button on post with existing emoji-->
+<!--*** Visually verify it appears on hover-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-reaction__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.post-reaction__add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.emoji-picker__search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.emoji-picker__search</td>
+	<td>rhinoceros</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emojipickercat-searchResults &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emojisprite.emoji-category-nature-2.emoji-1f98f</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.emojisprite.emoji-category-nature-2.emoji-1f98f</td>
+	<td></td>
+</tr>
+<!--*** Visually verify rhino emoji reaction added to post-->
+<!--Verify emojis already rendered are not visible if the setting becomes disabled -->
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=admin@test.com, password=passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableCustomEmojifalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableCustomEmojifalse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@id='saveSetting'][@disabled]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<!--Verify that custom emoji now render as text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarItem_town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarItem_town-square</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.all-emoji p span:contains(':customlarge:')</td>
+	<td></td>
+</tr>
+<!--Example of waitForText CSS locator that broke. Dylan can't figure out how to fix these and replaced with xpath.-->
+<!--waitForText -->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-emoticon='customlarge'][contains(text(),':customlarge:')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@data-emoticon='customanigif'][contains(text(),':customanigif:')]</td>
+	<td></td>
+</tr>
+<!--Re-enable custom emojis-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System Console</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=site_config/emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=site_config/emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=ServiceSettings.EnableCustomEmojitrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ServiceSettings.EnableCustomEmojitrue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=saveSetting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[@id='saveSetting'][@disabled]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.MenuWrapper.AdminSidebarHeader &gt; div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=channelHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>css=span.all-emoji &gt; p &gt; span</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=span.all-emoji p span:contains(':customlarge:')</td>
+	<td></td>
+</tr>
+<!--Continue with test as test8-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>rollup</td>
+	<td>login</td>
+	<td>username=test8, password=passwd</td>
+</tr>
+<!--Delete custom emoji after posting it and using it as a reaction-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<!--Filter to the emoji you want to delete-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>customanigif</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customanigif:</td>
+</tr>
+<!--Delete custom emoji-->
+<tr>
+	<td>waitForText</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>Delete Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning</td>
+	<td>exact:This action permanently deletes the custom emoji. Are you sure you want to delete it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customanigif:</td>
+</tr>
+<!--Other custom emoji is still there (clear filter to verify)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customlarge:</td>
+</tr>
+<!--Verify deleted custom emoji in channel-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--In post, displays as text-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=p:contains('Hello :customanigif: !')</td>
+	<td></td>
+</tr>
+<!--Reaction disappears-->
+<!--*** Visually verify customanigif is gone (refresh other browser if needed)-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Disappears from emoji picker recently used-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<!--*** Visually verify deleted custom emoji is not displayed in Recently Used-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Refresh other user in other browser and verify deleted emoji is gone-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Message shows text `:customanigif:`-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--*** Custom emoji reaction disappears entirely-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Emoji picker - Use section -->
+<!--*** On all sections: Verify section icon bold and others gray-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-leaf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-leaf</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Nature section at top-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-cutlery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-cutlery</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Foods section at top-->
+<!--*** Manually click a food emoji-->
+<!--*** Verify populates message box (then posts)-->
+<tr>
+	<td>waitForNotText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--*** Visually verify the emoji you selected displays in message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-futbol-o</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-futbol-o</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Activity section at top-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-plane</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-plane</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Places section at top-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-lightbulb-o</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-lightbulb-o</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Objects section at top-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-heart-o</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-heart-o</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Symbols section at top-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-flag-o</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-flag-o</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Flags section at top-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.fa.fa-at</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.fa.fa-at</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Custom section at top / scrolled up-->
+<!--*** Manually click a custom emoji-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Add text to the message and post-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>text after emoji${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify the emoji display properly in the message-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Post a message-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>Reactionary${KEY_ENTER}</td>
+</tr>
+<!--React using emoji picker in center-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--*** May have to manually open emoji reaction picker on last post-->
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emojipickercat-recent &gt; span</td>
+	<td>Recently Used</td>
+</tr>
+<!--*** Visually verify Recently Used are correct-->
+<!--*** Click any emoji reaction from picker, verify added-->
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<!--Open reply RHS for message that has reactions-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_SHIFT}${KEY_UP}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=reply_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=p</td>
+	<td>Reactionary</td>
+</tr>
+<!--Open emoji picker in RHS-->
+<!--LM can't get this part to work; clicked manually-->
+<tr>
+	<td>rollup</td>
+	<td>openEmojiPickerForLastPost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emojipickercat-recent &gt; span</td>
+	<td>Recently Used</td>
+</tr>
+<!--*** Click any emoji to add reaction in RHS-->
+<!--*** Visually verify reaction was added-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Expand RHS, can still add reaction using emoji picker-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__expand</td>
+	<td></td>
+</tr>
+<!--*** Visually verify sidebar expanded, LHS has overlay-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.post-body__actions &gt; span.emoji-picker__container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.post-body__actions &gt; span.emoji-picker__container</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Recently Used matches what you recently used-->
+<!--*** Click any emoji to add reaction in RHS-->
+<!--*** Visually verify reaction was added-->
+<tr>
+	<td>pause</td>
+	<td>6000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=input.emoji-picker__search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.sidebar--right__close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Log out and back in, verify Recently Used still correct-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--*** Visually verify Recently Used in emoji picker-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Emoji autocomplete using all caps-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:TAC</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='suggestionList']/div/div[2]</td>
+	<td>exact::taco:</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='suggestionList']/div/div[2]</td>
+	<td>exact::taco:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>exact::taco:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.emoticon</td>
+	<td></td>
+</tr>
+<!--*** Visually verify taco emoji-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--*** Ensure main FF window is in front to allow autocomplete to (not) appear :)-->
+<!--Punctuation emoticons do not open autocomplete-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:P</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:-D</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify tongue-out emoji displays-->
+<!--*** Visually verify smiley emoji displays-->
+<tr>
+	<td>pause</td>
+	<td>12000</td>
+	<td></td>
+</tr>
+<!--Verify :username: does not trigger a mention-->
+<!--Create alias for existing emoji (created earlier)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>test10</td>
+</tr>
+<!--*** Select JPG.jpg (same as earlier)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;file&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.add-emoji__filename</td>
+	<td>JPG.jpg</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.backstage-form__footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=td.emoji-list__name:contains('test10')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<!--Post using both original name and alias-->
+<!--Switch this to post in non-Town Square to verify no mention-->
+<tr>
+	<td>open</td>
+	<td>https://selenium.test.mattermost.com/ui-automation/channels/off-topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:test10</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>exact::test10:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>:customla</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img.emoticon-suggestion__image</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=post_textbox</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify the emoji posts are the same image-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Log out and in as test10 and verify emoji name didn't trigger mention-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=loginId</td>
+	<td>test10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<!--*** Visually verify no mention, same emoji with name and alias-->
+<!--Emoji test files-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-emoticons1${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify all emoji load as expected (none obviously broken / missing)-->
+<!--LM add notes about what it should look like, including last emoji-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-emoticons2${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify all emoji load as expected-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-emoticons3${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify all emoji load as expected-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-emoticons4${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify all emoji load as expected-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-emoticons5${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify all emoji load as expected-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=post_textbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=post_textbox</td>
+	<td>/test url test-emoticons6${KEY_ENTER}</td>
+</tr>
+<!--*** Visually verify all emoji load as expected-->
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Verify can't delete other user's custom emoji-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<!--Filter to the emoji you want to try to delete (other user's)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>customlarge</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=span &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Delete</td>
+	<td></td>
+</tr>
+<!--Log out and back in as user who created custom emoji-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<!--LOG IN test8-->
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginId</td>
+	<td>test8</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=loginPassword</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=loginButton</td>
+	<td></td>
+</tr>
+<!--Delete custom emoji-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Custom Emoji</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.form-control</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.form-control</td>
+	<td>customlarge</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customlarge:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.color--link.style--none</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.modal-header</td>
+	<td>Delete Custom Emoji</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-warning &gt; span</td>
+	<td>exact:This action permanently deletes the custom emoji. Are you sure you want to delete it?</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=button.btn.btn-link</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.modal-footer &gt; button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=td.emoji-list__name</td>
+	<td>exact::customlarge:</td>
+</tr>
+<!--*** Verify no category displays when filtered-->
+<tr>
+	<td>waitForText</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span &gt; span</td>
+	<td>Back to Mattermost</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#emojiPickerButton &gt; svg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emojipickercat-people &gt; span</td>
+	<td>People</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=input.emoji-picker__search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.emoji-picker__search</td>
+	<td>grin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#emojipickercat-searchResults &gt; span</td>
+	<td>Search Results</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#emojipickercat-people &gt; span</td>
+	<td>People</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sidebarHeaderDropdownButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#logout &gt; button.style--none</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
